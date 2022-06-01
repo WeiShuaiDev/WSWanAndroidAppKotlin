@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.linwei.cams.module.square">
+
+    <application
+        android:name="com.linwei.cams.component.common.base.CommonBaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/square_ic_launcher"
+        android:label="@string/square_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/SquareModuleAppTheme">
+        <activity
+            android:name=".ui.SquareActivity"
+            android:exported="true"
+            android:label="@string/square_module_page">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

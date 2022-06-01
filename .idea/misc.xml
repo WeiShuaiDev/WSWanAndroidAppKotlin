@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-home/src/main/res/layout/home_activity_home.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-home/src/main/res/layout/home_activity_home_details.xml" value="0.33489583333333334" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-home/src/main/res/layout/home_activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-home/src/main/res/layout/home_fragment_home.xml" value="0.23278985507246377" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-login/src/main/res/layout/login_activity_main.xml" value="0.297554347826087" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-main/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.148" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-main/src/main/res/drawable/ic_launcher_background.xml" value="0.148" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-main/src/main/res/layout/activity_main.xml" value="0.297554347826087" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-main/src/main/res/layout/main_activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-main/src/main/res/mipmap-anydpi-v26/main_ic_launcher.xml" value="0.1725" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-main/src/main/res/mipmap-anydpi-v26/main_ic_launcher_round.xml" value="0.1725" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-mine/src/main/res/layout/mine_activity_main.xml" value="0.297554347826087" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-mine/src/main/res/layout/mine_activity_mine.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-project/src/main/res/layout/project_activity_main.xml" value="0.297554347826087" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-project/src/main/res/layout/project_activity_project.xml" value="0.192481884057971" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-publis/src/main/res/layout/publis_activity_main.xml" value="0.297554347826087" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-publis/src/main/res/layout/publis_activity_publis.xml" value="0.1484375" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-square/src/main/res/layout/square_activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-square/src/main/res/layout/square_activity_square.xml" value="0.1484375" />
+        <entry key="..\:/AndroidStudioProject/CamsModular/res/layout/activity_welcome.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="CamsModular.cams-service-base" />
+      </set>
+    </option>
+  </component>
+</project>

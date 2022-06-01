@@ -1,0 +1,12 @@
+apply from: '../gradle/global_component_config.gradle'
+
+dependencies {
+    api project(':cams-component-common')
+
+    implementation rootProject.ext.dependencies["room"]
+    kapt rootProject.ext.dependencies["roomCompiler"]
+
+    debugImplementation(rootProject.ext.dependencies["glance"])
+
+
+}

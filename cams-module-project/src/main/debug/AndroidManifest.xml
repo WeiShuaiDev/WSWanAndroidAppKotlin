@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.linwei.cams.module.project">
+
+    <application
+        android:name="com.linwei.cams.component.common.base.CommonBaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/project_ic_launcher"
+        android:label="@string/project_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/MineModuleAppTheme">
+        <activity
+            android:name=".ui.project.ProjectActivity"
+            android:exported="true"
+            android:label="@string/project_module_page">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

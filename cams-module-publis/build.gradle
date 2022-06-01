@@ -1,0 +1,29 @@
+apply from: '../gradle/global_module_config.gradle'
+android {
+    defaultConfig {
+        resourcePrefix "publis_"
+    }
+
+    buildFeatures {
+        viewBinding false
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation project(':cams-service-home')
+    implementation project(':cams-service-login')
+    implementation project(':cams-service-mine')
+    implementation project(':cams-service-project')
+    implementation project(':cams-service-publis')
+    implementation project(':cams-service-square')
+
+    implementation project(':cams-component-cache')
+    implementation project(':cams-component-database')
+    implementation project(':cams-component-image')
+    implementation project(':cams-component-network')
+    implementation project(':cams-component-web')
+
+    //记得修改buildFeatures中的dataBinding=true配置
+    implementation project(':cams-framework-mvvm')
+}
