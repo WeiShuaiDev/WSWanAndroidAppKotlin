@@ -5,6 +5,7 @@ import com.linwei.cams.component.network.annotation.RetryCount
 import com.linwei.cams.component.network.annotation.RetryDelay
 import com.linwei.cams.component.network.annotation.RetryIncreaseDelay
 import com.linwei.cams.component.network.callback.ApiCallback
+import com.linwei.cams.component.network.exception.ApiException
 import com.linwei.cams.component.network.factory.rxjava.CallEnqueueObservable
 import com.linwei.cams.component.network.factory.rxjava.RetryHandler
 import com.linwei.cams.component.network.model.ApiResponse
@@ -55,8 +56,8 @@ class ApiCall<R> internal constructor(
      *
      * @param callback 请求回调
      */
-    fun <T : ApiCallback<R>?> enqueue(activity: Context?, callback: T?) {
-        enqueue(activity, ProgressType.CANCELABLE, true, callback)
+    fun <T : ApiCallback<R>?> enqueue(activity: Context? = null, callback: T?) {
+        enqueue(activity, ProgressType.CANCELABLE, callback)
     }
 
     /**
@@ -70,7 +71,6 @@ class ApiCall<R> internal constructor(
     fun <T : ApiCallback<R>?> enqueue(
         activity: Context?,
         type: ProgressType = ProgressType.NONE,
-        toastError: Boolean = false,
         callback: T?
     ) {
         /*if (activity instanceof RxAppCompatActivity) {
@@ -90,18 +90,27 @@ class ApiCall<R> internal constructor(
                     override fun accept(t: Response<ApiResponse<R>>) {
                         @Throws(Exception::class)
                         fun accept(response: Response<ApiResponse<R>?>) {
-                            val body: ApiResponse<R>? = response.body()
-                            if (!response.isSuccessful() || body == null) {
-                                onError(callback, HttpException(response), toastError)
+                            val data: ApiResponse<R>? = response.body()
+                            if (!response.isSuccessful || data == null) {
+                                callback?.onFailure(response.code(),response.message())
                                 cancel()
                                 return
                             }
-                            callback?.onSuccess(body)
+
+                            if (ApiConstants.REQUEST_SUCCESS == data.errorCode) {
+                                if (null != data.data) {
+                                    callback?.onSuccess(data.errorCode, data.data)
+                                } else {
+                                    callback?.onFailure(ApiConstants.EMPTY_DATA_ERROR, "")
+                                }
+                            } else {
+                                callback?.onFailure(data.errorCode, data.errorMsg)
+                            }
                             cancel()
                         }
                     }
                 }) { throwable ->
-                    onError(callback, throwable, toastError)
+                    onFailure(callback, throwable)
                     cancel()
                 }
     }
@@ -122,8 +131,9 @@ class ApiCall<R> internal constructor(
      * @param callback  回调
      * @param throwable 错误
      */
-    private fun onError(callback: ApiCallback<R>?, throwable: Throwable, toast: Boolean) {
-        callback?.onError(throwable)
+    private fun onFailure(callback: ApiCallback<R>?, throwable: Throwable) {
+        val exception = ApiException.handleException(throwable)
+        callback?.onFailure(exception.code, exception.displayMessage)
     }
 
     fun cancel() {

@@ -18,4 +18,6 @@ dependencies {
     implementation project(':cams-component-network')
     implementation project(':cams-component-web')
 
+    implementation project(':cams-framework-mvp')
+
 }

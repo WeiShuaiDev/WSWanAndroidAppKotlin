@@ -1,7 +1,7 @@
-package com.linwei.cams.module.project.http
+package com.linwei.cams.module.login.http
 
 import com.linwei.cams.component.network.service.ServiceWrap
-import com.linwei.cams.module.project.constants.Service
+import com.linwei.cams.module.login.constants.Service
 import javax.inject.Inject
 
 class ApiServiceWrap @Inject constructor() : ServiceWrap<ApiService> {
