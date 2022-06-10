@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MineModuleAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MineModuleAppTheme" parent="CamsAppTheme">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/mine_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/mine_colorPrimaryDark</item>
-        <item name="colorAccent">@color/mine_colorAccent</item>
+        <item name="colorPrimary">@color/mineColorPrimary</item>
+        <item name="colorPrimaryDark">@color/mineColorPrimaryDark</item>
+        <item name="colorAccent">@color/mineColorAccent</item>
     </style>
 </resources>

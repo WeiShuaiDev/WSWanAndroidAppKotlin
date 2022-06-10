@@ -46,12 +46,12 @@ class LoginPresenter(
         rootView?.let {
             model.logout(object : ResponseCallback<Any> {
 
-                override fun onFailed(errorMessage: ErrorMessage) {
-                    it.showToast(errorMessage.message)
+                override fun onSuccess(data: Any) {
+
                 }
 
-                override fun onSuccess(data: Any) {
-                    TODO("Not yet implemented")
+                override fun onFailed(errorMessage: ErrorMessage) {
+                    it.showToast(errorMessage.message)
                 }
             })
         }

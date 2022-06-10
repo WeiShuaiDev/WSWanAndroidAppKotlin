@@ -7,7 +7,6 @@ import com.linwei.cams.component.network.ktx.commonCatch
 import com.linwei.cams.framework.mvi.ktx.FetchStatus
 import com.linwei.cams.framework.mvi.ktx.asLiveData
 import com.linwei.cams.framework.mvi.ktx.setState
-import com.linwei.cams.framework.mvi.mvi.ViewModelFactory
 import com.linwei.cams.framework.mvi.mvi.intent.MviViewModel
 import com.linwei.cams.framework.mvi.mvi.intent.StatusCode
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent

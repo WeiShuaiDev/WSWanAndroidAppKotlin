@@ -7,13 +7,10 @@ import android.os.Bundle
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.linwei.cams.component.common.R
 import com.linwei.cams.component.common.opensource.ARouterManager
 import com.linwei.cams.component.common.utils.AndroidBugFixUtils
 import com.linwei.cams.component.common.utils.EventBusUtils
-import com.linwei.cams.component.common.utils.PopUtil
 import com.quyunshuo.androidbaseframemvvm.base.utils.status.ViewStatusHelper
 import com.trello.rxlifecycle4.components.support.RxAppCompatActivity
 import me.jessyan.autosize.AutoSizeCompat

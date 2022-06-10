@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="publis_colorPrimary">#3F51B5</color>
-    <color name="publis_colorPrimaryDark">#303F9F</color>
-    <color name="publis_colorAccent">#FF4081</color>
+    <color name="publisColorPrimary">#3F51B5</color>
+    <color name="publisColorPrimaryDark">#303F9F</color>
+    <color name="publisColorAccent">#303F9F</color>
 </resources>

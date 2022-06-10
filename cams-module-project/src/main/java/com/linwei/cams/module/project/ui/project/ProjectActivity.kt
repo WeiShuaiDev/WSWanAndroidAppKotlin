@@ -18,10 +18,11 @@ class ProjectActivity : MviBaseActivity<ProjectActivityProjectBinding, ProjectVi
     override fun hasInjectARouter(): Boolean = true
 
     override fun initView() {
+
     }
 
     override fun initData() {
-        //获取数据
+
         mViewModel?.fetchProjectTreeData()
 
         mViewModel?.fetchProjectTreeDetailsData()

@@ -183,8 +183,8 @@ ext {
             "room"                                : "androidx.room:room-runtime:${version.lifecycleVersion}",
             "roomCompiler"                        : "androidx.room:room-compiler:${version.lifecycleVersion}",
             //Navigation
-            "navigation"                          : "androidx.navigation:navigation-fragment:${version.lifecycleVersion}",
-            "navigationUI"                        : "androidx.navigation:navigation-ui:${version.lifecycleVersion}",
+            "navigation"                          : "androidx.navigation:navigation-fragment-ktx:${version.lifecycleVersion}",
+            "navigationUI"                        : "androidx.navigation:navigation-ui-ktx:${version.lifecycleVersion}",
             //work
             "work"                                : "androidx.work:work-runtime:${version.lifecycleVersion}",
 

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="CamsAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowBackground">@color/colorWindowBg</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryText</item>
+
+        <item name="android:listDivider">@drawable/shape_divider</item>
+        <item name="android:textColorLink">@color/colorLinkText</item>
+    </style>
+
+    <style name="MatchAndMatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MatchAndWrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapAndMatch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WrapAndWrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--线条样式-->
+    <style name="HorizontalLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/colorGlobalLine</item>
+    </style>
+
+    <style name="VerticalLine">
+        <item name="android:layout_width">0.5dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorGlobalLine</item>
+    </style>
+
+    <!--Text样式配置-->
+    <style name="MatchAndWrap.GlobalTextGrayColor">
+        <item name="android:textColor">@color/colorGlobalTextGray</item>
+    </style>
+
+    <style name="WrapAndWrap.GlobalTextGrayColor">
+        <item name="android:textColor">@color/colorGlobalTextGray</item>
+    </style>
+
+    <style name="MatchAndWrap.GlobalTextWhiteColor">
+        <item name="android:textColor">@color/colorGlobalTextWhite</item>
+    </style>
+
+    <style name="WrapAndWrap.GlobalTextWhiteColor">
+        <item name="android:textColor">@color/colorGlobalTextWhite</item>
+    </style>
+
+    <style name="MatchAndWrap.GlobalTextBlackColor">
+        <item name="android:textColor">@color/colorGlobalTextBlack</item>
+    </style>
+
+    <style name="WrapAndWrap.GlobalTextBlackColor">
+        <item name="android:textColor">@color/colorGlobalTextBlack</item>
+    </style>
+
+    <style name="MatchAndWrap.PrimaryTextColor">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="MatchAndWrap.SecondaryTextColor">
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor">
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize12" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize12" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize13" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize13" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize14" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize14" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize15" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize15" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize16" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize16" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize17" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize17" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize18" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize18" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize19" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_19</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize19" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_19</item>
+    </style>
+
+    <style name="WrapAndWrap.PrimaryTextColor.TvSize20" parent="@style/WrapAndWrap.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="WrapAndWrap.SecondaryTextColor.TvSize20" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <!--Dialog样式配置-->
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowAnimationStyle">@style/dialogAnimation</item>
+    </style>
+
+    <style name="dialogAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/push_top_in</item>
+        <item name="android:windowExitAnimation">@anim/push_top_out</item>
+    </style>
+
+</resources>

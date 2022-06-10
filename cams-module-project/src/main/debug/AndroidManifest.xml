@@ -8,7 +8,7 @@
         android:icon="@mipmap/project_ic_launcher"
         android:label="@string/project_app_name"
         android:supportsRtl="true"
-        android:theme="@style/MineModuleAppTheme">
+        android:theme="@style/ProjectModuleAppTheme">
         <activity
             android:name=".ui.project.ProjectActivity"
             android:exported="true"

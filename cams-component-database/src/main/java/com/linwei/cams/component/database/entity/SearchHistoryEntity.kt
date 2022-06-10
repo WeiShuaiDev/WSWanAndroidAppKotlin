@@ -6,9 +6,11 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity(indices = [Index(value = arrayOf("name"), unique = true)])
-class SearchHistoryEntity @Ignore constructor(
+@Entity(tableName = "search_history_table")
+data class SearchHistoryEntity(
     @PrimaryKey(autoGenerate = true) var id: Long,
-    var name: String,
     var insertTime: Date
-)
+) {
+    @Ignore
+    var name: String = ""
+}

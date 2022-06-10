@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="LoginModuleAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/login_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/login_colorPrimaryDark</item>
-        <item name="colorAccent">@color/login_colorAccent</item>
+    <style name="LoginModuleAppTheme" parent="CamsAppTheme">
+        <item name="colorPrimary">@color/loginColorPrimary</item>
+        <item name="colorPrimaryDark">@color/loginColorPrimaryDark</item>
+        <item name="colorAccent">@color/loginColorAccent</item>
     </style>
 </resources>

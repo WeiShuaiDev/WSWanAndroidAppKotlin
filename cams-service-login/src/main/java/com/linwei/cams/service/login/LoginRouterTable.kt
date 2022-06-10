@@ -5,7 +5,7 @@ object LoginRouterTable {
     /**
      * ----------------Service-------------------------
      */
-    const val PATH_SERVICE_PROJECT: String = "/login/service"
+    const val PATH_SERVICE_LOGIN: String = "/login/service"
 
     /**
      * ----------------Activity-------------------------

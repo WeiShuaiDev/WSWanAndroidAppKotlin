@@ -5,12 +5,13 @@
     <application
         android:name="com.linwei.cams.component.common.base.CommonBaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/login_ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/login_app_name"
         android:supportsRtl="true"
         android:theme="@style/LoginModuleAppTheme">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true"
             android:label="@string/login_module_page">
             <intent-filter>

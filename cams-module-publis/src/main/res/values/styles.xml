@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="PublisModuleAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="PublisModuleAppTheme" parent="CamsAppTheme">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/publis_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/publis_colorPrimaryDark</item>
-        <item name="colorAccent">@color/publis_colorAccent</item>
+        <item name="colorPrimary">@color/publisColorPrimary</item>
+        <item name="colorPrimaryDark">@color/publisColorPrimaryDark</item>
+        <item name="colorAccent">@color/publisColorAccent</item>
     </style>
 </resources>

@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 open class LiveDataListEvent<T> : MutableLiveData<List<T>>() {
     private val mPending: AtomicBoolean = AtomicBoolean(false)
-    private val  mEventList = mutableListOf<List<T>>()
+    private val mEventList = mutableListOf<List<T>>()
 
 
     /**

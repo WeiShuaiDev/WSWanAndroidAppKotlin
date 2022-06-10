@@ -33,6 +33,7 @@
       <module name="WSWanAndroidAppKotlin.cams-component-image" target="11" />
       <module name="WSWanAndroidAppKotlin.cams-component-network" target="11" />
       <module name="WSWanAndroidAppKotlin.cams-component-web" target="11" />
+      <module name="WSWanAndroidAppKotlin.cams-component-weight" target="11" />
       <module name="WSWanAndroidAppKotlin.cams-framework-mvi" target="11" />
       <module name="WSWanAndroidAppKotlin.cams-framework-mvp" target="11" />
       <module name="WSWanAndroidAppKotlin.cams-framework-mvvm" target="11" />

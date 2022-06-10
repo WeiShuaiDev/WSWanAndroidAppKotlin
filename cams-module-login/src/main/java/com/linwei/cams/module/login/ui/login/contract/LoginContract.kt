@@ -4,8 +4,6 @@ import com.linwei.cams.component.mvp.mvp.model.IMvpModel
 import com.linwei.cams.component.mvp.mvp.presenter.IMvpPresenter
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.home.model.BannerBean
-import com.linwei.cams.service.home.model.HomeBean
 import com.linwei.cams.service.login.model.UserInfo
 
 interface ILoginModel : IMvpModel {
@@ -38,4 +36,7 @@ interface ILoginPresenter : IMvpPresenter {
 
 interface ILoginView : IMvpView {
 
+    fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfo)
+
+    fun refreshLogoutStatus(status: Boolean)
 }

@@ -2,8 +2,8 @@
 <resources>
     <style name="SquareModuleAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/square_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/square_colorPrimaryDark</item>
-        <item name="colorAccent">@color/square_colorAccent</item>
+        <item name="colorPrimary">@color/squareColorPrimary</item>
+        <item name="colorPrimaryDark">@color/squareColorPrimaryDark</item>
+        <item name="colorAccent">@color/squareColorAccent</item>
     </style>
 </resources>

@@ -19,7 +19,11 @@ fun <T> MutableLiveData<T>.asLiveData(): LiveData<T> {
     return this
 }
 
-fun <T, A> LiveData<T>.observeState(
+/**
+ * distinctUntilChanged 在更改此 LiveData 值的源之前，新的 LiveData 对象不会发出值。
+ * 如果 equals() 产生 false，则认为该值已更改。
+ */
+fun <T, A> LiveData<T>.observeOnlyState(
     lifecycleOwner: LifecycleOwner,
     prop1: KProperty1<T, A>,
     action: (A) -> Unit
@@ -27,6 +31,18 @@ fun <T, A> LiveData<T>.observeState(
     this.map {
         StateTuple1(prop1.get(it))
     }.distinctUntilChanged().observe(lifecycleOwner) { (a) ->
+        action.invoke(a)
+    }
+}
+
+fun <T, A> LiveData<T>.observeState(
+    lifecycleOwner: LifecycleOwner,
+    prop1: KProperty1<T, A>,
+    action: (A) -> Unit
+) {
+    this.map {
+        StateTuple1(prop1.get(it))
+    }.observe(lifecycleOwner) { (a) ->
         action.invoke(a)
     }
 }
@@ -66,6 +82,22 @@ fun <T> MutableLiveData<T>.setState(reducer: T.() -> T) {
     this.value = this.value?.reducer()
 }
 
+fun <T> LiveDataListEvent<T>.setState(reducer: List<T>.() -> List<T>) {
+    this.value = this.value?.reducer()
+}
+
+fun <T> LiveDataListEvent<T>.setPostState(reducer: List<T>.() -> List<T>) {
+    this.postValue(this.value?.reducer())
+}
+
+fun <T> LiveDataEvent<T>.setState(reducer: T.() -> T) {
+    this.value = this.value?.reducer()
+}
+
+fun <T> LiveDataEvent<T>.setPostState(reducer: T.() -> T) {
+    this.postValue(this.value?.reducer())
+}
+
 fun <T> LiveDataEvent<T>.setEvent(value: T) {
     this.value = value
 }
@@ -74,7 +106,7 @@ fun <T> LiveDataEvent<T>.setPostEvent(value: T) {
     this.postValue(value)
 }
 
-fun <T> LiveDataListEvent<T>.setEvent(values:List<T>) {
+fun <T> LiveDataListEvent<T>.setEvent(values: List<T>) {
     this.value = values
 }
 

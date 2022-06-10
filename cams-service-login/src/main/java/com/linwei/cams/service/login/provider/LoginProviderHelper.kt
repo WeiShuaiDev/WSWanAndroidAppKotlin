@@ -8,5 +8,5 @@ object LoginProviderHelper {
      * LoginProvider
      */
     fun getLoginProvider(): LoginProvider?=
-        ARouter.getInstance().build(LoginRouterTable.PATH_SERVICE_PROJECT).navigation() as LoginProvider?
+        ARouter.getInstance().build(LoginRouterTable.PATH_SERVICE_LOGIN).navigation() as LoginProvider?
 }

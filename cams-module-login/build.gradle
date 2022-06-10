@@ -1,4 +1,5 @@
 apply from: '../gradle/global_module_config.gradle'
+apply plugin: 'org.jetbrains.kotlin.android'
 android {
     defaultConfig {
         resourcePrefix "login_"
@@ -12,6 +13,7 @@ dependencies {
     implementation project(':cams-service-publis')
     implementation project(':cams-service-square')
 
+    implementation project(':cams-component-weight')
     implementation project(':cams-component-cache')
     implementation project(':cams-component-database')
     implementation project(':cams-component-image')
@@ -19,5 +21,4 @@ dependencies {
     implementation project(':cams-component-web')
 
     implementation project(':cams-framework-mvp')
-
 }

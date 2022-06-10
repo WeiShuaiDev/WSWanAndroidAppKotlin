@@ -2,4 +2,9 @@
     <string name="login_app_name">cams-module-login</string>
     <string name="login_module_page">login</string>
 
+    <string name="login_go_register">前往注册 >></string>
+    <string name="login_login">登录</string>
+    <string name="login_register">注册</string>
+    <string name="login_please_enter_account">请输入账号</string>
+    <string name="login_please_enter_password">请输入密码</string>
 </resources>

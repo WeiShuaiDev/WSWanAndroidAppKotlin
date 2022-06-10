@@ -3,7 +3,6 @@ package com.linwei.cams.module.login.provider
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.network.callback.ApiCallback
-import com.linwei.cams.component.network.model.ApiResponse
 import com.linwei.cams.module.login.http.ApiService
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
@@ -12,7 +11,7 @@ import com.linwei.cams.service.login.model.UserInfo
 import com.linwei.cams.service.login.provider.LoginProvider
 import javax.inject.Inject
 
-@Route(path = LoginRouterTable.PATH_SERVICE_PROJECT)
+@Route(path = LoginRouterTable.PATH_SERVICE_LOGIN)
 class LoginProviderImpl @Inject constructor(private val apiService: ApiService) : LoginProvider {
 
     private lateinit var mContext: Context
@@ -22,7 +21,7 @@ class LoginProviderImpl @Inject constructor(private val apiService: ApiService) 
     }
 
     override fun login(userName: String, passWord: String, callback: ResponseCallback<UserInfo>) {
-        apiService.login(userName, passWord).enqueue(callback = object : ApiCallback<UserInfo> {
+        apiService.login(userName, passWord).enqueue(object : ApiCallback<UserInfo> {
             override fun onStart() {
 
             }
@@ -44,7 +43,7 @@ class LoginProviderImpl @Inject constructor(private val apiService: ApiService) 
         callback: ResponseCallback<UserInfo>
     ) {
         apiService.register(userName, passWord, rePassWord)
-            .enqueue(callback = object : ApiCallback<UserInfo> {
+            .enqueue(object : ApiCallback<UserInfo> {
                 override fun onStart() {
 
                 }
@@ -60,7 +59,7 @@ class LoginProviderImpl @Inject constructor(private val apiService: ApiService) 
     }
 
     override fun logout(callback: ResponseCallback<Any>) {
-        apiService.logout().enqueue(callback = object : ApiCallback<Any> {
+        apiService.logout().enqueue(object : ApiCallback<Any> {
             override fun onStart() {
 
             }

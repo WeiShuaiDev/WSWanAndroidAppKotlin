@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchAndMatch"
+    android:background="@color/colorGlobalBackground"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        style="@style/WrapAndWrap"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/ic_page_error"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        style="@style/WrapAndWrap.SecondaryTextColor.TvSize15"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/error_page_tip" />
+
+    <TextView
+        android:id="@+id/mTvRetry"
+        style="@style/WrapAndWrap.SecondaryTextColor.TvSize14"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_30"
+        android:background="@drawable/shape_gray_frame_background"
+        android:gravity="center"
+        android:minWidth="@dimen/dp_120"
+        android:padding="@dimen/dp_10"
+        android:text="@string/error_page_button_tip" />
+
+</LinearLayout>

@@ -83,6 +83,10 @@ dependencies {
     api rootProject.ext.dependencies["kotlinx-coroutines-core"]
     api rootProject.ext.dependencies["kotlinx-coroutines-android"]
 
+    //Navigation
+    api rootProject.ext.dependencies["navigation"]
+    api rootProject.ext.dependencies["navigationUI"]
+
     //PopupWindow
     api rootProject.ext.dependencies["basePopup"]
 

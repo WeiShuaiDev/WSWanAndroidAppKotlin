@@ -1,6 +1,5 @@
 package com.linwei.cams.component.network
 
-import android.content.Context
 import com.linwei.cams.component.network.annotation.RetryCount
 import com.linwei.cams.component.network.annotation.RetryDelay
 import com.linwei.cams.component.network.annotation.RetryIncreaseDelay
@@ -16,7 +15,6 @@ import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Call
-import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
@@ -51,26 +49,9 @@ class ApiCall<R> internal constructor(
 
     /**
      * 进入请求队列
-     * 带可取消进度框，有toast
-     * 自动绑定activity生命周期
-     *
-     * @param callback 请求回调
-     */
-    fun <T : ApiCallback<R>?> enqueue(activity: Context? = null, callback: T?) {
-        enqueue(activity, ProgressType.CANCELABLE, callback)
-    }
-
-    /**
-     * 进入请求队列
-     *
-     * @param activity     界面
-     * @param progressType 进度框类型
-     * @param toastError   是否弹错误toast
      * @param callback     请求回调
      */
     fun <T : ApiCallback<R>?> enqueue(
-        activity: Context?,
-        type: ProgressType = ProgressType.NONE,
         callback: T?
     ) {
         /*if (activity instanceof RxAppCompatActivity) {
@@ -138,25 +119,5 @@ class ApiCall<R> internal constructor(
 
     fun cancel() {
         mDisposable?.dispose()
-    }
-
-    /**
-     * 进度条类型
-     */
-    enum class ProgressType {
-        /**
-         * 无进度条
-         */
-        NONE,
-
-        /**
-         * 可取消进度条
-         */
-        CANCELABLE,
-
-        /**
-         * 不可取消进度条
-         */
-        UN_CANCELABLE
     }
 }

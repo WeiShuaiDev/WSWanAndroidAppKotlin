@@ -16,12 +16,15 @@ interface ProjectView : MviView<ProjectViewModel> {
         super.bindViewModel(viewModel, owner)
         viewModel?.let {
             it.viewState.run {
+
                 observeState(owner, MviViewState::projectTreeList) {
                     projectTreeDataToView(it)
                 }
+
                 observeState(owner, MviViewState::projectTreeDetailsList) {
                     projectTreeDetailsDataToView(it)
                 }
+
                 observeState(owner, MviViewState::fetchStatus) {
                     when (it) {
                         is FetchStatus.Fetched -> {
@@ -42,7 +45,6 @@ interface ProjectView : MviView<ProjectViewModel> {
     override fun bindOtherMviViewEvent(event: MviViewEvent) {
         super.bindOtherMviViewEvent(event)
         //扩展Event监听
-
     }
 
 

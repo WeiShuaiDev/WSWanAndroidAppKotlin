@@ -23,7 +23,44 @@
         <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-square/src/main/res/layout/square_activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProject/CamsModular/cams-module-square/src/main/res/layout/square_activity_square.xml" value="0.1484375" />
         <entry key="..\:/AndroidStudioProject/CamsModular/res/layout/activity_welcome.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_arrow_back_black_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_arrow_back_white_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_close_black_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_close_white_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_launcher_background.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_refresh_black_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_refresh_white_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_search_black_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/ic_search_white_24dp.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/progress_circle_loading.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/progress_horizontal_loading.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/shape_divider.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/shape_gray_frame_background.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/drawable/shape_toast_background.xml" value="0.132" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/activity_web_view.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/base_content_layout.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/base_empty.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/base_loading.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/base_retry.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/include_top_primary.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/include_top_view_primary.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/include_top_view_white.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/include_top_white.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-component-common/src/main/res/layout/progress_dialog.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/drawable/cb_psw.xml" value="0.2055" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/drawable/login_checkbox_password_show.xml" value="0.2055" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/fg_account_login.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/fg_account_register.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/header_toast.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/login_activity_login.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/login_activity_main.xml" value="0.2694746376811594" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/login_fragment_account_login.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/login_fragment_account_register.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/cams-module-login/src/main/res/layout/login_header_toast.xml" value="0.30833333333333335" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/res/drawable/splash_bg.xml" value="0.28" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/res/layout/activity_main.xml" value="0.33125" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/res/layout/activity_welcome.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProject/WSWanAndroidAppKotlin/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.28" />
       </map>
     </option>
   </component>
