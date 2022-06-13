@@ -51,6 +51,9 @@ dependencies {
     //Xtool
     api rootProject.ext.dependencies["xtool"]
 
+    //Gson
+    api rootProject.ext.dependencies["gson"]
+
     //BaseRecyclerViewAdapterHelper
     api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
 

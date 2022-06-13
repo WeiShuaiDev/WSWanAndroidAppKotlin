@@ -4,4 +4,12 @@ dependencies {
     api project(':cams-component-common')
 
     api rootProject.ext.dependencies["mmkv"]
+
+    implementation project(':cams-service-home')
+    implementation project(':cams-service-login')
+    implementation project(':cams-service-mine')
+    implementation project(':cams-service-project')
+    implementation project(':cams-service-publis')
+    implementation project(':cams-service-square')
+
 }

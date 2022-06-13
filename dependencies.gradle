@@ -25,7 +25,7 @@ ext {
             rxandroidVersion          : "3.0.0",
             recyclerViewAdapterVersion: "3.0.4",
             coilVersion               : "1.4.0",
-            gsonVersion               : "2.8.7",
+            gsonVersion               : "2.9.0",
             xtoolVersion              : "1.5.0",
             loganVersion              : "1.1.0",
             hiltVersion               : "2.41",

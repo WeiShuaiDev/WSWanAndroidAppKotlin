@@ -3,7 +3,7 @@ package com.linwei.cams.service.login.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class UserInfo : Parcelable {
+class UserInfoBean : Parcelable {
     var email: String? = null
     var icon: String? = null
     var id: String? = null
@@ -61,12 +61,12 @@ class UserInfo : Parcelable {
         dest.writeString(date)
     }
 
-    companion object CREATOR : Parcelable.Creator<UserInfo?> {
-        override fun createFromParcel(parcel: Parcel): UserInfo {
-            return UserInfo(parcel)
+    companion object CREATOR : Parcelable.Creator<UserInfoBean?> {
+        override fun createFromParcel(parcel: Parcel): UserInfoBean {
+            return UserInfoBean(parcel)
         }
 
-        override fun newArray(size: Int): Array<UserInfo?> {
+        override fun newArray(size: Int): Array<UserInfoBean?> {
             return arrayOfNulls(size)
         }
     }

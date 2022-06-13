@@ -6,7 +6,7 @@ import com.tencent.mmkv.MMKV
 /**
  * MMKV使用封装
  */
-object MmkvUtils {
+object MMkvHelper {
 
     /**
      * 初始化
@@ -28,7 +28,8 @@ object MmkvUtils {
             else -> false
         }
 
-    private fun putString(key: String, value: String): Boolean? = MMKV.defaultMMKV()?.encode(key, value)
+    private fun putString(key: String, value: String): Boolean? =
+        MMKV.defaultMMKV()?.encode(key, value)
 
     fun getString(key: String, defValue: String): String? =
         MMKV.defaultMMKV()?.decodeString(key, defValue)
@@ -41,20 +42,25 @@ object MmkvUtils {
 
     fun getLong(key: String, defValue: Long): Long? = MMKV.defaultMMKV()?.decodeLong(key, defValue)
 
-    private fun putDouble(key: String, value: Double): Boolean? = MMKV.defaultMMKV()?.encode(key, value)
+    private fun putDouble(key: String, value: Double): Boolean? =
+        MMKV.defaultMMKV()?.encode(key, value)
 
     fun getDouble(key: String, defValue: Double): Double? =
         MMKV.defaultMMKV()?.decodeDouble(key, defValue)
 
-    private fun putFloat(key: String, value: Float): Boolean? = MMKV.defaultMMKV()?.encode(key, value)
+    private fun putFloat(key: String, value: Float): Boolean? =
+        MMKV.defaultMMKV()?.encode(key, value)
 
     fun getFloat(key: String, defValue: Float): Float? =
         MMKV.defaultMMKV()?.decodeFloat(key, defValue)
 
-    private fun putBoolean(key: String, value: Boolean): Boolean? = MMKV.defaultMMKV()?.encode(key, value)
+    private fun putBoolean(key: String, value: Boolean): Boolean? =
+        MMKV.defaultMMKV()?.encode(key, value)
 
     fun getBoolean(key: String, defValue: Boolean): Boolean? =
         MMKV.defaultMMKV()?.decodeBool(key, defValue)
+
+    fun getMMkv(): MMKV? = MMKV.defaultMMKV()
 
     fun contains(key: String): Boolean? = MMKV.defaultMMKV()?.contains(key)
 }

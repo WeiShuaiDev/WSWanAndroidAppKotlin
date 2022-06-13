@@ -4,7 +4,7 @@ import com.linwei.cams.component.mvp.mvp.model.MvpModel
 import com.linwei.cams.module.login.provider.LoginProviderImpl
 import com.linwei.cams.module.login.ui.login.contract.ILoginModel
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.login.model.UserInfo
+import com.linwei.cams.service.login.model.UserInfoBean
 import javax.inject.Inject
 
 class LoginModel : MvpModel(), ILoginModel {
@@ -12,7 +12,7 @@ class LoginModel : MvpModel(), ILoginModel {
     @Inject
     lateinit var mLoginProvider: LoginProviderImpl
 
-    override fun login(userName: String, passWord: String, callback: ResponseCallback<UserInfo>) {
+    override fun login(userName: String, passWord: String, callback: ResponseCallback<UserInfoBean>) {
         mLoginProvider.login(userName, passWord, callback)
     }
 
@@ -20,7 +20,7 @@ class LoginModel : MvpModel(), ILoginModel {
         userName: String,
         passWord: String,
         rePassWord: String,
-        callback: ResponseCallback<UserInfo>
+        callback: ResponseCallback<UserInfoBean>
     ) {
         mLoginProvider.register(userName, passWord, rePassWord, callback)
     }

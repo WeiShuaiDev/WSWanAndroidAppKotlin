@@ -9,4 +9,11 @@ object ProjectProviderHelper {
      */
     fun getProjectProvider(): ProjectProvider?=
         ARouter.getInstance().build(ProjectRouterTable.PATH_SERVICE_PROJECT).navigation() as ProjectProvider?
+
+    /**
+     * ProjectActivity
+     */
+    fun jumpProjectActivity(title: String) =
+        ARouter.getInstance().build(ProjectRouterTable.PATH_ACTIVITY_PROJECT)
+            .withString("title", title).navigation()
 }

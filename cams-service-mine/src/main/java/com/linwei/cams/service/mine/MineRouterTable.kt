@@ -9,7 +9,7 @@ object MineRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_MINE:String="/mine/homeActivity"
+    const val PATH_ACTIVITY_MINE:String="/mine/mineActivity"
 
     /**
      * ----------------Fragment-------------------------

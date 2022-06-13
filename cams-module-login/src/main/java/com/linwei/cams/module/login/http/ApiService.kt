@@ -1,7 +1,7 @@
 package com.linwei.cams.module.login.http
 
 import com.linwei.cams.component.network.ApiCall
-import com.linwei.cams.service.login.model.UserInfo
+import com.linwei.cams.service.login.model.UserInfoBean
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -22,7 +22,7 @@ interface ApiService {
     fun login(
         @Field("username") userName: String?,
         @Field("password") passWord: String?
-    ): ApiCall<UserInfo>
+    ): ApiCall<UserInfoBean>
 
     /**
      * 注册
@@ -37,7 +37,7 @@ interface ApiService {
         @Field("username") userName: String?,
         @Field("password") passWord: String?,
         @Field("repassword") rePassWord: String?
-    ): ApiCall<UserInfo>
+    ): ApiCall<UserInfoBean>
 
     /**
      * 退出登录

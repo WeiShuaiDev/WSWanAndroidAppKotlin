@@ -9,7 +9,7 @@ object PublisRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_PUBLIS:String="/publis/PublisActivity"
+    const val PATH_ACTIVITY_PUBLIS:String="/publis/publisActivity"
 
     /**
      * ----------------Fragment-------------------------

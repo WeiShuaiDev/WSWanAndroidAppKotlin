@@ -4,7 +4,7 @@ import com.linwei.cams.component.mvp.base.MvpBaseFragment
 import com.linwei.cams.module.login.databinding.LoginFragmentAccountRegisterBinding
 import com.linwei.cams.module.login.ui.login.contract.ILoginView
 import com.linwei.cams.module.login.ui.login.presenter.LoginPresenter
-import com.linwei.cams.service.login.model.UserInfo
+import com.linwei.cams.service.login.model.UserInfoBean
 
 class AccountRegisterFragment : MvpBaseFragment<LoginFragmentAccountRegisterBinding, LoginPresenter>(),
     ILoginView {
@@ -25,7 +25,7 @@ class AccountRegisterFragment : MvpBaseFragment<LoginFragmentAccountRegisterBind
 
     }
 
-    override fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfo) {
+    override fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfoBean) {
 
     }
 

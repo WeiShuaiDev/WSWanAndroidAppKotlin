@@ -21,15 +21,14 @@ interface WelcomeView : MviView<WelcomeViewModel> {
                 }
 
                 observeState(owner, MviViewState::fetchStatus) {
-                    System.out.println("==============${it}")
                     when (it) {
-                        is FetchStatus.Fetched -> {
+                        is FetchStatus.Fetching -> {
 
                         }
                         is FetchStatus.NotFetched -> {
 
                         }
-                        is FetchStatus.Fetching -> {
+                        is FetchStatus.Fetched -> {
 
                         }
                     }

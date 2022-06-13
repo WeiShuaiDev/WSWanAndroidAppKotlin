@@ -9,7 +9,7 @@ object ProjectRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_PROJECT:String="/project/ProjectActivity"
+    const val PATH_ACTIVITY_PROJECT:String="/project/projectActivity"
 
     /**
      * ----------------Fragment-------------------------

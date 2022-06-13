@@ -10,4 +10,12 @@ object HomeProviderHelper {
      */
     fun getHomeProvider(): HomeProvider? =
         ARouter.getInstance().build(HomeRouterTable.PATH_SERVICE_HOME).navigation() as HomeProvider?
+
+    /**
+     * HomeActivity
+     */
+    fun jumpHomeActivity(title: String) =
+        ARouter.getInstance().build(HomeRouterTable.PATH_ACTIVITY_HOME)
+            .withString("title", title).navigation()
+
 }

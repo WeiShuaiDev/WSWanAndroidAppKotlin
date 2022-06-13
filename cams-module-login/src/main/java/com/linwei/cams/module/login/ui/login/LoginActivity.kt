@@ -7,7 +7,7 @@ import com.linwei.cams.module.login.databinding.LoginActivityLoginBinding
 import com.linwei.cams.module.login.ui.login.contract.ILoginView
 import com.linwei.cams.module.login.ui.login.presenter.LoginPresenter
 import com.linwei.cams.service.login.LoginRouterTable
-import com.linwei.cams.service.login.model.UserInfo
+import com.linwei.cams.service.login.model.UserInfoBean
 
 @Route(path = LoginRouterTable.PATH_ACTIVITY_LOGIN)
 class LoginActivity : MvpBaseActivity<LoginActivityLoginBinding, LoginPresenter>(), ILoginView {
@@ -31,7 +31,7 @@ class LoginActivity : MvpBaseActivity<LoginActivityLoginBinding, LoginPresenter>
 
     }
 
-    override fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfo) {
+    override fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfoBean) {
 
     }
 

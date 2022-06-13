@@ -7,7 +7,7 @@ import com.linwei.cams.module.login.http.ApiService
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.login.LoginRouterTable
-import com.linwei.cams.service.login.model.UserInfo
+import com.linwei.cams.service.login.model.UserInfoBean
 import com.linwei.cams.service.login.provider.LoginProvider
 import javax.inject.Inject
 
@@ -20,13 +20,13 @@ class LoginProviderImpl @Inject constructor(private val apiService: ApiService) 
         mContext = context
     }
 
-    override fun login(userName: String, passWord: String, callback: ResponseCallback<UserInfo>) {
-        apiService.login(userName, passWord).enqueue(object : ApiCallback<UserInfo> {
+    override fun login(userName: String, passWord: String, callback: ResponseCallback<UserInfoBean>) {
+        apiService.login(userName, passWord).enqueue(object : ApiCallback<UserInfoBean> {
             override fun onStart() {
 
             }
 
-            override fun onSuccess(code: Int?, data: UserInfo) {
+            override fun onSuccess(code: Int?, data: UserInfoBean) {
                 callback.onSuccess(data)
             }
 
@@ -40,15 +40,15 @@ class LoginProviderImpl @Inject constructor(private val apiService: ApiService) 
         userName: String,
         passWord: String,
         rePassWord: String,
-        callback: ResponseCallback<UserInfo>
+        callback: ResponseCallback<UserInfoBean>
     ) {
         apiService.register(userName, passWord, rePassWord)
-            .enqueue(object : ApiCallback<UserInfo> {
+            .enqueue(object : ApiCallback<UserInfoBean> {
                 override fun onStart() {
 
                 }
 
-                override fun onSuccess(code: Int?, data: UserInfo) {
+                override fun onSuccess(code: Int?, data: UserInfoBean) {
                     callback.onSuccess(data)
                 }
 

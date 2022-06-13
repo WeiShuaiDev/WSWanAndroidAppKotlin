@@ -33,7 +33,6 @@ abstract class MvpBaseActivity<T : ViewBinding, P : IMvpPresenter> :
 
     }
 
-
     override fun showLoadingDialog(message: String) {
 
     }

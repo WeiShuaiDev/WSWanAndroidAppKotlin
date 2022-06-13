@@ -3,7 +3,7 @@ package com.linwei.cams.component.cache.utils
 import android.app.Application
 import android.content.Context
 import com.google.auto.service.AutoService
-import com.linwei.cams.component.cache.utils.mmkv.MmkvUtils
+import com.linwei.cams.component.cache.utils.mmkv.MMkvHelper
 import com.linwei.cams.component.common.app.AppDelegate
 import com.linwei.cams.component.common.base.CommonBaseApplication
 import com.linwei.cams.component.common.utils.ProcessUtils
@@ -75,7 +75,7 @@ class CacheAppDelegate:AppDelegate {
      * 腾讯 MMKV 初始化
      */
     private fun initMMKV(): String {
-        val result = MmkvUtils.initMMKV(CommonBaseApplication.context)
+        val result = MMkvHelper.initMMKV(CommonBaseApplication.context)
         return "MMKV -->> $result"
     }
 }

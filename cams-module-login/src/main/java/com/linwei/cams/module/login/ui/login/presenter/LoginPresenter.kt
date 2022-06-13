@@ -7,9 +7,7 @@ import com.linwei.cams.module.login.ui.login.contract.ILoginView
 import com.linwei.cams.module.login.ui.login.model.LoginModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.home.model.BannerBean
-import com.linwei.cams.service.home.model.HomeBean
-import com.linwei.cams.service.login.model.UserInfo
+import com.linwei.cams.service.login.model.UserInfoBean
 
 class LoginPresenter(
     private var rootView: ILoginView?,
@@ -18,8 +16,8 @@ class LoginPresenter(
 
     override fun requestLogin(userName: String, passWord: String) {
         rootView?.let {
-            model.login(userName, passWord, object : ResponseCallback<UserInfo> {
-                override fun onSuccess(data: UserInfo) {
+            model.login(userName, passWord, object : ResponseCallback<UserInfoBean> {
+                override fun onSuccess(data: UserInfoBean) {
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
@@ -31,8 +29,8 @@ class LoginPresenter(
 
     override fun requestRegister(userName: String, passWord: String, rePassWord: String) {
         rootView?.let {
-            model.register(userName, passWord, rePassWord, object : ResponseCallback<UserInfo> {
-                override fun onSuccess(data: UserInfo) {
+            model.register(userName, passWord, rePassWord, object : ResponseCallback<UserInfoBean> {
+                override fun onSuccess(data: UserInfoBean) {
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {

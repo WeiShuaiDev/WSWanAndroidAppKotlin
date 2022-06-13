@@ -10,7 +10,7 @@ object LoginRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_LOGIN:String="/login/LoginActivity"
+    const val PATH_ACTIVITY_LOGIN:String="/login/loginActivity"
 
     /**
      * ----------------Fragment-------------------------

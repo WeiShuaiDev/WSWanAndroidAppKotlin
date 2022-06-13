@@ -4,21 +4,21 @@ import com.linwei.cams.component.mvp.mvp.model.IMvpModel
 import com.linwei.cams.component.mvp.mvp.presenter.IMvpPresenter
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.login.model.UserInfo
+import com.linwei.cams.service.login.model.UserInfoBean
 
 interface ILoginModel : IMvpModel {
 
     fun login(
         userName: String,
         passWord: String,
-        callback: ResponseCallback<UserInfo>
+        callback: ResponseCallback<UserInfoBean>
     )
 
     fun register(
         userName: String,
         passWord: String,
         rePassWord: String,
-        callback: ResponseCallback<UserInfo>
+        callback: ResponseCallback<UserInfoBean>
     )
 
     fun logout(
@@ -36,7 +36,7 @@ interface ILoginPresenter : IMvpPresenter {
 
 interface ILoginView : IMvpView {
 
-    fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfo)
+    fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfoBean)
 
     fun refreshLogoutStatus(status: Boolean)
 }
