@@ -5,8 +5,8 @@ import com.linwei.cams.framework.mvi.base.MviBaseActivity
 import com.linwei.cams.module.main.provider.MainProviderHelper
 import com.linwei.cams.service.project.model.ProjectTreeBean
 import com.linwei.camsmodular.databinding.ActivityWelcomeBinding
-import com.linwei.camsmodular.ui.welcome.mvi.intent.WelcomeViewModel
-import com.linwei.camsmodular.ui.welcome.mvi.view.WelcomeView
+import com.linwei.camsmodular.ui.welcome.intent.WelcomeViewModel
+import com.linwei.camsmodular.ui.welcome.view.WelcomeView
 import java.util.*
 
 

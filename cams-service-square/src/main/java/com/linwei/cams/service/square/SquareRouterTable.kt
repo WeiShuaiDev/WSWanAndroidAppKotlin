@@ -9,9 +9,10 @@ object SquareRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_SQUARE:String="/square/squareActivity"
+    const val PATH_ACTIVITY_SQUARE: String = "/square/squareActivity"
 
     /**
      * ----------------Fragment-------------------------
      */
+    const val PATH_FRAGMENT_SQUARE: String = "/square/squareFragment"
 }

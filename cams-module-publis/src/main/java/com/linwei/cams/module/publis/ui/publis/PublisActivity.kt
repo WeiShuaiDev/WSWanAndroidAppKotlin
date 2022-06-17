@@ -3,6 +3,7 @@ package com.linwei.cams.module.publis.ui.publis
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.mvvm.base.MvvmBaseActivity
 import com.linwei.cams.module.publis.R
+import com.linwei.cams.module.publis.databinding.PublisActivityPublisBinding
 import com.linwei.cams.module.publis.ui.publis.view.PublisView
 import com.linwei.cams.module.publis.ui.publis.viewmodel.PublisViewModel
 import com.linwei.cams.service.publis.PublisRouterTable
@@ -10,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 @Route(path = PublisRouterTable.PATH_ACTIVITY_PUBLIS)
-class PublisActivity : MvvmBaseActivity<PublisViewModel>(),PublisView {
+class PublisActivity : MvvmBaseActivity<PublisActivityPublisBinding,PublisViewModel>(),PublisView {
 
     override fun hasInjectARouter(): Boolean = true
 

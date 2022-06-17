@@ -48,6 +48,7 @@ ext {
             immersionbarVersion       : "3.2.2",
             glanceVersion             : "1.1.0",
             debugDbVersion            : "1.0.6",
+            refreshVersion            : "2.0.1"
     ]
 
     dependencies = [
@@ -125,7 +126,7 @@ ext {
             //----------------------------------------BasePopup-----------------------------------------------------------
             "basePopup"                           : "com.github.razerdp:BasePopup:${version.basePopupVersion}",
 
-            //----------------------------------------Immersionbar-----------------------------------------------------------
+            //----------------------------------------Immersionbar--------------------------------------------------------
             "immersionbar"                        : "com.geyifeng.immersionbar:immersionbar:${version.immersionbarVersion}",
             "immersionbar-ktx"                    : "com.geyifeng.immersionbar:immersionbar-ktx:${version.immersionbarVersion}",
 
@@ -137,6 +138,10 @@ ext {
 
             //----------------------------------------BaseRecyclerViewAdapterHelper---------------------------------------
             "baseRecyclerViewAdapterHelper"       : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version.recyclerViewAdapterVersion}",
+
+            //-----------------------------------------Refresh--------------------------------------------------------------
+            "refreshLayoutKernel"                 : "com.scwang.smart:refresh-layout-kernel:${version.refreshVersion}",      //核心必须依赖
+            "refreshHeaderTwoLevel"               : "com.scwang.smart:refresh-header-two-level:${version.refreshVersion}",   //二级刷新头
 
             //----------------------------------------Eventbus------------------------------------------------------------
             "eventbus"                            : "org.greenrobot:eventbus:${version.eventbusVersion}",

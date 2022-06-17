@@ -14,4 +14,5 @@ object MineRouterTable {
     /**
      * ----------------Fragment-------------------------
      */
+    const val PATH_FRAGMENT_MINE:String="/mine/mineFragment"
 }

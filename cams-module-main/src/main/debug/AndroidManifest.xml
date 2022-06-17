@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/MainModuleAppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:label="@string/main_module_page"
             android:exported="true">
             <intent-filter>

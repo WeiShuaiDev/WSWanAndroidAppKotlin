@@ -74,21 +74,24 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
      * ViewBinding绑定
      */
     private fun viewBinding() {
-        if(hasViewBinding()){
+        if (hasViewBinding()) {
             val viewBindingRoot = viewBindingLogic()
             if (viewBindingRoot != null) {
                 setContentView(viewBindingRoot)
                 return
             }
         }
-        setContentView(getRootLayoutId())
+
+        if (hasLayoutIdBinding()) {
+            setContentView(getRootLayoutId())
+        }
     }
 
     /**
      * EventBus绑定
      */
-    private fun eventBusBinding(){
-        hasEventBus().takeIf { it }?.apply{
+    private fun eventBusBinding() {
+        hasEventBus().takeIf { it }?.apply {
             EventBusUtils.register(this@CommonBaseActivity)
         }
     }
@@ -124,7 +127,9 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
 
     protected open fun hasViewBinding(): Boolean = true
 
-    protected open fun hasEventBus():Boolean =false
+    protected open fun hasLayoutIdBinding(): Boolean = false
+
+    protected open fun hasEventBus(): Boolean = false
 
     protected open fun onBeforeCreateExpand(savedInstanceState: Bundle?) {
     }
@@ -149,8 +154,8 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
         // 主要是为了解决 AndroidAutoSize 在横屏切换时导致适配失效的问题
         // 但是 AutoSizeCompat.autoConvertDensity() 对线程做了判断 导致Coil等图片加载框架在子线程访问的时候会异常
         // 所以在这里加了线程的判断 如果是非主线程 就取消单独的适配
-        val res=super.getResources()
-        res.updateConfiguration(Configuration().apply{setToDefaults()},res.displayMetrics)
+        val res = super.getResources()
+        res.updateConfiguration(Configuration().apply { setToDefaults() }, res.displayMetrics)
         if (Looper.myLooper() == Looper.getMainLooper()) {
             AutoSizeCompat.autoConvertDensityOfGlobal((res))
         }
@@ -159,7 +164,7 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        hasEventBus().takeIf { it }?.apply{
+        hasEventBus().takeIf { it }?.apply {
             EventBusUtils.unRegister(this@CommonBaseActivity)
         }
 

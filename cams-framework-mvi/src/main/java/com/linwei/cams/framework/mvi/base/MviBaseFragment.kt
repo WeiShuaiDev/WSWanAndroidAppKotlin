@@ -25,7 +25,7 @@ import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkTypeEnum
  * @Description:  `MVI` 架构 `Fragment` 核心基类
  *-----------------------------------------------------------------------
  */
-abstract class MviBaseFragment<VM : MviViewModel, VB : ViewBinding> : CommonBaseFragment<VB>(),
+abstract class MviBaseFragment<VB : ViewBinding,VM : MviViewModel> : CommonBaseFragment<VB>(),
     ViewModelDelegate<VM>, MviView<VM>, NetworkStateChangeListener {
 
     protected var mViewModel: VM? = null

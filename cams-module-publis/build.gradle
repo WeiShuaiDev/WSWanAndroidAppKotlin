@@ -5,7 +5,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding false
+        viewBinding true
         dataBinding true
     }
 }

@@ -1,7 +1,11 @@
 package com.linwei.cams.component.mvvm.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
@@ -32,6 +36,10 @@ abstract class MvvmBaseFragment<VM : MvvmViewModel> : CommonBaseFragment<ViewBin
 
     protected var mAutoRegisterNet: AutoRegisterNetListener? = null
 
+    override fun dynamicFetchRootView(inflater: LayoutInflater, container: ViewGroup?): View? {
+        return dataBinding()
+    }
+
     override fun onViewCreatedExpand(view: View, savedInstanceState: Bundle?) {
         super.onViewCreatedExpand(view, savedInstanceState)
         initViewModel()
@@ -41,7 +49,7 @@ abstract class MvvmBaseFragment<VM : MvvmViewModel> : CommonBaseFragment<ViewBin
     /**
      * 初始化ViewModel
      */
-    protected fun initViewModel() {
+    private fun initViewModel() {
         mViewModel = createViewModel()
         if (mViewModel == null) {
             mViewModel = obtainViewModel(fetchVMClass())
@@ -50,6 +58,23 @@ abstract class MvvmBaseFragment<VM : MvvmViewModel> : CommonBaseFragment<ViewBin
         if (mViewModel != null) {
             lifecycle.addObserver(mViewModel!!)
         }
+    }
+
+
+    /**
+     * 初始化DataBinding
+     */
+    private fun dataBinding(): View? {
+        if (hasDataBinding()) {
+            val rootLayoutId = getRootLayoutId()
+            if (rootLayoutId > 0) {
+                return DataBindingUtil.setContentView<ViewDataBinding?>(
+                    requireActivity(),
+                    rootLayoutId
+                ).root
+            }
+        }
+        return null
     }
 
     /**
@@ -93,11 +118,15 @@ abstract class MvvmBaseFragment<VM : MvvmViewModel> : CommonBaseFragment<ViewBin
      */
     protected fun getViewModelFactory(): ViewModelProvider.Factory = mViewModelFactory
 
+    protected open fun hasDataBinding(): Boolean = true
+
     /**
      * 创建 `ViewModel` 类
      * @return [VM]
      */
     override fun createViewModel(): VM? = null
+
+    override fun hasViewBinding(): Boolean = false
 
     override fun showSnackBar(message: String) {
         activity?.window?.decorView?.snackBar(message)

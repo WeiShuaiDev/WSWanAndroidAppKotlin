@@ -1,5 +1,7 @@
 package com.linwei.cams.component.mvvm.base
 
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.ViewModelProvider
@@ -25,16 +27,19 @@ import kotlin.reflect.KClass
  * @Description:  `MVVM` 架构 `Activity` 核心基类
  *-----------------------------------------------------------------------
  */
-abstract class MvvmBaseActivity<VM : MvvmViewModel> : CommonBaseActivity<ViewBinding>(),
+abstract class MvvmBaseActivity<DB : ViewDataBinding,VM : MvvmViewModel> : CommonBaseActivity<ViewBinding>(),
     ViewModelDelegate<VM>, MvvmView<VM>, NetworkStateChangeListener {
 
     protected var mViewModel: VM? = null
+
+    protected lateinit var mDataBinding: DB
 
     protected var mAutoRegisterNet: AutoRegisterNetListener? = null
 
     override fun onCreateExpand() {
         super.onCreateExpand()
         initViewModel()
+        dataBinding()
         initNetworkListener()
     }
 
@@ -49,6 +54,19 @@ abstract class MvvmBaseActivity<VM : MvvmViewModel> : CommonBaseActivity<ViewBin
 
         if (mViewModel != null) {
             lifecycle.addObserver(mViewModel!!)
+        }
+    }
+
+    /**
+     * 初始化DataBinding
+     */
+    protected fun dataBinding() {
+        if (hasDataBinding()) {
+            val rootLayoutId = getRootLayoutId()
+            if ( rootLayoutId> 0) {
+                mDataBinding = DataBindingUtil.setContentView(this,rootLayoutId)
+            }
+            return
         }
     }
 
@@ -87,7 +105,6 @@ abstract class MvvmBaseActivity<VM : MvvmViewModel> : CommonBaseActivity<ViewBin
     private fun createViewModelProvider(store: ViewModelStore, vmClass: KClass<VM>): Lazy<VM> {
         val factoryPromise = { defaultViewModelProviderFactory }
         return ViewModelLazy(vmClass, { store }, factoryPromise)
-
     }
 
     /**
@@ -96,7 +113,11 @@ abstract class MvvmBaseActivity<VM : MvvmViewModel> : CommonBaseActivity<ViewBin
      */
     protected fun getViewModelFactory(): ViewModelProvider.Factory = mViewModelFactory
 
+    protected open fun hasDataBinding(): Boolean = true
+
     override fun createViewModel(): VM? = null
+
+    override fun hasViewBinding(): Boolean = false
 
     override fun showSnackBar(message: String) = window.decorView.snackBar(message)
 
@@ -106,7 +127,7 @@ abstract class MvvmBaseActivity<VM : MvvmViewModel> : CommonBaseActivity<ViewBin
     override fun dismissLoadingDialog() {
     }
 
-    override fun showToast(message: String?)= toast(message)
+    override fun showToast(message: String?) = toast(message)
 
     override fun networkConnectChange(isConnected: Boolean) {
         if (!isConnected) {

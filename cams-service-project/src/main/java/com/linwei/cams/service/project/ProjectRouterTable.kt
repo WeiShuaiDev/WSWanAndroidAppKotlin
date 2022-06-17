@@ -14,4 +14,5 @@ object ProjectRouterTable {
     /**
      * ----------------Fragment-------------------------
      */
+    const val PATH_FRAGMENT_PROJECT:String="/project/projectFragment"
 }

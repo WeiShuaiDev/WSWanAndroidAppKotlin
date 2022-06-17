@@ -26,6 +26,7 @@ interface IHomePresenter : IMvpPresenter {
 }
 
 interface IHomeView : IMvpView {
+
     fun updateHomeDataToView(homeBean:HomeBean)
 
     fun updateBannerDataToView(bannerList:List<BannerBean>)

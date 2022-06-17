@@ -57,6 +57,10 @@ dependencies {
     //BaseRecyclerViewAdapterHelper
     api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
 
+    //Refresh
+    api rootProject.ext.dependencies["refreshLayoutKernel"]
+    api rootProject.ext.dependencies["refreshHeaderTwoLevel"]
+
     //EventBus
     api rootProject.ext.dependencies["eventbus"]
     kapt rootProject.ext.dependencies["eventbusAPT"]

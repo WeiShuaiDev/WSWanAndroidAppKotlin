@@ -20,8 +20,8 @@ import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkTypeEnum
  * @Description: MVP架构 基类MvpBaseActivity
  * -----------------------------------------------------------------------
  */
-abstract class MvpBaseActivity<T : ViewBinding, P : IMvpPresenter> :
-    CommonBaseActivity<T>(), IMvpView, NetworkStateChangeListener {
+abstract class MvpBaseActivity<VB : ViewBinding, P : IMvpPresenter> :
+    CommonBaseActivity<VB>(), IMvpView, NetworkStateChangeListener {
 
     protected var mMvpPresenter: P? = null
 
