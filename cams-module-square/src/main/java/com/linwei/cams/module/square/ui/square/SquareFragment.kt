@@ -12,6 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @Route(path = SquareRouterTable.PATH_FRAGMENT_SQUARE)
 class SquareFragment : MviBaseFragment<SquareFragmentSquareBinding, SquareViewModel>(), SquareView {
 
+    override fun hasInjectARouter(): Boolean = true
+
     override fun initView() {
     }
 

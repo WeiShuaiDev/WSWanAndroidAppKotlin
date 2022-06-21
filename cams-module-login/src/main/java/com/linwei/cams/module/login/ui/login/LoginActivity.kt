@@ -4,8 +4,8 @@ import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.mvp.base.MvpBaseActivity
 import com.linwei.cams.module.login.databinding.LoginActivityLoginBinding
-import com.linwei.cams.module.login.ui.login.contract.ILoginView
-import com.linwei.cams.module.login.ui.login.presenter.LoginPresenter
+import com.linwei.cams.module.login.ui.login.mvp.contract.ILoginView
+import com.linwei.cams.module.login.ui.login.mvp.presenter.LoginPresenter
 import com.linwei.cams.service.login.LoginRouterTable
 import com.linwei.cams.service.login.model.UserInfoBean
 

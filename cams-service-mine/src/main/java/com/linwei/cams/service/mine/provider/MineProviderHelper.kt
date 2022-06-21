@@ -17,4 +17,11 @@ object MineProviderHelper {
         ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_MINE)
             .withString("title", title).navigation()
 
+    /**
+     * MineFragment
+     */
+    fun jumpMineFragment(title: String) =
+        ARouter.getInstance().build(MineRouterTable.PATH_FRAGMENT_MINE)
+            .withString("title", title).navigation()
+
 }

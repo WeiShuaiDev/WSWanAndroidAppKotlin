@@ -29,10 +29,13 @@ import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkTypeEnum
  * @Description:  `MVVM` 架构 `Fragment` 核心基类
  *-----------------------------------------------------------------------
  */
-abstract class MvvmBaseFragment<VM : MvvmViewModel> : CommonBaseFragment<ViewBinding>(),
+abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
+    CommonBaseFragment<ViewBinding>(),
     ViewModelDelegate<VM>, MvvmView<VM>, NetworkStateChangeListener {
 
     protected var mViewModel: VM? = null
+
+    protected lateinit var mDataBinding: DB
 
     protected var mAutoRegisterNet: AutoRegisterNetListener? = null
 
@@ -60,19 +63,17 @@ abstract class MvvmBaseFragment<VM : MvvmViewModel> : CommonBaseFragment<ViewBin
         }
     }
 
-
     /**
      * 初始化DataBinding
      */
     private fun dataBinding(): View? {
         if (hasDataBinding()) {
             val rootLayoutId = getRootLayoutId()
-            if (rootLayoutId > 0) {
-                return DataBindingUtil.setContentView<ViewDataBinding?>(
-                    requireActivity(),
-                    rootLayoutId
-                ).root
-            }
+            mDataBinding = DataBindingUtil.setContentView<DB>(
+                requireActivity(),
+                rootLayoutId
+            )
+            return mDataBinding.root
         }
         return null
     }

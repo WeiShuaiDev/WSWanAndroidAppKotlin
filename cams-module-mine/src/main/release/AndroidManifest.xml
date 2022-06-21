@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
-        <activity android:name=".ui.MineActivity"/>
+        <activity android:name=".ui.mine.MineActivity"/>
     </application>
 
 </manifest>

@@ -27,7 +27,8 @@ import kotlin.reflect.KClass
  * @Description:  `MVVM` 架构 `Activity` 核心基类
  *-----------------------------------------------------------------------
  */
-abstract class MvvmBaseActivity<DB : ViewDataBinding,VM : MvvmViewModel> : CommonBaseActivity<ViewBinding>(),
+abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
+    CommonBaseActivity<ViewBinding>(),
     ViewModelDelegate<VM>, MvvmView<VM>, NetworkStateChangeListener {
 
     protected var mViewModel: VM? = null
@@ -63,9 +64,7 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding,VM : MvvmViewModel> : Commo
     protected fun dataBinding() {
         if (hasDataBinding()) {
             val rootLayoutId = getRootLayoutId()
-            if ( rootLayoutId> 0) {
-                mDataBinding = DataBindingUtil.setContentView(this,rootLayoutId)
-            }
+            mDataBinding = DataBindingUtil.setContentView(this, rootLayoutId)
             return
         }
     }

@@ -48,7 +48,9 @@ ext {
             immersionbarVersion       : "3.2.2",
             glanceVersion             : "1.1.0",
             debugDbVersion            : "1.0.6",
-            refreshVersion            : "2.0.1"
+            refreshVersion            : "2.0.5",
+            glideVersion              : "4.9.0",
+            paletteVersion            : "28.0.0"
     ]
 
     dependencies = [
@@ -120,6 +122,10 @@ ext {
             "coil-svg"                            : "io.coil-kt:coil-svg:${version.coilVersion}",
             "coil-video"                          : "io.coil-kt:coil-video:${version.coilVersion}",
 
+            //----------------------------------------Glide----------------------------------------------------------------
+            "glide"                               : "com.github.bumptech.glide:glide:${version.glideVersion}",
+            "palette"                             : "com.android.support:palette-v7:${version.paletteVersion}",
+
             //----------------------------------------StateLayout---------------------------------------------------------
             "stateLayout"                         : "com.github.liangjingkanji:StateLayout:${version.stateLayoutVersion}",
 
@@ -140,8 +146,8 @@ ext {
             "baseRecyclerViewAdapterHelper"       : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version.recyclerViewAdapterVersion}",
 
             //-----------------------------------------Refresh--------------------------------------------------------------
-            "refreshLayoutKernel"                 : "com.scwang.smart:refresh-layout-kernel:${version.refreshVersion}",      //核心必须依赖
-            "refreshHeaderTwoLevel"               : "com.scwang.smart:refresh-header-two-level:${version.refreshVersion}",   //二级刷新头
+            "refreshLayoutKernel"                 : "io.github.scwang90:refresh-layout-kernel:${version.refreshVersion}",      //核心必须依赖
+            "refreshHeaderTwoLevel"               : "io.github.scwang90:refresh-header-two-level:${version.refreshVersion}",   //二级刷新头
 
             //----------------------------------------Eventbus------------------------------------------------------------
             "eventbus"                            : "org.greenrobot:eventbus:${version.eventbusVersion}",

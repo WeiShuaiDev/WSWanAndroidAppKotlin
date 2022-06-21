@@ -13,6 +13,10 @@ import com.linwei.cams.module.main.ui.main.adapter.listener.TabPagerListener
 import com.linwei.cams.module.main.ui.main.view.MainView
 import com.linwei.cams.module.main.ui.main.viewmodel.MainViewModel
 import com.linwei.cams.service.home.provider.HomeProviderHelper
+import com.linwei.cams.service.mine.provider.MineProviderHelper
+import com.linwei.cams.service.project.ProjectRouterTable
+import com.linwei.cams.service.project.provider.ProjectProviderHelper
+import com.linwei.cams.service.publis.provider.PublisProviderHelper
 import com.linwei.cams.service.square.provider.SquareProviderHelper
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,9 +30,6 @@ class MainActivity : MvvmBaseActivity<MainActivityMainBinding, MainViewModel>(),
     override fun getRootLayoutId(): Int = R.layout.main_activity_main
 
     override fun initView() {
-        HomeProviderHelper.getHomeProvider()?.routerHomeFragment()?.let {
-            supportFragmentManager.addFragment(it, R.id.main_container_fl)
-        }
     }
 
     override fun initData() {
@@ -36,21 +37,11 @@ class MainActivity : MvvmBaseActivity<MainActivityMainBinding, MainViewModel>(),
     }
 
     override fun initEvent() {
-//        mViewBinding.mainHomeTv.setOnClickListener {
-//            HomeProviderHelper.jumpHomeActivity("首页")
-//        }
-//        mViewBinding.mainProjectTv.setOnClickListener {
-//            ProjectProviderHelper.jumpProjectActivity("项目")
-//        }
-//        mViewBinding.mainSquareTv.setOnClickListener {
-                val squareFragment = SquareProviderHelper.jumpSquareFragment("广场")
-//        }
-//        mViewBinding.mainPublisTv.setOnClickListener {
-//            PublisProviderHelper.jumpPublisActivity("公众号")
-//        }
-//        mViewBinding.mainMineTv.setOnClickListener {
-//            MineProviderHelper.jumpMineActivity("我的")
-//        }
+        val homeFragment = HomeProviderHelper.jumpHomeFragment("首页")
+        val projectFragment = ProjectProviderHelper.jumpProjectFragment("项目")
+        val squareFragment = SquareProviderHelper.jumpSquareFragment("广场")
+        val publisFragment = PublisProviderHelper.jumpPublisFragment("公众号")
+        val mineFragment = MineProviderHelper.jumpMineFragment("我的")
     }
 
     override fun onNavigationChanged(view: View?, position: Int) {

@@ -11,7 +11,4 @@ interface HomeProvider : IProvider {
     fun fetchHomeData(page: Int, callback: ResponseCallback<HomeBean>)
 
     fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>)
-
-    fun routerHomeFragment():Fragment
-
 }

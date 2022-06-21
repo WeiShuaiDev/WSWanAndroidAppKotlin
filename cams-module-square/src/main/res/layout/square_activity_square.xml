@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchAndMatch"
     tools:context="com.linwei.cams.module.square.ui.square.SquareActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:name="com.linwei.cams.module.square.ui.square.SquareFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        style="@style/MatchAndMatch"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

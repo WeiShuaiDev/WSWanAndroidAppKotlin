@@ -7,5 +7,9 @@ dependencies {
     api rootProject.ext.dependencies["coil-svg"]
     api rootProject.ext.dependencies["coil-video"]
 
+    //Glide
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["palette"]
+
     api project(':cams-component-common')
 }

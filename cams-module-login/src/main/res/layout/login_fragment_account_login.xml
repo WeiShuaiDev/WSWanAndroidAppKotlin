@@ -18,7 +18,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/tvRegister"
+            android:id="@+id/loginRegisterTv"
             style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
             android:layout_alignParentEnd="true"
             android:background="?attr/selectableItemBackgroundBorderless"

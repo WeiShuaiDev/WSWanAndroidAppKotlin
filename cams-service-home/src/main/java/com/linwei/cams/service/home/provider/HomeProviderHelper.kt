@@ -18,4 +18,12 @@ object HomeProviderHelper {
         ARouter.getInstance().build(HomeRouterTable.PATH_ACTIVITY_HOME)
             .withString("title", title).navigation()
 
+    /**
+     * HomeFragment
+     */
+    fun jumpHomeFragment(title: String) =
+        ARouter.getInstance().build(HomeRouterTable.PATH_FRAGMENT_HOME)
+            .withString("title", title).navigation()
+
+
 }

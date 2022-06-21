@@ -1,70 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.main.MainActivity"
-    tools:ignore="ResourceName">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
+        android:id="@+id/mainContainerLl"
         style="@style/MatchAndMatch"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/main_container_fl"
+        <com.linwei.cams.component.weight.viewpager.NoScrollViewPager
+            android:id="@+id/mainViewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+        <com.linwei.cams.component.weight.bubblenavigation.BubbleNavigationConstraintView
+            android:id="@+id/mainBubbleNavigationView"
+            style="@style/MatchAndWrap"
+            android:background="@color/mainColorTab"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
-            <TextView
-                android:id="@+id/main_home_tv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="首页"
-                android:textSize="18sp" />
+            <com.linwei.cams.component.weight.bubblenavigation.BubbleToggleView
+                android:id="@+id/mainBubbleToggleTab1View"
+                style="@style/WrapAndWrap"
+                app:bt_active="true"
+                app:bt_colorActive="@color/main_tab1_active"
+                app:bt_colorInactive="@color/main_tab1_inactive"
+                app:bt_icon="@mipmap/ic_tab1"
+                app:bt_shape="@drawable/transition_background_drawable_home"
+                app:bt_title="@string/tab1" />
 
-            <TextView
-                android:id="@+id/main_project_tv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="项目"
-                android:textSize="18sp" />
+            <com.linwei.cams.component.weight.bubblenavigation.BubbleToggleView
+                android:id="@+id/mainBubbleToggleTab2View"
+                style="@style/WrapAndWrap"
+                app:bt_colorActive="@color/main_tab2_active"
+                app:bt_colorInactive="@color/main_tab2_inactive"
+                app:bt_icon="@mipmap/ic_tab2"
+                app:bt_shape="@drawable/transition_background_drawable_search"
+                app:bt_title="@string/tab2" />
 
-            <TextView
-                android:id="@+id/main_square_tv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="广场"
-                android:textSize="18sp" />
+            <com.linwei.cams.component.weight.bubblenavigation.BubbleToggleView
+                android:id="@+id/mainBubbleToggleTab3View"
+                style="@style/WrapAndWrap"
+                app:bt_colorActive="@color/main_tab3_active"
+                app:bt_colorInactive="@color/main_tab3_inactive"
+                app:bt_icon="@mipmap/ic_tab3"
+                app:bt_shape="@drawable/transition_background_drawable_like"
+                app:bt_title="@string/tab3" />
 
-            <TextView
-                android:id="@+id/main_publis_tv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="公众号"
-                android:textSize="18sp" />
+            <com.linwei.cams.component.weight.bubblenavigation.BubbleToggleView
+                android:id="@+id/mainBubbleToggleTab4View"
+                style="@style/WrapAndWrap"
+                app:bt_colorActive="@color/main_tab4_active"
+                app:bt_colorInactive="@color/main_tab4_inactive"
+                app:bt_icon="@mipmap/ic_tab4"
+                app:bt_shape="@drawable/transition_background_drawable_list"
+                app:bt_title="@string/tab4" />
 
-            <TextView
-                android:id="@+id/main_mine_tv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="我的"
-                android:textSize="18sp" />
-
-        </LinearLayout>
+            <com.linwei.cams.component.weight.bubblenavigation.BubbleToggleView
+                android:id="@+id/mainBubbleToggleTab5View"
+                style="@style/WrapAndWrap"
+                app:bt_colorActive="@color/main_tab5_active"
+                app:bt_colorInactive="@color/main_tab5_inactive"
+                app:bt_icon="@mipmap/ic_tab5"
+                app:bt_shape="@drawable/transition_background_drawable_person"
+                app:bt_title="@string/tab5" />
+        </com.linwei.cams.component.weight.bubblenavigation.BubbleNavigationConstraintView>
 
     </LinearLayout>
 </layout>

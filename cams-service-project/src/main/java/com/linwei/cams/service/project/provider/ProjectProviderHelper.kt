@@ -16,4 +16,11 @@ object ProjectProviderHelper {
     fun jumpProjectActivity(title: String) =
         ARouter.getInstance().build(ProjectRouterTable.PATH_ACTIVITY_PROJECT)
             .withString("title", title).navigation()
+
+    /**
+     * ProjectFragment
+     */
+    fun jumpProjectFragment(title: String) =
+        ARouter.getInstance().build(ProjectRouterTable.PATH_FRAGMENT_PROJECT)
+            .withString("title", title).navigation()
 }

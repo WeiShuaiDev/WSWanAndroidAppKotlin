@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import com.google.auto.service.AutoService
 import com.linwei.cams.component.common.app.AppDelegate
-import com.linwei.cams.component.common.ktx.app
 
 @AutoService(AppDelegate::class)
 class ProjectAppDelegate : AppDelegate {
