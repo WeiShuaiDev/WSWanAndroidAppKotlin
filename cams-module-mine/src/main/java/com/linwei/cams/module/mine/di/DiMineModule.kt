@@ -24,4 +24,6 @@ object DiMineModule {
     fun provideMineApiService(apiServiceWrap: ApiServiceWrap): ApiService {
         return ApiClient.getInstance().getService(apiServiceWrap)
     }
+
+
 }

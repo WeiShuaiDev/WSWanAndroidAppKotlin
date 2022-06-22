@@ -6,10 +6,11 @@ import com.linwei.cams.component.network.ApiClient
 import com.linwei.cams.module.square.http.ApiServiceWrap
 import com.linwei.cams.service.square.SquareRouterTable
 import com.linwei.cams.service.square.provider.SquareProvider
+import dagger.MapKey
 import javax.inject.Inject
-
 @Route(path = SquareRouterTable.PATH_SERVICE_SQUARE)
 class SquareProviderImpl @Inject constructor() : SquareProvider {
+
     private lateinit var mContext: Context
 
     /**

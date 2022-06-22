@@ -15,12 +15,15 @@ class SquareFragment : MviBaseFragment<SquareFragmentSquareBinding, SquareViewMo
     override fun hasInjectARouter(): Boolean = true
 
     override fun initView() {
+
     }
 
     override fun initData() {
+
     }
 
     override fun initEvent() {
+
     }
 
 }

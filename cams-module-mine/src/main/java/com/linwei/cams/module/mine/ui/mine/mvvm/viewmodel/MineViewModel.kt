@@ -6,8 +6,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MineViewModel @Inject constructor(private val mineModel: MineModel): MvvmViewModel() {
+class MineViewModel @Inject constructor() : MvvmViewModel() {
 
-
+    private val mMineModel: MineModel = MineModel()
 
 }

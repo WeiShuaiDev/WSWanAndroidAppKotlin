@@ -9,8 +9,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SquareViewModel @Inject constructor(private val squareProvider: SquareProviderImpl) :
-    MviViewModel() {
+class SquareViewModel @Inject constructor() : MviViewModel() {
+
+    private var mSquareProvider: SquareProviderImpl = SquareProviderImpl()
 
     private val _viewStates: MutableLiveData<MviViewState> = MutableLiveData(MviViewState())
     val viewState = _viewStates.asLiveData()

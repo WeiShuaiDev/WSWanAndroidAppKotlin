@@ -27,7 +27,7 @@
                 app:bt_active="true"
                 app:bt_colorActive="@color/main_tab1_active"
                 app:bt_colorInactive="@color/main_tab1_inactive"
-                app:bt_icon="@mipmap/ic_tab1"
+                app:bt_icon="@mipmap/main_ic_tab1"
                 app:bt_shape="@drawable/transition_background_drawable_home"
                 app:bt_title="@string/tab1" />
 
@@ -36,7 +36,7 @@
                 style="@style/WrapAndWrap"
                 app:bt_colorActive="@color/main_tab2_active"
                 app:bt_colorInactive="@color/main_tab2_inactive"
-                app:bt_icon="@mipmap/ic_tab2"
+                app:bt_icon="@mipmap/main_ic_tab2"
                 app:bt_shape="@drawable/transition_background_drawable_search"
                 app:bt_title="@string/tab2" />
 
@@ -45,7 +45,7 @@
                 style="@style/WrapAndWrap"
                 app:bt_colorActive="@color/main_tab3_active"
                 app:bt_colorInactive="@color/main_tab3_inactive"
-                app:bt_icon="@mipmap/ic_tab3"
+                app:bt_icon="@mipmap/main_ic_tab3"
                 app:bt_shape="@drawable/transition_background_drawable_like"
                 app:bt_title="@string/tab3" />
 
@@ -54,7 +54,7 @@
                 style="@style/WrapAndWrap"
                 app:bt_colorActive="@color/main_tab4_active"
                 app:bt_colorInactive="@color/main_tab4_inactive"
-                app:bt_icon="@mipmap/ic_tab4"
+                app:bt_icon="@mipmap/main_ic_tab4"
                 app:bt_shape="@drawable/transition_background_drawable_list"
                 app:bt_title="@string/tab4" />
 
@@ -63,7 +63,7 @@
                 style="@style/WrapAndWrap"
                 app:bt_colorActive="@color/main_tab5_active"
                 app:bt_colorInactive="@color/main_tab5_inactive"
-                app:bt_icon="@mipmap/ic_tab5"
+                app:bt_icon="@mipmap/main_ic_tab5"
                 app:bt_shape="@drawable/transition_background_drawable_person"
                 app:bt_title="@string/tab5" />
         </com.linwei.cams.component.weight.bubblenavigation.BubbleNavigationConstraintView>

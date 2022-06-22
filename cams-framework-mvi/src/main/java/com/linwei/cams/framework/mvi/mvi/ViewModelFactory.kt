@@ -34,6 +34,7 @@ class ViewModelFactory : ViewModelProvider.Factory {
             val creator = modelClass.newInstance()
             return creator as T
         } catch (e: Exception) {
+            System.out.println("+++++${e.message}")
             throw RuntimeException()
         }
     }

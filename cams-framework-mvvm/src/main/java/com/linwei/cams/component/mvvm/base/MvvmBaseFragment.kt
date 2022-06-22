@@ -40,7 +40,7 @@ abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
     protected var mAutoRegisterNet: AutoRegisterNetListener? = null
 
     override fun dynamicFetchRootView(inflater: LayoutInflater, container: ViewGroup?): View? {
-        return dataBinding()
+        return dataBinding(inflater)
     }
 
     override fun onViewCreatedExpand(view: View, savedInstanceState: Bundle?) {
@@ -66,12 +66,12 @@ abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
     /**
      * 初始化DataBinding
      */
-    private fun dataBinding(): View? {
+    private fun dataBinding(inflater: LayoutInflater): View? {
         if (hasDataBinding()) {
             val rootLayoutId = getRootLayoutId()
-            mDataBinding = DataBindingUtil.setContentView<DB>(
-                requireActivity(),
-                rootLayoutId
+            mDataBinding = DataBindingUtil.inflate(
+                inflater,
+                rootLayoutId, null, false
             )
             return mDataBinding.root
         }

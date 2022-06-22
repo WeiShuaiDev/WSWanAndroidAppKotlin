@@ -21,8 +21,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProjectViewModel @Inject constructor(private val projectProvider:ProjectProviderImpl) :
-    MviViewModel() {
+class ProjectViewModel @Inject constructor() : MviViewModel() {
+
+    private val mProjectProvider: ProjectProviderImpl = ProjectProviderImpl()
 
     private val _viewStates: MutableLiveData<MviViewState> = MutableLiveData(MviViewState())
     val viewState = _viewStates.asLiveData()
@@ -36,7 +37,7 @@ class ProjectViewModel @Inject constructor(private val projectProvider:ProjectPr
         }
 
         viewModelScope.launch {
-            when (val result = projectProvider.fetchProjectTreeData()) {
+            when (val result = mProjectProvider.fetchProjectTreeData()) {
                 is PageState.Error -> {
                     _viewStates.setState {
                         copy(fetchStatus = FetchStatus.NotFetched)
@@ -58,7 +59,7 @@ class ProjectViewModel @Inject constructor(private val projectProvider:ProjectPr
     fun fetchProjectTreeDetailsData() {
         viewModelScope.launch {
             flow {
-                emit(projectProvider.fetchProjectTreeDetailsData())
+                emit(mProjectProvider.fetchProjectTreeDetailsData())
             }.onStart {
                 _viewStates.setState { copy(fetchStatus = FetchStatus.Fetching) }
             }.onEach {

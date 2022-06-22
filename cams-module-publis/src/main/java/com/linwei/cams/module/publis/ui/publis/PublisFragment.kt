@@ -1,7 +1,5 @@
 package com.linwei.cams.module.publis.ui.publis
 
-import android.os.Bundle
-import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.mvvm.base.MvvmBaseFragment
 import com.linwei.cams.module.publis.R
