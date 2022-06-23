@@ -2,10 +2,7 @@ package com.linwei.cams.component.mvvm.base
 
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
 import androidx.viewbinding.ViewBinding
 import com.linwei.cams.component.common.base.CommonBaseActivity
 import com.linwei.cams.component.common.ktx.snackBar
@@ -13,9 +10,13 @@ import com.linwei.cams.component.common.utils.toast
 import com.linwei.cams.component.mvvm.mvvm.ViewModelDelegate
 import com.linwei.cams.component.mvvm.mvvm.view.MvvmView
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.MvvmViewModel
+import com.linwei.cams.component.mvvm.mvvm.viewmodel.VMDependant
+import com.linwei.cams.component.mvvm.mvvm.viewmodel.VMProviderInterface
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.AutoRegisterNetListener
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkStateChangeListener
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkTypeEnum
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import kotlin.reflect.KClass
 
 /**
@@ -27,9 +28,13 @@ import kotlin.reflect.KClass
  * @Description:  `MVVM` 架构 `Activity` 核心基类
  *-----------------------------------------------------------------------
  */
+
 abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
-    CommonBaseActivity<ViewBinding>(),
-    ViewModelDelegate<VM>, MvvmView<VM>, NetworkStateChangeListener {
+    CommonBaseActivity<ViewBinding>(), ViewModelDelegate<VM>, MvvmView<VM>, VMDependant<VM>,
+    NetworkStateChangeListener {
+
+    @Inject
+    lateinit var mVmProvider: VMProviderInterface
 
     protected var mViewModel: VM? = null
 
@@ -50,7 +55,7 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
     protected fun initViewModel() {
         mViewModel = createViewModel()
         if (mViewModel == null) {
-            mViewModel = obtainViewModel(fetchVMClass())
+            mViewModel = mVmProvider.provideVM(this)
         }
 
         if (mViewModel != null) {
@@ -78,32 +83,6 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
             mAutoRegisterNet = AutoRegisterNetListener(this)
         }
         lifecycle.addObserver(mAutoRegisterNet!!)
-    }
-
-    /**
-     * 根据 `ViewModel` 的 [vmClass],获取 `ViewModel` 对象
-     * @param vmClass [Class]
-     * @return  [ViewModel]
-     */
-    private fun obtainViewModel(vmClass: Class<VM>): VM = obtainViewModel(viewModelStore, vmClass)
-
-    /**
-     * 根据 `ViewModel` 的 [vmClass],获取 `ViewModel` 对象
-     * @param store [ViewModelStore]
-     * @param vmClass [Class]
-     * @return  [ViewModel]
-     */
-    private fun obtainViewModel(store: ViewModelStore, vmClass: Class<VM>): VM =
-        createViewModelProvider(store, vmClass.kotlin).value
-
-    /**
-     * 创建 [ViewModelProvider] 对象
-     * @param store [ViewModelStore]
-     * @return [ViewModelProvider] 对象
-     */
-    private fun createViewModelProvider(store: ViewModelStore, vmClass: KClass<VM>): Lazy<VM> {
-        val factoryPromise = { defaultViewModelProviderFactory }
-        return ViewModelLazy(vmClass, { store }, factoryPromise)
     }
 
     /**
@@ -142,6 +121,10 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
      *  @return mViewModel [VM]
      */
     protected fun getViewModel(): VM? = mViewModel
+
+    override fun getVMClass(): KClass<VM> {
+        return fetchVMClass().kotlin
+    }
 
     override fun onDestroy() {
         super.onDestroy()

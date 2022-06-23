@@ -37,7 +37,6 @@ class WelcomeActivity : MviBaseActivity<ActivityWelcomeBinding, WelcomeViewModel
     override fun projectTreeDataToView(data: List<ProjectTreeBean>?) {
         //projectTreeBean保存数据到MMkv
         AppDataProvided().saveProjectTree(data)
-        System.out.println("获取数据成功")
     }
 
     override fun onDestroy() {

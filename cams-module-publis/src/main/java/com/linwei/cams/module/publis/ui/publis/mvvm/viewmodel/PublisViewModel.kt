@@ -6,8 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PublisViewModel @Inject constructor() : MvvmViewModel() {
+class PublisViewModel @Inject constructor(private val publisModel: PublisModel) : MvvmViewModel() {
 
-    private val mPublisModel: PublisModel = PublisModel()
 
 }

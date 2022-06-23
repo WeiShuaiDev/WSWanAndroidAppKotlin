@@ -19,7 +19,6 @@ class PublisFragment : MvvmBaseFragment<PublisFragmentPublisBinding, PublisViewM
     override fun hasInjectARouter(): Boolean = true
 
     override fun initView() {
-
     }
 
     override fun initData() {
