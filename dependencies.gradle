@@ -50,7 +50,11 @@ ext {
             debugDbVersion            : "1.0.6",
             refreshVersion            : "2.0.5",
             glideVersion              : "4.9.0",
-            paletteVersion            : "28.0.0"
+            paletteVersion            : "28.0.0",
+            magicIndicatorVersion     : "1.7.0",
+            flexboxVersion            : "3.0.0",
+            bannerVersion             : "2.2.2",
+            slidingpanelayoutVersion  : "1.1.0"
     ]
 
     dependencies = [
@@ -142,10 +146,21 @@ ext {
             //----------------------------------------AutoLayout----------------------------------------------------------
             "autosize"                            : "com.github.JessYanCoding:AndroidAutoSize:${version.autosizeVersion}",
 
-            //----------------------------------------BaseRecyclerViewAdapterHelper---------------------------------------
+            //----------------------------------------View-----------------------------------------------------------------
             "baseRecyclerViewAdapterHelper"       : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version.recyclerViewAdapterVersion}",
 
-            //-----------------------------------------Refresh--------------------------------------------------------------
+            "magicIndicator"                      : "com.github.hackware1993:MagicIndicator:${version.magicIndicatorVersion}",
+
+            "flexbox"                             : "com.google.android.flexbox:flexbox:${version.flexboxVersion}",
+
+            "banner"                              : "io.github.youth5201314:banner:${version.bannerVersion}",
+
+            "tangram"                             : "com.alibaba.android:tangram:1.0.0@aar",
+
+            "vlayout"                             : "com.alibaba.android:vlayout:1.2.8@aar",
+
+            "slidingpanellayout"                  : "androidx.slidingpanelayout:slidingpanelayout:${version.slidingpanelayoutVersion}",
+
             "refreshLayoutKernel"                 : "io.github.scwang90:refresh-layout-kernel:${version.refreshVersion}",      //核心必须依赖
             "refreshHeaderTwoLevel"               : "io.github.scwang90:refresh-header-two-level:${version.refreshVersion}",   //二级刷新头
 

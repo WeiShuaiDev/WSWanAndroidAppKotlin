@@ -12,18 +12,18 @@ dependencies {
     api rootProject.ext.dependencies["constraintlayout"]
 
     //RxLifecycle4
-    api (rootProject.ext.dependencies["rxlifecycle4"]){
+    api(rootProject.ext.dependencies["rxlifecycle4"]) {
         exclude module: 'rxjava'
         exclude module: 'jsr305'
     }
-    api (rootProject.ext.dependencies["rxlifecycle4-kotlin"]) {
+    api(rootProject.ext.dependencies["rxlifecycle4-kotlin"]) {
         exclude module: 'annotation'
         exclude module: 'rxjava'
         exclude module: 'rxandroid'
         exclude module: 'rxlifecycle'
     }
 
-    api (rootProject.ext.dependencies["rxlifecycle4-components"]){
+    api(rootProject.ext.dependencies["rxlifecycle4-components"]) {
         exclude module: 'rxjava'
         exclude module: 'jsr305'
         exclude module: 'annotation'
@@ -96,5 +96,7 @@ dependencies {
 
     //PopupWindow
     api rootProject.ext.dependencies["basePopup"]
+
+    api rootProject.ext.dependencies["banner"]
 
 }

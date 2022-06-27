@@ -1,6 +1,5 @@
 package com.linwei.cams.service.home.provider
 
-import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.template.IProvider
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.home.model.BannerBean

@@ -17,17 +17,25 @@ interface IHomeModel : IMvpModel {
     fun fetchBannerData(
         callback: ResponseCallback<List<BannerBean>>
     )
+
+    fun collectStatus(id: String, callback: ResponseCallback<Any>)
+
+    fun unCollectStatus(id: String, callback: ResponseCallback<Any>)
 }
 
 interface IHomePresenter : IMvpPresenter {
     fun requestHomeData(page: Int)
 
     fun requestBannerData()
+
+    fun requestCollectStatus(id: String)
+
+    fun requestUnCollectStatus(id: String)
 }
 
 interface IHomeView : IMvpView {
 
-    fun updateHomeDataToView(homeBean:HomeBean)
+    fun updateHomeDataToView(homeBean: HomeBean)
 
-    fun updateBannerDataToView(bannerList:List<BannerBean>)
+    fun updateBannerDataToView(bannerList: List<BannerBean>)
 }

@@ -42,4 +42,30 @@ class HomePresenter(
             })
         }
     }
+
+    override fun requestCollectStatus(id: String) {
+        rootView?.let {
+            model.collectStatus(id, object : ResponseCallback<Any> {
+                override fun onSuccess(data: Any) {
+                }
+
+                override fun onFailed(errorMessage: ErrorMessage) {
+                    it.showToast(errorMessage.message)
+                }
+            })
+        }
+    }
+
+    override fun requestUnCollectStatus(id: String) {
+        rootView?.let {
+            model.unCollectStatus(id, object : ResponseCallback<Any> {
+                override fun onSuccess(data: Any) {
+                }
+
+                override fun onFailed(errorMessage: ErrorMessage) {
+                    it.showToast(errorMessage.message)
+                }
+            })
+        }
+    }
 }

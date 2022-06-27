@@ -29,7 +29,6 @@ class HomeProviderImpl @Inject constructor(private val apiService: ApiService) :
         mContext = context
     }
 
-
     override fun fetchHomeData(
         page: Int,
         callback: ResponseCallback<HomeBean>
