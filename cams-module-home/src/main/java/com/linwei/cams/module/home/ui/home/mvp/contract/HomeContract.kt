@@ -38,4 +38,6 @@ interface IHomeView : IMvpView {
     fun updateHomeDataToView(homeBean: HomeBean)
 
     fun updateBannerDataToView(bannerList: List<BannerBean>)
+
+    fun refreshCollectStatus(status: Boolean)
 }

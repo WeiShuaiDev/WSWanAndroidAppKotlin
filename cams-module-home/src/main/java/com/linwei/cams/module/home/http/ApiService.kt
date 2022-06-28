@@ -5,7 +5,6 @@ import com.linwei.cams.service.home.model.BannerBean
 import com.linwei.cams.service.home.model.HomeBean
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {

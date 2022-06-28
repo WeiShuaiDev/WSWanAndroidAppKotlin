@@ -1,28 +1,25 @@
 package com.linwei.cams.module.home.provider
 
 import android.content.Context
-import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
-import com.linwei.cams.component.network.ApiClient
 import com.linwei.cams.component.network.callback.ErrorConsumer
 import com.linwei.cams.component.network.callback.RxJavaCallback
 import com.linwei.cams.component.network.exception.ApiException
 import com.linwei.cams.component.network.ktx.execute
+import com.linwei.cams.component.network.model.ApiResponse
 import com.linwei.cams.component.network.transformer.ResponseTransformer
 import com.linwei.cams.module.home.http.ApiService
-import com.linwei.cams.module.home.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.home.HomeRouterTable
 import com.linwei.cams.service.home.model.BannerBean
 import com.linwei.cams.service.home.model.HomeBean
 import com.linwei.cams.service.home.provider.HomeProvider
+import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
-
 @Route(path = HomeRouterTable.PATH_SERVICE_HOME)
-class HomeProviderImpl @Inject constructor(private val apiService: ApiService) : HomeProvider {
+open class HomeProviderImpl @Inject constructor(private val apiService: ApiService) : HomeProvider {
     private lateinit var mContext: Context
 
     override fun init(context: Context) {
@@ -33,7 +30,7 @@ class HomeProviderImpl @Inject constructor(private val apiService: ApiService) :
         page: Int,
         callback: ResponseCallback<HomeBean>
     ) {
-        apiService.getArticleListData(1)
+        homeApi(page)
             .execute(object : RxJavaCallback<HomeBean>() {
 
                 override fun onSuccess(code: Int?, data: HomeBean) {
@@ -48,8 +45,11 @@ class HomeProviderImpl @Inject constructor(private val apiService: ApiService) :
             })
     }
 
+    fun homeApi(page: Int): Observable<ApiResponse<HomeBean>> =
+        apiService.getArticleListData(page)
+
     override fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>) {
-        apiService.getBannerListData()
+        bannerApi()
             .compose(ResponseTransformer.obtain())
             .subscribe({ data ->
                 callback.onSuccess(data)
@@ -59,5 +59,8 @@ class HomeProviderImpl @Inject constructor(private val apiService: ApiService) :
                 }
             })
     }
+
+     fun bannerApi(): Observable<ApiResponse<List<BannerBean>>> =
+        apiService.getBannerListData()
 
 }

@@ -47,6 +47,7 @@ class HomePresenter(
         rootView?.let {
             model.collectStatus(id, object : ResponseCallback<Any> {
                 override fun onSuccess(data: Any) {
+                    it.refreshCollectStatus(true)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
@@ -60,6 +61,7 @@ class HomePresenter(
         rootView?.let {
             model.unCollectStatus(id, object : ResponseCallback<Any> {
                 override fun onSuccess(data: Any) {
+                    it.refreshCollectStatus(false)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {

@@ -54,7 +54,8 @@ ext {
             magicIndicatorVersion     : "1.7.0",
             flexboxVersion            : "3.0.0",
             bannerVersion             : "2.2.2",
-            slidingpanelayoutVersion  : "1.1.0"
+            slidingpanelayoutVersion  : "1.1.0",
+            dialogXVersion            : "0.0.37"
     ]
 
     dependencies = [
@@ -133,8 +134,6 @@ ext {
             //----------------------------------------StateLayout---------------------------------------------------------
             "stateLayout"                         : "com.github.liangjingkanji:StateLayout:${version.stateLayoutVersion}",
 
-            //----------------------------------------BasePopup-----------------------------------------------------------
-            "basePopup"                           : "com.github.razerdp:BasePopup:${version.basePopupVersion}",
 
             //----------------------------------------Immersionbar--------------------------------------------------------
             "immersionbar"                        : "com.geyifeng.immersionbar:immersionbar:${version.immersionbarVersion}",
@@ -147,6 +146,10 @@ ext {
             "autosize"                            : "com.github.JessYanCoding:AndroidAutoSize:${version.autosizeVersion}",
 
             //----------------------------------------View-----------------------------------------------------------------
+            "basePopup"                           : "com.github.razerdp:BasePopup:${version.basePopupVersion}",
+
+            "dialogX"                             : "com.kongzue.dialogx:DialogX:${version.dialogXVersion}",
+
             "baseRecyclerViewAdapterHelper"       : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${version.recyclerViewAdapterVersion}",
 
             "magicIndicator"                      : "com.github.hackware1993:MagicIndicator:${version.magicIndicatorVersion}",

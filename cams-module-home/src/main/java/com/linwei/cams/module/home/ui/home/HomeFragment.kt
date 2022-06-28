@@ -16,6 +16,8 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     @Autowired
     lateinit var title: String
 
+    private var mPage: Int = 0
+
     override fun hasInjectARouter(): Boolean = true
 
     override fun initView() {
@@ -23,7 +25,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     }
 
     override fun initData() {
-
+        mMvpPresenter?.requestHomeData(mPage)
     }
 
     override fun initEvent() {
@@ -36,5 +38,10 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     }
 
     override fun updateBannerDataToView(bannerList: List<BannerBean>) {
+
+    }
+
+    override fun refreshCollectStatus(status: Boolean) {
+
     }
 }
