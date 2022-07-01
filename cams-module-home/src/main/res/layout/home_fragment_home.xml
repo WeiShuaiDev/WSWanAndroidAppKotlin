@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchAndMatch"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/stateBarView"
+        layout="@layout/include_status" />
 
+    <include
+        android:id="@+id/topRootLayout"
+        layout="@layout/include_top_view_primary" />
 
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/homeRefreshLayout"
+        style="@style/MatchAndMatch"
+        android:clipChildren="false"
+        app:srlAccentColor="@color/colorGlobalTextGray">
+
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:id="@+id/homeClassicsHeaderLayout"
+            style="@style/MatchAndWrap"
+            android:layout_marginTop="?attr/actionBarSize" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeRecyclerView"
+            style="@style/MatchAndMatch"
+            android:background="@color/colorGlobalWhite"
+            android:nestedScrollingEnabled="false" />
+
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:id="@+id/homeClassicsFooterLayout"
+            style="@style/MatchAndWrap"
+            app:srlPrimaryColor="@color/colorGlobalTextWhite" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

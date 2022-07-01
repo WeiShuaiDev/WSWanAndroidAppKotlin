@@ -5,6 +5,7 @@
         <attr format="float" name="indicator_expandingRatio"/>
         <attr format="float" name="indicator_expandingAllItemRatio"/>
     </declare-styleable>
+
     <declare-styleable name="ShineButton">
         <attr name="btn_color" format="color" />
         <attr name="btn_fill_color" format="color" />
@@ -20,9 +21,11 @@
         <attr name="shine_distance_multiple" format="float" />
         <attr name="shine_size" format="dimension" />
     </declare-styleable>
+
     <declare-styleable name="PorterImageView">
         <attr name="siShape" format="integer|reference" />
     </declare-styleable>
+
     <attr name="srlShadowColor" format="color"/>
     <attr name="srlShadowRadius" format="dimension"/>
 
@@ -46,6 +49,7 @@
         <attr name="bt_badgeTextColor" format="color" />
         <attr name="bt_badgeText" format="string" />
     </declare-styleable>
+
     <declare-styleable name="BubbleNavigationConstraintView">
         <attr name="bnc_mode">
             <enum name="spread" value="0" />
@@ -54,13 +58,24 @@
         </attr>
     </declare-styleable>
 
-
-
+    <declare-styleable name="BubbleImageView">
+        <attr name="bubble_arrowTop" format="dimension|reference" />
+        <attr name="bubble_arrowWidth" format="dimension|reference" />
+        <attr name="bubble_arrowHeight" format="dimension|reference" />
+        <attr name="bubble_arrowOffset" format="dimension|reference" />
+        <attr name="bubble_angle" format="dimension|reference" />
+        <attr name="bubble_arrowLocation" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="bubble_showText" format="boolean" />
+        <attr name="bubble_showShadow" format="boolean" />
+        <attr name="bubble_showArrow" format="boolean" />
+    </declare-styleable>
 
     <declare-styleable name="SideBar">
         <attr name="maxTranslationX" format="dimension" />
     </declare-styleable>
-
 
     <declare-styleable name="SlidingUpPanelLayout">
         <attr name="umanoPanelHeight" format="dimension" />
@@ -87,6 +102,7 @@
         <attr name="shadowSrc" format="reference" />
         <attr name="shadowColor" format="color" />
     </declare-styleable>
+
     <declare-styleable name="ShadowLayout">
         <!-- 1、关于阴影 -->
         <!--阴影：是否要显示阴影，可能有只想用shape和selector功能，不想要阴影-->
@@ -123,7 +139,6 @@
         <!--圆角：右下圆角。同上-->
         <attr name="hl_cornerRadius_rightBottom" format="dimension" />
 
-
         <!-- 3、关于shape及selector -->
         <!-- shape及selector样式：pressed、sectored -->
         <attr name="hl_shapeMode">
@@ -143,16 +158,12 @@
         <!-- 为true时，默认的stoke颜色值，必须搭配hl_strokeColor属性使用。否则报错-->
         <attr name="hl_strokeColor_true" format="color" />
 
-
         <!-- 这里最终舍弃了系统clickable的方案，因为系统系统主动设置setOnClickListener后，会主动设置成true,所以这里采用自定义 -->
         <attr name="clickable" format="boolean" />
         <!-- hl_clickable为false时，要展示的图片或颜色-->
         <attr name="hl_layoutBackground_clickFalse" format="reference|color" />
 
-
     </declare-styleable>
-
-
 
     <declare-styleable name="Polygon">
         <attr name="radius" format="dimension|reference" />
@@ -161,11 +172,12 @@
         <attr name="innerColor" format="color|reference" />
         <attr name="isHasStroke" format="boolean|reference" />
     </declare-styleable>
+
     <declare-styleable name="TabView">
         <attr name="text_size" format="dimension" />
         <attr name="text_normal_color" format="color" />
         <attr name="text_select_color" format="color" />
         <attr name="item_padding" format="dimension" />
-
     </declare-styleable>
+
 </resources>

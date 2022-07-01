@@ -4,7 +4,7 @@ static def releaseTime() {
 
 android {
     defaultConfig {
-        applicationId "com.linwei.camsmodular"
+        applicationId "com.linwei.wswanandroidappkotlin"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]

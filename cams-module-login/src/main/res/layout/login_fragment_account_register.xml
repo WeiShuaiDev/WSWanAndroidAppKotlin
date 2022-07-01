@@ -10,7 +10,7 @@
         android:padding="@dimen/dp_10">
 
         <ImageView
-            android:id="@+id/loginCloseIv"
+            android:id="@+id/loginCloseView"
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -35,8 +35,8 @@
         android:paddingStart="@dimen/dp_20"
         android:paddingEnd="@dimen/dp_20">
 
-        <com.linwei.cams.component.weight.ClearEditTextView
-            android:id="@+id/loginInputAccountTv"
+        <com.linwei.cams.component.weight.ClearEditText
+            android:id="@+id/loginInputAccountView"
             style="@style/MatchAndWrap"
             android:background="@android:color/transparent"
             android:drawablePadding="@dimen/dp_8"
@@ -61,7 +61,7 @@
             app:passwordToggleEnabled="true">
 
             <EditText
-                android:id="@+id/loginInputPasswordEt"
+                android:id="@+id/loginInputPasswordView"
                 style="@style/MatchAndWrap"
                 android:background="@null"
                 android:drawablePadding="@dimen/dp_8"
@@ -78,8 +78,8 @@
             style="@style/HorizontalLine"
             android:layout_marginTop="@dimen/dp_10" />
 
-        <com.linwei.cams.component.weight.button.SubmitButtonView
-            android:id="@+id/loginLoginBtn"
+        <com.linwei.cams.component.weight.submit_button.SubmitButton
+            android:id="@+id/loginLoginView"
             android:layout_width="@dimen/dp_250"
             android:layout_height="@dimen/dp_50"
             android:layout_gravity="center_horizontal"

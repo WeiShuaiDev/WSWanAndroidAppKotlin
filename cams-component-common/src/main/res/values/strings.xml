@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BaseLibrary</string>
+    <string name="app_name">WSWanAndroidAppKotlin</string>
 
     <string name="back">退出</string>
     <string name="setting">设置</string>

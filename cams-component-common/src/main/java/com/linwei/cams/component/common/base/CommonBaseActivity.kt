@@ -8,6 +8,9 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import androidx.viewbinding.ViewBinding
+import com.gyf.immersionbar.BarHide
+import com.gyf.immersionbar.ImmersionBar
+import com.linwei.cams.component.common.R
 import com.linwei.cams.component.common.opensource.ARouterManager
 import com.linwei.cams.component.common.utils.AndroidBugFixUtils
 import com.linwei.cams.component.common.utils.EventBusUtils
@@ -42,7 +45,7 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
         mBaseStatusHelper?.onRestoreInstanceStatus(savedInstanceState)
 
         onCreateExpand()
-
+        initImmersionBar()
         initView()
         initData()
         initEvent()
@@ -137,6 +140,26 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
     protected open fun onCreateExpand() {
         mContext = this
     }
+
+    open fun initImmersionBar() {
+        if (!fullScreen()) {
+            ImmersionBar.with(this)
+                .statusBarView(R.id.stateBarView)
+                .transparentBar()
+                .statusBarDarkFont(true)
+                .keyboardEnable(true)
+                .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
+                .init()
+        } else {
+            ImmersionBar.with(this)
+                .fullScreen(true)
+                .keyboardEnable(true)
+                .hideBar(BarHide.FLAG_HIDE_BAR)
+                .init()
+        }
+    }
+
+    protected open fun fullScreen(): Boolean = false
 
     protected abstract fun initView()
 

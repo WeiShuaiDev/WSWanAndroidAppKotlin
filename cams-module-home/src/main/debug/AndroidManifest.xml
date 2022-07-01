@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/HomeModuleAppTheme">
         <activity
-            android:name=".ui.HomeDetailsActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true"
             android:label="@string/home_module_page">
@@ -22,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.HomeDetailsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

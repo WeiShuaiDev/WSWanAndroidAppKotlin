@@ -4,40 +4,41 @@ import com.linwei.cams.component.mvp.mvp.model.IMvpModel
 import com.linwei.cams.component.mvp.mvp.presenter.IMvpPresenter
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.home.model.BannerBean
-import com.linwei.cams.service.home.model.HomeBean
+import com.linwei.cams.service.base.model.Page
+import com.linwei.cams.service.home.model.ArticleEntity
+import com.linwei.cams.service.home.model.BannerEntity
 
 interface IHomeModel : IMvpModel {
 
-    fun fetchHomeData(
+    fun fetchArticleData(
         page: Int,
-        callback: ResponseCallback<HomeBean>
+        callback: ResponseCallback<Page<ArticleEntity>>
     )
 
     fun fetchBannerData(
-        callback: ResponseCallback<List<BannerBean>>
+        callback: ResponseCallback<List<BannerEntity>>
     )
 
-    fun collectStatus(id: String, callback: ResponseCallback<Any>)
+    fun collectStatus(id: Int, callback: ResponseCallback<Any>)
 
-    fun unCollectStatus(id: String, callback: ResponseCallback<Any>)
+    fun unCollectStatus(id: Int, callback: ResponseCallback<Any>)
 }
 
 interface IHomePresenter : IMvpPresenter {
-    fun requestHomeData(page: Int)
+    fun requestArticleData(page: Int)
 
     fun requestBannerData()
 
-    fun requestCollectStatus(id: String)
+    fun requestCollectStatus(id: Int)
 
-    fun requestUnCollectStatus(id: String)
+    fun requestUnCollectStatus(id: Int)
 }
 
 interface IHomeView : IMvpView {
 
-    fun updateHomeDataToView(homeBean: HomeBean)
+    fun updateArticleDataToView(articlePage: Page<ArticleEntity>)
 
-    fun updateBannerDataToView(bannerList: List<BannerBean>)
+    fun updateBannerDataToView(bannerList: List<BannerEntity>)
 
     fun refreshCollectStatus(status: Boolean)
 }

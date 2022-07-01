@@ -29,6 +29,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter()
         /*
         maven {
             url 'https://dl.google.com/dl/android/maven2/'

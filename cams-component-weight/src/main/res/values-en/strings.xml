@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">library-widget</string>
     <string name="tab1">Home</string>
     <string name="tab2">Project</string>
     <string name="tab5">Me</string>

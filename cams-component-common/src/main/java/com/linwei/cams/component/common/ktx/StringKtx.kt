@@ -1,5 +1,15 @@
 package com.linwei.cams.component.common.ktx
 
+/**
+ * Int转换为String
+ */
+fun Int?.idToString(): String {
+    this?.takeIf {
+        return ctx.getString(it)
+    }
+    return ""
+}
+
 
 /**
  * 不为null且不空字符串判断
@@ -56,9 +66,9 @@ fun List<Any>?.isNotNullOrSize(): Boolean {
     return false
 }
 
-fun Array<*>?.isNotNullOrSize():Boolean{
+fun Array<*>?.isNotNullOrSize(): Boolean {
     this?.let {
-        if (it.size>0) {
+        if (it.size > 0) {
             return true
         }
     }

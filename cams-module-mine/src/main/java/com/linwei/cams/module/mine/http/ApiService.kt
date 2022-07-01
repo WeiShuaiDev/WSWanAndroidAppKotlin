@@ -12,12 +12,12 @@ interface ApiService {
      * 增加收藏
      */
     @POST("lg/collect/{id}/json")
-    fun collect(@Path("id") id: String): Observable<ApiResponse<Any>>
+    fun collect(@Path("id") id: Int): Observable<ApiResponse<Any>>
 
     /**
      * 取消收藏
      */
     @POST("lg/uncollect_originId/{id}/json")
-    fun unCollect(@Path("id") id: String): Observable<ApiResponse<Any>>
+    fun unCollect(@Path("id") id: Int): Observable<ApiResponse<Any>>
 
 }

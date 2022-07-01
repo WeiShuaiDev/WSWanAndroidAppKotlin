@@ -24,4 +24,5 @@ object DiHomeModule {
     fun provideProjectApiService(apiServiceWrap: ApiServiceWrap): ApiService {
         return ApiClient.getInstance().getService(apiServiceWrap)
     }
+
 }

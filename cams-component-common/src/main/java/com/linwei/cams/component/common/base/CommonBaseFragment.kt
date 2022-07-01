@@ -11,11 +11,13 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
+import com.gyf.immersionbar.BarHide
+import com.gyf.immersionbar.ImmersionBar
+import com.linwei.cams.component.common.R
 import com.linwei.cams.component.common.opensource.ARouterManager
 import com.linwei.cams.component.common.utils.EventBusUtils
 import com.quyunshuo.androidbaseframemvvm.base.utils.status.ViewStatusHelper
 import com.trello.rxlifecycle4.components.support.RxFragment
-import com.trello.rxlifecycle4.components.support.RxFragmentActivity
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
 
@@ -28,7 +30,7 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
 
     protected lateinit var mContext: Context
 
-    protected  var mActivity:FragmentActivity?=null
+    protected var mActivity: FragmentActivity? = null
 
     /**
      * 基础状态管理帮助类
@@ -38,7 +40,7 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
-        mActivity=activity
+        mActivity = activity
         //在新版本的Fragment#onActivityCreated()废除.使用LifecycleObserver监听
         //onActivityCreated() 方法现已弃用。与 Fragment 视图有关的代码应在 onViewCreated()（在 onActivityCreated() 之前调用）中执行，而其他初始化代码应在 onCreate() 中执行。如需专门在 Activity 的 onCreate() 完成时接收回调，应在 onAttach() 中的 Activity 的 Lifecycle 上注册 LifeCycleObserver，并在收到 onCreate() 回调后将其移除。
         //版权声明：本文为CSDN博主「Ym Android开发工程师」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
@@ -86,6 +88,7 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
         //恢复状态数据
         mBaseStatusHelper?.onRestoreInstanceStatus(savedInstanceState)
 
+        initImmersionBar()
         initView()
         initData()
         initEvent()
@@ -146,6 +149,19 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
     protected open fun hasLayoutIdBinding(): Boolean = false
 
     protected open fun hasEventBus(): Boolean = false
+
+    protected open fun immersionBar(): Boolean = false
+
+    protected open fun initImmersionBar() {
+        if (immersionBar()) {
+            ImmersionBar.with(this)
+                .titleBar(R.id.stateBarView, false)
+                .statusBarDarkFont(true)
+                .keyboardEnable(true)
+                .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
+                .init()
+        }
+    }
 
     protected open fun onCreateViewExpand(
         inflater: LayoutInflater,

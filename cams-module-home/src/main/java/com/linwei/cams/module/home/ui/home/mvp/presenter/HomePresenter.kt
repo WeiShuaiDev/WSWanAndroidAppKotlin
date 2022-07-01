@@ -7,19 +7,20 @@ import com.linwei.cams.module.home.ui.home.mvp.contract.IHomeView
 import com.linwei.cams.module.home.ui.home.mvp.model.HomeModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.home.model.BannerBean
-import com.linwei.cams.service.home.model.HomeBean
+import com.linwei.cams.service.base.model.Page
+import com.linwei.cams.service.home.model.ArticleEntity
+import com.linwei.cams.service.home.model.BannerEntity
 
 class HomePresenter(
     private var rootView: IHomeView?,
     private val model: IHomeModel = HomeModel()
 ) : MvpPresenter<IHomeView, IHomeModel>(rootView, model), IHomePresenter {
 
-    override fun requestHomeData(page: Int) {
+    override fun requestArticleData(page: Int) {
         rootView?.let {
-            model.fetchHomeData(page, object : ResponseCallback<HomeBean> {
-                override fun onSuccess(data: HomeBean) {
-                    it.updateHomeDataToView(data)
+            model.fetchArticleData(page, object : ResponseCallback<Page<ArticleEntity>> {
+                override fun onSuccess(data: Page<ArticleEntity>) {
+                    it.updateArticleDataToView(data)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
@@ -31,8 +32,8 @@ class HomePresenter(
 
     override fun requestBannerData() {
         rootView?.let {
-            model.fetchBannerData(object : ResponseCallback<List<BannerBean>> {
-                override fun onSuccess(data: List<BannerBean>) {
+            model.fetchBannerData(object : ResponseCallback<List<BannerEntity>> {
+                override fun onSuccess(data: List<BannerEntity>) {
                     it.updateBannerDataToView(data)
                 }
 
@@ -43,7 +44,7 @@ class HomePresenter(
         }
     }
 
-    override fun requestCollectStatus(id: String) {
+    override fun requestCollectStatus(id: Int) {
         rootView?.let {
             model.collectStatus(id, object : ResponseCallback<Any> {
                 override fun onSuccess(data: Any) {
@@ -57,7 +58,7 @@ class HomePresenter(
         }
     }
 
-    override fun requestUnCollectStatus(id: String) {
+    override fun requestUnCollectStatus(id: Int) {
         rootView?.let {
             model.unCollectStatus(id, object : ResponseCallback<Any> {
                 override fun onSuccess(data: Any) {

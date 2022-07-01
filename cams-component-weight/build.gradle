@@ -6,4 +6,6 @@ dependencies {
 
     implementation project(':cams-component-image')
 
+    implementation rootProject.ext.dependencies["nineoldandroids"]
+
 }

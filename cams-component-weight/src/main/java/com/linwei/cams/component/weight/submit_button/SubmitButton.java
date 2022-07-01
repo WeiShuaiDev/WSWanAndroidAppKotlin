@@ -1,4 +1,4 @@
-package com.linwei.cams.component.weight.button;
+package com.linwei.cams.component.weight.submit_button;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -10,10 +10,20 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+
 import androidx.core.content.ContextCompat;
+
 import com.linwei.cams.component.weight.R;
 
-public class SubmitButtonView extends View {
+
+/**
+ * @date: 2019\3\4 0004
+ * @author: zlx
+ * @email: 1170762202@qq.com
+ * @description:
+ */
+public class SubmitButton extends View {
+
 
     private long DURATION_RECT2ROUND = 500;
     private long DURATION_GATHER = 500;
@@ -39,17 +49,17 @@ public class SubmitButtonView extends View {
     private boolean isMorphing = false;
     private AnimatorSet animatorSet;
 
-    public SubmitButtonView(Context context) {
+    public SubmitButton(Context context) {
         super(context);
         init(context);
     }
 
-    public SubmitButtonView(Context context, AttributeSet attrs) {
+    public SubmitButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public SubmitButtonView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SubmitButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -57,7 +67,7 @@ public class SubmitButtonView extends View {
     private void init(Context context) {
         paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setColor(ContextCompat.getColor(context, R.color.colorGlobalGray));
+        paint.setColor(ContextCompat.getColor(context, R.color.colorPrimaryText));
 
         paintArc = new Paint();
         paintArc.setAntiAlias(true);

@@ -9,8 +9,7 @@ import javax.inject.Inject
 
 class LoginModel : MvpModel(), ILoginModel {
 
-    @Inject
-    lateinit var mLoginProvider: LoginProviderImpl
+    private val mLoginProvider: LoginProviderImpl=LoginProviderImpl()
 
     override fun login(userName: String, passWord: String, callback: ResponseCallback<UserInfoBean>) {
         mLoginProvider.login(userName, passWord, callback)

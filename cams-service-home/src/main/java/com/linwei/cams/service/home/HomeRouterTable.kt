@@ -9,10 +9,10 @@ object HomeRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_HOME:String="/home/homeActivity"
+    const val PATH_ACTIVITY_HOME: String = "/home/homeActivity"
 
     /**
      * ----------------Fragment-------------------------
      */
-    const val PATH_FRAGMENT_HOME:String="/home/homeFragment"
+    const val PATH_FRAGMENT_HOME: String = "/home/homeFragment"
 }

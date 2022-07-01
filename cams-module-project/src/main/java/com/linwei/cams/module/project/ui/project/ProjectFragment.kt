@@ -13,7 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 @Route(path = ProjectRouterTable.PATH_FRAGMENT_PROJECT)
-class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectViewModel>(), ProjectView {
+class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectViewModel>(),
+    ProjectView {
 
     @Autowired
     lateinit var title: String
@@ -21,8 +22,8 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
     override fun hasInjectARouter(): Boolean = true
 
     override fun initView() {
-
     }
+
 
     override fun initData() {
 
@@ -36,7 +37,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
     }
 
     override fun projectTreeDataToView(data: List<ProjectTreeBean>?) {
-        mViewBinding.projectContentTv.text = data.toString()
+        //mViewBinding.projectContentTv.text = data.toString()
     }
 
     override fun projectTreeDetailsDataToView(data: List<ProjectTreeDetailsBean>?) {

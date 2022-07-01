@@ -40,13 +40,14 @@ android {
     }
 
     buildFeatures {
-        viewBinding false
-        dataBinding false
+        viewBinding true
+        dataBinding true
     }
 
     buildscript {
         repositories {
             mavenCentral()
+            google()
         }
     }
 }

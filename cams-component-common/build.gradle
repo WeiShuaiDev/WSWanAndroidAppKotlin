@@ -97,6 +97,17 @@ dependencies {
     //PopupWindow
     api rootProject.ext.dependencies["basePopup"]
 
+    //Banner
     api rootProject.ext.dependencies["banner"]
 
+    //Immersionbar
+    api rootProject.ext.dependencies["immersionbar"]
+    api rootProject.ext.dependencies["immersionbar-ktx"]
+
+    api('com.alibaba.android:vlayout:1.2.8@aar') {
+        transitive = true
+    }
+
+    //Tangram
+    api rootProject.ext.dependencies["tangram"]
 }

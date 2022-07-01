@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchAndWrap"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/homeTopView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:visibility="gone" />
+
+    <com.linwei.cams.component.weight.shadow.ShadowLayout
+        android:id="@+id/homeShadowLayout"
+        style="@style/MatchAndWrap"
+        android:layout_marginStart="@dimen/dp_2"
+        android:layout_marginTop="@dimen/dp_2"
+        android:layout_marginEnd="@dimen/dp_2"
+        app:hl_cornerRadius="@dimen/dp_2"
+        app:hl_shadowLimit="@dimen/dp_3">
+
+        <LinearLayout
+            style="@style/MatchAndWrap"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_20"
+            android:paddingEnd="@dimen/dp_20"
+            android:paddingBottom="@dimen/dp_10">
+
+            <LinearLayout
+                style="@style/MatchAndWrap"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/homeTagView"
+                    style="@style/WrapAndWrap"
+                    android:layout_marginEnd="@dimen/dp_4"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/colorGlobalHighText"
+                    android:textSize="@dimen/sp_14"
+                    tools:text="新" />
+
+                <TextView
+                    android:id="@+id/homeTitleView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/sp_14"
+                    tools:text="标题" />
+
+                <TextView
+                    android:id="@+id/homeTimeView"
+                    style="@style/WrapAndWrap"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/sp_11"
+                    tools:text="时间" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/homeContentView"
+                style="@style/WrapAndWrap"
+                android:layout_marginTop="@dimen/dp_10"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/sp_12"
+                tools:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" />
+
+            <LinearLayout
+                style="@style/MatchAndWrap"
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/homeChapterView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/sp_11"
+                    tools:text="作者" />
+
+                <com.linwei.cams.component.weight.shinebutton.ShineButton
+                    android:id="@+id/homeShineButtonView"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15"
+                    app:btn_color="@android:color/darker_gray"
+                    app:btn_fill_color="@color/colorAccent"
+                    app:enable_flashing="true"
+                    app:siShape="@raw/star" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.linwei.cams.component.weight.shadow.ShadowLayout>
+
+</LinearLayout>

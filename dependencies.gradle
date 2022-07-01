@@ -55,7 +55,8 @@ ext {
             flexboxVersion            : "3.0.0",
             bannerVersion             : "2.2.2",
             slidingpanelayoutVersion  : "1.1.0",
-            dialogXVersion            : "0.0.37"
+            dialogXVersion            : "0.0.37",
+            nineoldandroidsVersion    : "2.4.0"
     ]
 
     dependencies = [
@@ -166,6 +167,8 @@ ext {
 
             "refreshLayoutKernel"                 : "io.github.scwang90:refresh-layout-kernel:${version.refreshVersion}",      //核心必须依赖
             "refreshHeaderTwoLevel"               : "io.github.scwang90:refresh-header-two-level:${version.refreshVersion}",   //二级刷新头
+
+            "nineoldandroids"                     : "com.nineoldandroids:library:${version.nineoldandroidsVersion}",
 
             //----------------------------------------Eventbus------------------------------------------------------------
             "eventbus"                            : "org.greenrobot:eventbus:${version.eventbusVersion}",

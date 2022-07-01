@@ -14,14 +14,13 @@ import com.linwei.cams.component.mvp.base.MvpBaseActivity
 import com.linwei.cams.component.mvp.mvp.model.IMvpModel
 import com.linwei.cams.component.mvp.mvp.presenter.MvpPresenter
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
-import com.linwei.cams.module.home.databinding.HomeActivityHomeBinding
 import com.linwei.cams.module.home.databinding.HomeActivityHomeDetailsBinding
-import com.linwei.cams.module.home.ui.home.mvp.contract.IHomeView
-import com.linwei.cams.module.home.ui.home.mvp.presenter.HomePresenter
 import com.linwei.tool.XToolReporter
 import com.linwei.tool.ui.crash.CrashReporterActivity
 import com.linwei.tool.ui.network.NetworkReporterActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeDetailsActivity :
     MvpBaseActivity<HomeActivityHomeDetailsBinding, MvpPresenter<IMvpView, IMvpModel>>(), IMvpView {
 
@@ -82,7 +81,6 @@ class HomeDetailsActivity :
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

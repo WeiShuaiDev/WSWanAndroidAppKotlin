@@ -1,6 +1,6 @@
 package com.linwei.cams.service.home.model
 
-data class BannerBean(
+data class BannerEntity(
     val desc: String,
     val id: Int,
     val imagePath: String,

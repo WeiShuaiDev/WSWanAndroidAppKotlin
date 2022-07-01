@@ -13,13 +13,13 @@ class SquareProviderImpl @Inject constructor() : SquareProvider {
 
     private lateinit var mContext: Context
 
+    override fun init(context: Context) {
+        mContext = context
+    }
+
     /**
      * TODO:这里发现一问题，ApiService使用Hint注入，导致跨模块引用 `ApiService`还没初始化。
      *      这样违背之前设置原则.所以只能妥协。毕竟[SquareProviderImpl]类是跨模块共享
      */
     private val mApiService = ApiClient.getInstance().getService(ApiServiceWrap())
-
-    override fun init(context: Context) {
-        mContext = context
-    }
 }

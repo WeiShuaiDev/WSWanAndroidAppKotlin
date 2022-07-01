@@ -10,28 +10,29 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
+
 import androidx.appcompat.widget.AppCompatEditText;
 
-public class ClearEditTextView extends AppCompatEditText implements View.OnFocusChangeListener, TextWatcher {
+public class ClearEditText extends AppCompatEditText implements View.OnFocusChangeListener, TextWatcher {
 
     //右边的删除按钮
     private Drawable mClearDrawable;
 
-    public ClearEditTextView(Context context) {
+    public ClearEditText(Context context) {
         this(context, null);
     }
 
-    public ClearEditTextView(Context context, AttributeSet attrs) {
+    public ClearEditText(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.editTextStyle);
     }
 
-    public ClearEditTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     private void init() {
-        mClearDrawable =getResources().getDrawable(R.mipmap.ic_delete);
+        mClearDrawable = getResources().getDrawable(R.mipmap.ic_delete);
         //设置删除按钮的边界
         mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(), mClearDrawable.getIntrinsicHeight());
         //默认隐藏删除按钮
