@@ -40,5 +40,7 @@ interface IHomeView : IMvpView {
 
     fun updateBannerDataToView(bannerList: List<BannerEntity>)
 
+    fun refreshDataFailed(isRefresh:Boolean)
+
     fun refreshCollectStatus(status: Boolean)
 }

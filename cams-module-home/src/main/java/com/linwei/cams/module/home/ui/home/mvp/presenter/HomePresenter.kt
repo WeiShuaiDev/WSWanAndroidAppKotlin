@@ -25,6 +25,7 @@ class HomePresenter(
 
                 override fun onFailed(errorMessage: ErrorMessage) {
                     it.showToast(errorMessage.message)
+                    it.refreshDataFailed(page == 0)
                 }
             })
         }

@@ -16,7 +16,8 @@
         android:id="@+id/homeRefreshLayout"
         style="@style/MatchAndMatch"
         android:clipChildren="false"
-        app:srlAccentColor="@color/colorGlobalTextGray">
+        app:srlAccentColor="@color/colorGlobalTextGray"
+        app:srlEnablePreviewInEditMode="true">
 
         <com.scwang.smart.refresh.header.ClassicsHeader
             android:id="@+id/homeClassicsHeaderLayout"
@@ -33,6 +34,7 @@
             android:id="@+id/homeClassicsFooterLayout"
             style="@style/MatchAndWrap"
             app:srlPrimaryColor="@color/colorGlobalTextWhite" />
+
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

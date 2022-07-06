@@ -39,13 +39,12 @@ class HomeArticleAdapter(
                 homeTagView.visibility = if (it.fresh) View.VISIBLE else View.GONE
                 homeTopView.visibility = if (position == 0 && hasTop) View.VISIBLE else View.GONE
 
-                homeShineButtonView.isChecked = true
-
-                homeShineButtonView.setOnClickListener { view ->
+                homeShineButtonView.isChecked = it.collect
+                homeShineButtonView.setOnCheckStateChangeListener { view, checked ->
+                    System.out.println("homeShineButtonView ClickListener")
                     onArticleCollectListener?.onCollect(it)
                     it.collect = !it.collect
                     notifyItemChanged(position)
-                    System.out.println("homeShineButtonView onClick~~")
                 }
 
                 homeShadowLayout.setOnClickListener { view ->

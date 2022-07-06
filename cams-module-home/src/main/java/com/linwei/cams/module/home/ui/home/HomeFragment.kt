@@ -20,7 +20,6 @@ import com.linwei.cams.service.home.model.ArticleEntity
 import com.linwei.cams.service.home.model.BannerEntity
 import com.scwang.smart.refresh.layout.api.RefreshHeader
 import com.scwang.smart.refresh.layout.api.RefreshLayout
-import com.scwang.smart.refresh.layout.listener.OnMultiListener
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,7 +30,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     @Autowired
     lateinit var title: String
 
-    private var mPage: Int = 0
+    private var mCurPage: Int = 0
 
     override fun hasInjectARouter(): Boolean = true
 
@@ -91,29 +90,27 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     }
 
     override fun initData() {
-        mMvpPresenter?.requestBannerData()
-        mMvpPresenter?.requestArticleData(mPage)
+        mViewBinding.homeRefreshLayout.autoRefresh()
     }
 
     override fun initEvent() {
         mViewBinding.homeRefreshLayout.setOnMultiListener(object : SimpleMultiListener() {
 
-            override fun onHeaderMoving(
-                header: RefreshHeader?,
-                isDragging: Boolean,
-                percent: Float,
-                offset: Int,
-                headerHeight: Int,
-                maxDragHeight: Int
-            ) {
-                ((mViewBinding.topRootLayout) as LinearLayout).setAlpha(1 - Math.min(percent, 1f))
-            }
-
             override fun onRefresh(refreshLayout: RefreshLayout) {
-
+                mCurPage = 0
+                mMvpPresenter?.let {
+                    it.requestArticleData(mCurPage)
+                    it.requestBannerData()
+                }
             }
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
+                mCurPage++
+                if (mCurPage <= mArticlePage.pageCount) {
+                    mMvpPresenter?.requestArticleData(mCurPage)
+                } else {
+                    mViewBinding.homeRefreshLayout.finishLoadMoreWithNoMoreData()
+                }
             }
         })
     }
@@ -122,11 +119,17 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun updateArticleDataToView(articlePage: Page<ArticleEntity>) {
         mArticlePage = articlePage
+
         articlePage.datas?.let {
-            val positionStart = mArticleList.size
+            val positionStart: Int
+            if (mCurPage == 0) {
+                positionStart = 0
+                mArticleList.clear()
+            } else {
+                positionStart = mArticleList.size
+            }
             mArticleList.addAll(it)
             mHomeArticleAdapter?.notifyItemRangeChanged(positionStart, it.size)
-
         }
         mViewBinding.homeRefreshLayout.finishRefresh()
         mViewBinding.homeRefreshLayout.finishLoadMore()
@@ -140,5 +143,13 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun refreshCollectStatus(status: Boolean) {
 
+    }
+
+    override fun refreshDataFailed(isRefresh: Boolean) {
+        if (isRefresh) {
+            mViewBinding.homeRefreshLayout.finishRefresh(false)
+        } else {
+            mViewBinding.homeRefreshLayout.finishLoadMore(false)
+        }
     }
 }
