@@ -41,7 +41,7 @@ interface WelcomeView : MviView<WelcomeViewModel> {
      * 项目树数据更新到View
      * @param data [ProjectTreeBean]
      */
-    fun projectTreeDataToView(data: List<ProjectTreeBean>?)
+    fun projectTreeDataToView(data: List<ProjectTreeBean>)
 
 
     override fun bindOtherMviViewEvent(event: MviViewEvent) {

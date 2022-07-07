@@ -2,13 +2,15 @@ package com.linwei.cams.module.project.ui.project.mvi.view
 
 import androidx.lifecycle.LifecycleOwner
 import com.linwei.cams.framework.mvi.ktx.FetchStatus
+import com.linwei.cams.framework.mvi.ktx.observeOnlyState
 import com.linwei.cams.framework.mvi.ktx.observeState
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
 import com.linwei.cams.framework.mvi.mvi.view.MviView
 import com.linwei.cams.module.project.ui.project.mvi.intent.ProjectViewModel
 import com.linwei.cams.module.project.ui.project.mvi.model.MviViewState
+import com.linwei.cams.service.base.model.Page
+import com.linwei.cams.service.project.model.ProjectBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
-import com.linwei.cams.service.project.model.ProjectTreeDetailsBean
 
 interface ProjectView : MviView<ProjectViewModel> {
 
@@ -16,13 +18,20 @@ interface ProjectView : MviView<ProjectViewModel> {
         super.bindViewModel(viewModel, owner)
         viewModel?.let {
             it.viewState.run {
-
-                observeState(owner, MviViewState::projectTreeList) {
+                observeOnlyState(owner, MviViewState::projectTreeList) {
                     projectTreeDataToView(it)
                 }
 
-                observeState(owner, MviViewState::projectTreeDetailsList) {
-                    projectTreeDetailsDataToView(it)
+                observeOnlyState(owner, MviViewState::projectPage) {
+                    projectDataToView(it)
+                }
+
+                observeOnlyState(owner,MviViewState::collectStatus){
+                    refreshCollectStatus(it)
+                }
+
+                observeState(owner,MviViewState::isRefresh){
+                    refreshDataStatus(it)
                 }
 
                 observeState(owner, MviViewState::fetchStatus) {
@@ -47,16 +56,27 @@ interface ProjectView : MviView<ProjectViewModel> {
         //扩展Event监听
     }
 
-
     /**
      * 项目树数据更新到View
      * @param data [ProjectTreeBean]
      */
-    fun projectTreeDataToView(data: List<ProjectTreeBean>?)
+    fun projectTreeDataToView(data: List<ProjectTreeBean>)
 
     /**
-     * 项目树详情数据更新到View
-     * @param data [ProjectTreeDetailsBean]
+     * 项目数据更新到View
+     * @param data [ProjectBean]
      */
-    fun projectTreeDetailsDataToView(data: List<ProjectTreeDetailsBean>?)
+    fun projectDataToView(page: Page<ProjectBean>)
+
+    /**
+     * 更新收藏状态
+     * @param status [Boolean]
+     */
+    fun refreshCollectStatus(status:Boolean)
+
+    /**
+     * 更新刷新状态
+     * @param isRefresh [Boolean]
+     */
+    fun refreshDataStatus(isRefresh:Boolean)
 }

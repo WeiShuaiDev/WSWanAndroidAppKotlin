@@ -1,7 +1,6 @@
 package com.linwei.cams.module.home.ui.home
 
 import android.view.View
-import android.widget.LinearLayout
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.vlayout.DelegateAdapter
@@ -16,9 +15,8 @@ import com.linwei.cams.module.home.ui.home.mvp.contract.IHomeView
 import com.linwei.cams.module.home.ui.home.mvp.presenter.HomePresenter
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.home.HomeRouterTable
-import com.linwei.cams.service.home.model.ArticleEntity
-import com.linwei.cams.service.home.model.BannerEntity
-import com.scwang.smart.refresh.layout.api.RefreshHeader
+import com.linwei.cams.service.home.model.ArticleBean
+import com.linwei.cams.service.home.model.BannerBean
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,10 +34,10 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun immersionBar(): Boolean = true
 
-    private var mArticlePage = Page<ArticleEntity>()
-    private val mArticleList = mutableListOf<ArticleEntity>()
+    private var mArticlePage = Page<ArticleBean>()
+    private val mArticleList = mutableListOf<ArticleBean>()
 
-    private val mBannerList = mutableListOf<BannerEntity>()
+    private val mBannerList = mutableListOf<BannerBean>()
 
     private var mVirtualLayoutManager: VirtualLayoutManager? = null
     private var mDelegateAdapter: DelegateAdapter? = null
@@ -69,7 +67,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
         mHomeArticleAdapter =
             HomeArticleAdapter(list = mArticleList, onArticleCollectListener = object :
                 HomeArticleAdapter.OnArticleCollectListener {
-                override fun onCollect(articleBean: ArticleEntity?) {
+                override fun onCollect(articleBean: ArticleBean?) {
                     articleBean?.let {
                         if (articleBean.collect) {
                             mMvpPresenter?.requestUnCollectStatus(it.id)
@@ -117,10 +115,10 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun getPresenter(): HomePresenter = HomePresenter(this)
 
-    override fun updateArticleDataToView(articlePage: Page<ArticleEntity>) {
-        mArticlePage = articlePage
+    override fun articleDataToView(page: Page<ArticleBean>) {
+        mArticlePage = page
 
-        articlePage.datas?.let {
+        page.datas?.let {
             val positionStart: Int
             if (mCurPage == 0) {
                 positionStart = 0
@@ -135,9 +133,9 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
         mViewBinding.homeRefreshLayout.finishLoadMore()
     }
 
-    override fun updateBannerDataToView(bannerList: List<BannerEntity>) {
+    override fun bannerDataToView(data: List<BannerBean>) {
         mBannerList.clear()
-        mBannerList.addAll(bannerList)
+        mBannerList.addAll(data)
         mHomeBannerAdapter?.notifyItemRangeChanged(0, mBannerList.size)
     }
 
@@ -145,7 +143,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     }
 
-    override fun refreshDataFailed(isRefresh: Boolean) {
+    override fun refreshDataStatus(isRefresh: Boolean) {
         if (isRefresh) {
             mViewBinding.homeRefreshLayout.finishRefresh(false)
         } else {

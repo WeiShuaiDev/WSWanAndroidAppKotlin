@@ -6,13 +6,13 @@
     android:orientation="vertical">
 
     <View
-        android:id="@+id/homeTopView"
+        android:id="@+id/projectTopView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_20"
         android:visibility="gone" />
 
     <com.linwei.cams.component.weight.shadow.ShadowLayout
-        android:id="@+id/homeShadowLayout"
+        android:id="@+id/projectShadowLayout"
         style="@style/MatchAndWrap"
         android:layout_marginStart="@dimen/dp_2"
         android:layout_marginTop="@dimen/dp_2"
@@ -33,7 +33,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/homeTagView"
+                    android:id="@+id/projectTagView"
                     style="@style/WrapAndWrap"
                     android:layout_marginEnd="@dimen/dp_4"
                     android:ellipsize="end"
@@ -43,7 +43,7 @@
                     tools:text="新" />
 
                 <TextView
-                    android:id="@+id/homeTitleView"
+                    android:id="@+id/projectTitleView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -54,7 +54,7 @@
                     tools:text="标题" />
 
                 <TextView
-                    android:id="@+id/homeTimeView"
+                    android:id="@+id/projectTimeView"
                     style="@style/WrapAndWrap"
                     android:textColor="@color/colorSecondaryText"
                     android:textSize="@dimen/sp_11"
@@ -62,7 +62,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/homeContentView"
+                android:id="@+id/projectContentView"
                 style="@style/WrapAndWrap"
                 android:layout_marginTop="@dimen/dp_10"
                 android:ellipsize="end"
@@ -71,30 +71,13 @@
                 android:textSize="@dimen/sp_13"
                 tools:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" />
 
-            <LinearLayout
-                style="@style/MatchAndWrap"
+            <TextView
+                android:id="@+id/projectChapterView"
+                style="@style/WrapAndWrap"
                 android:layout_marginTop="@dimen/dp_10"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/homeChapterView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/sp_11"
-                    tools:text="作者" />
-
-                <com.linwei.cams.component.weight.shinebutton.ShineButton
-                    android:id="@+id/homeShineButtonView"
-                    android:layout_width="@dimen/dp_15"
-                    android:layout_height="@dimen/dp_15"
-                    app:btn_color="@android:color/darker_gray"
-                    app:btn_fill_color="@color/colorAccent"
-                    app:enable_flashing="true"
-                    app:siShape="@raw/star" />
-            </LinearLayout>
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/sp_11"
+                tools:text="作者" />
 
         </LinearLayout>
     </com.linwei.cams.component.weight.shadow.ShadowLayout>

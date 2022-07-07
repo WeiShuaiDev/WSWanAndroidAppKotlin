@@ -6,6 +6,7 @@ import com.linwei.cams.module.project.databinding.ProjectActivityProjectBinding
 import com.linwei.cams.service.project.ProjectRouterTable
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @Route(path = ProjectRouterTable.PATH_ACTIVITY_PROJECT)
 class ProjectActivity : CommonBaseActivity<ProjectActivityProjectBinding>() {
 

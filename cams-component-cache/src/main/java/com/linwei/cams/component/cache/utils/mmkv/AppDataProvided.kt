@@ -67,7 +67,7 @@ class AppDataProvided {
      * 获取项目标签
      * @param cls [Class]
      */
-    fun getProjectTree(cls: Class<ProjectTreeBean>): List<ProjectTreeBean> {
+    fun getProjectTree(): List<ProjectTreeBean> {
         return getList(MMkvCacheConstants.PROJECT_TABS)
     }
 

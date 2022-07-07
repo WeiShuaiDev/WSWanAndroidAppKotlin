@@ -1,12 +1,12 @@
 package com.linwei.cams.service.home.model
 
-data class BannerEntity(
-    val desc: String,
+data class BannerBean(
+    val desc: String?,
     val id: Int,
-    val imagePath: String,
+    val imagePath: String?,
     val isVisible: Int,
     val order: Int,
-    val title: String,
+    val title: String?,
     val type: Int,
-    val url: String
+    val url: String?
 )

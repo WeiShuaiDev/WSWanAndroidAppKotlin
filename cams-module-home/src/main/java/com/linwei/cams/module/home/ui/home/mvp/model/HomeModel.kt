@@ -5,8 +5,8 @@ import com.linwei.cams.module.home.provider.HomeProviderImpl
 import com.linwei.cams.module.home.ui.home.mvp.contract.IHomeModel
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.home.model.ArticleEntity
-import com.linwei.cams.service.home.model.BannerEntity
+import com.linwei.cams.service.home.model.ArticleBean
+import com.linwei.cams.service.home.model.BannerBean
 import com.linwei.cams.service.mine.provider.MineProviderHelper
 
 class HomeModel : MvpModel(), IHomeModel {
@@ -15,11 +15,11 @@ class HomeModel : MvpModel(), IHomeModel {
 
     private val mMineProvider = MineProviderHelper.getMineProvider()
 
-    override fun fetchArticleData(page: Int, callback: ResponseCallback<Page<ArticleEntity>>) {
+    override fun fetchArticleData(page: Int, callback: ResponseCallback<Page<ArticleBean>>) {
         mHomeProvider.fetchArticleData(page, callback)
     }
 
-    override fun fetchBannerData(callback: ResponseCallback<List<BannerEntity>>) {
+    override fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>) {
         mHomeProvider.fetchBannerData(callback)
     }
 

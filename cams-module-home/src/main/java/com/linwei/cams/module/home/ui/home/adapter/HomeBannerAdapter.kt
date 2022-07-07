@@ -10,7 +10,7 @@ import com.alibaba.android.vlayout.LayoutHelper
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper
 import com.bumptech.glide.Glide
 import com.linwei.cams.module.home.R
-import com.linwei.cams.service.home.model.BannerEntity
+import com.linwei.cams.service.home.model.BannerBean
 import com.youth.banner.Banner
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
@@ -19,7 +19,7 @@ import com.youth.banner.transformer.MZScaleInTransformer
 
 class HomeBannerAdapter(
     private var lifecyclerOwner: LifecycleOwner,
-    private var list: List<BannerEntity>
+    private var list: List<BannerBean>
 ) :
     DelegateAdapter.Adapter<HomeBannerAdapter.ViewHolder>() {
 
@@ -38,10 +38,10 @@ class HomeBannerAdapter(
             homeBannerView.indicator = CircleIndicator(homeBannerView.context)
             homeBannerView.setPageTransformer(MZScaleInTransformer())
             homeBannerView.addBannerLifecycleObserver(lifecyclerOwner)
-            homeBannerView.setAdapter(object : BannerImageAdapter<BannerEntity>(list) {
+            homeBannerView.setAdapter(object : BannerImageAdapter<BannerBean>(list) {
                 override fun onBindView(
                     holder: BannerImageHolder?,
-                    data: BannerEntity?,
+                    data: BannerBean?,
                     position: Int,
                     size: Int
                 ) {
@@ -61,6 +61,6 @@ class HomeBannerAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val homeBannerView =
-            view.findViewById<Banner<BannerEntity, BannerImageAdapter<BannerEntity>>>(R.id.homeBannerView)
+            view.findViewById<Banner<BannerBean, BannerImageAdapter<BannerBean>>>(R.id.homeBannerView)
     }
 }

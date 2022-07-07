@@ -14,8 +14,8 @@ import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.home.HomeRouterTable
-import com.linwei.cams.service.home.model.ArticleEntity
-import com.linwei.cams.service.home.model.BannerEntity
+import com.linwei.cams.service.home.model.ArticleBean
+import com.linwei.cams.service.home.model.BannerBean
 import com.linwei.cams.service.home.provider.HomeProvider
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
@@ -36,12 +36,12 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
 
     override fun fetchArticleData(
         page: Int,
-        callback: ResponseCallback<Page<ArticleEntity>>
+        callback: ResponseCallback<Page<ArticleBean>>
     ) {
         homeApi(page)
-            .execute(object : RxJavaCallback<Page<ArticleEntity>>() {
+            .execute(object : RxJavaCallback<Page<ArticleBean>>() {
 
-                override fun onSuccess(code: Int?, data: Page<ArticleEntity>) {
+                override fun onSuccess(code: Int?, data: Page<ArticleBean>) {
                     super.onSuccess(code, data)
                     callback.onSuccess(data)
                 }
@@ -53,10 +53,10 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
             })
     }
 
-    fun homeApi(page: Int): Observable<ApiResponse<Page<ArticleEntity>>> =
+    fun homeApi(page: Int): Observable<ApiResponse<Page<ArticleBean>>> =
         mApiService.getArticleListData(page)
 
-    override fun fetchBannerData(callback: ResponseCallback<List<BannerEntity>>) {
+    override fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>) {
         bannerApi()
             .compose(ResponseTransformer.obtain())
             .subscribe({ data ->
@@ -68,7 +68,7 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
             })
     }
 
-     fun bannerApi(): Observable<ApiResponse<List<BannerEntity>>> =
+     fun bannerApi(): Observable<ApiResponse<List<BannerBean>>> =
          mApiService.getBannerListData()
 
 }

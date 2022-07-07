@@ -14,6 +14,8 @@ interface SquareView : MviView<SquareViewModel> {
         super.bindViewModel(viewModel, owner)
         viewModel?.let {
             it.viewState.run {
+                //observeOnlyState
+
 
                 observeState(owner, MviViewState::fetchStatus) {
                     when (it) {

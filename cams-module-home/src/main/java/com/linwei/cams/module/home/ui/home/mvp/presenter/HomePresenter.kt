@@ -8,8 +8,8 @@ import com.linwei.cams.module.home.ui.home.mvp.model.HomeModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.home.model.ArticleEntity
-import com.linwei.cams.service.home.model.BannerEntity
+import com.linwei.cams.service.home.model.ArticleBean
+import com.linwei.cams.service.home.model.BannerBean
 
 class HomePresenter(
     private var rootView: IHomeView?,
@@ -18,14 +18,14 @@ class HomePresenter(
 
     override fun requestArticleData(page: Int) {
         rootView?.let {
-            model.fetchArticleData(page, object : ResponseCallback<Page<ArticleEntity>> {
-                override fun onSuccess(data: Page<ArticleEntity>) {
-                    it.updateArticleDataToView(data)
+            model.fetchArticleData(page, object : ResponseCallback<Page<ArticleBean>> {
+                override fun onSuccess(data: Page<ArticleBean>) {
+                    it.articleDataToView(data)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
                     it.showToast(errorMessage.message)
-                    it.refreshDataFailed(page == 0)
+                    it.refreshDataStatus(page == 0)
                 }
             })
         }
@@ -33,9 +33,9 @@ class HomePresenter(
 
     override fun requestBannerData() {
         rootView?.let {
-            model.fetchBannerData(object : ResponseCallback<List<BannerEntity>> {
-                override fun onSuccess(data: List<BannerEntity>) {
-                    it.updateBannerDataToView(data)
+            model.fetchBannerData(object : ResponseCallback<List<BannerBean>> {
+                override fun onSuccess(data: List<BannerBean>) {
+                    it.bannerDataToView(data)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {

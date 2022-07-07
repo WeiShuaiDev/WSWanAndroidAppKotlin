@@ -55,7 +55,7 @@ fun isEmptyParameter(vararg params: String?): Boolean {
 }
 
 /**
- * 判断集合是否为空，数据为0
+ * 判断集合是否为空，数据不为0
  */
 fun List<Any>?.isNotNullOrSize(): Boolean {
     this?.let {
@@ -66,9 +66,12 @@ fun List<Any>?.isNotNullOrSize(): Boolean {
     return false
 }
 
+/**
+ * 判断集合是否为空，数据不为0
+ */
 fun Array<*>?.isNotNullOrSize(): Boolean {
     this?.let {
-        if (it.size > 0) {
+        if (it.isNotEmpty()) {
             return true
         }
     }

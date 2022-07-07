@@ -1,13 +1,13 @@
-package com.linwei.cams.service.home.model
+package com.linwei.cams.service.project.model
 
-data class ArticleEntity(
+data class ProjectBean(
     val apkLink: String?,
     val audit: Int,
     val author: String?,
     val canEdit: Boolean,
     val chapterId: Int,
     val chapterName: String?,
-    var collect: Boolean,
+    val collect: Boolean,
     val courseId: Int,
     val desc: String?,
     val descMd: String?,

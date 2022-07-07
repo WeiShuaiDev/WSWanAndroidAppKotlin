@@ -11,10 +11,10 @@ import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.linwei.cams.component.weight.shadow.ShadowLayout
 import com.linwei.cams.component.weight.shinebutton.ShineButton
 import com.linwei.cams.module.home.R
-import com.linwei.cams.service.home.model.ArticleEntity
+import com.linwei.cams.service.home.model.ArticleBean
 
 class HomeArticleAdapter(
-    private var list: List<ArticleEntity>,
+    private var list: List<ArticleBean>,
     private var hasTop: Boolean = false,
     private var onArticleCollectListener: OnArticleCollectListener?
 ) : DelegateAdapter.Adapter<HomeArticleAdapter.ViewHolder>() {
@@ -27,7 +27,7 @@ class HomeArticleAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data: ArticleEntity = list[position]
+        val data: ArticleBean = list[position]
         holder.apply {
             data.let {
                 homeTitleView.text = it.shareUser ?: it.author
@@ -41,7 +41,6 @@ class HomeArticleAdapter(
 
                 homeShineButtonView.isChecked = it.collect
                 homeShineButtonView.setOnCheckStateChangeListener { view, checked ->
-                    System.out.println("homeShineButtonView ClickListener")
                     onArticleCollectListener?.onCollect(it)
                     it.collect = !it.collect
                     notifyItemChanged(position)
@@ -70,6 +69,6 @@ class HomeArticleAdapter(
     }
 
     interface OnArticleCollectListener {
-        fun onCollect(articleBean: ArticleEntity?)
+        fun onCollect(articleBean: ArticleBean?)
     }
 }

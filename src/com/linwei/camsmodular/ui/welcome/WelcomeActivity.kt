@@ -9,7 +9,6 @@ import com.linwei.camsmodular.ui.welcome.intent.WelcomeViewModel
 import com.linwei.camsmodular.ui.welcome.view.WelcomeView
 import java.util.*
 
-
 class WelcomeActivity : MviBaseActivity<ActivityWelcomeBinding, WelcomeViewModel>(),
     WelcomeView {
 
@@ -34,7 +33,7 @@ class WelcomeActivity : MviBaseActivity<ActivityWelcomeBinding, WelcomeViewModel
         }
     }
 
-    override fun projectTreeDataToView(data: List<ProjectTreeBean>?) {
+    override fun projectTreeDataToView(data: List<ProjectTreeBean>) {
         //projectTreeBean保存数据到MMkv
         AppDataProvided().saveProjectTree(data)
     }

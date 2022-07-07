@@ -1,33 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:sothree="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchAndMatch"
+    android:orientation="vertical"
     tools:context="com.linwei.cams.module.project.ui.project.ProjectActivity"
     tools:ignore="MissingDefaultResource">
 
-    <LinearLayout
+    <com.linwei.cams.component.weight.slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/projectSlidingLayout"
         style="@style/MatchAndMatch"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:gravity="bottom"
+        sothree:ignore="MissingDefaultResource"
+        sothree:umanoDragView="@+id/dragView"
+        sothree:umanoOverlay="true"
+        sothree:umanoPanelHeight="@dimen/dp_68"
+        sothree:umanoParallaxOffset="@dimen/dp_10"
+        sothree:umanoScrollableView="@+id/rvTitle"
+        sothree:umanoShadowHeight="@dimen/dp_4">
 
-        <TextView
-            android:id="@+id/project_title_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Home 请求信息:"
-            android:textSize="18sp" />
+        <LinearLayout
+            android:id="@+id/projectContentLayout"
+            style="@style/MatchAndMatch"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/project_content_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="16sp" />
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/projectContentRefreshLayout"
+                style="@style/MatchAndMatch">
 
-    </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/projectContentRecyclerView"
+                    style="@style/MatchAndMatch"
+                    android:background="@color/colorGlobalWhite"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/projectDragLayout"
+            style="@style/MatchAndMatch"
+            android:background="@color/colorGlobalWhite"
+            android:clickable="true"
+            android:focusable="false"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_68"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_10">
+
+                <TextView
+                    android:id="@+id/projectDragTitleView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableEnd="@mipmap/project_ic_up_down"
+                    android:gravity="center_vertical"
+                    android:text="@string/project_project_list"
+                    android:textColor="@color/main_tab2_active"
+                    android:textSize="@dimen/sp_14"
+                    sothree:ignore="UseCompatTextViewDrawableXml" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/projectDragRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+    </com.linwei.cams.component.weight.slidinguppanel.SlidingUpPanelLayout>
+
+</LinearLayout>
 

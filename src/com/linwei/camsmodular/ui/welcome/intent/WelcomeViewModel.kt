@@ -28,7 +28,7 @@ class WelcomeViewModel : MviViewModel() {
             copy(fetchStatus = FetchStatus.Fetching)
         }
         viewModelScope.launch {
-            when (val result = projectProvider?.fetchProjectTreeData()) {
+            when (val result = projectProvider.fetchProjectTreeData()) {
                 is PageState.Error -> {
                     _viewStates.setState {
                         copy(fetchStatus = FetchStatus.NotFetched)

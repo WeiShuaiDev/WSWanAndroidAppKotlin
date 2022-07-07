@@ -3,13 +3,13 @@ package com.linwei.cams.service.home.provider
 import com.alibaba.android.arouter.facade.template.IProvider
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.home.model.ArticleEntity
-import com.linwei.cams.service.home.model.BannerEntity
+import com.linwei.cams.service.home.model.ArticleBean
+import com.linwei.cams.service.home.model.BannerBean
 
 interface HomeProvider : IProvider {
 
-    fun fetchArticleData(page: Int, callback: ResponseCallback<Page<ArticleEntity>>)
+    fun fetchArticleData(page: Int, callback: ResponseCallback<Page<ArticleBean>>)
 
-    fun fetchBannerData(callback: ResponseCallback<List<BannerEntity>>)
+    fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>)
 
 }

@@ -6,9 +6,10 @@ import com.linwei.cams.component.common.global.PageState
 import com.linwei.cams.component.network.ApiClient
 import com.linwei.cams.component.network.ApiConstants
 import com.linwei.cams.module.project.http.ApiServiceWrap
+import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.project.ProjectRouterTable
+import com.linwei.cams.service.project.model.ProjectBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
-import com.linwei.cams.service.project.model.ProjectTreeDetailsBean
 import com.linwei.cams.service.project.provider.ProjectProvider
 import java.lang.Exception
 import javax.inject.Inject
@@ -45,17 +46,20 @@ class ProjectProviderImpl @Inject constructor() : ProjectProvider {
         return PageState.Error(projectTreeData.errorMsg)
     }
 
-    override suspend fun fetchProjectTreeDetailsData(): ProjectTreeDetailsBean {
-        val projectTreeDetailsData =
-            mApiService.getProjectTreeDetailsData()
+    override suspend fun fetchProjectData(
+        page: Int,
+        cid: String
+    ): Page<ProjectBean>{
+        val projectData =
+            mApiService.getProjectData(page, cid)
 
-        projectTreeDetailsData.takeIf { it.errorCode == ApiConstants.REQUEST_SUCCESS }?.apply {
+        projectData.takeIf { it.errorCode == ApiConstants.REQUEST_SUCCESS }?.apply {
             this.data?.let {
                 return it
             } ?: run {
                 throw NullPointerException(errorMsg)
             }
         }
-        throw NullPointerException(projectTreeDetailsData.errorMsg)
+        throw NullPointerException(projectData.errorMsg)
     }
 }

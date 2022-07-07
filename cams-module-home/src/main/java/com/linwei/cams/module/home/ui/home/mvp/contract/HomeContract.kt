@@ -5,18 +5,18 @@ import com.linwei.cams.component.mvp.mvp.presenter.IMvpPresenter
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.home.model.ArticleEntity
-import com.linwei.cams.service.home.model.BannerEntity
+import com.linwei.cams.service.home.model.ArticleBean
+import com.linwei.cams.service.home.model.BannerBean
 
 interface IHomeModel : IMvpModel {
 
     fun fetchArticleData(
         page: Int,
-        callback: ResponseCallback<Page<ArticleEntity>>
+        callback: ResponseCallback<Page<ArticleBean>>
     )
 
     fun fetchBannerData(
-        callback: ResponseCallback<List<BannerEntity>>
+        callback: ResponseCallback<List<BannerBean>>
     )
 
     fun collectStatus(id: Int, callback: ResponseCallback<Any>)
@@ -36,11 +36,11 @@ interface IHomePresenter : IMvpPresenter {
 
 interface IHomeView : IMvpView {
 
-    fun updateArticleDataToView(articlePage: Page<ArticleEntity>)
+    fun articleDataToView(page: Page<ArticleBean>)
 
-    fun updateBannerDataToView(bannerList: List<BannerEntity>)
+    fun bannerDataToView(data: List<BannerBean>)
 
-    fun refreshDataFailed(isRefresh:Boolean)
+    fun refreshDataStatus(isRefresh:Boolean)
 
     fun refreshCollectStatus(status: Boolean)
 }
