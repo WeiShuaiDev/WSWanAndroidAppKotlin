@@ -1,13 +1,16 @@
-package com.linwei.cams.service.project.model
+package com.linwei.cams.service.base.model
 
-data class ProjectBean(
+import com.chad.library.adapter.base.entity.MultiItemEntity
+import com.linwei.cams.service.base.constants.ItemTypeConstants
+
+data class CommonArticleBean(
     val apkLink: String?,
     val audit: Int,
     val author: String?,
     val canEdit: Boolean,
     val chapterId: Int,
     val chapterName: String?,
-    val collect: Boolean,
+    var collect: Boolean,
     val courseId: Int,
     val desc: String?,
     val descMd: String?,
@@ -34,7 +37,11 @@ data class ProjectBean(
     val userId: Int,
     val visible: Int,
     val zan: Int
-)
+) : MultiItemEntity {
+    override val itemType: Int
+        get() = if (envelopePic.isNullOrEmpty()) ItemTypeConstants.ARTICLE_ITEM_TEXT
+        else ItemTypeConstants.ARTICLE_ITEM_TEXT_PIC
+}
 
 data class Tag(
     val name: String,

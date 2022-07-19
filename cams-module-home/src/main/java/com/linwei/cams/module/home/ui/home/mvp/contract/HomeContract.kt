@@ -4,15 +4,15 @@ import com.linwei.cams.component.mvp.mvp.model.IMvpModel
 import com.linwei.cams.component.mvp.mvp.presenter.IMvpPresenter
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
 import com.linwei.cams.service.base.callback.ResponseCallback
+import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.home.model.ArticleBean
 import com.linwei.cams.service.home.model.BannerBean
 
 interface IHomeModel : IMvpModel {
 
     fun fetchArticleData(
         page: Int,
-        callback: ResponseCallback<Page<ArticleBean>>
+        callback: ResponseCallback<Page<CommonArticleBean>>
     )
 
     fun fetchBannerData(
@@ -36,7 +36,7 @@ interface IHomePresenter : IMvpPresenter {
 
 interface IHomeView : IMvpView {
 
-    fun articleDataToView(page: Page<ArticleBean>)
+    fun articleDataToView(page: Page<CommonArticleBean>)
 
     fun bannerDataToView(data: List<BannerBean>)
 

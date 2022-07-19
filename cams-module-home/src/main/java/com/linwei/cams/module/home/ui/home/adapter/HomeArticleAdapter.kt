@@ -11,10 +11,10 @@ import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.linwei.cams.component.weight.shadow.ShadowLayout
 import com.linwei.cams.component.weight.shinebutton.ShineButton
 import com.linwei.cams.module.home.R
-import com.linwei.cams.service.home.model.ArticleBean
+import com.linwei.cams.service.base.model.CommonArticleBean
 
 class HomeArticleAdapter(
-    private var list: List<ArticleBean>,
+    private var list: List<CommonArticleBean>,
     private var hasTop: Boolean = false,
     private var onArticleCollectListener: OnArticleCollectListener?
 ) : DelegateAdapter.Adapter<HomeArticleAdapter.ViewHolder>() {
@@ -27,7 +27,7 @@ class HomeArticleAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data: ArticleBean = list[position]
+        val data: CommonArticleBean = list[position]
         holder.apply {
             data.let {
                 homeTitleView.text = it.shareUser ?: it.author
@@ -69,6 +69,6 @@ class HomeArticleAdapter(
     }
 
     interface OnArticleCollectListener {
-        fun onCollect(articleBean: ArticleBean?)
+        fun onCollect(commonarticleBean: CommonArticleBean?)
     }
 }

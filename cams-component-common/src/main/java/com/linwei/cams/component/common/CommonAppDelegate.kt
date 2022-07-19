@@ -6,6 +6,10 @@ import com.google.auto.service.AutoService
 import com.linwei.cams.component.common.app.AppDelegate
 import com.linwei.cams.component.common.opensource.ARouterManager
 import com.linwei.cams.component.common.utils.ProcessUtils
+import com.scwang.smart.refresh.footer.ClassicsFooter
+import com.scwang.smart.refresh.header.ClassicsHeader
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.tencent.bugly.crashreport.CrashReport
 
 @AutoService(AppDelegate::class)
@@ -62,7 +66,9 @@ class CommonAppDelegate : AppDelegate {
         if (ProcessUtils.isMainProcess(mContext)) {
             list.add { initARouter() }
         }
-        list.add { initTencentBugly() }
+        list.add {
+            initTencentBugly()
+        }
         return list
     }
 
@@ -70,10 +76,27 @@ class CommonAppDelegate : AppDelegate {
      * 不需要立即初始化的放在这里进行后台初始化
      */
     override fun initByBackstage() {
+        initSmartRefreshLayout()
     }
 
     /**
-     * 阿里路由 ARouter 初始化
+     * 初始化 SmartRefreshLayout
+     */
+    private fun initSmartRefreshLayout() {
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context: Context?, layout: RefreshLayout? ->
+            ClassicsHeader(
+                mApplication
+            )
+        }
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context: Context?, layout: RefreshLayout? ->
+            ClassicsFooter(
+                mApplication
+            )
+        }
+    }
+
+    /**
+     * 初始化 阿里路由 ARouter
      */
     private fun initARouter(): String {
         ARouterManager.init(mApplication)

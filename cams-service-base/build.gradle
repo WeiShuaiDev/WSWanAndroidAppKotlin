@@ -1,11 +1,5 @@
-plugins {
-    id 'java-library'
-    id 'org.jetbrains.kotlin.jvm'
-}
-dependencies {
-}
+apply from: '../gradle/global_service_config.gradle'
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+dependencies {
+    api project(':cams-component-common')
 }

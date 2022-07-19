@@ -12,9 +12,9 @@ import com.linwei.cams.component.network.transformer.ResponseTransformer
 import com.linwei.cams.module.home.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
+import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.home.HomeRouterTable
-import com.linwei.cams.service.home.model.ArticleBean
 import com.linwei.cams.service.home.model.BannerBean
 import com.linwei.cams.service.home.provider.HomeProvider
 import io.reactivex.rxjava3.core.Observable
@@ -36,12 +36,12 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
 
     override fun fetchArticleData(
         page: Int,
-        callback: ResponseCallback<Page<ArticleBean>>
+        callback: ResponseCallback<Page<CommonArticleBean>>
     ) {
         homeApi(page)
-            .execute(object : RxJavaCallback<Page<ArticleBean>>() {
+            .execute(object : RxJavaCallback<Page<CommonArticleBean>>() {
 
-                override fun onSuccess(code: Int?, data: Page<ArticleBean>) {
+                override fun onSuccess(code: Int?, data: Page<CommonArticleBean>) {
                     super.onSuccess(code, data)
                     callback.onSuccess(data)
                 }
@@ -53,7 +53,7 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
             })
     }
 
-    fun homeApi(page: Int): Observable<ApiResponse<Page<ArticleBean>>> =
+    fun homeApi(page: Int): Observable<ApiResponse<Page<CommonArticleBean>>> =
         mApiService.getArticleListData(page)
 
     override fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>) {

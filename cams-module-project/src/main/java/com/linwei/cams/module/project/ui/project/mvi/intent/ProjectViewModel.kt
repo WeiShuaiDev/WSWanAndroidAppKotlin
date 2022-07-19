@@ -39,7 +39,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
     /**
      * 增加文章收藏
      */
-    fun collectStatus(id: Int) {
+    fun requestCollectStatus(id: Int) {
         _viewStates.setState {
             copy(fetchStatus = FetchStatus.Fetching)
         }
@@ -69,7 +69,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
     /**
      * 取消文章收藏
      */
-    fun unCollectStatus(id: Int) {
+    fun requestUnCollectStatus(id: Int) {
         _viewStates.setState {
             copy(fetchStatus = FetchStatus.Fetching)
         }
@@ -99,7 +99,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
     /**
      * 获取项目树数据
      */
-    fun fetchProjectTreeData() {
+    fun requestProjectTreeData() {
         _viewStates.setState {
             copy(fetchStatus = FetchStatus.Fetching)
         }
@@ -136,7 +136,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
     /**
      * 获取项目树详情数据
      */
-    fun fetchProjectData(page: Int, cid: String) {
+    fun requestProjectData(page: Int, cid: String) {
         viewModelScope.launch {
             flow {
                 emit(mProjectProvider.fetchProjectData(page, cid))
@@ -145,12 +145,12 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
             }.onEach {
                 _viewStates.setState {
                     copy(
-                        projectPage = it,
+                        articlePage = it,
                         fetchStatus = FetchStatus.Fetched
                     )
                 }
             }.commonCatch {
-                _viewStates.setState { copy(fetchStatus = FetchStatus.NotFetched) }
+                _viewStates.setState { copy(fetchStatus = FetchStatus.NotFetched, isRefresh = page == 0) }
             }.collect()
         }
     }

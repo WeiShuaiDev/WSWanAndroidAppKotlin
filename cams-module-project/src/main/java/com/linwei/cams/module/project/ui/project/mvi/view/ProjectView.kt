@@ -8,8 +8,8 @@ import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
 import com.linwei.cams.framework.mvi.mvi.view.MviView
 import com.linwei.cams.module.project.ui.project.mvi.intent.ProjectViewModel
 import com.linwei.cams.module.project.ui.project.mvi.model.MviViewState
+import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.project.model.ProjectBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
 
 interface ProjectView : MviView<ProjectViewModel> {
@@ -22,11 +22,11 @@ interface ProjectView : MviView<ProjectViewModel> {
                     projectTreeDataToView(it)
                 }
 
-                observeOnlyState(owner, MviViewState::projectPage) {
-                    projectDataToView(it)
+                observeState(owner, MviViewState::articlePage) {
+                    articleDataToView(it)
                 }
 
-                observeOnlyState(owner,MviViewState::collectStatus){
+                observeState(owner,MviViewState::collectStatus){
                     refreshCollectStatus(it)
                 }
 
@@ -63,10 +63,10 @@ interface ProjectView : MviView<ProjectViewModel> {
     fun projectTreeDataToView(data: List<ProjectTreeBean>)
 
     /**
-     * 项目数据更新到View
-     * @param data [ProjectBean]
+     * 项目文章数据更新到View
+     * @param data [ArticleBean]
      */
-    fun projectDataToView(page: Page<ProjectBean>)
+    fun articleDataToView(page: Page<CommonArticleBean>)
 
     /**
      * 更新收藏状态

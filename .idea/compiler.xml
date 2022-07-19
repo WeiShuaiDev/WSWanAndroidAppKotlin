@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel target="11">
       <module name="CamsModular" target="11" />
       <module name="CamsModular.cams-component-cache" target="11" />
       <module name="CamsModular.cams-component-common" target="11" />
@@ -26,30 +26,6 @@
       <module name="CamsModular.cams-service-publis" target="11" />
       <module name="CamsModular.cams-service-square" target="11" />
       <module name="CamsModular.Text" target="11" />
-      <module name="WSWanAndroidAppKotlin" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-component-cache" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-component-common" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-component-database" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-component-image" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-component-network" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-component-web" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-component-weight" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-framework-mvi" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-framework-mvp" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-framework-mvvm" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-module-home" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-module-login" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-module-main" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-module-mine" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-module-project" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-module-publis" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-module-square" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-service-home" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-service-login" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-service-mine" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-service-project" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-service-publis" target="11" />
-      <module name="WSWanAndroidAppKotlin.cams-service-square" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

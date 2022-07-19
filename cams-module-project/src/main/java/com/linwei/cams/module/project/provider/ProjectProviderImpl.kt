@@ -6,9 +6,9 @@ import com.linwei.cams.component.common.global.PageState
 import com.linwei.cams.component.network.ApiClient
 import com.linwei.cams.component.network.ApiConstants
 import com.linwei.cams.module.project.http.ApiServiceWrap
+import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.project.ProjectRouterTable
-import com.linwei.cams.service.project.model.ProjectBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
 import com.linwei.cams.service.project.provider.ProjectProvider
 import java.lang.Exception
@@ -49,7 +49,7 @@ class ProjectProviderImpl @Inject constructor() : ProjectProvider {
     override suspend fun fetchProjectData(
         page: Int,
         cid: String
-    ): Page<ProjectBean>{
+    ): Page<CommonArticleBean>{
         val projectData =
             mApiService.getProjectData(page, cid)
 

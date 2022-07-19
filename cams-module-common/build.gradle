@@ -1,0 +1,22 @@
+apply from: '../gradle/global_module_config.gradle'
+
+android {
+    defaultConfig {
+        resourcePrefix "common_"
+    }
+}
+dependencies {
+    api project(':cams-service-home')
+    api project(':cams-service-login')
+    api project(':cams-service-mine')
+    api project(':cams-service-project')
+    api project(':cams-service-publis')
+    api project(':cams-service-square')
+
+    api project(':cams-component-weight')
+    api project(':cams-component-cache')
+    api project(':cams-component-database')
+    api project(':cams-component-image')
+    api project(':cams-component-network')
+    api project(':cams-component-web')
+}

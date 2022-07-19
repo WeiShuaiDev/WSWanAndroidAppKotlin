@@ -104,7 +104,7 @@ dependencies {
     api rootProject.ext.dependencies["immersionbar"]
     api rootProject.ext.dependencies["immersionbar-ktx"]
 
-    api('com.alibaba.android:vlayout:1.2.8@aar') {
+    api(rootProject.ext.dependencies["vlayout"]) {
         transitive = true
     }
 

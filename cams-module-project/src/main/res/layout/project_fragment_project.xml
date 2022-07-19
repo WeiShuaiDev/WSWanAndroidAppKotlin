@@ -13,11 +13,11 @@
         style="@style/MatchAndMatch"
         android:gravity="bottom"
         sothree:ignore="MissingDefaultResource"
-        sothree:umanoDragView="@+id/dragView"
+        sothree:umanoDragView="@+id/projectDragLayout"
         sothree:umanoOverlay="true"
         sothree:umanoPanelHeight="@dimen/dp_68"
         sothree:umanoParallaxOffset="@dimen/dp_10"
-        sothree:umanoScrollableView="@+id/rvTitle"
+        sothree:umanoScrollableView="@+id/projectDragRecyclerView"
         sothree:umanoShadowHeight="@dimen/dp_4">
 
         <LinearLayout
@@ -27,7 +27,10 @@
 
             <com.scwang.smart.refresh.layout.SmartRefreshLayout
                 android:id="@+id/projectContentRefreshLayout"
-                style="@style/MatchAndMatch">
+                style="@style/MatchAndMatch"
+                android:clipChildren="false"
+                app:srlAccentColor="@color/colorGlobalTextGray"
+                app:srlEnablePreviewInEditMode="true">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/projectContentRecyclerView"
@@ -61,10 +64,11 @@
                     android:layout_weight="1"
                     android:drawableEnd="@mipmap/project_ic_up_down"
                     android:gravity="center_vertical"
-                    android:text="@string/project_project_list"
                     android:textColor="@color/main_tab2_active"
-                    android:textSize="@dimen/sp_14"
-                    sothree:ignore="UseCompatTextViewDrawableXml" />
+                    android:textSize="@dimen/sp_16"
+                    android:paddingTop="@dimen/dp_5"
+                    android:paddingStart="@dimen/dp_10"
+                    sothree:ignore="RtlSymmetry,UseCompatTextViewDrawableXml" />
 
             </LinearLayout>
 

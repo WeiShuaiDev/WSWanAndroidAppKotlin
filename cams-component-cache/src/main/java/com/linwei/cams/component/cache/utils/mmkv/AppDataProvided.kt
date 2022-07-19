@@ -1,6 +1,7 @@
 package com.linwei.cams.component.cache.utils.mmkv
 
 import com.google.gson.Gson
+import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.common.ktx.isNullOrEmpty
@@ -68,7 +69,7 @@ class AppDataProvided {
      * @param cls [Class]
      */
     fun getProjectTree(): List<ProjectTreeBean> {
-        return getList(MMkvCacheConstants.PROJECT_TABS)
+        return getList(MMkvCacheConstants.PROJECT_TABS, ProjectTreeBean::class.java)
     }
 
     /**
@@ -85,11 +86,19 @@ class AppDataProvided {
     /**
      * 获取 List 类型数据
      */
-    private fun <T> getList(key: String): List<T> {
-        var dataList: List<T> = listOf()
+    private fun <T> getList(key: String, clazz: Class<T>): List<T> {
+        val dataList: MutableList<T> = mutableListOf()
         val strJson: String =
             MMkvHelper.getString(key, "") ?: return dataList
-        dataList = mGson.fromJson(strJson, object : TypeToken<List<T>>() {}.type)
+        try {
+            val gson = Gson()
+            val element = JsonParser().parse(strJson).asJsonArray
+            for (jsonElement in element) {
+                dataList.add(gson.fromJson(jsonElement, clazz))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return dataList
     }
 

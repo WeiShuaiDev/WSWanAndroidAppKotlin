@@ -7,8 +7,8 @@ import com.linwei.cams.module.home.ui.home.mvp.contract.IHomeView
 import com.linwei.cams.module.home.ui.home.mvp.model.HomeModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
+import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.home.model.ArticleBean
 import com.linwei.cams.service.home.model.BannerBean
 
 class HomePresenter(
@@ -18,8 +18,8 @@ class HomePresenter(
 
     override fun requestArticleData(page: Int) {
         rootView?.let {
-            model.fetchArticleData(page, object : ResponseCallback<Page<ArticleBean>> {
-                override fun onSuccess(data: Page<ArticleBean>) {
+            model.fetchArticleData(page, object : ResponseCallback<Page<CommonArticleBean>> {
+                override fun onSuccess(data: Page<CommonArticleBean>) {
                     it.articleDataToView(data)
                 }
 

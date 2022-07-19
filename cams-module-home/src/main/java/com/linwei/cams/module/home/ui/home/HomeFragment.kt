@@ -13,9 +13,9 @@ import com.linwei.cams.module.home.ui.home.adapter.HomeArticleAdapter
 import com.linwei.cams.module.home.ui.home.adapter.HomeBannerAdapter
 import com.linwei.cams.module.home.ui.home.mvp.contract.IHomeView
 import com.linwei.cams.module.home.ui.home.mvp.presenter.HomePresenter
+import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.home.HomeRouterTable
-import com.linwei.cams.service.home.model.ArticleBean
 import com.linwei.cams.service.home.model.BannerBean
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
@@ -34,8 +34,8 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun immersionBar(): Boolean = true
 
-    private var mArticlePage = Page<ArticleBean>()
-    private val mArticleList = mutableListOf<ArticleBean>()
+    private var mCommonArticlePage = Page<CommonArticleBean>()
+    private val mCommonArticleList = mutableListOf<CommonArticleBean>()
 
     private val mBannerList = mutableListOf<BannerBean>()
 
@@ -65,11 +65,11 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
             }
 
         mHomeArticleAdapter =
-            HomeArticleAdapter(list = mArticleList, onArticleCollectListener = object :
+            HomeArticleAdapter(list = mCommonArticleList, onArticleCollectListener = object :
                 HomeArticleAdapter.OnArticleCollectListener {
-                override fun onCollect(articleBean: ArticleBean?) {
-                    articleBean?.let {
-                        if (articleBean.collect) {
+                override fun onCollect(commonArticleBean: CommonArticleBean?) {
+                    commonArticleBean?.let {
+                        if (commonArticleBean.collect) {
                             mMvpPresenter?.requestUnCollectStatus(it.id)
                         } else {
                             mMvpPresenter?.requestCollectStatus(it.id)
@@ -104,7 +104,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
                 mCurPage++
-                if (mCurPage <= mArticlePage.pageCount) {
+                if (mCurPage <= mCommonArticlePage.pageCount) {
                     mMvpPresenter?.requestArticleData(mCurPage)
                 } else {
                     mViewBinding.homeRefreshLayout.finishLoadMoreWithNoMoreData()
@@ -115,18 +115,17 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun getPresenter(): HomePresenter = HomePresenter(this)
 
-    override fun articleDataToView(page: Page<ArticleBean>) {
-        mArticlePage = page
-
+    override fun articleDataToView(page: Page<CommonArticleBean>) {
+        mCommonArticlePage = page
         page.datas?.let {
             val positionStart: Int
             if (mCurPage == 0) {
                 positionStart = 0
-                mArticleList.clear()
+                mCommonArticleList.clear()
             } else {
-                positionStart = mArticleList.size
+                positionStart = mCommonArticleList.size
             }
-            mArticleList.addAll(it)
+            mCommonArticleList.addAll(it)
             mHomeArticleAdapter?.notifyItemRangeChanged(positionStart, it.size)
         }
         mViewBinding.homeRefreshLayout.finishRefresh()

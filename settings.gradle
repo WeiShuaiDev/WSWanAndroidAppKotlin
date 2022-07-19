@@ -1,5 +1,6 @@
 rootProject.name = "WSWanAndroidAppKotlin"
-include ':cams-module-login',
+include ':cams-module-common',
+        ':cams-module-login',
         ':cams-module-mine',
         ':cams-module-home',
         ':cams-module-project',
@@ -22,6 +23,7 @@ include ':cams-module-login',
         ':cams-component-image',
         ':cams-component-cache',
         ':cams-component-web',
+
         ':cams-framework-mvp',
         ':cams-framework-mvvm',
         ':cams-framework-mvi'
