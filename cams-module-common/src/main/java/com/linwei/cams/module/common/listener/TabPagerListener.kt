@@ -1,4 +1,4 @@
-package com.linwei.cams.module.main.ui.main.adapter.listener
+package com.linwei.cams.module.common.listener
 
 import androidx.fragment.app.Fragment
 

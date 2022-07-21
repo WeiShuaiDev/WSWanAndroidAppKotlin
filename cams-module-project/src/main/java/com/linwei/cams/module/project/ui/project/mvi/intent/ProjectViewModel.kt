@@ -16,6 +16,7 @@ import com.linwei.cams.module.project.provider.ProjectProviderImpl
 import com.linwei.cams.module.project.ui.project.mvi.model.MviViewState
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
+import com.linwei.cams.service.mine.provider.MineProvider
 import com.linwei.cams.service.mine.provider.MineProviderHelper
 import com.linwei.cams.service.project.model.ProjectTreeBean
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,7 +32,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
 
     private val mProjectProvider: ProjectProviderImpl = ProjectProviderImpl()
 
-    private val mMineProvider = MineProviderHelper.getMineProvider()
+    private val mMineProvider:MineProvider? = MineProviderHelper.getMineProvider()
 
     private val _viewStates: MutableLiveData<MviViewState> = MutableLiveData(MviViewState())
     val viewState = _viewStates.asLiveData()
@@ -44,7 +45,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
             copy(fetchStatus = FetchStatus.Fetching)
         }
 
-        mMineProvider.collectStatus(id, object : ResponseCallback<Any> {
+        mMineProvider?.collectStatus(id, object : ResponseCallback<Any> {
             override fun onSuccess(data: Any) {
                 _viewStates.setState {
                     copy(
@@ -74,7 +75,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
             copy(fetchStatus = FetchStatus.Fetching)
         }
 
-        mMineProvider.unCollectStatus(id, object : ResponseCallback<Any> {
+        mMineProvider?.unCollectStatus(id, object : ResponseCallback<Any> {
             override fun onSuccess(data: Any) {
                 _viewStates.setState {
                     copy(

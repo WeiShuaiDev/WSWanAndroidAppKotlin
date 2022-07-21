@@ -7,7 +7,7 @@ import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.weight.CustomItemDecoration
 import com.linwei.cams.component.weight.slidinguppanel.SlidingUpPanelLayout
 import com.linwei.cams.framework.mvi.base.MviBaseFragment
-import com.linwei.cams.module.common.CommonArticleListAdapter
+import com.linwei.cams.module.common.adapter.CommonArticleListAdapter
 import com.linwei.cams.module.project.R
 import com.linwei.cams.module.project.databinding.ProjectFragmentProjectBinding
 import com.linwei.cams.module.project.ui.project.adapter.ProjectTitleAdapter

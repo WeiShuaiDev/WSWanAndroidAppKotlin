@@ -11,7 +11,6 @@
         android:theme="@style/MainModuleAppTheme">
         <activity
             android:name=".ui.main.MainActivity"
-            android:label="@string/main_module_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

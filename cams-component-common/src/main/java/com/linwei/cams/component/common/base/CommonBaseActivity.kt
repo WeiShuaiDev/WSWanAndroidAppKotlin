@@ -34,7 +34,6 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         onBeforeCreateExpand(savedInstanceState)
         super.onCreate(savedInstanceState)
-
         routerInjectBinding()
         eventBusBinding()
         viewBinding()

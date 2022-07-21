@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="homeColorPrimary">#3F51B5</color>
-    <color name="homeColorPrimaryDark">#303F9F</color>
-    <color name="homeColorAccent">#303F9F</color>
+    <color name="homeColorPrimary">#F44336</color>
+    <color name="homeColorPrimaryDark">#F44336</color>
+    <color name="homeColorAccent">#F44336</color>
 </resources>

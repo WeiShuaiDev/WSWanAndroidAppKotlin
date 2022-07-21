@@ -9,21 +9,21 @@ object PublisProviderHelper {
     /**
      * PublisProvider
      */
-    fun getPublisProvider(): PublisProvider =
+    fun getPublisProvider(): PublisProvider? =
         ARouter.getInstance().build(PublisRouterTable.PATH_SERVICE_PUBLIS)
-            .navigation() as PublisProvider
+            .navigation() as PublisProvider?
 
     /**
      * PublisActivity
      */
-    fun jumpPublisActivity(title: String): Activity =
+    fun jumpPublisActivity(title: String): Activity? =
         ARouter.getInstance().build(PublisRouterTable.PATH_ACTIVITY_PUBLIS)
-            .withString("title", title).navigation() as Activity
+            .withString("title", title).navigation() as Activity?
 
     /**
      * PublisFragment
      */
-    fun jumpPublisFragment(title: String): Fragment =
+    fun jumpPublisFragment(title: String): Fragment? =
         ARouter.getInstance().build(PublisRouterTable.PATH_FRAGMENT_PUBLIS)
-            .withString("title", title).navigation() as Fragment
+            .withString("title", title).navigation() as Fragment?
 }

@@ -11,8 +11,7 @@
         android:theme="@style/ProjectModuleAppTheme">
         <activity
             android:name=".ui.project.ProjectActivity"
-            android:exported="true"
-            android:label="@string/project_module_page">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

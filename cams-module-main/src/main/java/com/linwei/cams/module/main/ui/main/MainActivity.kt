@@ -11,10 +11,10 @@ import com.linwei.cams.component.weight.bubblenavigation.listener.BubbleNavigati
 import com.linwei.cams.module.main.MainRouterTable
 import com.linwei.cams.module.main.R
 import com.linwei.cams.module.main.databinding.MainActivityMainBinding
-import com.linwei.cams.module.main.ui.main.adapter.MainPageAdapter
-import com.linwei.cams.module.main.ui.main.adapter.listener.TabPagerListener
-import com.linwei.cams.module.main.ui.main.view.MainView
-import com.linwei.cams.module.main.ui.main.viewmodel.MainViewModel
+import com.linwei.cams.module.common.adapter.CommonPageAdapter
+import com.linwei.cams.module.common.listener.TabPagerListener
+import com.linwei.cams.module.main.ui.main.mvvm.view.MainView
+import com.linwei.cams.module.main.ui.main.mvvm.viewmodel.MainViewModel
 import com.linwei.cams.service.home.provider.HomeProviderHelper
 import com.linwei.cams.service.mine.provider.MineProviderHelper
 import com.linwei.cams.service.project.provider.ProjectProviderHelper
@@ -45,7 +45,7 @@ class MainActivity : MvvmBaseActivity<MainActivityMainBinding, MainViewModel>(),
         mDataBinding.mainViewPager.apply {
             offscreenPageLimit = 5
             setScrollable(false)
-            adapter = MainPageAdapter(supportFragmentManager, this@MainActivity)
+            adapter = CommonPageAdapter(supportFragmentManager, this@MainActivity)
         }
     }
 
@@ -72,14 +72,18 @@ class MainActivity : MvvmBaseActivity<MainActivityMainBinding, MainViewModel>(),
 
     override fun getFragment(position: Int): Fragment {
         return when (position) {
-            0 -> HomeProviderHelper.jumpHomeFragment("首页")
-            1 -> ProjectProviderHelper.jumpProjectFragment("项目")
-            2 -> SquareProviderHelper.jumpSquareFragment("广场")
-            3 -> PublisProviderHelper.jumpPublisFragment("公众号")
-            4 -> MineProviderHelper.jumpMineFragment("我的")
+            0 -> isNullFragment(HomeProviderHelper.jumpHomeFragment("首页"))
+            1 -> isNullFragment(ProjectProviderHelper.jumpProjectFragment("项目"))
+            2 -> isNullFragment(SquareProviderHelper.jumpSquareFragment("广场"))
+            3 -> isNullFragment(PublisProviderHelper.jumpPublisFragment("公众号"))
+            4 -> isNullFragment(MineProviderHelper.jumpMineFragment("我的"))
             else -> null
         } as Fragment
     }
 
     override fun count(): Int = 5
+
+    private fun isNullFragment(fragment: Fragment?): Fragment {
+        return fragment ?: MainFragment()
+    }
 }

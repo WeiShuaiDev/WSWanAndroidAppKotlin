@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchAndMatch"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/topRootLayout"
+        layout="@layout/include_top_view_primary" />
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/squareSmartRefreshLayout"
+        style="@style/MatchAndMatch"
+        app:srlAccentColor="@color/colorGlobalTextGray"
+        app:srlEnableLoadMore="true"
+        app:srlPrimaryColor="@android:color/transparent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/squareRecyclerView"
+            style="@style/MatchAndMatch"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+</LinearLayout>

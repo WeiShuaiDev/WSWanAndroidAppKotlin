@@ -1,4 +1,4 @@
-package com.linwei.cams.module.main.ui.main.model
+package com.linwei.cams.module.main.ui.main.mvvm.model
 
 import com.linwei.cams.component.mvvm.mvvm.model.MvvmModel
 import com.linwei.cams.module.main.ui.main.repository.DataRepository

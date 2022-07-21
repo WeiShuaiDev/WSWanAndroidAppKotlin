@@ -1,7 +1,7 @@
-package com.linwei.cams.module.main.ui.main.viewmodel
+package com.linwei.cams.module.main.ui.main.mvvm.viewmodel
 
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.MvvmViewModel
-import com.linwei.cams.module.main.ui.main.model.MainModel
+import com.linwei.cams.module.main.ui.main.mvvm.model.MainModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

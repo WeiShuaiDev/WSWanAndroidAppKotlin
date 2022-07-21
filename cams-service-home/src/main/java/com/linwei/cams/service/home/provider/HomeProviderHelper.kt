@@ -9,22 +9,22 @@ object HomeProviderHelper {
     /**
      * HomeProvider
      */
-    fun getHomeProvider(): HomeProvider =
+    fun getHomeProvider(): HomeProvider? =
         ARouter.getInstance().build(HomeRouterTable.PATH_SERVICE_HOME)
-            .navigation() as HomeProvider
+            .navigation() as HomeProvider?
 
     /**
      * HomeActivity
      */
-    fun jumpHomeActivity(title: String): Activity =
+    fun jumpHomeActivity(title: String): Activity? =
         ARouter.getInstance().build(HomeRouterTable.PATH_ACTIVITY_HOME)
-            .withString("title", title).navigation() as Activity
+            .withString("title", title).navigation() as Activity?
 
     /**
      * HomeFragment
      */
-    fun jumpHomeFragment(title: String): Fragment =
+    fun jumpHomeFragment(title: String): Fragment? =
         ARouter.getInstance().build(HomeRouterTable.PATH_FRAGMENT_HOME)
-            .withString("title", title).navigation() as Fragment
+            .withString("title", title).navigation() as Fragment?
 
 }

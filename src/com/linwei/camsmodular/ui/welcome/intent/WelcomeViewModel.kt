@@ -9,6 +9,7 @@ import com.linwei.cams.framework.mvi.ktx.setState
 import com.linwei.cams.framework.mvi.mvi.intent.MviViewModel
 import com.linwei.cams.framework.mvi.mvi.intent.StatusCode
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
+import com.linwei.cams.service.project.provider.ProjectProvider
 import com.linwei.cams.service.project.provider.ProjectProviderHelper
 import com.linwei.camsmodular.ui.welcome.model.MviViewState
 import kotlinx.coroutines.launch
@@ -18,7 +19,7 @@ class WelcomeViewModel : MviViewModel() {
     private val _viewStates: MutableLiveData<MviViewState> = MutableLiveData(MviViewState())
     val viewState = _viewStates.asLiveData()
 
-    private val projectProvider = ProjectProviderHelper.getProjectProvider()
+    private val projectProvider:ProjectProvider? = ProjectProviderHelper.getProjectProvider()
 
     /**
      * 获取项目树数据
@@ -28,7 +29,7 @@ class WelcomeViewModel : MviViewModel() {
             copy(fetchStatus = FetchStatus.Fetching)
         }
         viewModelScope.launch {
-            when (val result = projectProvider.fetchProjectTreeData()) {
+            when (val result = projectProvider?.fetchProjectTreeData()) {
                 is PageState.Error -> {
                     _viewStates.setState {
                         copy(fetchStatus = FetchStatus.NotFetched)

@@ -43,7 +43,7 @@ interface MviView<VM : MviViewModel> {
      * 绑定 [MviViewEvent] 对象
      * @param event [MviViewEvent]
      */
-    private fun bindMviViewEvent(event: MviViewEvent) {
+     fun bindMviViewEvent(event: MviViewEvent) {
         when (event.code) {
             StatusCode.SHOW_SNACK_BAR -> {
                 showSnackBar(event.content.toString())

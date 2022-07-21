@@ -104,6 +104,12 @@ dependencies {
     api rootProject.ext.dependencies["immersionbar"]
     api rootProject.ext.dependencies["immersionbar-ktx"]
 
+    //MagicIndicator
+    api rootProject.ext.dependencies["magicIndicator"]
+
+    //Flexbox
+    api rootProject.ext.dependencies["flexbox"]
+
     api(rootProject.ext.dependencies["vlayout"]) {
         transitive = true
     }

@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="squareColorPrimary">#3F51B5</color>
-    <color name="squareColorPrimaryDark">#303F9F</color>
-    <color name="squareColorAccent">#303F9F</color>
+    <color name="squareColorPrimary">#607D8B</color>
+    <color name="squareColorPrimaryDark">#607D8B</color>
+    <color name="squareColorAccent">#607D8B</color>
+
+    <color name="squareColorIn1">#E53935</color>
+    <color name="squareColorIn2">#D81B60</color>
+    <color name="squareColorIn3">#8E24AA</color>
+    <color name="squareColorIn4">#5E35B1</color>
+    <color name="squareColorIn5">#3949AB</color>
+    <color name="squareColorIn6">#1E88E5</color>
+    <color name="squareColorIn7">#039BE5</color>
+    <color name="squareColorIn8">#00ACC1</color>
+    <color name="squareColorIn9">#00897B</color>
+    <color name="squareColorIn10">#43A047</color>
+    <color name="squareColorIn11">#7CB342</color>
+    <color name="squareColorIn12">#C0CA33</color>
+    <color name="squareColorIn13">#FDD835</color>
+    <color name="squareColorIn14">#FFB300</color>
+    <color name="squareColorIn15">#FB8C00</color>
+    <color name="squareColorIn16">#F4511E</color>
+    <color name="squareColorIn17">#8D6E63</color>
+    <color name="squareColorIn18">#BDBDBD</color>
+    <color name="squareColorIn19">#78909C</color>
+
+    <color name="squareColor666666">#666666</color>
+    <color name="squareColorF5F5F5">#F5F5F5</color>
+    <color name="squareColorEAE8E8">#EAE8E8</color>
+
+
 </resources>

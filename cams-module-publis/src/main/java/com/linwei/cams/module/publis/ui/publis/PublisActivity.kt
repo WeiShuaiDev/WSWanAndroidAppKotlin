@@ -4,7 +4,9 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.common.base.CommonBaseActivity
 import com.linwei.cams.module.publis.databinding.PublisActivityPublisBinding
 import com.linwei.cams.service.publis.PublisRouterTable
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @Route(path = PublisRouterTable.PATH_ACTIVITY_PUBLIS)
 class PublisActivity : CommonBaseActivity<PublisActivityPublisBinding>(){
 

@@ -9,10 +9,10 @@
         android:label="@string/home_app_name"
         android:supportsRtl="true"
         android:theme="@style/HomeModuleAppTheme">
+
         <activity
             android:name=".ui.home.HomeActivity"
-            android:exported="true"
-            android:label="@string/home_module_page">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

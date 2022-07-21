@@ -7,5 +7,4 @@ import javax.inject.Inject
 class PublisModel @Inject constructor(private val publisProvider: PublisProviderImpl) :
     MvvmModel() {
 
-
 }

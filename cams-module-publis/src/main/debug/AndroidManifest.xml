@@ -11,8 +11,7 @@
         android:theme="@style/PublisModuleAppTheme">
         <activity
             android:name=".ui.publis.PublisActivity"
-            android:exported="true"
-            android:label="@string/publis_module_page">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -1,4 +1,4 @@
-package com.linwei.cams.module.common
+package com.linwei.cams.module.common.adapter
 
 import android.text.TextUtils
 import androidx.appcompat.widget.AppCompatImageView
@@ -6,6 +6,7 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.linwei.cams.component.image.utils.GlideUtil
 import com.linwei.cams.component.weight.shinebutton.ShineButton
+import com.linwei.cams.module.common.R
 import com.linwei.cams.service.base.constants.ItemTypeConstants
 import com.linwei.cams.service.base.model.CommonArticleBean
 

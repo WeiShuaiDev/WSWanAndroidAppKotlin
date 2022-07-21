@@ -9,21 +9,21 @@ object ProjectProviderHelper {
     /**
      * ProjectProvider
      */
-    fun getProjectProvider(): ProjectProvider=
+    fun getProjectProvider(): ProjectProvider?=
         ARouter.getInstance().build(ProjectRouterTable.PATH_SERVICE_PROJECT)
-            .navigation() as ProjectProvider
+            .navigation() as ProjectProvider?
 
     /**
      * ProjectActivity
      */
-    fun jumpProjectActivity(title: String) :Activity=
+    fun jumpProjectActivity(title: String) :Activity?=
         ARouter.getInstance().build(ProjectRouterTable.PATH_ACTIVITY_PROJECT)
-            .withString("title", title).navigation() as Activity
+            .withString("title", title).navigation() as Activity?
 
     /**
      * ProjectFragment
      */
-    fun jumpProjectFragment(title: String): Fragment =
+    fun jumpProjectFragment(title: String): Fragment? =
         ARouter.getInstance().build(ProjectRouterTable.PATH_FRAGMENT_PROJECT)
-            .withString("title", title).navigation() as Fragment
+            .withString("title", title).navigation() as Fragment?
 }

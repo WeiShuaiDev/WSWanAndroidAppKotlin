@@ -12,8 +12,7 @@
 
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="true"
-            android:label="@string/login_module_page">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

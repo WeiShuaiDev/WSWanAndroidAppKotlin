@@ -1,5 +1,5 @@
 <resources>
-    <string name="mine_app_name">cams-module-mine</string>
+    <string name="mine_app_name">我的模块</string>
     <string name="mine_module_page">mine</string>
 
 </resources>

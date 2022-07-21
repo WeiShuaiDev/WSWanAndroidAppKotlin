@@ -1,5 +1,5 @@
 <resources>
-    <string name="login_app_name">cams-module-login</string>
+    <string name="login_app_name">登录模块</string>
     <string name="login_module_page">login</string>
 
     <string name="login_go_register">前往注册 >></string>

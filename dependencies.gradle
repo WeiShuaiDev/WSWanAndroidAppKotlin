@@ -9,12 +9,12 @@ ext {
     ]
 
     version = [
-            appcompatVersion          : "1.4.1",
-            materialVersion           : "1.5.0",
-            activityKtxVersion        : "1.4.0",
-            fragmentKtxVersion        : "1.4.1",
+            appcompatVersion          : "1.4.2",
+            materialVersion           : "1.6.1",
+            activityKtxVersion        : "1.5.0",
+            fragmentKtxVersion        : "1.5.0",
             multidexVersion           : "2.0.0",
-            constraintlayoutVersion   : "2.0.4",
+            constraintlayoutVersion   : "2.1.4",
             retrofitVersion           : "2.9.0",
             loggingInterceptorVersion : "4.9.0",
             rxlifecycle3SdkVersion    : "4.0.2",

@@ -9,21 +9,21 @@ object MineProviderHelper {
     /**
      * MineProvider
      */
-    fun getMineProvider(): MineProvider =
-        ARouter.getInstance().build(MineRouterTable.PATH_SERVICE_MINE).navigation() as MineProvider
+    fun getMineProvider(): MineProvider? =
+        ARouter.getInstance().build(MineRouterTable.PATH_SERVICE_MINE).navigation() as MineProvider?
 
     /**
      * MineActivity
      */
-    fun jumpMineActivity(title: String): Activity =
+    fun jumpMineActivity(title: String): Activity? =
         ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_MINE)
-            .withString("title", title).navigation() as Activity
+            .withString("title", title).navigation() as Activity?
 
     /**
      * MineFragment
      */
-    fun jumpMineFragment(title: String): Fragment =
+    fun jumpMineFragment(title: String): Fragment? =
         ARouter.getInstance().build(MineRouterTable.PATH_FRAGMENT_MINE)
-            .withString("title", title).navigation() as Fragment
+            .withString("title", title).navigation() as Fragment?
 
 }

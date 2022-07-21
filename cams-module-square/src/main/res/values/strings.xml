@@ -1,5 +1,10 @@
-<resources>
-    <string name="square_app_name">cams-module-square</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="square_app_name">广场模块</string>
     <string name="square_module_page">square</string>
+
+    <string-array name="square_tab_title" tools:ignore="ExtraTranslation">
+        <item>体系</item>
+        <item>导航</item>
+    </string-array>
 
 </resources>

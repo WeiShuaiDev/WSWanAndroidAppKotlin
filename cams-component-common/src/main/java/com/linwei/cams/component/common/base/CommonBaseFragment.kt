@@ -2,6 +2,7 @@ package com.linwei.cams.component.common.base
 
 import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +51,16 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
                 owner.lifecycle.removeObserver(this)
             }
         })
+    }
+
+    override fun onAttach(activity: Activity) {
+        super.onAttach(activity)
+        context?.let {
+            mContext = it
+        }
+        if (activity is FragmentActivity) {
+            mActivity = activity
+        }
     }
 
 

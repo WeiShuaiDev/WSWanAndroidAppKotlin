@@ -3,9 +3,12 @@ package com.linwei.cams.module.home.ui.home
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.common.base.CommonBaseActivity
+import com.linwei.cams.module.home.R
 import com.linwei.cams.module.home.databinding.HomeActivityHomeBinding
 import com.linwei.cams.service.home.HomeRouterTable
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @Route(path = HomeRouterTable.PATH_ACTIVITY_HOME)
 class HomeActivity : CommonBaseActivity<HomeActivityHomeBinding>() {
 
@@ -13,14 +16,6 @@ class HomeActivity : CommonBaseActivity<HomeActivityHomeBinding>() {
     lateinit var title: String
 
     override fun hasInjectARouter(): Boolean = true
-
-
-    override fun initEvent() {
-
-    }
-
-    override fun initData() {
-    }
 
     override fun initView() {
         //val activityResultLauncher= startActivityForResult{
@@ -30,5 +25,13 @@ class HomeActivity : CommonBaseActivity<HomeActivityHomeBinding>() {
         // mViewBinding.homeStartBtn.setOnClickListener {
         //     activityResultLauncher.launch(mContext,HomeDetailsActivity::class.java,"name","HomeActivity")
         // }
+    }
+
+    override fun initData() {
+
+    }
+
+    override fun initEvent() {
+
     }
 }

@@ -9,21 +9,21 @@ object SquareProviderHelper {
     /**
      * SquareProvider
      */
-    fun getSquareProvider(): SquareProvider =
+    fun getSquareProvider(): SquareProvider? =
         ARouter.getInstance().build(SquareRouterTable.PATH_SERVICE_SQUARE)
-            .navigation() as SquareProvider
+            .navigation() as SquareProvider?
 
     /**
      * SquareActivity
      */
-    fun jumpSquareActivity():Activity =
+    fun jumpSquareActivity():Activity? =
         ARouter.getInstance().build(SquareRouterTable.PATH_ACTIVITY_SQUARE)
-            .navigation() as Activity
+            .navigation() as Activity?
 
     /**
      * SquareFragment
      */
-    fun jumpSquareFragment(title: String): Fragment =
+    fun jumpSquareFragment(title: String): Fragment? =
         ARouter.getInstance().build(SquareRouterTable.PATH_FRAGMENT_SQUARE)
-            .withString("title", title).navigation() as Fragment
+            .withString("title", title).navigation() as Fragment?
 }

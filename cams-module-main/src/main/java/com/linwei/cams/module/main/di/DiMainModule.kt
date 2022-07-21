@@ -2,8 +2,8 @@ package com.linwei.cams.module.main.di
 
 import com.linwei.cams.component.mvvm.di.ViewModelKey
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.MvvmViewModel
-import com.linwei.cams.module.main.ui.main.model.MainModel
-import com.linwei.cams.module.main.ui.main.viewmodel.MainViewModel
+import com.linwei.cams.module.main.ui.main.mvvm.model.MainModel
+import com.linwei.cams.module.main.ui.main.mvvm.viewmodel.MainViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

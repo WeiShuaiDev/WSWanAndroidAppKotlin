@@ -9,4 +9,5 @@ object MainRouterTable {
     /**
      * ----------------Fragment-------------------------
      */
+    const val PATH_FRAGMENT_MAIN: String = "/main/MainFragment"
 }

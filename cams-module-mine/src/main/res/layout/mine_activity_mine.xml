@@ -2,11 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchAndMatch"
-    tools:context=".ui.mine.MineActivity">
+    tools:context="com.linwei.cams.module.mine.ui.mine.MineActivity">
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mineFragmentContainerView"
         android:name="com.linwei.cams.module.mine.ui.mine.MineFragment"
         style="@style/MatchAndMatch"
+        android:tag="mineFragmentContainerView"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
