@@ -18,24 +18,24 @@ interface ProjectView : MviView<ProjectViewModel> {
         super.bindViewModel(viewModel, owner)
         viewModel?.let {
             it.viewState.run {
-                observeOnlyState(owner, MviViewState::projectTreeList) {
-                    projectTreeDataToView(it)
+                observeOnlyState(owner, MviViewState::projectTreeList) { data ->
+                    projectTreeDataToView(data)
                 }
 
-                observeState(owner, MviViewState::articlePage) {
-                    articleDataToView(it)
+                observeState(owner, MviViewState::commonArticlePage) { page ->
+                    commonArticleDataToView(page)
                 }
 
-                observeState(owner,MviViewState::collectStatus){
-                    refreshCollectStatus(it)
+                observeState(owner, MviViewState::collectStatus) { status ->
+                    refreshCollectStatus(status)
                 }
 
-                observeState(owner,MviViewState::isRefresh){
-                    refreshDataStatus(it)
+                observeState(owner, MviViewState::isRefresh) { isRefresh ->
+                    refreshDataStatus(isRefresh)
                 }
 
-                observeState(owner, MviViewState::fetchStatus) {
-                    when (it) {
+                observeState(owner, MviViewState::fetchStatus) { fetchStatus ->
+                    when (fetchStatus) {
                         is FetchStatus.Fetched -> {
 
                         }
@@ -64,19 +64,19 @@ interface ProjectView : MviView<ProjectViewModel> {
 
     /**
      * 项目文章数据更新到View
-     * @param data [ArticleBean]
+     * @param page [CommonArticleBean]
      */
-    fun articleDataToView(page: Page<CommonArticleBean>)
+    fun commonArticleDataToView(page: Page<CommonArticleBean>)
 
     /**
      * 更新收藏状态
      * @param status [Boolean]
      */
-    fun refreshCollectStatus(status:Boolean)
+    fun refreshCollectStatus(status: Boolean)
 
     /**
      * 更新刷新状态
      * @param isRefresh [Boolean]
      */
-    fun refreshDataStatus(isRefresh:Boolean)
+    fun refreshDataStatus(isRefresh: Boolean)
 }

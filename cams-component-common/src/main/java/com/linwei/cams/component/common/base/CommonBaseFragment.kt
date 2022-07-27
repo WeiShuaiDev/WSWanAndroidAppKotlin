@@ -14,6 +14,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
+import com.gyf.immersionbar.ktx.isSupportStatusBarDarkFont
 import com.linwei.cams.component.common.R
 import com.linwei.cams.component.common.opensource.ARouterManager
 import com.linwei.cams.component.common.utils.EventBusUtils

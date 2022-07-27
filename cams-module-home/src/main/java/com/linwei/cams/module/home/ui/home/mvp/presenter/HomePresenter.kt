@@ -16,21 +16,29 @@ class HomePresenter(
     private val model: IHomeModel = HomeModel()
 ) : MvpPresenter<IHomeView, IHomeModel>(rootView, model), IHomePresenter {
 
+    /**
+     * 获取文章数据
+     */
     override fun requestArticleData(page: Int) {
         rootView?.let {
             model.fetchArticleData(page, object : ResponseCallback<Page<CommonArticleBean>> {
                 override fun onSuccess(data: Page<CommonArticleBean>) {
-                    it.articleDataToView(data)
+                    it.commonArticleDataToView(data)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
                     it.showToast(errorMessage.message)
-                    it.refreshDataStatus(page == 0)
+                    val isRefresh = page == 0
+                    it.refreshDataStatus(isRefresh)
                 }
             })
         }
     }
 
+
+    /**
+     * 获取轮播图数据
+     */
     override fun requestBannerData() {
         rootView?.let {
             model.fetchBannerData(object : ResponseCallback<List<BannerBean>> {
@@ -45,6 +53,9 @@ class HomePresenter(
         }
     }
 
+    /**
+     * 增加文章收藏
+     */
     override fun requestCollectStatus(id: Int) {
         rootView?.let {
             model.collectStatus(id, object : ResponseCallback<Any> {
@@ -59,6 +70,9 @@ class HomePresenter(
         }
     }
 
+    /**
+     * 取消文章收藏
+     */
     override fun requestUnCollectStatus(id: Int) {
         rootView?.let {
             model.unCollectStatus(id, object : ResponseCallback<Any> {

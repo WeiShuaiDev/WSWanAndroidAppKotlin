@@ -69,6 +69,6 @@ class HomeArticleAdapter(
     }
 
     interface OnArticleCollectListener {
-        fun onCollect(commonarticleBean: CommonArticleBean?)
+        fun onCollect(commonArticleBean: CommonArticleBean?)
     }
 }

@@ -101,7 +101,6 @@ abstract class MviBaseActivity<VB : ViewBinding, VM : MviViewModel> : CommonBase
     override fun showSnackBar(message: String) = window.decorView.snackBar(message)
 
     override fun showLoadingDialog(message: String) {
-
     }
 
     override fun dismissLoadingDialog() {

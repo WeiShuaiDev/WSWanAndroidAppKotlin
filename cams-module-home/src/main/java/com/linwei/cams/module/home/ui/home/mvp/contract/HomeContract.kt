@@ -36,7 +36,7 @@ interface IHomePresenter : IMvpPresenter {
 
 interface IHomeView : IMvpView {
 
-    fun articleDataToView(page: Page<CommonArticleBean>)
+    fun commonArticleDataToView(page: Page<CommonArticleBean>)
 
     fun bannerDataToView(data: List<BannerBean>)
 

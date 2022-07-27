@@ -3,7 +3,6 @@ package com.linwei.cams.module.square.ui.square.adapter.listener
 import android.view.View
 
 interface OnTabSelectListener {
-
     /**
      * 选中
      */

@@ -10,7 +10,7 @@ data class MviViewState(
 
     val projectTreeList: List<ProjectTreeBean> = emptyList(),
 
-    val articlePage: Page<CommonArticleBean> = Page(),
+    val commonArticlePage: Page<CommonArticleBean> = Page(),
 
     val collectStatus: Boolean = false,
 

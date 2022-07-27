@@ -1,5 +1,6 @@
 package com.linwei.cams.module.project.ui.project
 
+import android.annotation.SuppressLint
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -32,8 +33,6 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
     private var mCurPage: Int = 0
 
     override fun hasInjectARouter(): Boolean = true
-
-    override fun immersionBar(): Boolean = true
 
     private var mCommonArticlePage = Page<CommonArticleBean>()
     private val mCommonArticleList = mutableListOf<CommonArticleBean>()
@@ -163,7 +162,8 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
         }
     }
 
-    override fun articleDataToView(page: Page<CommonArticleBean>) {
+    @SuppressLint("NotifyDataSetChanged")
+    override fun commonArticleDataToView(page: Page<CommonArticleBean>) {
         this.mCommonArticlePage = page
         page.datas?.let {
             val positionStart: Int

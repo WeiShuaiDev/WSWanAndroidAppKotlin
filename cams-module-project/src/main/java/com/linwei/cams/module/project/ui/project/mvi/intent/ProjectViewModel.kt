@@ -32,7 +32,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
 
     private val mProjectProvider: ProjectProviderImpl = ProjectProviderImpl()
 
-    private val mMineProvider:MineProvider? = MineProviderHelper.getMineProvider()
+    private val mMineProvider: MineProvider? = MineProviderHelper.getMineProvider()
 
     private val _viewStates: MutableLiveData<MviViewState> = MutableLiveData(MviViewState())
     val viewState = _viewStates.asLiveData()
@@ -139,6 +139,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
      */
     fun requestProjectData(page: Int, cid: String) {
         viewModelScope.launch {
+            val isRefresh = page == 0
             flow {
                 emit(mProjectProvider.fetchProjectData(page, cid))
             }.onStart {
@@ -146,12 +147,17 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
             }.onEach {
                 _viewStates.setState {
                     copy(
-                        articlePage = it,
-                        fetchStatus = FetchStatus.Fetched
+                        fetchStatus = FetchStatus.Fetched,
+                        commonArticlePage = it
                     )
                 }
             }.commonCatch {
-                _viewStates.setState { copy(fetchStatus = FetchStatus.NotFetched, isRefresh = page == 0) }
+                _viewStates.setState {
+                    copy(
+                        fetchStatus = FetchStatus.NotFetched,
+                        isRefresh = isRefresh
+                    )
+                }
             }.collect()
         }
     }

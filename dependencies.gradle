@@ -37,7 +37,7 @@ ext {
             coroutinesVersion         : "1.5.2",
             autosizeVersion           : "v1.2.1",
             permissionXVersion        : "1.4.0",
-            leakcanaryAndroidVersion  : "2.8.1",
+            leakcanaryAndroidVersion  : "2.9.1",
             autoServiceVersion        : "1.0",
             tencentBuglyVersion       : "3.3.9",
             tencentBuglyNativeVersion : "3.8.0",

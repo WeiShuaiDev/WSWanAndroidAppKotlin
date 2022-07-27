@@ -36,7 +36,7 @@ class ProjectProviderImpl @Inject constructor() : ProjectProvider {
             return PageState.Error(e)
         }
 
-        projectTreeData.takeIf { it.errorCode == ApiConstants.REQUEST_SUCCESS }?.apply {
+        projectTreeData.takeIf { it.errorCode == ApiConstants.REQUEST_SUCCESS }?.run {
             this.data?.let {
                 return PageState.Success(it)
             } ?: run {
@@ -53,7 +53,7 @@ class ProjectProviderImpl @Inject constructor() : ProjectProvider {
         val projectData =
             mApiService.getProjectData(page, cid)
 
-        projectData.takeIf { it.errorCode == ApiConstants.REQUEST_SUCCESS }?.apply {
+        projectData.takeIf { it.errorCode == ApiConstants.REQUEST_SUCCESS }?.run {
             this.data?.let {
                 return it
             } ?: run {

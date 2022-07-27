@@ -2,23 +2,25 @@ package com.linwei.cams.module.square.ui.square.mvi.view
 
 import androidx.lifecycle.LifecycleOwner
 import com.linwei.cams.framework.mvi.ktx.FetchStatus
+import com.linwei.cams.framework.mvi.ktx.observeOnlyState
 import com.linwei.cams.framework.mvi.ktx.observeState
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
 import com.linwei.cams.framework.mvi.mvi.view.MviView
-import com.linwei.cams.module.square.ui.square.mvi.intent.SquareViewModel
-import com.linwei.cams.module.square.ui.square.mvi.model.MviViewState
+import com.linwei.cams.module.square.ui.square.mvi.intent.NavigationViewModel
+import com.linwei.cams.module.square.ui.square.mvi.model.NavigationViewState
+import com.linwei.cams.service.square.model.SquareTreeBean
 
-interface SquareView : MviView<SquareViewModel> {
+interface NavigationView : MviView<NavigationViewModel> {
 
-    override fun bindViewModel(viewModel: SquareViewModel?, owner: LifecycleOwner) {
+    override fun bindViewModel(viewModel: NavigationViewModel?, owner: LifecycleOwner) {
         super.bindViewModel(viewModel, owner)
         viewModel?.let {
             it.viewState.run {
-                //observeOnlyState
-
-
-                observeState(owner, MviViewState::fetchStatus) {
-                    when (it) {
+                observeOnlyState(owner, NavigationViewState::squareNavisList) { data ->
+                    squareNavisDataToView(data)
+                }
+                observeState(owner, NavigationViewState::fetchStatus) { fetchStatus ->
+                    when (fetchStatus) {
                         is FetchStatus.Fetched -> {
 
                         }
@@ -38,4 +40,10 @@ interface SquareView : MviView<SquareViewModel> {
         super.bindOtherMviViewEvent(event)
         //扩展Event监听
     }
+
+    /**
+     * 广场导航数据更新到View
+     * @param data [SquareTreeBean]
+     */
+    fun squareNavisDataToView(data: List<SquareTreeBean>)
 }

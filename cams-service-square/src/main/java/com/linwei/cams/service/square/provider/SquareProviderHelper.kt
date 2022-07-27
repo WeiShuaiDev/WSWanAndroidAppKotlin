@@ -16,8 +16,17 @@ object SquareProviderHelper {
     /**
      * SquareActivity
      */
-    fun jumpSquareActivity():Activity? =
+    fun jumpSquareActivity(): Activity? =
         ARouter.getInstance().build(SquareRouterTable.PATH_ACTIVITY_SQUARE)
+            .navigation() as Activity?
+
+    /**
+     * SquareListActivity
+     */
+    fun jumpSquareListActivity(title: String?, id: String?): Activity? =
+        ARouter.getInstance().build(SquareRouterTable.PATH_ACTIVITY_SQUARE_LIST)
+            .withString("title", title)
+            .withString("id", id)
             .navigation() as Activity?
 
     /**
@@ -26,4 +35,18 @@ object SquareProviderHelper {
     fun jumpSquareFragment(title: String): Fragment? =
         ARouter.getInstance().build(SquareRouterTable.PATH_FRAGMENT_SQUARE)
             .withString("title", title).navigation() as Fragment?
+
+    /**
+     * SystemFragment
+     */
+    fun jumpSystemFragment(): Fragment? =
+        ARouter.getInstance().build(SquareRouterTable.PATH_FRAGMENT_SYSTEM)
+            .navigation() as Fragment?
+
+    /**
+     * NavigationFragment
+     */
+    fun jumpNavigationFragment(): Fragment? =
+        ARouter.getInstance().build(SquareRouterTable.PATH_FRAGMENT_NAVIGATION)
+            .navigation() as Fragment?
 }

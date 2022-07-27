@@ -5,9 +5,14 @@ import com.linwei.cams.module.square.ui.square.adapter.listener.OnTabSelectListe
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 
 class ScaleTransitionPagerTitleView(
-    context: Context,
-    private val tabSelectListener: OnTabSelectListener?
+    context: Context
 ) : ColorTransitionPagerTitleView(context) {
+
+    private var tabSelectListener: OnTabSelectListener? = null
+
+    fun setOnTabSelectListener(tabSelectListener: OnTabSelectListener?) {
+        this.tabSelectListener = tabSelectListener
+    }
 
     override fun onSelected(index: Int, totalCount: Int) {
         super.onSelected(index, totalCount)

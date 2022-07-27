@@ -5,21 +5,24 @@
     android:orientation="vertical">
 
     <include
+        android:id="@+id/stateBarView"
+        layout="@layout/include_status" />
+
+    <include
         android:id="@+id/topRootLayout"
         layout="@layout/include_top_view_primary" />
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
-        android:id="@+id/squareSmartRefreshLayout"
+        android:id="@+id/squareRefreshLayout"
         style="@style/MatchAndMatch"
         app:srlAccentColor="@color/colorGlobalTextGray"
-        app:srlEnableLoadMore="true"
-        app:srlPrimaryColor="@android:color/transparent">
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:srlEnablePreviewInEditMode="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/squareRecyclerView"
             style="@style/MatchAndMatch"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:background="@color/colorGlobalWhite" />
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

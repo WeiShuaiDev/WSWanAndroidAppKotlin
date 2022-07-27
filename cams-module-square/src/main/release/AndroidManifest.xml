@@ -6,6 +6,9 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <activity android:name=".ui.square.SquareActivity"/>
+
+        <activity android:name=".ui.square.details.list.SquareListActivity"/>
+
     </application>
 
 </manifest>

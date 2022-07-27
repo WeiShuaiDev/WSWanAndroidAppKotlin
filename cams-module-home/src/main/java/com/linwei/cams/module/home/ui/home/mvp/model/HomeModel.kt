@@ -13,7 +13,7 @@ class HomeModel : MvpModel(), IHomeModel {
 
     private val mHomeProvider: HomeProviderImpl = HomeProviderImpl()
 
-    //private val mMineProvider = MineProviderHelper.getMineProvider()
+    private val mMineProvider = MineProviderHelper.getMineProvider()
 
     override fun fetchArticleData(page: Int, callback: ResponseCallback<Page<CommonArticleBean>>) {
         mHomeProvider.fetchArticleData(page, callback)
@@ -24,11 +24,11 @@ class HomeModel : MvpModel(), IHomeModel {
     }
 
     override fun collectStatus(id: Int, callback: ResponseCallback<Any>) {
-        //mMineProvider.collectStatus(id, callback)
+        mMineProvider?.collectStatus(id, callback)
     }
 
     override fun unCollectStatus(id: Int, callback: ResponseCallback<Any>) {
-        //mMineProvider.unCollectStatus(id, callback)
+        mMineProvider?.unCollectStatus(id, callback)
     }
 
 }

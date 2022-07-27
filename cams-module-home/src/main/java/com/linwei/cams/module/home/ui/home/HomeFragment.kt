@@ -69,7 +69,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
                 HomeArticleAdapter.OnArticleCollectListener {
                 override fun onCollect(commonArticleBean: CommonArticleBean?) {
                     commonArticleBean?.let {
-                        if (commonArticleBean.collect) {
+                        if (it.collect) {
                             mMvpPresenter?.requestUnCollectStatus(it.id)
                         } else {
                             mMvpPresenter?.requestCollectStatus(it.id)
@@ -115,7 +115,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun getPresenter(): HomePresenter = HomePresenter(this)
 
-    override fun articleDataToView(page: Page<CommonArticleBean>) {
+    override fun commonArticleDataToView(page: Page<CommonArticleBean>) {
         mCommonArticlePage = page
         page.datas?.let {
             val positionStart: Int

@@ -11,8 +11,15 @@ object SquareRouterTable {
      */
     const val PATH_ACTIVITY_SQUARE: String = "/square/squareActivity"
 
+    const val PATH_ACTIVITY_SQUARE_LIST: String = "/square/squareListActivity"
+
     /**
      * ----------------Fragment-------------------------
      */
     const val PATH_FRAGMENT_SQUARE: String = "/square/squareFragment"
+
+    const val PATH_FRAGMENT_SYSTEM: String = "/square/systemFragment"
+
+    const val PATH_FRAGMENT_NAVIGATION:String="/square/navigationFragment"
+
 }

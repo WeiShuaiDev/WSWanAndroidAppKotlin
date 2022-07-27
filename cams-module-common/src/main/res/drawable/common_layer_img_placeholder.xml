@@ -6,9 +6,9 @@
     <item>
         <shape>
             <size
-                android:width="360dp"
-                android:height="360dp" />
-            <solid android:color="@color/colorGlobalWhite" />
+                android:width="@dimen/dp_360"
+                android:height="@dimen/dp_360" />
+            <solid android:color="@color/colorGlobalBackground" />
         </shape>
     </item>
 

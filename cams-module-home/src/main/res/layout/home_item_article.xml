@@ -93,7 +93,7 @@
                     app:btn_color="@android:color/darker_gray"
                     app:btn_fill_color="@color/colorAccent"
                     app:enable_flashing="true"
-                    app:siShape="@raw/star" />
+                    app:siShape="@raw/common_ic_star" />
             </LinearLayout>
 
         </LinearLayout>
