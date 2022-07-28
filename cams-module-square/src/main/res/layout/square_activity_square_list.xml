@@ -15,14 +15,17 @@
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/squareRefreshLayout"
         style="@style/MatchAndMatch"
+        android:clipChildren="false"
         app:srlAccentColor="@color/colorGlobalTextGray"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:srlEnablePreviewInEditMode="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/squareRecyclerView"
             style="@style/MatchAndMatch"
-            android:background="@color/colorGlobalWhite" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:background="@color/colorGlobalWhite"
+            android:nestedScrollingEnabled="false" />
+
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

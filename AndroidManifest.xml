@@ -47,6 +47,7 @@
 
         <activity
             android:name=".ui.welcome.WelcomeActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
             android:theme="@style/CamsAppTheme.SplashTheme"
             android:exported="true">
             <intent-filter>

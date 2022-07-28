@@ -18,7 +18,7 @@
         android:layout_marginTop="@dimen/dp_2"
         android:layout_marginEnd="@dimen/dp_2"
         app:hl_cornerRadius="@dimen/dp_2"
-        app:hl_shadowLimit="@dimen/dp_3">
+        app:hl_shadowLimit="@dimen/dp_1">
 
         <LinearLayout
             style="@style/MatchAndWrap"

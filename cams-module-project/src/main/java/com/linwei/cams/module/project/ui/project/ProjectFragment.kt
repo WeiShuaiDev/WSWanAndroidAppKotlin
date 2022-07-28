@@ -108,7 +108,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
                 mCurPage++
-                if (mCurPage <= mCommonArticlePage.pageCount) {
+                if (mCurPage < mCommonArticlePage.pageCount) {
                     mViewModel?.requestProjectData(mCurPage, mId.toString())
                 } else {
                     mViewBinding.projectContentRefreshLayout.finishLoadMoreWithNoMoreData()

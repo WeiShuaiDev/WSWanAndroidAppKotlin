@@ -104,7 +104,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
                 mCurPage++
-                if (mCurPage <= mCommonArticlePage.pageCount) {
+                if (mCurPage < mCommonArticlePage.pageCount) {
                     mMvpPresenter?.requestArticleData(mCurPage)
                 } else {
                     mViewBinding.homeRefreshLayout.finishLoadMoreWithNoMoreData()

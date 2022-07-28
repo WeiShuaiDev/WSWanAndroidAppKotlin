@@ -17,7 +17,7 @@ interface SquareListView : MviView<SquareListViewModel> {
         super.bindViewModel(viewModel, owner)
         viewModel?.let {
             it.viewState.run {
-                observeOnlyState(owner, SquareListViewState::commonArticlePage) { data ->
+                observeState(owner, SquareListViewState::commonArticlePage) { data ->
                     commonArticleDataToView(data)
                 }
 

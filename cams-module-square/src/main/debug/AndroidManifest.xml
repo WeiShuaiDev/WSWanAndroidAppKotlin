@@ -12,6 +12,7 @@
 
         <activity
             android:name=".ui.square.SquareActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.square.details.list.SquareListActivity"/>
+        <activity
+            android:name=".ui.square.details.list.SquareListActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden" />
 
     </application>
 

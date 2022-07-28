@@ -37,11 +37,14 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
     private var mCommonArticleListAdapter: CommonArticleListAdapter? = null
 
     override fun initView() {
-        //mViewBinding.topRootLayout.let {
+        mViewBinding.topRootLayout.let {
+            it.leftTitleView.setOnClickListener {
+                this.finish()
+            }
+            it.titleView.text = title
+        }
 
-        //}
-
-        mCommonArticleListAdapter = CommonArticleListAdapter(mCommonArticleList, true)
+        mCommonArticleListAdapter = CommonArticleListAdapter(mCommonArticleList, false)
         mViewBinding.squareRecyclerView.apply {
             addItemDecoration(
                 CustomItemDecoration(
@@ -55,7 +58,7 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
     }
 
     override fun initData() {
-        mViewBinding.squareRefreshLayout.autoRefresh()
+        mViewModel?.requestSquareTreeArticleListData(mCurPage, id)
     }
 
     override fun initEvent() {
@@ -63,14 +66,13 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
-                System.out.println("mCurPage${mCurPage} id=${id}")
-                mViewModel?.requestSquareTreeArticleListData(mCurPage,id)
+                mViewModel?.requestSquareTreeArticleListData(mCurPage, id)
             }
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
                 mCurPage++
-                if (mCurPage <= mCommonArticlePage.pageCount) {
-                    mViewModel?.requestSquareTreeArticleListData(mCurPage,id)
+                if (mCurPage < mCommonArticlePage.pageCount) {
+                    mViewModel?.requestSquareTreeArticleListData(mCurPage, id)
                 } else {
                     mViewBinding.squareRefreshLayout.finishLoadMoreWithNoMoreData()
                 }

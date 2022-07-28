@@ -2,11 +2,8 @@
 <resources>
 
     <style name="CamsAppTheme.SplashTheme" parent="CamsAppTheme">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 </resources>
