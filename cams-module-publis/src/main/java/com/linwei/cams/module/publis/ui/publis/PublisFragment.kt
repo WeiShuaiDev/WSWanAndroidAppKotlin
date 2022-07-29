@@ -19,10 +19,12 @@ class PublisFragment : MvvmBaseFragment<PublisFragmentPublisBinding, PublisViewM
     override fun hasInjectARouter(): Boolean = true
 
     override fun initView() {
+        mDataBinding.viewmodel=mViewModel
     }
 
     override fun initData() {
-
+        mViewModel?.requestPublicAuthorData()
+        mViewModel?.requestPublicArticleListData(0,"22")
     }
 
     override fun initEvent() {

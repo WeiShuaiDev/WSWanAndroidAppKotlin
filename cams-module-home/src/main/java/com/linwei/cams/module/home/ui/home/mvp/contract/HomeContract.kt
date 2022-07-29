@@ -10,7 +10,7 @@ import com.linwei.cams.service.home.model.BannerBean
 
 interface IHomeModel : IMvpModel {
 
-    fun fetchArticleData(
+    fun fetchArticleListData(
         page: Int,
         callback: ResponseCallback<Page<CommonArticleBean>>
     )
@@ -25,7 +25,7 @@ interface IHomeModel : IMvpModel {
 }
 
 interface IHomePresenter : IMvpPresenter {
-    fun requestArticleData(page: Int)
+    fun requestArticleListData(page: Int)
 
     fun requestBannerData()
 

@@ -15,8 +15,8 @@ class HomeModel : MvpModel(), IHomeModel {
 
     private val mMineProvider = MineProviderHelper.getMineProvider()
 
-    override fun fetchArticleData(page: Int, callback: ResponseCallback<Page<CommonArticleBean>>) {
-        mHomeProvider.fetchArticleData(page, callback)
+    override fun fetchArticleListData(page: Int, callback: ResponseCallback<Page<CommonArticleBean>>) {
+        mHomeProvider.fetchArticleListData(page, callback)
     }
 
     override fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>) {

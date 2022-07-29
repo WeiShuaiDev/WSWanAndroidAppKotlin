@@ -19,9 +19,9 @@ class HomePresenter(
     /**
      * 获取文章数据
      */
-    override fun requestArticleData(page: Int) {
+    override fun requestArticleListData(page: Int) {
         rootView?.let {
-            model.fetchArticleData(page, object : ResponseCallback<Page<CommonArticleBean>> {
+            model.fetchArticleListData(page, object : ResponseCallback<Page<CommonArticleBean>> {
                 override fun onSuccess(data: Page<CommonArticleBean>) {
                     it.commonArticleDataToView(data)
                 }

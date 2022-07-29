@@ -3,8 +3,16 @@ package com.linwei.cams.module.publis.provider
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.network.ApiClient
+import com.linwei.cams.component.network.callback.ErrorConsumer
+import com.linwei.cams.component.network.exception.ApiException
+import com.linwei.cams.component.network.transformer.ResponseTransformer
 import com.linwei.cams.module.publis.http.ApiServiceWrap
+import com.linwei.cams.service.base.ErrorMessage
+import com.linwei.cams.service.base.callback.ResponseCallback
+import com.linwei.cams.service.base.model.CommonArticleBean
+import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.publis.PublisRouterTable
+import com.linwei.cams.service.publis.model.PublisAuthorBean
 import com.linwei.cams.service.publis.provider.PublisProvider
 import javax.inject.Inject
 
@@ -17,10 +25,36 @@ class PublisProviderImpl @Inject constructor() : PublisProvider {
         mContext = context
     }
 
-
     /**
      * TODO:这里发现一问题，ApiService使用Hint注入，导致跨模块引用 `ApiService`还没初始化。
      *      这样违背之前设置原则.所以只能妥协。毕竟[MineProviderImpl]类是跨模块共享
      */
     private val mApiService = ApiClient.getInstance().getService(ApiServiceWrap())
+
+    override fun fetchPublicAuthorData(
+        callback: ResponseCallback<List<PublisAuthorBean>>
+    ) {
+        mApiService.getPublicAuthorData()
+            .compose(ResponseTransformer.obtain())
+            .subscribe({ data ->
+                callback.onSuccess(data)
+            }, object : ErrorConsumer() {
+                override fun error(e: ApiException) {
+                    callback.onFailed(ErrorMessage(e.code, e.message))
+                }
+            })
+    }
+
+    override fun fetchPublicArticleListData(page: Int,id: String?,callback: ResponseCallback<Page<CommonArticleBean>>) {
+        mApiService.getPublicArticleListData(page,id)
+            .compose(ResponseTransformer.obtain())
+            .subscribe({ data ->
+                callback.onSuccess(data)
+            }, object : ErrorConsumer() {
+                override fun error(e: ApiException) {
+                    callback.onFailed(ErrorMessage(e.code, e.message))
+                }
+            })
+    }
+
 }

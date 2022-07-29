@@ -8,7 +8,7 @@ import com.linwei.cams.service.home.model.BannerBean
 
 interface HomeProvider : IProvider {
 
-    fun fetchArticleData(page: Int, callback: ResponseCallback<Page<CommonArticleBean>>)
+    fun fetchArticleListData(page: Int, callback: ResponseCallback<Page<CommonArticleBean>>)
 
     fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>)
 

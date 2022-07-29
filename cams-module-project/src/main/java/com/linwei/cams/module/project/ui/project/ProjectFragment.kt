@@ -102,14 +102,14 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
-                mViewModel?.requestProjectData(mCurPage, mId.toString())
+                mViewModel?.requestProjectArticleListData(mCurPage, mId.toString())
 
             }
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
                 mCurPage++
                 if (mCurPage < mCommonArticlePage.pageCount) {
-                    mViewModel?.requestProjectData(mCurPage, mId.toString())
+                    mViewModel?.requestProjectArticleListData(mCurPage, mId.toString())
                 } else {
                     mViewBinding.projectContentRefreshLayout.finishLoadMoreWithNoMoreData()
                 }
@@ -122,7 +122,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
                 mViewBinding.projectDragTitleView.text = it.name
                 this.mId = it.id
                 this.mCurPage = 0
-                mViewModel?.requestProjectData(mCurPage, mId.toString())
+                mViewModel?.requestProjectArticleListData(mCurPage, mId.toString())
             }
         }
 
@@ -157,7 +157,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
                 mViewBinding.projectDragTitleView.text = it.name
                 this.mId = it.id
                 this.mCurPage = 0
-                mViewModel?.requestProjectData(mCurPage, mId.toString())
+                mViewModel?.requestProjectArticleListData(mCurPage, mId.toString())
             }
         }
     }

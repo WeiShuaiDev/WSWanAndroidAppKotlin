@@ -46,12 +46,12 @@ class ProjectProviderImpl @Inject constructor() : ProjectProvider {
         return PageState.Error(projectTreeData.errorMsg)
     }
 
-    override suspend fun fetchProjectData(
+    override suspend fun fetchProjectArticleListData(
         page: Int,
         cid: String
     ): Page<CommonArticleBean>{
         val projectData =
-            mApiService.getProjectData(page, cid)
+            mApiService.getProjectArticleListData(page, cid)
 
         projectData.takeIf { it.errorCode == ApiConstants.REQUEST_SUCCESS }?.run {
             this.data?.let {

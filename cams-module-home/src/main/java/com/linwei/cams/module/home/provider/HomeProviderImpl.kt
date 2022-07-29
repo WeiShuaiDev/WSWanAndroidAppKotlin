@@ -34,7 +34,7 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
      */
     private val mApiService = ApiClient.getInstance().getService(ApiServiceWrap())
 
-    override fun fetchArticleData(
+    override fun fetchArticleListData(
         page: Int,
         callback: ResponseCallback<Page<CommonArticleBean>>
     ) {

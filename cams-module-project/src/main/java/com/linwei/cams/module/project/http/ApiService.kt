@@ -14,7 +14,7 @@ interface ApiService {
     suspend fun getProjectTreeData(): ApiResponse<List<ProjectTreeBean>>
 
     @GET("project/list/{page}/json")
-    suspend fun getProjectData(
+    suspend fun getProjectArticleListData(
         @Path("page") page: Int?,
         @Query("cid") cid: String?
     ): ApiResponse<Page<CommonArticleBean>>

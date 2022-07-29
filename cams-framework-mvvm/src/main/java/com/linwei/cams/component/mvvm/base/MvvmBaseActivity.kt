@@ -69,7 +69,9 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
     protected fun dataBinding() {
         if (hasDataBinding()) {
             val rootLayoutId = getRootLayoutId()
-            mDataBinding = DataBindingUtil.setContentView(this, rootLayoutId)
+            mDataBinding = DataBindingUtil.setContentView<DB>(this, rootLayoutId).apply {
+                lifecycleOwner=this@MvvmBaseActivity
+            }
             return
         }
     }

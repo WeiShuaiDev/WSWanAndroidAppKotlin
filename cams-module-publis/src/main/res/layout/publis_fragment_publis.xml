@@ -12,10 +12,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/MatchAndMatch">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/MatchAndMatch"
         android:gravity="center"
-        android:text="公众号模块"/>
+        android:text="@{viewmodel.publicAuthorBeanList.toString()}"
+        tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

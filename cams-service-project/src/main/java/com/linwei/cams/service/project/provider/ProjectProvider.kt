@@ -10,7 +10,7 @@ interface ProjectProvider : IProvider {
 
     suspend fun fetchProjectTreeData(): PageState<List<ProjectTreeBean>>
 
-    suspend fun fetchProjectData(page: Int, cid: String): Page<CommonArticleBean>
+    suspend fun fetchProjectArticleListData(page: Int, cid: String): Page<CommonArticleBean>
 
 
 }

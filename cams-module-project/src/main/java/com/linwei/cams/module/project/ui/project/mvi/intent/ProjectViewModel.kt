@@ -137,11 +137,11 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
     /**
      * 获取项目树详情数据
      */
-    fun requestProjectData(page: Int, cid: String) {
+    fun requestProjectArticleListData(page: Int, cid: String) {
         viewModelScope.launch {
             val isRefresh = page == 0
             flow {
-                emit(mProjectProvider.fetchProjectData(page, cid))
+                emit(mProjectProvider.fetchProjectArticleListData(page, cid))
             }.onStart {
                 _viewStates.setState { copy(fetchStatus = FetchStatus.Fetching) }
             }.onEach {

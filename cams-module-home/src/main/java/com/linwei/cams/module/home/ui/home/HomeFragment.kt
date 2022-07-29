@@ -97,7 +97,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
                 mMvpPresenter?.let {
-                    it.requestArticleData(mCurPage)
+                    it.requestArticleListData(mCurPage)
                     it.requestBannerData()
                 }
             }
@@ -105,7 +105,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
                 mCurPage++
                 if (mCurPage < mCommonArticlePage.pageCount) {
-                    mMvpPresenter?.requestArticleData(mCurPage)
+                    mMvpPresenter?.requestArticleListData(mCurPage)
                 } else {
                     mViewBinding.homeRefreshLayout.finishLoadMoreWithNoMoreData()
                 }
