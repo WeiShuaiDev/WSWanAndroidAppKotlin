@@ -49,7 +49,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     private var mHomeBannerAdapter: HomeBannerAdapter? = null
 
     override fun initView() {
-        mViewBinding.topRootLayout.let {
+        mViewBinding?.topRootLayout?.let {
             it.leftTitleView.visibility = View.INVISIBLE
             it.titleView.text = R.string.app_name.idToString()
             it.rightImageView.visibility = View.VISIBLE
@@ -81,18 +81,18 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
             }
 
         mDelegateAdapter?.setAdapters(mAdapters)
-        mViewBinding.homeRecyclerView.apply {
+        mViewBinding?.homeRecyclerView?.apply {
             layoutManager = mVirtualLayoutManager
             adapter = mDelegateAdapter
         }
     }
 
     override fun initData() {
-        mViewBinding.homeRefreshLayout.autoRefresh()
+        mViewBinding?.homeRefreshLayout?.autoRefresh()
     }
 
     override fun initEvent() {
-        mViewBinding.homeRefreshLayout.setOnMultiListener(object : SimpleMultiListener() {
+        mViewBinding?.homeRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
@@ -107,7 +107,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
                 if (mCurPage < mCommonArticlePage.pageCount) {
                     mMvpPresenter?.requestArticleListData(mCurPage)
                 } else {
-                    mViewBinding.homeRefreshLayout.finishLoadMoreWithNoMoreData()
+                    mViewBinding?.homeRefreshLayout?.finishLoadMoreWithNoMoreData()
                 }
             }
         })
@@ -128,8 +128,8 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
             mCommonArticleList.addAll(it)
             mHomeArticleAdapter?.notifyItemRangeChanged(positionStart, it.size)
         }
-        mViewBinding.homeRefreshLayout.finishRefresh()
-        mViewBinding.homeRefreshLayout.finishLoadMore()
+        mViewBinding?.homeRefreshLayout?.finishRefresh()
+        mViewBinding?.homeRefreshLayout?.finishLoadMore()
     }
 
     override fun bannerDataToView(data: List<BannerBean>) {
@@ -144,9 +144,9 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
 
     override fun refreshDataStatus(isRefresh: Boolean) {
         if (isRefresh) {
-            mViewBinding.homeRefreshLayout.finishRefresh(false)
+            mViewBinding?.homeRefreshLayout?.finishRefresh(false)
         } else {
-            mViewBinding.homeRefreshLayout.finishLoadMore(false)
+            mViewBinding?.homeRefreshLayout?.finishLoadMore(false)
         }
     }
 }

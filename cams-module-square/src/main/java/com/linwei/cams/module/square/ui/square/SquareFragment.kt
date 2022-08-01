@@ -33,18 +33,18 @@ class SquareFragment : CommonBaseFragment<SquareFragmentSquareBinding>(),
         val tabNavigatorAdapter =
             TabNavigatorAdapter(listOf(*stringArray), object : OnTabClickListener {
                 override fun onTabClick(view: View?, index: Int) {
-                    mViewBinding.squareViewPager.currentItem = index
+                    mViewBinding?.squareViewPager?.currentItem = index
                 }
             })
         commonNavigator.adapter = tabNavigatorAdapter
-        mViewBinding.squareMagicIndicatorView.navigator = commonNavigator
+        mViewBinding?.squareMagicIndicatorView?.navigator = commonNavigator
 
         val commonPageAdapter = CommonPageAdapter(childFragmentManager, this)
-        mViewBinding.squareViewPager.apply {
+        mViewBinding?.squareViewPager?.apply {
             offscreenPageLimit = stringArray.size
             adapter = commonPageAdapter
         }
-        ViewPagerHelper.bind(mViewBinding.squareMagicIndicatorView, mViewBinding.squareViewPager)
+        ViewPagerHelper.bind(mViewBinding?.squareMagicIndicatorView, mViewBinding?.squareViewPager)
 
     }
 
@@ -54,7 +54,7 @@ class SquareFragment : CommonBaseFragment<SquareFragmentSquareBinding>(),
 
     @SuppressLint("ClickableViewAccessibility")
     override fun initEvent() {
-        mViewBinding.squareViewPager.setOnTouchListener { v, _ -> false }
+        mViewBinding?.squareViewPager?.setOnTouchListener { v, _ -> false }
     }
 
     override fun getFragment(position: Int): Fragment {

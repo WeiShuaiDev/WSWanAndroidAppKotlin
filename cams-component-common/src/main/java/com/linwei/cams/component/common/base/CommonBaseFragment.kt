@@ -28,7 +28,7 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
 
-    protected lateinit var mViewBinding: VB
+    protected var mViewBinding: VB? = null
 
     protected lateinit var mContext: Context
 
@@ -121,7 +121,7 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
                 Boolean::class.javaPrimitiveType
             )
             mViewBinding = inflate.invoke(null, inflater, container, false) as VB
-            return mViewBinding.root
+            return mViewBinding?.root
         } catch (e: NoSuchMethodException) {
             e.printStackTrace()
         } catch (e: IllegalAccessException) {
@@ -217,6 +217,12 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
      */
     protected open fun onRegisterStatusHelper(): ViewStatusHelper? {
         return null
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        //Fragment 的存在时间比其视图长,所以清除对绑定类实例的所有引用
+        mViewBinding=null
     }
 
     override fun onDestroy() {

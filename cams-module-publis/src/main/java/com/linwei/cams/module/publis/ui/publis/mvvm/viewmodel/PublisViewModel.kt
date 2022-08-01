@@ -29,7 +29,6 @@ class PublisViewModel @Inject constructor(private val publisModel: PublisModel) 
 
             override fun onSuccess(data: List<PublisAuthorBean>) {
                 _publicAuthorBeanList.postValue(data)
-                System.out.println("publicAuthorBeanList"+data.toString())
             }
 
             override fun onFailed(errorMessage: ErrorMessage) {

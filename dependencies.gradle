@@ -135,15 +135,14 @@ ext {
             //----------------------------------------StateLayout---------------------------------------------------------
             "stateLayout"                         : "com.github.liangjingkanji:StateLayout:${version.stateLayoutVersion}",
 
-
             //----------------------------------------Immersionbar--------------------------------------------------------
             "immersionbar"                        : "com.geyifeng.immersionbar:immersionbar:${version.immersionbarVersion}",
             "immersionbar-ktx"                    : "com.geyifeng.immersionbar:immersionbar-ktx:${version.immersionbarVersion}",
 
-            //----------------------------------------Mmkv----------------------------------------------------------------
+            //------------------------------------------MMKV----------------------------------------------------------------
             "mmkv"                                : "com.tencent:mmkv-static:${version.mmkvVersion}",
 
-            //----------------------------------------AutoLayout----------------------------------------------------------
+            //----------------------------------------屏幕适配-------------------------------------------------------------
             "autosize"                            : "com.github.JessYanCoding:AndroidAutoSize:${version.autosizeVersion}",
 
             //----------------------------------------View-----------------------------------------------------------------
@@ -170,17 +169,17 @@ ext {
 
             "nineoldandroids"                     : "com.nineoldandroids:library:${version.nineoldandroidsVersion}",
 
-            //----------------------------------------Eventbus------------------------------------------------------------
+            //----------------------------------------事件处理-----------------------------------------------------------------
             "eventbus"                            : "org.greenrobot:eventbus:${version.eventbusVersion}",
             "eventbusAPT"                         : "org.greenrobot:eventbus-annotation-processor:${version.eventbusVersion}",
 
-            //----------------------------------------Permission------------------------------------------------------------
+            //----------------------------------------请求权限-----------------------------------------------------------------
             "permissionX"                         : "com.permissionx.guolindev:permissionx:${version.permissionXVersion}",
 
-            //----------------------------------------Leakcanary------------------------------------------------------------
+            //----------------------------------------Leakcanary--------------------------------------------------------------
             "leakcanary-android"                  : "com.squareup.leakcanary:leakcanary-android:${version.leakcanaryAndroidVersion}",
 
-            //----------------------------------------Sql--------------------------------------------------------------------
+            //----------------------------------------数据库-------------------------------------------------------------------
             "glance"                              : "com.guolindev.glance:glance: ${version.glanceVersion}",
             "debug-db"                            : "com.amitshekhar.android:debug-db:${version.debugDbVersion}",
 
@@ -188,12 +187,12 @@ ext {
             "auto-service"                        : "com.google.auto.service:auto-service:${version.autoServiceVersion}",
             "auto-service-annotations"            : "com.google.auto.service:auto-service-annotations:${version.autoServiceVersion}",
 
-            //----------------------------------------Sdk------------------------------------------------------------
+            //----------------------------------------Sdk--------------------------------------------------------------------
             "crashreport"                         : "com.tencent.bugly:crashreport:${version.tencentBuglyVersion}",
             "nativecrashreport"                   : "com.tencent.bugly:nativecrashreport:${version.tencentBuglyNativeVersion}",
             "tencent-tbs-x5"                      : "com.tencent.tbs.tbssdk:sdk:${version.tencentTBSX5Version}",
 
-            //----------------------------------------Jetpack-------------------------------------------------------------
+            //----------------------------------------Jetpack----------------------------------------------------------------
             //viewModel
             "lifecycle-viewmodel-ktx"             : "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycleVersion}",
             "lifecycle-viewmodel-savedstate"      : "androidx.lifecycle:lifecycle-viewmodel-savedstate:${version.lifecycleVersion}",
@@ -224,7 +223,7 @@ ext {
             "kotlinx-coroutines-core"             : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${version.coroutinesVersion}",
             "kotlinx-coroutines-android"          : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${version.coroutinesVersion}",
 
-            //----------------------------------------Test----------------------------------------------------------------
+            //----------------------------------------Test---------------------------------------------------------------------
             "junit"                               : "junit:junit:4.13.2",
             "test-junit"                          : "androidx.test.ext:junit:1.1.2",
             "espresso-core"                       : "androidx.test.espresso:espresso-core:3.3.0"

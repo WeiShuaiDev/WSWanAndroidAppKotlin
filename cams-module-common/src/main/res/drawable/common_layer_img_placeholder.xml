@@ -6,8 +6,8 @@
     <item>
         <shape>
             <size
-                android:width="@dimen/dp_360"
-                android:height="@dimen/dp_360" />
+                android:width="@dimen/dp_90"
+                android:height="@dimen/dp_120" />
             <solid android:color="@color/colorGlobalBackground" />
         </shape>
     </item>

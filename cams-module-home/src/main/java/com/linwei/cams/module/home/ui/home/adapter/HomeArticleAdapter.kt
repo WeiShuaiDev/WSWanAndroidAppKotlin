@@ -1,5 +1,7 @@
 package com.linwei.cams.module.home.ui.home.adapter
 
+import android.annotation.SuppressLint
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,26 +28,30 @@ class HomeArticleAdapter(
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data: CommonArticleBean = list[position]
         holder.apply {
             data.let {
-                homeTitleView.text = it.shareUser ?: it.author
-                homeContentView.text = it.title
-                homeChapterView.text = String.format(
-                    "%s·%s", it.superChapterName, it.chapterName
-                )
-                homeTimeView.text = it.niceDate
-                homeTagView.visibility = if (it.fresh) View.VISIBLE else View.GONE
-                homeTopView.visibility = if (position == 0 && hasTop) View.VISIBLE else View.GONE
+                val superChapterName: String? = it.superChapterName
+                val chapterName: String? = it.chapterName
+                homeChapterView.text = " ${if (TextUtils.isEmpty(it.author)) it.shareUser else it.author} / ${
+                    if (TextUtils.isEmpty(superChapterName)) chapterName else String.format(
+                        "%s·%s", superChapterName, chapterName
+                    )
+                }"
 
+                homeTagView.visibility = if (it.fresh) View.VISIBLE else View.GONE
+                homeContentView.text = it.title
+                homeTimeView.text = it.niceDate
+
+                homeTopView.visibility = if (position == 0 && hasTop) View.VISIBLE else View.GONE
                 homeShineButtonView.isChecked = it.collect
                 homeShineButtonView.setOnCheckStateChangeListener { view, checked ->
                     onArticleCollectListener?.onCollect(it)
                     it.collect = !it.collect
                     notifyItemChanged(position)
                 }
-
                 homeShadowLayout.setOnClickListener { view ->
                     //跳转到详情页面
                 }
@@ -61,7 +67,6 @@ class HomeArticleAdapter(
         val homeShadowLayout: ShadowLayout = view.findViewById(R.id.homeShadowLayout)
         val homeTopView: View = view.findViewById(R.id.homeTopView)
         val homeTagView: TextView = view.findViewById(R.id.homeTagView)
-        val homeTitleView: TextView = view.findViewById(R.id.homeTitleView)
         val homeTimeView: TextView = view.findViewById(R.id.homeTimeView)
         val homeContentView: TextView = view.findViewById(R.id.homeContentView)
         val homeChapterView: TextView = view.findViewById(R.id.homeChapterView)

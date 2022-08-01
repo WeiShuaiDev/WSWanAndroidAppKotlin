@@ -47,7 +47,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
 
     override fun initView() {
         mProjectTitleAdapter = ProjectTitleAdapter(mProjectTreeList)
-        mViewBinding.projectDragRecyclerView.apply {
+        mViewBinding?.projectDragRecyclerView?.apply {
             addItemDecoration(
                 CustomItemDecoration(
                     activity,
@@ -59,7 +59,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
         }
 
         mCommonArticleListAdapter = CommonArticleListAdapter(mCommonArticleList, true)
-        mViewBinding.projectContentRecyclerView.apply {
+        mViewBinding?.projectContentRecyclerView?.apply {
             addItemDecoration(
                 CustomItemDecoration(
                     activity,
@@ -70,7 +70,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
             adapter = mCommonArticleListAdapter
         }
 
-        mViewBinding.projectSlidingLayout.setScrollableView(mViewBinding.projectDragRecyclerView)
+        mViewBinding?.projectSlidingLayout?.setScrollableView(mViewBinding?.projectDragRecyclerView)
 
     }
 
@@ -79,7 +79,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
     }
 
     override fun initEvent() {
-        mViewBinding.projectSlidingLayout.addPanelSlideListener(object :
+        mViewBinding?.projectSlidingLayout?.addPanelSlideListener(object :
             SlidingUpPanelLayout.PanelSlideListener {
             override fun onPanelSlide(panel: View?, slideOffset: Float) {
 
@@ -94,11 +94,11 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
             }
         })
 
-        mViewBinding.projectSlidingLayout.setFadeOnClickListener {
-            mViewBinding.projectSlidingLayout.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
+        mViewBinding?.projectSlidingLayout?.setFadeOnClickListener {
+            mViewBinding?.projectSlidingLayout?.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
         }
 
-        mViewBinding.projectContentRefreshLayout.setOnMultiListener(object : SimpleMultiListener() {
+        mViewBinding?.projectContentRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
@@ -111,15 +111,15 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
                 if (mCurPage < mCommonArticlePage.pageCount) {
                     mViewModel?.requestProjectArticleListData(mCurPage, mId.toString())
                 } else {
-                    mViewBinding.projectContentRefreshLayout.finishLoadMoreWithNoMoreData()
+                    mViewBinding?.projectContentRefreshLayout?.finishLoadMoreWithNoMoreData()
                 }
             }
         })
 
         mProjectTitleAdapter?.setOnItemClickListener { adapter, view, position ->
-            mViewBinding.projectSlidingLayout.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
+            mViewBinding?.projectSlidingLayout?.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
             (adapter.getItem(position) as ProjectTreeBean?)?.let {
-                mViewBinding.projectDragTitleView.text = it.name
+                mViewBinding?.projectDragTitleView?.text = it.name
                 this.mId = it.id
                 this.mCurPage = 0
                 mViewModel?.requestProjectArticleListData(mCurPage, mId.toString())
@@ -154,7 +154,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
             mProjectTitleAdapter?.setList(data)
 
             data[0].let {
-                mViewBinding.projectDragTitleView.text = it.name
+                mViewBinding?.projectDragTitleView?.text = it.name
                 this.mId = it.id
                 this.mCurPage = 0
                 mViewModel?.requestProjectArticleListData(mCurPage, mId.toString())
@@ -176,8 +176,8 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
             mCommonArticleList.addAll(it)
             mCommonArticleListAdapter?.notifyDataSetChanged()
         }
-        mViewBinding.projectContentRefreshLayout.finishRefresh()
-        mViewBinding.projectContentRefreshLayout.finishLoadMore()
+        mViewBinding?.projectContentRefreshLayout?.finishRefresh()
+        mViewBinding?.projectContentRefreshLayout?.finishLoadMore()
     }
 
     override fun refreshCollectStatus(status: Boolean) {
@@ -186,9 +186,9 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
 
     override fun refreshDataStatus(isRefresh: Boolean) {
         if (isRefresh) {
-            mViewBinding.projectContentRefreshLayout.finishRefresh(false)
+            mViewBinding?.projectContentRefreshLayout?.finishRefresh(false)
         } else {
-            mViewBinding.projectContentRefreshLayout.finishLoadMore(false)
+            mViewBinding?.projectContentRefreshLayout?.finishLoadMore(false)
         }
     }
 

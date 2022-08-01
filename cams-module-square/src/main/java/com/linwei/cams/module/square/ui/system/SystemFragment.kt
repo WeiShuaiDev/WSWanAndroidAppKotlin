@@ -35,7 +35,7 @@ class SystemFragment : MviBaseFragment<SquareFragmentBaseSquareBinding, SystemVi
     override fun initView() {
         initColors()
 
-        mViewBinding.squareIndicatorScrollView.bindIndicatorView(mViewBinding.squareIndicatorView)
+        mViewBinding?.squareIndicatorScrollView?.bindIndicatorView(mViewBinding?.squareIndicatorView)
     }
 
     /**
@@ -57,8 +57,8 @@ class SystemFragment : MviBaseFragment<SquareFragmentBaseSquareBinding, SystemVi
     }
 
     override fun squareTreeDataToView(data: List<SquareTreeBean>) {
-        mViewBinding.squareIndicatorView.removeAllViews()
-        mViewBinding.squareRightContentLayout.removeAllViews()
+        mViewBinding?.squareIndicatorView?.removeAllViews()
+        mViewBinding?.squareRightContentLayout?.removeAllViews()
 
         for (i in data.indices) {
             val res: SquareTreeBean = data[i]
@@ -80,10 +80,10 @@ class SystemFragment : MviBaseFragment<SquareFragmentBaseSquareBinding, SystemVi
                     flexboxLayout.addView(this)
                 }
             }
-            mViewBinding.squareRightContentLayout.addView(view)
+            mViewBinding?.squareRightContentLayout?.addView(view)
 
             val index: Int = i % mColorLists.size
-            mViewBinding.squareIndicatorView.addIndicatorItem(
+            mViewBinding?.squareIndicatorView?.addIndicatorItem(
                 IndicatorItem.Builder(view).setItemText(firstName)
                     .setItemColorResource(mColorLists.get(index))
                     .setItemIconResource(R.mipmap.common_ic_collect).build()

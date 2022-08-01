@@ -55,7 +55,7 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
      * ViewBinding绑定逻辑
      */
     @Suppress("UNCHECKED_CAST")
-    private fun viewBindingLogic(): View? {
+    private  fun viewBindingLogic(): View? {
         val type: ParameterizedType = javaClass.genericSuperclass as ParameterizedType
         try {
             val cls = type.actualTypeArguments[0] as Class<*>

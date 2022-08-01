@@ -29,11 +29,14 @@ class CommonArticleListAdapter(data: MutableList<CommonArticleBean>, private val
             ItemTypeConstants.ARTICLE_ITEM_TEXT ->
                 holder.setText(
                     R.id.commonChapterView,
-                    if (TextUtils.isEmpty(superChapterName)) chapterName else String.format(
-                        "%s·%s", superChapterName, chapterName
-                    )
+                    " ${if (TextUtils.isEmpty(item.author)) item.shareUser else item.author} / ${
+                        if (TextUtils.isEmpty(superChapterName)) chapterName else String.format(
+                            "%s·%s", superChapterName, chapterName
+                        )
+                    }"
                 )
                     .setText(R.id.commonTimeView, item.niceDate)
+                    .setText(R.id.commonContentView,item.title)
                     .setGone(R.id.commonTagView, !item.fresh)
             ItemTypeConstants.ARTICLE_ITEM_TEXT_PIC -> {
                 val commonImageView: AppCompatImageView =
@@ -44,15 +47,15 @@ class CommonArticleListAdapter(data: MutableList<CommonArticleBean>, private val
                     8,
                     R.drawable.common_layer_img_placeholder
                 )
+                holder.setText(R.id.commonTitleView,item.title)
                 holder.setText(R.id.commonContentView, item.desc)
+                holder.setText(
+                        R.id.commonChapterView,
+                        if (TextUtils.isEmpty(item.author)) item.shareUser else item.author
+                    )
             }
         }
-        holder.setText(R.id.commonTitleView, item.title)
-            .setText(
-                R.id.commonChapterView,
-                if (TextUtils.isEmpty(item.author)) item.shareUser else item.author
-            )
-            .setGone(R.id.commonTopView, !(hasTop && (holder.layoutPosition == 0)))
+        holder.setGone(R.id.commonTopView, !(hasTop && (holder.layoutPosition == 0)))
         holder.getView<ShineButton>(R.id.commonShineButtonView).isChecked = item.collect
     }
 
