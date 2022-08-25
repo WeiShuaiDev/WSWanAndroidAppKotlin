@@ -1,6 +1,6 @@
 package com.linwei.camsmodular.ui.welcome
 
-import com.linwei.cams.component.cache.utils.mmkv.AppDataProvided
+import com.linwei.cams.component.cache.utils.mmkv.AppDataMMkvProvided
 import com.linwei.cams.framework.mvi.base.MviBaseActivity
 import com.linwei.cams.module.main.provider.MainProviderHelper
 import com.linwei.cams.service.project.model.ProjectTreeBean
@@ -35,7 +35,7 @@ class WelcomeActivity : MviBaseActivity<ActivityWelcomeBinding, WelcomeViewModel
 
     override fun projectTreeDataToView(data: List<ProjectTreeBean>) {
         //projectTreeBean保存数据到MMkv
-        AppDataProvided().saveProjectTree(data)
+        AppDataMMkvProvided().saveProjectTree(data)
     }
 
     override fun onDestroy() {

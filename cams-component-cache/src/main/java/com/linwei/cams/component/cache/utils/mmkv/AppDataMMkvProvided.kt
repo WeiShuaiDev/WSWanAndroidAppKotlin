@@ -2,14 +2,14 @@ package com.linwei.cams.component.cache.utils.mmkv
 
 import com.google.gson.Gson
 import com.google.gson.JsonParser
-import com.google.gson.reflect.TypeToken
+import com.linwei.cams.component.cache.utils.CacheConstants
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.common.ktx.isNullOrEmpty
+import com.linwei.cams.service.login.model.UserInfoBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
-import com.tencent.bugly.crashreport.biz.UserInfoBean
 import java.util.*
 
-class AppDataProvided {
+class AppDataMMkvProvided {
 
     private val mGson: Gson by lazy {
         Gson()
@@ -20,7 +20,7 @@ class AppDataProvided {
      * @param userInfo UserInfoBean
      */
     fun saveUserInfo(userInfo: UserInfoBean) {
-        MMkvHelper.put(MMkvCacheConstants.USER_INFO, mGson.toJson(userInfo))
+        MMkvHelper.put(CacheConstants.USER_INFO, mGson.toJson(userInfo))
     }
 
     /**
@@ -28,7 +28,7 @@ class AppDataProvided {
      */
     fun getUserInfo(): UserInfoBean? {
         return MMkvHelper.getMMkv()?.decodeParcelable(
-            MMkvCacheConstants.USER_INFO,
+            CacheConstants.USER_INFO,
             UserInfoBean::class.java
         )
     }
@@ -38,14 +38,14 @@ class AppDataProvided {
      * @param local Locale
      */
     fun saveLanguage(locale: Locale) {
-        MMkvHelper.put(MMkvCacheConstants.LANGUAGE, mGson.toJson(locale))
+        MMkvHelper.put(CacheConstants.LANGUAGE, mGson.toJson(locale))
     }
 
     /**
      * 获取语言信息
      */
     fun getLanguage(): Locale? {
-        val language = MMkvHelper.getString(MMkvCacheConstants.LANGUAGE, "")
+        val language = MMkvHelper.getString(CacheConstants.LANGUAGE, "")
         return if (language.isNullOrEmpty()) {
             null
         } else try {
@@ -61,7 +61,7 @@ class AppDataProvided {
      * @param dataList [List]
      */
     fun saveProjectTree(dataList: List<ProjectTreeBean>?) {
-        saveList(MMkvCacheConstants.PROJECT_TABS, dataList)
+        saveList(CacheConstants.PROJECT_TREE, dataList)
     }
 
     /**
@@ -69,7 +69,7 @@ class AppDataProvided {
      * @param cls [Class]
      */
     fun getProjectTree(): List<ProjectTreeBean> {
-        return getList(MMkvCacheConstants.PROJECT_TABS, ProjectTreeBean::class.java)
+        return getList(CacheConstants.PROJECT_TREE, ProjectTreeBean::class.java)
     }
 
     /**
@@ -106,7 +106,7 @@ class AppDataProvided {
      * 删除用户信息
      */
     fun logout() {
-        MMkvHelper.getMMkv()?.remove(MMkvCacheConstants.USER_INFO)
+        MMkvHelper.getMMkv()?.remove(CacheConstants.USER_INFO)
     }
 
 }

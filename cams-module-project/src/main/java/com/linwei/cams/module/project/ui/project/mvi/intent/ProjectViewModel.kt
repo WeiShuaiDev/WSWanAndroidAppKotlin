@@ -2,7 +2,7 @@ package com.linwei.cams.module.project.ui.project.mvi.intent
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.linwei.cams.component.cache.utils.mmkv.AppDataProvided
+import com.linwei.cams.component.cache.utils.mmkv.AppDataMMkvProvided
 import com.linwei.cams.component.common.global.PageState
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.network.ktx.commonCatch
@@ -107,7 +107,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
 
         viewModelScope.launch {
             //MMkv中读取projectTreeBean数据
-            val projectTreeList: List<ProjectTreeBean> = AppDataProvided().getProjectTree()
+            val projectTreeList: List<ProjectTreeBean> = AppDataMMkvProvided().getProjectTree()
             if (projectTreeList.isNullOrEmpty()) {
                 when (val result = mProjectProvider.fetchProjectTreeData()) {
                     is PageState.Error -> {
@@ -119,7 +119,7 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
                     is PageState.Success -> {
                         //projectTreeBean保存数据到MMkv
                         if (result.data.isNotNullOrSize()) {
-                            AppDataProvided().saveProjectTree(result.data)
+                            AppDataMMkvProvided().saveProjectTree(result.data)
                         }
                         _viewStates.setState {
                             copy(fetchStatus = FetchStatus.Fetched, projectTreeList = result.data)

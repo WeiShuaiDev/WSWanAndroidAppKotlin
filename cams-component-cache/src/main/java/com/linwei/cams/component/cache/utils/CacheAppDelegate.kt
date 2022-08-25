@@ -9,18 +9,18 @@ import com.linwei.cams.component.common.base.CommonBaseApplication
 import com.linwei.cams.component.common.utils.ProcessUtils
 
 @AutoService(AppDelegate::class)
-class CacheAppDelegate:AppDelegate {
+class CacheAppDelegate : AppDelegate {
 
-    private lateinit var mContext:Context
+    private lateinit var mContext: Context
 
-    private  lateinit var mApplication:Application
+    private lateinit var mApplication: Application
 
     /**
      * 同[Application.attachBaseContext]
      * @param context [Context]
      */
     override fun onAttachBaseContext(context: Context) {
-        this.mContext=context
+        this.mContext = context
     }
 
     /**
@@ -28,7 +28,7 @@ class CacheAppDelegate:AppDelegate {
      * @param application [Application]
      */
     override fun onCreate(application: Application) {
-        this.mApplication=application
+        this.mApplication = application
     }
 
     /**
@@ -75,7 +75,8 @@ class CacheAppDelegate:AppDelegate {
      * 腾讯 MMKV 初始化
      */
     private fun initMMKV(): String {
-        val result = MMkvHelper.initMMKV(CommonBaseApplication.context)
+        val result = MMkvHelper.init(CommonBaseApplication.context)
         return "MMKV -->> $result"
     }
+
 }

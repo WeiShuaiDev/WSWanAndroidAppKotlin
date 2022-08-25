@@ -1,9 +1,60 @@
+plugins {
+    id("com.google.protobuf") version "0.8.17"
+}
 apply from: '../gradle/global_component_config.gradle'
+
+android {
+    // 设置 proto 文件位置
+    sourceSets {
+        main {
+            proto {
+                // proto 文件默认路径是 src/main/proto
+                // 可以通过 srcDir 修改 proto 文件的位置
+                srcDir 'src/main/proto'
+            }
+        }
+    }
+}
+
+/**
+ * 注意配置 protoc 命令，分为不同的版本，版本不同配置的方式不同，
+ * 网上大部分都是 3.0.x ~ 3.7.x 的配置方式，关于这种配置方法，可以查看 [protobuf-gradle-plugin](https://github.com/google/protobuf-gradle-plugin)  文档，这里不在演示了，也不建议使用
+ * 在此项目中使用的是 3.8 以后 的配置的配置，
+ */
+protobuf {
+    // 设置 protoc 的版本
+    protoc {
+        // //从仓库下载 protoc 这里的版本号需要与依赖 com.google.protobuf:protobuf-javalite:xxx 版本相同
+        artifact = 'com.google.protobuf:protoc:3.19.4'
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option "lite"
+                }
+            }
+        }
+    }
+
+    // 默认生成目录 $buildDir/generated/source/proto 通过 generatedFilesBaseDir 改变生成位置
+    generatedFilesBaseDir = "$projectDir/src/main"
+}
 
 dependencies {
     api project(':cams-component-common')
 
+    //MMKV
     api rootProject.ext.dependencies["mmkv"]
+
+    //DataStore
+    api rootProject.ext.dependencies["datastore-preferences"]
+
+    api rootProject.ext.dependencies["datastore"]
+    api rootProject.ext.dependencies["protobuf-javalite"]
+
+    //Rxcache2
+    api rootProject.ext.dependencies["rxcache2"]
 
     implementation project(':cams-service-home')
     implementation project(':cams-service-login')

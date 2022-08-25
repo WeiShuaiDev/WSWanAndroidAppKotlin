@@ -49,7 +49,6 @@ class PublisViewModel @Inject constructor(private val publisModel: PublisModel) 
                 override fun onSuccess(data: Page<CommonArticleBean>) {
                     if(data.datas.isNotNullOrSize()) {
                         _commonArticleBean.postValue(data.datas!!)
-                        System.out.println("CommonArticleBean"+data.toString())
                     }
                 }
 

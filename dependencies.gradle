@@ -56,13 +56,16 @@ ext {
             bannerVersion             : "2.2.2",
             slidingpanelayoutVersion  : "1.1.0",
             dialogXVersion            : "0.0.37",
-            nineoldandroidsVersion    : "2.4.0"
+            nineoldandroidsVersion    : "2.4.0",
+            datastoreVersion          : "1.0.0",
+            protobufJavaliteVersion   : "3.19.4"
     ]
 
     dependencies = [
             //----------------------------------------AndroidX----------------------------------------------------------
             "appcompat"                           : "androidx.appcompat:appcompat:${version.appcompatVersion}",
             "core-ktx"                            : "androidx.core:core-ktx:1.3.1",
+            "kotlin-reflect"                      : "org.jetbrains.kotlin:kotlin-reflect:1.3.72",
             "material"                            : "com.google.android.material:material:${version.materialVersion}",
             "constraintlayout"                    : "androidx.constraintlayout:constraintlayout:${version.constraintlayoutVersion}",
             "activity-ktx"                        : "androidx.activity:activity-ktx:${version.activityKtxVersion}",
@@ -218,6 +221,16 @@ ext {
             "navigationUI"                        : "androidx.navigation:navigation-ui-ktx:${version.lifecycleVersion}",
             //work
             "work"                                : "androidx.work:work-runtime:${version.lifecycleVersion}",
+            //Preferences Datastore
+            "datastore-preferences"               : "androidx.datastore:datastore-preferences:${version.datastoreVersion}",
+            "datastore-preferences-rxjava3"       : "androidx.datastore:datastore-preferences-rxjava3:${version.datastoreVersion}",
+            "datastore-preferences-core"          : "androidx.datastore:datastore-preferences-core:${version.datastoreVersion}",
+            //Proto DataStore
+            "datastore"                           : "androidx.datastore:datastore:${version.datastoreVersion}",
+            "datastore-rxjava3"                   : "androidx.datastore:datastore-rxjava3:${version.datastoreVersion}",
+            "datastore-core"                      : "androidx.datastore:datastore-core:${version.datastoreVersion}",
+            //Protobuf JavaLite
+            "protobuf-javalite"                   : "com.google.protobuf:protobuf-javalite:${version.protobufJavaliteVersion}",
 
             //----------------------------------------Coroutines-------------------------------------------------------------
             "kotlinx-coroutines-core"             : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${version.coroutinesVersion}",

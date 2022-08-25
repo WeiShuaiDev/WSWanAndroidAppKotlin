@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option java_package = "com.linwei.cams.datastore.protobuf";
+option java_multiple_files = true;
+
+message UserInfoPreferences {
+  // 格式：字段类型 + 字段名称 + 字段编号
+  string email = 1;
+
+  string icon = 2;
+
+  string id = 3;
+
+  string password = 4;
+
+  string token = 5;
+
+  string type = 6;
+
+  string username = 7;
+
+  repeated string chapterTops = 8;
+
+  repeated int32  collectIds = 9;
+
+  string coinCount = 10;
+
+  int32  level = 11;
+
+  string rank = 12;
+
+  string userId = 13;
+
+  string reason = 14;
+
+  string desc = 15;
+
+  string date = 16;
+
+}

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.linwei.cams.datastore.protobuf";
+option java_multiple_files = true;
+
+message ProjectTreePreferences {
+  // 格式：字段类型 + 字段名称 + 字段编号
+  repeated ProjectTreeBean projectTreeBean = 1;
+
+  message ProjectTreeBean{
+
+    repeated string children = 1;
+
+    int32 courseId = 2;
+
+    int32  id = 3;
+
+    string name = 4;
+
+    int32  order = 5;
+
+    int32 parentChapterId = 6;
+
+    bool userControlSetTop = 7;
+
+    int32 visible = 8;
+  }
+}

@@ -5,9 +5,7 @@ import android.view.View
 import android.widget.Toast
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.android.material.snackbar.Snackbar
-import com.linwei.cams.component.common.base.CommonBaseApplication
 import com.linwei.cams.component.common.ktx.ctx
-import com.linwei.cams.component.common.ktx.snackBar
 
 /**************************************************************************************************/
 
