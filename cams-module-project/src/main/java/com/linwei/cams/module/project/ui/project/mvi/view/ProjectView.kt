@@ -5,14 +5,14 @@ import com.linwei.cams.framework.mvi.ktx.FetchStatus
 import com.linwei.cams.framework.mvi.ktx.observeOnlyState
 import com.linwei.cams.framework.mvi.ktx.observeState
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
-import com.linwei.cams.framework.mvi.mvi.view.MviView
+import com.linwei.cams.framework.mvi.mvi.view.IMviView
 import com.linwei.cams.module.project.ui.project.mvi.intent.ProjectViewModel
 import com.linwei.cams.module.project.ui.project.mvi.model.MviViewState
 import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.project.model.ProjectTreeBean
 
-interface ProjectView : MviView<ProjectViewModel> {
+interface ProjectView : IMviView<ProjectViewModel> {
 
     override fun bindViewModel(viewModel: ProjectViewModel?, owner: LifecycleOwner) {
         super.bindViewModel(viewModel, owner)

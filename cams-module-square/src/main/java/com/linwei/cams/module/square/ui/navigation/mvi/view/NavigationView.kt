@@ -5,12 +5,12 @@ import com.linwei.cams.framework.mvi.ktx.FetchStatus
 import com.linwei.cams.framework.mvi.ktx.observeOnlyState
 import com.linwei.cams.framework.mvi.ktx.observeState
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
-import com.linwei.cams.framework.mvi.mvi.view.MviView
+import com.linwei.cams.framework.mvi.mvi.view.IMviView
 import com.linwei.cams.module.square.ui.square.mvi.intent.NavigationViewModel
 import com.linwei.cams.module.square.ui.square.mvi.model.NavigationViewState
 import com.linwei.cams.service.square.model.SquareTreeBean
 
-interface NavigationView : MviView<NavigationViewModel> {
+interface NavigationView : IMviView<NavigationViewModel> {
 
     override fun bindViewModel(viewModel: NavigationViewModel?, owner: LifecycleOwner) {
         super.bindViewModel(viewModel, owner)

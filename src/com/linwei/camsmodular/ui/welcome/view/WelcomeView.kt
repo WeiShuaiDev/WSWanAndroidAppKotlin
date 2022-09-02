@@ -5,12 +5,12 @@ import com.linwei.cams.framework.mvi.ktx.FetchStatus
 import com.linwei.cams.framework.mvi.ktx.observeOnlyState
 import com.linwei.cams.framework.mvi.ktx.observeState
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
-import com.linwei.cams.framework.mvi.mvi.view.MviView
+import com.linwei.cams.framework.mvi.mvi.view.IMviView
 import com.linwei.cams.service.project.model.ProjectTreeBean
 import com.linwei.camsmodular.ui.welcome.intent.WelcomeViewModel
 import com.linwei.camsmodular.ui.welcome.model.MviViewState
 
-interface WelcomeView : MviView<WelcomeViewModel> {
+interface WelcomeView : IMviView<WelcomeViewModel> {
 
     override fun bindViewModel(viewModel: WelcomeViewModel?, owner: LifecycleOwner) {
         super.bindViewModel(viewModel, owner)

@@ -11,13 +11,13 @@ import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.net.UnknownServiceException
-
+import javax.net.ssl.SSLException
 
 class ApiException(var code: Int, var displayMessage: String?) : Exception() {
 
     companion object {
         fun handleException(throwable: Throwable): ApiException {
-            return if (throwable is UnknownHostException) {
+            return if (throwable is UnknownHostException || throwable is SSLException) {
                 //网络错误
                 ApiException(ApiConstants.NETWORK_ERROR, ShowTxtConstants.NETWORK_UNAVAILABLE_TXT)
             } else if (throwable is SocketTimeoutException) {

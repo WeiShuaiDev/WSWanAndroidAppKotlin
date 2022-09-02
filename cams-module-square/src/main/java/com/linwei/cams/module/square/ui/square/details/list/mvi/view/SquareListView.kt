@@ -2,16 +2,15 @@ package com.linwei.cams.module.square.ui.square.mvi.view
 
 import androidx.lifecycle.LifecycleOwner
 import com.linwei.cams.framework.mvi.ktx.FetchStatus
-import com.linwei.cams.framework.mvi.ktx.observeOnlyState
 import com.linwei.cams.framework.mvi.ktx.observeState
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
-import com.linwei.cams.framework.mvi.mvi.view.MviView
+import com.linwei.cams.framework.mvi.mvi.view.IMviView
 import com.linwei.cams.module.square.ui.square.mvi.intent.SquareListViewModel
 import com.linwei.cams.module.square.ui.square.mvi.model.SquareListViewState
 import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 
-interface SquareListView : MviView<SquareListViewModel> {
+interface SquareListView : IMviView<SquareListViewModel> {
 
     override fun bindViewModel(viewModel: SquareListViewModel?, owner: LifecycleOwner) {
         super.bindViewModel(viewModel, owner)

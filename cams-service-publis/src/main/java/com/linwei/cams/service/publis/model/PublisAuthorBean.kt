@@ -5,8 +5,8 @@ data class PublisAuthorBean(
     val id: String?,
     val name: String?,
     val order: Int,
-    val parentChapterId: String,
+    val parentChapterId: String?,
     val userControlSetTop: Boolean,
     val visible: Int,
-    val children: List<Any>
+    val children: List<Any>?
 )

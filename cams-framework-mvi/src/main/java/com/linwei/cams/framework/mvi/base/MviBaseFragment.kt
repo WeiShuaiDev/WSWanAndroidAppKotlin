@@ -11,7 +11,7 @@ import com.linwei.cams.component.common.ktx.snackBar
 import com.linwei.cams.component.common.utils.toast
 import com.linwei.cams.framework.mvi.mvi.ViewModelDelegate
 import com.linwei.cams.framework.mvi.mvi.intent.MviViewModel
-import com.linwei.cams.framework.mvi.mvi.view.MviView
+import com.linwei.cams.framework.mvi.mvi.view.IMviView
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.AutoRegisterNetListener
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkStateChangeListener
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkTypeEnum
@@ -26,7 +26,7 @@ import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkTypeEnum
  *-----------------------------------------------------------------------
  */
 abstract class MviBaseFragment<VB : ViewBinding,VM : MviViewModel> : CommonBaseFragment<VB>(),
-    ViewModelDelegate<VM>, MviView<VM>, NetworkStateChangeListener {
+    ViewModelDelegate<VM>, IMviView<VM>, NetworkStateChangeListener {
 
     protected var mViewModel: VM? = null
 
@@ -50,6 +50,7 @@ abstract class MviBaseFragment<VB : ViewBinding,VM : MviViewModel> : CommonBaseF
         if (mViewModel != null) {
             lifecycle.addObserver(mViewModel!!)
         }
+
         bindViewModel(mViewModel, this)
     }
 
@@ -100,11 +101,11 @@ abstract class MviBaseFragment<VB : ViewBinding,VM : MviViewModel> : CommonBaseF
      */
     override fun createViewModel(): VM? = null
 
-    override fun showSnackBar(message: String) {
+    override fun showSnackBar(message: String?) {
         activity?.window?.decorView?.snackBar(message)
     }
 
-    override fun showLoadingDialog(message: String) {
+    override fun showLoadingDialog(message: String?) {
     }
 
     override fun dismissLoadingDialog() {

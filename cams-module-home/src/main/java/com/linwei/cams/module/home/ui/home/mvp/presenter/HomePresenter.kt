@@ -35,7 +35,6 @@ class HomePresenter(
         }
     }
 
-
     /**
      * 获取轮播图数据
      */

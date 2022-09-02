@@ -30,11 +30,11 @@ abstract class MvpBaseFragment<T : ViewBinding, P : IMvpPresenter> : CommonBaseF
         mMvpPresenter=getPresenter()
     }
 
-    override fun showLoadingDialog(message: String) {
+    override fun showLoadingDialog(message: String?) {
 
     }
 
-    override fun showSnackBar(message: String) {
+    override fun showSnackBar(message: String?) {
         activity?.window?.decorView?.snackBar(message)
     }
 

@@ -15,7 +15,7 @@ interface IMvpView {
      * 显示 SnackBar
      * @param message [String]
      */
-    fun showSnackBar(message: String)
+    fun showSnackBar(message: String?)
 
     /**
      * 显示Toast
@@ -27,7 +27,7 @@ interface IMvpView {
      * 显示加载框
      * @param message [String]
      */
-    fun showLoadingDialog(message: String)
+    fun showLoadingDialog(message: String?)
 
     /**
      * 关闭加载框

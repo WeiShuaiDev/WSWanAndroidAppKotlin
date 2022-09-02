@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/topRootLayout"
     style="@style/MatchAndWrap"
@@ -34,13 +35,13 @@
                     android:id="@+id/leftTitleView"
                     style="@style/WrapAndMatch"
                     android:background="?attr/selectableItemBackground"
-                    android:drawableStart="@mipmap/ic_black_back"
                     android:drawablePadding="@dimen/dp_5"
                     android:gravity="center"
                     android:padding="@dimen/dp_15"
                     android:text="@string/back"
                     android:textColor="@color/colorGlobalTextBlack"
-                    android:textSize="@dimen/sp_14" />
+                    android:textSize="@dimen/sp_14"
+                    app:drawableStartCompat="@mipmap/ic_black_back" />
 
                 <ImageButton
                     android:id="@+id/leftImageView"

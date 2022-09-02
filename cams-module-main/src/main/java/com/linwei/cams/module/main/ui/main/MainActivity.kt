@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.mvvm.base.MvvmBaseActivity
 import com.linwei.cams.component.weight.bubblenavigation.listener.BubbleNavigationChangeListener

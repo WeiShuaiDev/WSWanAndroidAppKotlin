@@ -5,12 +5,12 @@ import com.linwei.cams.framework.mvi.ktx.FetchStatus
 import com.linwei.cams.framework.mvi.ktx.observeOnlyState
 import com.linwei.cams.framework.mvi.ktx.observeState
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
-import com.linwei.cams.framework.mvi.mvi.view.MviView
+import com.linwei.cams.framework.mvi.mvi.view.IMviView
 import com.linwei.cams.module.square.ui.square.mvi.intent.SystemViewModel
 import com.linwei.cams.module.square.ui.square.mvi.model.SystemViewState
 import com.linwei.cams.service.square.model.SquareTreeBean
 
-interface SystemView : MviView<SystemViewModel> {
+interface SystemView : IMviView<SystemViewModel> {
 
     override fun bindViewModel(viewModel: SystemViewModel?, owner: LifecycleOwner) {
         super.bindViewModel(viewModel, owner)

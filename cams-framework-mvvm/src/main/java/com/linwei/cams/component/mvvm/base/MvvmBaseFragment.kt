@@ -12,14 +12,13 @@ import com.linwei.cams.component.common.base.CommonBaseFragment
 import com.linwei.cams.component.common.ktx.snackBar
 import com.linwei.cams.component.common.utils.toast
 import com.linwei.cams.component.mvvm.mvvm.ViewModelDelegate
-import com.linwei.cams.component.mvvm.mvvm.view.MvvmView
+import com.linwei.cams.component.mvvm.mvvm.view.IMvvmView
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.MvvmViewModel
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.VMDependant
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.VMProviderInterface
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.AutoRegisterNetListener
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkStateChangeListener
 import com.quyunshuo.androidbaseframemvvm.base.utils.network.NetworkTypeEnum
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import kotlin.reflect.KClass
 
@@ -34,7 +33,7 @@ import kotlin.reflect.KClass
  */
 
 abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
-    CommonBaseFragment<ViewBinding>(), ViewModelDelegate<VM>, MvvmView<VM>, VMDependant<VM>,
+    CommonBaseFragment<ViewBinding>(), ViewModelDelegate<VM>, IMvvmView<VM>, VMDependant<VM>,
     NetworkStateChangeListener {
 
     @Inject
@@ -42,7 +41,7 @@ abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
 
     protected var mViewModel: VM? = null
 
-    protected lateinit var mDataBinding: DB
+    protected var mDataBinding: DB? = null
 
     protected var mAutoRegisterNet: AutoRegisterNetListener? = null
 
@@ -68,6 +67,8 @@ abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
         if (mViewModel != null) {
             lifecycle.addObserver(mViewModel!!)
         }
+
+        bindViewModel(mViewModel, this)
     }
 
     /**
@@ -80,7 +81,7 @@ abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
                 inflater,
                 rootLayoutId, null, false
             )
-            return mDataBinding.root
+            return mDataBinding!!.root
         }
         return null
     }
@@ -112,11 +113,11 @@ abstract class MvvmBaseFragment<DB : ViewDataBinding, VM : MvvmViewModel> :
 
     override fun hasViewBinding(): Boolean = false
 
-    override fun showSnackBar(message: String) {
+    override fun showSnackBar(message: String?) {
         activity?.window?.decorView?.snackBar(message)
     }
 
-    override fun showLoadingDialog(message: String) {
+    override fun showLoadingDialog(message: String?) {
     }
 
     override fun dismissLoadingDialog() {

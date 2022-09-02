@@ -37,7 +37,7 @@ class MineProviderImpl @Inject constructor() : MineProvider {
                 callback.onSuccess(data)
             }, object : ErrorConsumer() {
                 override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.message))
+                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
                 }
             })
     }
@@ -52,7 +52,7 @@ class MineProviderImpl @Inject constructor() : MineProvider {
                 callback.onSuccess(data)
             }, object : ErrorConsumer() {
                 override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.message))
+                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
                 }
             })
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.publis.PublisActivity">
 
@@ -11,11 +12,73 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/MatchAndMatch">
 
-    <TextView
-        style="@style/MatchAndMatch"
-        android:gravity="center"
-        android:text="@{viewmodel.publicAuthorBeanList.toString()}"
-        tools:ignore="MissingConstraints" />
+        <LinearLayout
+            style="@style/MatchAndMatch"
+            android:background="@color/colorGlobalBackground"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
+            <include
+                android:id="@+id/stateBarView"
+                android:background="@color/colorGlobalWhite"
+                layout="@layout/include_status" />
+
+            <FrameLayout
+                android:id="@+id/publisContainerLayout"
+                style="@style/MatchAndMatch">
+
+                <LinearLayout
+                    style="@style/MatchAndMatch"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/publisToolbarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_50"
+                        android:background="@color/colorGlobalWhite"
+                        app:contentInsetStart="0dp">
+
+                        <FrameLayout
+                            style="@style/MatchAndMatch"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/publisCloseView"
+                                style="@style/WrapAndMatch"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:paddingStart="@dimen/dp_20"
+                                android:paddingEnd="@dimen/dp_20"
+                                android:src="@mipmap/publis_ic_more" />
+
+                            <TextView
+                                android:id="@+id/publisTitleView"
+                                style="@style/WrapAndWrap"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/dp_10"
+                                android:layout_marginEnd="@dimen/dp_10"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:textColor="@color/colorPrimaryText"
+                                android:textSize="@dimen/sp_20" />
+                        </FrameLayout>
+                    </androidx.appcompat.widget.Toolbar>
+
+                    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                        android:id="@+id/publisContentRefreshLayout"
+                        style="@style/MatchAndMatch"
+                        app:srlAccentColor="@color/colorGlobalTextGray"
+                        app:srlEnableLoadMore="true"
+                        app:srlPrimaryColor="@android:color/transparent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/publisContentRecyclerView"
+                            style="@style/MatchAndMatch"
+                            android:overScrollMode="never"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

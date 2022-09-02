@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchAndMatch"
+    android:background="@color/colorGlobalBackground"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout
+            style="@style/MatchAndMatch"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/publisCloseView"
+                style="@style/WrapAndMatch"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="@dimen/dp_20"
+                android:paddingEnd="@dimen/dp_20"
+                android:src="@mipmap/publis_ic_more" />
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/publisItemRecyclerView"
+        android:gravity="center"
+        style="@style/MatchAndMatch"
+        android:overScrollMode="never" />
+</LinearLayout>

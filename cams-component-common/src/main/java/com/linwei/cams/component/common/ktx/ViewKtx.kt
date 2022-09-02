@@ -238,7 +238,9 @@ infix fun View.clickDelay(clickAction: () -> Unit) {
 /**
  * 显示SnackBar
  */
-fun View.snackBar(message: String, length: Int = Snackbar.LENGTH_SHORT) {
-    Snackbar.make(this, message, length)
-        .show()
+fun View.snackBar(message: String?, length: Int = Snackbar.LENGTH_SHORT) {
+    if(message.notNullAndEmpty()) {
+        Snackbar.make(this, message!!, length)
+            .show()
+    }
 }

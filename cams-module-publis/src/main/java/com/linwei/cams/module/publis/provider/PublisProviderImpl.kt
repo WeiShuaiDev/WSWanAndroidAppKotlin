@@ -5,6 +5,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.network.ApiClient
 import com.linwei.cams.component.network.callback.ErrorConsumer
 import com.linwei.cams.component.network.exception.ApiException
+import com.linwei.cams.component.network.model.ApiResponse
 import com.linwei.cams.component.network.transformer.ResponseTransformer
 import com.linwei.cams.module.publis.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
@@ -14,6 +15,7 @@ import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.publis.PublisRouterTable
 import com.linwei.cams.service.publis.model.PublisAuthorBean
 import com.linwei.cams.service.publis.provider.PublisProvider
+import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
 @Route(path = PublisRouterTable.PATH_SERVICE_PUBLIS)
@@ -34,27 +36,33 @@ class PublisProviderImpl @Inject constructor() : PublisProvider {
     override fun fetchPublicAuthorData(
         callback: ResponseCallback<List<PublisAuthorBean>>
     ) {
-        mApiService.getPublicAuthorData()
+        publicAuthorApi()
             .compose(ResponseTransformer.obtain())
             .subscribe({ data ->
                 callback.onSuccess(data)
             }, object : ErrorConsumer() {
                 override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.message))
+                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
                 }
             })
     }
 
+    private fun publicAuthorApi(): Observable<ApiResponse<List<PublisAuthorBean>>> =
+        mApiService.getPublicAuthorData()
+
     override fun fetchPublicArticleListData(page: Int,id: String?,callback: ResponseCallback<Page<CommonArticleBean>>) {
-        mApiService.getPublicArticleListData(page,id)
+        publicAuthorApi(page,id)
             .compose(ResponseTransformer.obtain())
             .subscribe({ data ->
                 callback.onSuccess(data)
             }, object : ErrorConsumer() {
                 override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.message))
+                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
                 }
             })
     }
+
+    private fun publicAuthorApi(page:Int,id:String?): Observable<ApiResponse<Page<CommonArticleBean>>> =
+        mApiService.getPublicArticleListData(page,id)
 
 }

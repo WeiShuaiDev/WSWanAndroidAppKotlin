@@ -53,7 +53,7 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
             })
     }
 
-    fun homeApi(page: Int): Observable<ApiResponse<Page<CommonArticleBean>>> =
+    private fun homeApi(page: Int): Observable<ApiResponse<Page<CommonArticleBean>>> =
         mApiService.getArticleListData(page)
 
     override fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>) {
@@ -63,12 +63,12 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
                 callback.onSuccess(data)
             }, object : ErrorConsumer() {
                 override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.message))
+                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
                 }
             })
     }
 
-     fun bannerApi(): Observable<ApiResponse<List<BannerBean>>> =
+     private fun bannerApi(): Observable<ApiResponse<List<BannerBean>>> =
          mApiService.getBannerListData()
 
 }

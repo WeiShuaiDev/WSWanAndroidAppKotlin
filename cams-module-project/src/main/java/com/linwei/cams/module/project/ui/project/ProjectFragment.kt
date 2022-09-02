@@ -19,6 +19,7 @@ import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.project.ProjectRouterTable
 import com.linwei.cams.service.project.model.ProjectTreeBean
 import com.scwang.smart.refresh.layout.api.RefreshLayout
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -72,6 +73,9 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
 
         mViewBinding?.projectSlidingLayout?.setScrollableView(mViewBinding?.projectDragRecyclerView)
 
+        mViewBinding?.projectContentRefreshLayout?.setEnableLoadMore(true)
+        mViewBinding?.projectContentRefreshLayout?.setEnableRefresh(true)
+
     }
 
     override fun initData() {
@@ -98,7 +102,7 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
             mViewBinding?.projectSlidingLayout?.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
         }
 
-        mViewBinding?.projectContentRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
+        mViewBinding?.projectContentRefreshLayout?.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0

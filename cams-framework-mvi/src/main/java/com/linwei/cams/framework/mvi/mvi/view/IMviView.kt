@@ -16,7 +16,7 @@ import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
  * @Description: MVI架构  `View` 模块
  *-----------------------------------------------------------------------
  */
-interface MviView<VM : MviViewModel> {
+interface IMviView<VM : MviViewModel> {
 
     /**
      * 获取 [ViewModel] 对象
@@ -43,7 +43,7 @@ interface MviView<VM : MviViewModel> {
      * 绑定 [MviViewEvent] 对象
      * @param event [MviViewEvent]
      */
-     fun bindMviViewEvent(event: MviViewEvent) {
+    fun bindMviViewEvent(event: MviViewEvent) {
         when (event.code) {
             StatusCode.SHOW_SNACK_BAR -> {
                 showSnackBar(event.content.toString())
@@ -74,7 +74,7 @@ interface MviView<VM : MviViewModel> {
      * 显示 SnackBar
      * @param message [String]
      */
-    fun showSnackBar(message: String)
+    fun showSnackBar(message: String?)
 
     /**
      * 显示Toast
@@ -86,7 +86,7 @@ interface MviView<VM : MviViewModel> {
      * 显示加载框
      * @param message [String]
      */
-    fun showLoadingDialog(message: String)
+    fun showLoadingDialog(message: String?)
 
     /**
      * 关闭加载框

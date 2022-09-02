@@ -33,11 +33,11 @@ abstract class MvpBaseActivity<VB : ViewBinding, P : IMvpPresenter> :
 
     }
 
-    override fun showLoadingDialog(message: String) {
+    override fun showLoadingDialog(message: String?) {
 
     }
 
-    override fun showSnackBar(message: String)=window.decorView.snackBar(message)
+    override fun showSnackBar(message: String?)=window.decorView.snackBar(message)
 
     override fun showToast(message: String?) {
         toast(message)
