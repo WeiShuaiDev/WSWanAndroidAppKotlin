@@ -4,12 +4,11 @@ import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.network.ApiClient
 import com.linwei.cams.component.network.callback.ApiCallback
-import com.linwei.cams.module.login.http.ApiService
 import com.linwei.cams.module.login.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.login.LoginRouterTable
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.login.provider.LoginProvider
 import javax.inject.Inject
 

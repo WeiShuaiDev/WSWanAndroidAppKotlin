@@ -7,7 +7,7 @@ import com.linwei.cams.module.login.databinding.LoginActivityLoginBinding
 import com.linwei.cams.module.login.ui.login.mvp.contract.ILoginView
 import com.linwei.cams.module.login.ui.login.mvp.presenter.LoginPresenter
 import com.linwei.cams.service.login.LoginRouterTable
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

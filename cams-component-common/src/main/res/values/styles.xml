@@ -57,27 +57,27 @@
 
     <!--Text样式配置-->
     <style name="MatchAndWrap.GlobalTextGrayColor">
-        <item name="android:textColor">@color/colorGlobalTextGray</item>
+        <item name="android:textColor">@color/colorGlobalGrayText</item>
     </style>
 
     <style name="WrapAndWrap.GlobalTextGrayColor">
-        <item name="android:textColor">@color/colorGlobalTextGray</item>
+        <item name="android:textColor">@color/colorGlobalGrayText</item>
     </style>
 
     <style name="MatchAndWrap.GlobalTextWhiteColor">
-        <item name="android:textColor">@color/colorGlobalTextWhite</item>
+        <item name="android:textColor">@color/colorGlobalWhiteText</item>
     </style>
 
     <style name="WrapAndWrap.GlobalTextWhiteColor">
-        <item name="android:textColor">@color/colorGlobalTextWhite</item>
+        <item name="android:textColor">@color/colorGlobalWhiteText</item>
     </style>
 
     <style name="MatchAndWrap.GlobalTextBlackColor">
-        <item name="android:textColor">@color/colorGlobalTextBlack</item>
+        <item name="android:textColor">@color/colorGlobalBlackText</item>
     </style>
 
     <style name="WrapAndWrap.GlobalTextBlackColor">
-        <item name="android:textColor">@color/colorGlobalTextBlack</item>
+        <item name="android:textColor">@color/colorGlobalBlackText</item>
     </style>
 
     <style name="MatchAndWrap.PrimaryTextColor">
@@ -104,11 +104,19 @@
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
 
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize12" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize13" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_13</item>
     </style>
 
     <style name="WrapAndWrap.SecondaryTextColor.TvSize13" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize13" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_13</item>
     </style>
 
@@ -120,11 +128,19 @@
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
 
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize14" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize15" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
 
     <style name="WrapAndWrap.SecondaryTextColor.TvSize15" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize15" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
 
@@ -136,11 +152,19 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize16" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize17" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_17</item>
     </style>
 
     <style name="WrapAndWrap.SecondaryTextColor.TvSize17" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize17" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_17</item>
     </style>
 
@@ -152,6 +176,10 @@
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
 
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize18" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize19" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_19</item>
     </style>
@@ -160,11 +188,19 @@
         <item name="android:textSize">@dimen/sp_19</item>
     </style>
 
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize19" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_19</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize20" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
 
     <style name="WrapAndWrap.SecondaryTextColor.TvSize20" parent="@style/WrapAndWrap.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize20" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
 

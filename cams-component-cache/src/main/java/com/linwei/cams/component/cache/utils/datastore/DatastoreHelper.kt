@@ -17,7 +17,7 @@ import com.linwei.cams.component.common.utils.i
 import com.linwei.cams.datastore.protobuf.LanguagePreferences
 import com.linwei.cams.datastore.protobuf.ProjectTreePreferences
 import com.linwei.cams.datastore.protobuf.UserInfoPreferences
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
 
 val Context.dataStore by preferencesDataStore(

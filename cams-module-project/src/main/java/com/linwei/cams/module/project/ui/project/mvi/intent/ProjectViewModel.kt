@@ -145,7 +145,6 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
             }.onStart {
                 _viewStates.setState { copy(fetchStatus = FetchStatus.Fetching) }
             }.onEach {
-                System.out.println("onEach"+this.toString())
                 _viewStates.setState {
                     copy(
                         fetchStatus = FetchStatus.Fetched,
@@ -153,7 +152,6 @@ class ProjectViewModel @Inject constructor() : MviViewModel() {
                     )
                 }
             }.commonCatch {
-                System.out.println("commonCatch"+this.toString())
                 _viewStates.setState {
                     copy(
                         fetchStatus = FetchStatus.NotFetched,

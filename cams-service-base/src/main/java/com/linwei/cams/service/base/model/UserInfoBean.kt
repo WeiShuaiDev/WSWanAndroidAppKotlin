@@ -1,4 +1,4 @@
-package com.linwei.cams.service.login.model
+package com.linwei.cams.service.base.model
 
 import android.os.Parcel
 import android.os.Parcelable

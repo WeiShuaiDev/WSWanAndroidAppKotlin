@@ -4,7 +4,7 @@ import com.linwei.cams.component.mvp.mvp.model.IMvpModel
 import com.linwei.cams.component.mvp.mvp.presenter.IMvpPresenter
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 
 interface ILoginModel : IMvpModel {
 

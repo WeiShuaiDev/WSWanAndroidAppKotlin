@@ -6,4 +6,5 @@
         <item name="colorPrimaryDark">@color/mineColorPrimaryDark</item>
         <item name="colorAccent">@color/mineColorAccent</item>
     </style>
+
 </resources>

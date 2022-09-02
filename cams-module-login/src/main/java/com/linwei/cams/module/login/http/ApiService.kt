@@ -1,7 +1,7 @@
 package com.linwei.cams.module.login.http
 
 import com.linwei.cams.component.network.ApiCall
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET

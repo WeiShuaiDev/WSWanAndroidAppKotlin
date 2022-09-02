@@ -21,6 +21,6 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="2"
-        android:textColor="@color/colorGlobalTextWhite" />
+        android:textColor="@color/colorGlobalWhiteText" />
 
 </RelativeLayout>

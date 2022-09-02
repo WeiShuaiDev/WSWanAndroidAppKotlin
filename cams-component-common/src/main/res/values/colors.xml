@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#F9F9F9</color>
     <color name="colorAccent">#313335</color>
 
-    <color name="colorGlobalTextGray">#666666</color>
-    <color name="colorGlobalTextWhite">#FFFFFF</color>
-    <color name="colorGlobalTextBlack">#000000</color>
+    <color name="colorGlobalGrayText">#666666</color>
+    <color name="colorGlobalWhiteText">#FFFFFF</color>
+    <color name="colorGlobalBlackText">#000000</color>
 
     <color name="colorGlobalLine">#1a000000</color>
     <color name="colorGlobalBackground">#F9F9F9</color>
@@ -14,6 +14,8 @@
     <color name="colorGlobalBlack">#000000</color>
     <color name="colorGlobalGray">#E4E4E4</color>
     <color name="colorGlobalTransparent">#00000000</color>
+
+    <color name="colorGlobalDivider">#F4F3F6</color>
 
     <color name="colorPrimaryText">#313335</color>
     <color name="colorSecondaryText">#7F7F7F</color>

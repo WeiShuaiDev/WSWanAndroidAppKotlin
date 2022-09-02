@@ -3,4 +3,6 @@
     <color name="mineColorPrimary">#9C27B0</color>
     <color name="mineColorPrimaryDark">#9C27B0</color>
     <color name="mineColorAccent">#9C27B0</color>
+
+    <color name="mineColorHeaderBackground">#f3e5f5</color>
 </resources>

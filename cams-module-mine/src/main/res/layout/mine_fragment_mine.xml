@@ -1,22 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.mine.MineActivity">
 
     <data>
 
         <variable
-            name="viewmodel"
+            name="viewModel"
             type="com.linwei.cams.module.mine.ui.mine.mvvm.viewmodel.MineViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout style="@style/MatchAndMatch">
+    <LinearLayout
+        style="@style/MatchAndMatch"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="我的模块"/>
+        <LinearLayout
+            style="@style/MatchAndWrap"
+            android:background="@color/mineColorHeaderBackground"
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                android:id="@+id/stateBarView"
+                android:background="@color/mineColorHeaderBackground"
+                layout="@layout/include_status" />
+
+            <RelativeLayout style="@style/MatchAndMatch">
+
+                <ImageView
+                    android:id="@+id/mineSettingView"
+                    style="@style/WrapAndWrap"
+                    android:layout_alignParentEnd="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{()->viewModel.onSettingClick()}"
+                    android:padding="@dimen/dp_10"
+                    android:src="@mipmap/mine_ic_mine_set"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout style="@style/MatchAndWrap">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_130"
+                android:background="@color/mineColorHeaderBackground" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_130"
+                android:paddingTop="@dimen/dp_40">
+
+                <LinearLayout
+                    android:id="@+id/mineHeadLayout"
+                    style="@style/MatchAndWrap"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_20"
+                    tools:ignore="RtlSymmetry">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterButton
+                        android:id="@+id/mineAvatarView"
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_gravity="center"
+                        app:roundPercent="1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/dp_10">
+
+                        <TextView
+                            android:id="@+id/mineNameView"
+                            style="@style/WrapAndWrap.GlobalTextWhiteColor.TvSize16"
+                            tools:text="昵称" />
+
+                        <LinearLayout
+                            style="@style/WrapAndWrap"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/mineIdView"
+                                style="@style/WrapAndWrap.GlobalTextWhiteColor.TvSize12"
+                                tools:text="ID:123" />
+
+                            <TextView
+                                android:id="@+id/mineLevelView"
+                                style="@style/WrapAndWrap.GlobalTextWhiteColor.TvSize12"
+                                android:layout_marginStart="@dimen/dp_10"
+                                android:background="@drawable/mine_shape_level_background"
+                                android:paddingStart="@dimen/dp_10"
+                                android:paddingEnd="@dimen/dp_10"
+                                android:visibility="gone"
+                                tools:text="lv:1"
+                                tools:visibility="visible" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/mineScoreRankListView"
+                        style="@style/WrapAndWrap.GlobalTextWhiteColor.TvSize13"
+                        android:background="@drawable/mine_selector_score_background"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:paddingStart="@dimen/dp_10"
+                        android:paddingTop="@dimen/dp_2"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:paddingBottom="@dimen/dp_2"
+                        android:text="@string/mine_scoreboard"
+                        app:drawableStartCompat="@mipmap/mine_ic_mine_score" />
+                </LinearLayout>
+
+                <com.linwei.cams.component.weight.waveview.WaveView
+                    android:id="@+id/mineWaveView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_15"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ScrollView style="@style/MatchAndMatch">
+
+            <LinearLayout
+                style="@style/MatchAndWrap"
+                android:background="@color/colorGlobalWhite"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dp_20">
+
+                <LinearLayout
+                    android:id="@+id/mineScoreItemLayout"
+                    style="@style/MatchAndWrap"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.onItemClick(0)}"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_15"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_15">
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine1"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:text="@string/mine_integral" />
+
+                    <TextView
+                        android:id="@+id/mineMyScoreView"
+                        style="@style/WrapAndWrap.SecondaryTextColor.TvSize13"
+                        android:layout_marginStart="@dimen/dp_10"
+                        tools:text="当前积分: " />
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine_into"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mineCollectItemLayout"
+                    style="@style/MatchAndWrap"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.onItemClick(1)}"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_15"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_15">
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine2"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:text="@string/mine_collect" />
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine_into"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mineShareItemLayout"
+                    style="@style/MatchAndWrap"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.onItemClick(2)}"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_15"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_15">
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine3"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:text="@string/mine_share" />
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine_into"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_10"
+                    android:background="@color/colorGlobalDivider" />
+
+                <LinearLayout
+                    android:id="@+id/mineProjectsItemLayout"
+                    style="@style/MatchAndWrap"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.onItemClick(3)}"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_15"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_15">
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine4"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:text="@string/mine_open_source_project" />
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine_into"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mineAboutItemLayout"
+                    style="@style/MatchAndWrap"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->viewModel.onItemClick(4)}"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_15"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_15">
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine5"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:text="@string/mine_about_author" />
+
+                    <ImageView
+                        style="@style/WrapAndWrap"
+                        android:src="@mipmap/mine_ic_mine_into"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 </layout>

@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="viewmodel"
+            name="viewModel"
             type="com.linwei.cams.module.publis.ui.publis.mvvm.viewmodel.PublisViewModel" />
     </data>
 
@@ -66,8 +66,9 @@
                     <com.scwang.smart.refresh.layout.SmartRefreshLayout
                         android:id="@+id/publisContentRefreshLayout"
                         style="@style/MatchAndMatch"
-                        app:srlAccentColor="@color/colorGlobalTextGray"
+                        app:srlAccentColor="@color/colorGlobalGrayText"
                         app:srlEnableLoadMore="true"
+                        app:srlEnableRefresh="true"
                         app:srlPrimaryColor="@android:color/transparent">
 
                         <androidx.recyclerview.widget.RecyclerView

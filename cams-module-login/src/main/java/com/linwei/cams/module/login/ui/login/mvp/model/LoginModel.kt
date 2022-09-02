@@ -4,8 +4,7 @@ import com.linwei.cams.component.mvp.mvp.model.MvpModel
 import com.linwei.cams.module.login.provider.LoginProviderImpl
 import com.linwei.cams.module.login.ui.login.mvp.contract.ILoginModel
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.login.model.UserInfoBean
-import javax.inject.Inject
+import com.linwei.cams.service.base.model.UserInfoBean
 
 class LoginModel : MvpModel(), ILoginModel {
 

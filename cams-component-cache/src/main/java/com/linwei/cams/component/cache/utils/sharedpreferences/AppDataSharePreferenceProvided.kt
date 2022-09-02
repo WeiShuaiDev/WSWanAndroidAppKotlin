@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.linwei.cams.component.cache.utils.CacheConstants
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
 import java.util.*
 

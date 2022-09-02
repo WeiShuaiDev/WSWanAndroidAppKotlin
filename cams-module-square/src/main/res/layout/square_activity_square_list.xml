@@ -16,7 +16,7 @@
         android:id="@+id/squareRefreshLayout"
         style="@style/MatchAndMatch"
         android:clipChildren="false"
-        app:srlAccentColor="@color/colorGlobalTextGray"
+        app:srlAccentColor="@color/colorGlobalGrayText"
         app:srlEnablePreviewInEditMode="true">
 
         <androidx.recyclerview.widget.RecyclerView

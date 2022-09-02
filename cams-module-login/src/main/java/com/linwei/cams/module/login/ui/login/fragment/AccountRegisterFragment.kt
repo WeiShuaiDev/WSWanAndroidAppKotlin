@@ -4,7 +4,7 @@ import com.linwei.cams.component.mvp.base.MvpBaseFragment
 import com.linwei.cams.module.login.databinding.LoginFragmentAccountRegisterBinding
 import com.linwei.cams.module.login.ui.login.mvp.contract.ILoginView
 import com.linwei.cams.module.login.ui.login.mvp.presenter.LoginPresenter
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 
 class AccountRegisterFragment : MvpBaseFragment<LoginFragmentAccountRegisterBinding, LoginPresenter>(),
     ILoginView {

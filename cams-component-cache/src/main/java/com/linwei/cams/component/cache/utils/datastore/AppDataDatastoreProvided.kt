@@ -10,7 +10,7 @@ import com.linwei.cams.component.common.ktx.ctx
 import com.linwei.cams.datastore.protobuf.LanguagePreferences
 import com.linwei.cams.datastore.protobuf.ProjectTreePreferences
 import com.linwei.cams.datastore.protobuf.UserInfoPreferences
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

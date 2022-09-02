@@ -10,7 +10,9 @@ import com.linwei.cams.component.network.transformer.ResponseTransformer
 import com.linwei.cams.module.mine.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
+import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.mine.MineRouterTable
+import com.linwei.cams.service.mine.model.RankBean
 import com.linwei.cams.service.mine.provider.MineProvider
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
@@ -42,7 +44,7 @@ class MineProviderImpl @Inject constructor() : MineProvider {
             })
     }
 
-    fun collectApi(id: Int): Observable<ApiResponse<Any>> =
+    private fun collectApi(id: Int): Observable<ApiResponse<Any>> =
         mApiService.collect(id)
 
     override fun unCollectStatus(id: Int, callback: ResponseCallback<Any>) {
@@ -57,8 +59,22 @@ class MineProviderImpl @Inject constructor() : MineProvider {
             })
     }
 
-    fun unCollectApi(id: Int): Observable<ApiResponse<Any>> =
+    private fun unCollectApi(id: Int): Observable<ApiResponse<Any>> =
         mApiService.unCollect(id)
 
+    override fun fetchIntegralData(callback: ResponseCallback<UserInfoBean>) {
+        integralApi()
+            .compose(ResponseTransformer.obtain())
+            .subscribe({ data ->
+                callback.onSuccess(data)
+            }, object : ErrorConsumer() {
+                override fun error(e: ApiException) {
+                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
+                }
+            })
+    }
+
+    private fun integralApi(): Observable<ApiResponse<UserInfoBean>> =
+        mApiService.getIntegralData()
 
 }

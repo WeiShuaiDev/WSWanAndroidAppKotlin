@@ -58,7 +58,7 @@ class PublisFragment : MvvmBaseFragment<PublisFragmentPublisBinding, PublisViewM
     }
 
     override fun initView() {
-        mDataBinding?.viewmodel = mViewModel
+        mDataBinding?.viewModel = mViewModel
 
         val guillotineMenu: View =
             LayoutInflater.from(context).inflate(R.layout.publis_guillotine, null)
@@ -105,10 +105,6 @@ class PublisFragment : MvvmBaseFragment<PublisFragmentPublisBinding, PublisViewM
 
             adapter = mCommonArticleListAdapter
         }
-
-        mDataBinding?.publisContentRefreshLayout?.setEnableLoadMore(true)
-        mDataBinding?.publisContentRefreshLayout?.setEnableRefresh(true)
-
     }
 
     override fun initData() {

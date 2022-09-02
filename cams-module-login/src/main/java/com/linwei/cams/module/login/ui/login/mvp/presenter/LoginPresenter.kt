@@ -7,7 +7,7 @@ import com.linwei.cams.module.login.ui.login.mvp.contract.ILoginView
 import com.linwei.cams.module.login.ui.login.mvp.model.LoginModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
-import com.linwei.cams.service.login.model.UserInfoBean
+import com.linwei.cams.service.base.model.UserInfoBean
 
 class LoginPresenter(
     private var rootView: ILoginView?,
