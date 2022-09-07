@@ -1,4 +1,4 @@
-package com.linwei.cams.module.mine.ui.myscore
+package com.linwei.cams.module.mine.ui.myshare
 
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.vlayout.DelegateAdapter
@@ -19,8 +19,8 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-@Route(path = MineRouterTable.PATH_ACTIVITY_MY_SCORE)
-class MyScoreActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreViewModel>(),
+@Route(path = MineRouterTable.PATH_ACTIVITY_MY_SHARE)
+class MyShareActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreViewModel>(),
     MyScoreView {
 
     private var mCurPage: Int = 0
@@ -42,9 +42,9 @@ class MyScoreActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreView
 
     override fun initView() {
         mDataBinding?.apply {
-            mViewModel?.title?.set(R.string.mine_integral.idToString())
+            mViewModel?.title?.set(R.string.mine_share.idToString())
             viewModel = mViewModel
-            activity = this@MyScoreActivity
+            activity = this@MyShareActivity
         }
         mHeaderAdapter = MyScoreHeaderAdapter().apply {
             mAdapters.add(this)

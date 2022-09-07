@@ -31,10 +31,10 @@
                     android:id="@+id/mineSettingView"
                     android:layout_width="@dimen/dp_40"
                     android:layout_height="@dimen/dp_40"
-                    android:padding="@dimen/dp_7"
                     android:layout_alignParentEnd="true"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:onClick="@{()->viewModel.onSettingClick()}"
+                    android:padding="@dimen/dp_7"
                     android:src="@mipmap/mine_ic_mine_set"
                     tools:ignore="ContentDescription" />
             </RelativeLayout>
@@ -64,6 +64,7 @@
                         android:layout_width="@dimen/dp_50"
                         android:layout_height="@dimen/dp_50"
                         android:layout_gravity="center"
+                        android:background="@mipmap/mine_ic_head"
                         app:roundPercent="1" />
 
                     <LinearLayout

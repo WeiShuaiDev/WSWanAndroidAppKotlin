@@ -11,7 +11,7 @@ interface MyScoreView : IMvvmView<MyScoreViewModel> {
     override fun bindOtherMvvmViewEvent(viewModel: MyScoreViewModel?, owner: LifecycleOwner) {
         viewModel?.let {
             it.rankBeanPage.observe(owner) { bean ->
-                rankBeanPageDataToView(bean)
+                rankDataToView(bean)
             }
         }
     }
@@ -20,6 +20,6 @@ interface MyScoreView : IMvvmView<MyScoreViewModel> {
 
     }
 
-    fun rankBeanPageDataToView(page: Page<RankBean>)
+    fun rankDataToView(page: Page<RankBean>)
 
 }

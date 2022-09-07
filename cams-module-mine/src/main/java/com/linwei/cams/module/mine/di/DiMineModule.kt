@@ -7,6 +7,8 @@ import com.linwei.cams.module.mine.http.ApiService
 import com.linwei.cams.module.mine.http.ApiServiceWrap
 import com.linwei.cams.module.mine.ui.mine.mvvm.model.MineModel
 import com.linwei.cams.module.mine.ui.mine.mvvm.viewmodel.MineViewModel
+import com.linwei.cams.module.mine.ui.mycollect.mvvm.model.MyCollectModel
+import com.linwei.cams.module.mine.ui.mycollect.mvvm.viewmodel.MyCollectViewModel
 import com.linwei.cams.module.mine.ui.myscore.mvvm.model.MyScoreModel
 import com.linwei.cams.module.mine.ui.myscore.mvvm.viewmodel.MyScoreViewModel
 import dagger.Module
@@ -53,5 +55,18 @@ object DiMineModule {
     @ViewModelKey(MyScoreViewModel::class)
     fun provideMyScoreViewModel(myScoreModel: MyScoreModel): MvvmViewModel =
         MyScoreViewModel(myScoreModel)
+
+
+    /**
+     * Mine模块的[MyCollectViewModel]依赖提供方法
+     *
+     * @return MyCollectViewModel
+     */
+    @Provides
+    @IntoMap
+    @ViewModelKey(MyCollectViewModel::class)
+    fun provideMyCollectViewModel(myCollectModel: MyCollectModel): MvvmViewModel =
+        MyCollectViewModel(myCollectModel)
+
 
 }

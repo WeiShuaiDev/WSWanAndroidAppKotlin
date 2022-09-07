@@ -11,8 +11,11 @@ object MineRouterTable {
      */
     const val PATH_ACTIVITY_MINE:String="/mine/mineActivity"
 
-    const val PATH_ACTIVITY_MY_SCORE:String="/mine/MyScoreActivity"
+    const val PATH_ACTIVITY_MY_SCORE:String="/myScore/MyScoreActivity"
 
+    const val PATH_ACTIVITY_MY_COLLECT:String="/myCollect/MyCollectActivity"
+
+    const val PATH_ACTIVITY_MY_SHARE:String="/myShare/MyShareActivity"
     /**
      * ----------------Fragment-------------------------
      */

@@ -46,9 +46,11 @@ class MineViewModel @Inject constructor(private val mineModel: MineModel) : Mvvm
             }
             ConstantParams.CONSTANT_STARTS_1 -> {
                 //我的收藏
+                MineProviderHelper.jumpMyCollectActivity()
             }
             ConstantParams.CONSTANT_STARTS_2 -> {
                 //我的分享
+                MineProviderHelper.jumpMyShareActivity()
             }
             ConstantParams.CONSTANT_STARTS_3 -> {
                 //开源项目
