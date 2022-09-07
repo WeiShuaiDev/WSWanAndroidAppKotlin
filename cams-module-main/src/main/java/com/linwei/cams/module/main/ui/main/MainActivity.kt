@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.mvvm.base.MvvmBaseActivity
 import com.linwei.cams.component.weight.bubblenavigation.listener.BubbleNavigationChangeListener
@@ -33,7 +32,7 @@ class MainActivity : MvvmBaseActivity<MainActivityMainBinding, MainViewModel>(),
     override fun getRootLayoutId(): Int = R.layout.main_activity_main
 
     override fun initView() {
-        mDataBinding.mainBubbleNavigationView.apply {
+        mDataBinding?.mainBubbleNavigationView?.apply {
             setTypeface(Typeface.createFromAsset(assets, "rubik.ttf"))
             setBadgeValue(0, null)
             setBadgeValue(1, null)
@@ -43,7 +42,7 @@ class MainActivity : MvvmBaseActivity<MainActivityMainBinding, MainViewModel>(),
             setNavigationChangeListener(this@MainActivity)
         }
 
-        mDataBinding.mainViewPager.apply {
+        mDataBinding?.mainViewPager?.apply {
             offscreenPageLimit = 5
             setScrollable(false)
             adapter = CommonPageAdapter(supportFragmentManager, this@MainActivity)
@@ -57,7 +56,7 @@ class MainActivity : MvvmBaseActivity<MainActivityMainBinding, MainViewModel>(),
     }
 
     override fun onNavigationChanged(view: View?, position: Int) {
-        mDataBinding.mainViewPager.setCurrentItem(position, false)
+        mDataBinding?.mainViewPager?.setCurrentItem(position, false)
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

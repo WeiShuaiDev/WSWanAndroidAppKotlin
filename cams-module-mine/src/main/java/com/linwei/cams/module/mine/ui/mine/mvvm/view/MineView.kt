@@ -16,6 +16,7 @@ interface MineView : IMvvmView<MineViewModel> {
     }
 
     override fun refreshDataStatus(isRefresh: Boolean) {
+
     }
 
     fun userInfoDataToView(bean: UserInfoBean)

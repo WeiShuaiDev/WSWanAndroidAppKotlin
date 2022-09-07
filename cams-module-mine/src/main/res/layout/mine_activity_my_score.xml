@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.myscore.MyScoreActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.linwei.cams.module.mine.ui.myscore.mvvm.viewmodel.MyScoreViewModel" />
+
+        <variable
+            name="activity"
+            type="com.linwei.cams.component.mvvm.base.MvvmBaseActivity" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchAndMatch"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/mine_top_bar"
+            app:activity="@{activity}"
+            app:toolbarViewModel="@{viewModel}" />
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/mineRefreshLayout"
+            style="@style/MatchAndMatch"
+            android:clipChildren="false"
+            app:srlAccentColor="@color/colorGlobalGrayText"
+            app:srlEnablePreviewInEditMode="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mineRecyclerView"
+                style="@style/MatchAndMatch"
+                android:background="@color/colorGlobalWhite" />
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    </LinearLayout>
+</layout>

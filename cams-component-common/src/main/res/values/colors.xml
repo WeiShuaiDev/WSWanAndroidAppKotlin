@@ -15,8 +15,6 @@
     <color name="colorGlobalGray">#E4E4E4</color>
     <color name="colorGlobalTransparent">#00000000</color>
 
-    <color name="colorGlobalDivider">#F4F3F6</color>
-
     <color name="colorPrimaryText">#313335</color>
     <color name="colorSecondaryText">#7F7F7F</color>
 

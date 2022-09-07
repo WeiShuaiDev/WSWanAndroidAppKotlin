@@ -88,12 +88,10 @@
 
                 <TextView
                     android:id="@+id/rightTitleView"
-                    style="@style/MatchAndMatch"
+                    style="@style/MatchAndMatch.PrimaryTextColor.TvSize14"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
                     android:lines="1"
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/sp_14"
                     android:visibility="gone" />
 
             </RelativeLayout>

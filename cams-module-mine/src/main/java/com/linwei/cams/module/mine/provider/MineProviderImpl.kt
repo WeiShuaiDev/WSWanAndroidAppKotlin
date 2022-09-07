@@ -3,13 +3,11 @@ package com.linwei.cams.module.mine.provider
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.network.ApiClient
-import com.linwei.cams.component.network.callback.ErrorConsumer
-import com.linwei.cams.component.network.exception.ApiException
 import com.linwei.cams.component.network.model.ApiResponse
-import com.linwei.cams.component.network.transformer.ResponseTransformer
+import com.linwei.cams.module.common.ktx.networks
 import com.linwei.cams.module.mine.http.ApiServiceWrap
-import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
+import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.mine.MineRouterTable
 import com.linwei.cams.service.mine.model.RankBean
@@ -33,48 +31,30 @@ class MineProviderImpl @Inject constructor() : MineProvider {
     private val mApiService = ApiClient.getInstance().getService(ApiServiceWrap())
 
     override fun collectStatus(id: Int, callback: ResponseCallback<Any>) {
-        collectApi(id)
-            .compose(ResponseTransformer.obtain())
-            .subscribe({ data ->
-                callback.onSuccess(data)
-            }, object : ErrorConsumer() {
-                override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
-                }
-            })
+        collectApi(id).networks(callback)
     }
-
-    private fun collectApi(id: Int): Observable<ApiResponse<Any>> =
-        mApiService.collect(id)
 
     override fun unCollectStatus(id: Int, callback: ResponseCallback<Any>) {
-        unCollectApi(id)
-            .compose(ResponseTransformer.obtain())
-            .subscribe({ data ->
-                callback.onSuccess(data)
-            }, object : ErrorConsumer() {
-                override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
-                }
-            })
+        unCollectApi(id).networks(callback)
     }
-
-    private fun unCollectApi(id: Int): Observable<ApiResponse<Any>> =
-        mApiService.unCollect(id)
 
     override fun fetchIntegralData(callback: ResponseCallback<UserInfoBean>) {
-        integralApi()
-            .compose(ResponseTransformer.obtain())
-            .subscribe({ data ->
-                callback.onSuccess(data)
-            }, object : ErrorConsumer() {
-                override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
-                }
-            })
+        integralApi().networks(callback)
     }
 
-    private fun integralApi(): Observable<ApiResponse<UserInfoBean>> =
+    override fun fetchListIntegralData(page: Int, callback: ResponseCallback<Page<RankBean>>) {
+        listIntegralApi(page).networks(callback)
+    }
+
+    fun collectApi(id: Int): Observable<ApiResponse<Any>> =
+        mApiService.collect(id)
+
+    fun unCollectApi(id: Int): Observable<ApiResponse<Any>> =
+        mApiService.unCollect(id)
+
+    fun integralApi(): Observable<ApiResponse<UserInfoBean>> =
         mApiService.getIntegralData()
 
+    fun listIntegralApi(page: Int): Observable<ApiResponse<Page<RankBean>>> =
+        mApiService.listIntegralData(page)
 }

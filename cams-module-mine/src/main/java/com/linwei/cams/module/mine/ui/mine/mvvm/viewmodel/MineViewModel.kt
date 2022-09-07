@@ -9,6 +9,7 @@ import com.linwei.cams.module.mine.ui.mine.mvvm.model.MineModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.base.model.UserInfoBean
+import com.linwei.cams.service.mine.provider.MineProviderHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -40,16 +41,23 @@ class MineViewModel @Inject constructor(private val mineModel: MineModel) : Mvvm
     fun onItemClick(index: Int) {
         when (index) {
             ConstantParams.CONSTANT_STARTS_0 -> {
+                //我的积分
+                MineProviderHelper.jumpMyScoreActivity()
             }
             ConstantParams.CONSTANT_STARTS_1 -> {
+                //我的收藏
             }
             ConstantParams.CONSTANT_STARTS_2 -> {
+                //我的分享
             }
             ConstantParams.CONSTANT_STARTS_3 -> {
+                //开源项目
             }
             ConstantParams.CONSTANT_STARTS_4 -> {
+                //关于作者
             }
             else -> {
+                //设置
             }
         }
     }

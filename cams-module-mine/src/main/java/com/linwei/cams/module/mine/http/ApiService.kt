@@ -40,6 +40,6 @@ interface ApiService {
      * 获取个人积分列表
      */
     @GET("lg/coin/list/{page}/json")
-    fun listIntegral(@Path("page") page: Int): Observable<ApiResponse<Page<RankBean>>>
+    fun listIntegralData(@Path("page") page: Int): Observable<ApiResponse<Page<RankBean>>>
 
 }

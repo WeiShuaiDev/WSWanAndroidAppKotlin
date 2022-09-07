@@ -7,6 +7,7 @@ import com.linwei.cams.component.network.callback.ErrorConsumer
 import com.linwei.cams.component.network.exception.ApiException
 import com.linwei.cams.component.network.model.ApiResponse
 import com.linwei.cams.component.network.transformer.ResponseTransformer
+import com.linwei.cams.module.common.ktx.networks
 import com.linwei.cams.module.publis.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
@@ -36,33 +37,24 @@ class PublisProviderImpl @Inject constructor() : PublisProvider {
     override fun fetchPublicAuthorData(
         callback: ResponseCallback<List<PublisAuthorBean>>
     ) {
-        publicAuthorApi()
-            .compose(ResponseTransformer.obtain())
-            .subscribe({ data ->
-                callback.onSuccess(data)
-            }, object : ErrorConsumer() {
-                override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
-                }
-            })
+        publicAuthorApi().networks(callback)
     }
 
     private fun publicAuthorApi(): Observable<ApiResponse<List<PublisAuthorBean>>> =
         mApiService.getPublicAuthorData()
 
-    override fun fetchPublicArticleListData(page: Int,id: String?,callback: ResponseCallback<Page<CommonArticleBean>>) {
-        publicAuthorApi(page,id)
-            .compose(ResponseTransformer.obtain())
-            .subscribe({ data ->
-                callback.onSuccess(data)
-            }, object : ErrorConsumer() {
-                override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
-                }
-            })
+    override fun fetchPublicArticleListData(
+        page: Int,
+        id: String?,
+        callback: ResponseCallback<Page<CommonArticleBean>>
+    ) {
+        publicAuthorApi(page, id).networks(callback)
     }
 
-    private fun publicAuthorApi(page:Int,id:String?): Observable<ApiResponse<Page<CommonArticleBean>>> =
-        mApiService.getPublicArticleListData(page,id)
+    private fun publicAuthorApi(
+        page: Int,
+        id: String?
+    ): Observable<ApiResponse<Page<CommonArticleBean>>> =
+        mApiService.getPublicArticleListData(page, id)
 
 }

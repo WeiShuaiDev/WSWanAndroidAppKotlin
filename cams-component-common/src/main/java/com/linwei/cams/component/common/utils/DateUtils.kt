@@ -1,5 +1,6 @@
 package com.linwei.cams.component.common.utils
 
+import android.annotation.SuppressLint
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,6 +32,8 @@ import java.util.*
  * ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
  */
 object DateUtils {
+
+    const val NORMAL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
 
     /**
      * 获取时间格式化String

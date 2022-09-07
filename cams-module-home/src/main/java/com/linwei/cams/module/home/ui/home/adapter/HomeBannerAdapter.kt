@@ -60,7 +60,7 @@ class HomeBannerAdapter(
     override fun onCreateLayoutHelper(): LayoutHelper = SingleLayoutHelper()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val homeBannerView =
-            view.findViewById<Banner<BannerBean, BannerImageAdapter<BannerBean>>>(R.id.homeBannerView)
+        val homeBannerView: Banner<BannerBean, BannerImageAdapter<BannerBean>> =
+            view.findViewById(R.id.homeBannerView)
     }
 }

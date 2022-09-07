@@ -37,7 +37,7 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
 
     protected var mViewModel: VM? = null
 
-    protected lateinit var mDataBinding: DB
+    protected var mDataBinding: DB? = null
 
     protected var mAutoRegisterNet: AutoRegisterNetListener? = null
 
@@ -70,10 +70,15 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
         if (hasDataBinding()) {
             val rootLayoutId = getRootLayoutId()
             mDataBinding = DataBindingUtil.setContentView<DB>(this, rootLayoutId).apply {
-                lifecycleOwner=this@MvvmBaseActivity
+                lifecycleOwner = this@MvvmBaseActivity
             }
             return
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        this.finish()
     }
 
     /**

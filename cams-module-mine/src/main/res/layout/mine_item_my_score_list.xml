@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mineItemLayout"
+    style="@style/MatchAndWrap"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_10">
+
+    <TextView
+        android:id="@+id/mineTitleView"
+        style="@style/WrapAndWrap.SecondaryTextColor.TvSize16"
+        tools:text="签到积分" />
+
+    <LinearLayout
+        style="@style/MatchAndWrap"
+        android:layout_marginTop="@dimen/dp_6"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mineTimeView"
+            style="@style/WrapAndWrap.SecondaryTextColor.TvSize12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="签到积分" />
+
+        <TextView
+            android:id="@+id/mineScoreView"
+            style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
+            android:textStyle="bold"
+            tools:text="20" />
+
+    </LinearLayout>
+</LinearLayout>

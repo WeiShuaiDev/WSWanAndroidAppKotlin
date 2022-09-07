@@ -18,6 +18,7 @@ import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.home.HomeRouterTable
 import com.linwei.cams.service.home.model.BannerBean
 import com.scwang.smart.refresh.layout.api.RefreshLayout
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -92,7 +93,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     }
 
     override fun initEvent() {
-        mViewBinding?.homeRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
+        mViewBinding?.homeRefreshLayout?.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0

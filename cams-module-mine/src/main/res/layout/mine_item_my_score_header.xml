@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/MatchAndWrap"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/mineScoreView"
+            style="@style/WrapAndWrap.PrimaryTextColor"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_50"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold"
+            tools:text="20" />
+
+        <TextView
+            style="@style/WrapAndWrap.SecondaryTextColor.TvSize14"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@string/mine_integral" />
+
+        <TextView
+            style="@style/WrapAndWrap.PrimaryTextColor.TvSize15"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_50"
+            android:drawablePadding="@dimen/dp_10"
+            android:text="@string/mine_integral_record"
+            app:drawableStartCompat="@mipmap/mine_ic_my_score" />
+    </LinearLayout>
+
+</LinearLayout>

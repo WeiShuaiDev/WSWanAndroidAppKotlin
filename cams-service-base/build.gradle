@@ -2,4 +2,5 @@ apply from: '../gradle/global_service_config.gradle'
 
 dependencies {
     api project(':cams-component-common')
+    implementation project(path: ':cams-component-network')
 }

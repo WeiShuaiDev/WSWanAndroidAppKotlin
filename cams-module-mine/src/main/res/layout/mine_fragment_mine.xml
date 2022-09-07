@@ -22,18 +22,19 @@
 
             <include
                 android:id="@+id/stateBarView"
-                android:background="@color/mineColorHeaderBackground"
-                layout="@layout/include_status" />
+                layout="@layout/include_status"
+                android:background="@color/mineColorHeaderBackground" />
 
             <RelativeLayout style="@style/MatchAndMatch">
 
                 <ImageView
                     android:id="@+id/mineSettingView"
-                    style="@style/WrapAndWrap"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:padding="@dimen/dp_7"
                     android:layout_alignParentEnd="true"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:onClick="@{()->viewModel.onSettingClick()}"
-                    android:padding="@dimen/dp_10"
                     android:src="@mipmap/mine_ic_mine_set"
                     tools:ignore="ContentDescription" />
             </RelativeLayout>
@@ -113,6 +114,7 @@
                         android:paddingBottom="@dimen/dp_2"
                         android:text="@string/mine_scoreboard"
                         app:drawableStartCompat="@mipmap/mine_ic_mine_score" />
+
                 </LinearLayout>
 
                 <com.linwei.cams.component.weight.waveview.WaveView
@@ -169,6 +171,11 @@
                         tools:ignore="ContentDescription" />
                 </LinearLayout>
 
+                <View
+                    style="@style/HorizontalLine"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10" />
+
                 <LinearLayout
                     android:id="@+id/mineCollectItemLayout"
                     style="@style/MatchAndWrap"
@@ -200,6 +207,11 @@
                         tools:ignore="ContentDescription" />
 
                 </LinearLayout>
+
+                <View
+                    style="@style/HorizontalLine"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10" />
 
                 <LinearLayout
                     android:id="@+id/mineShareItemLayout"
@@ -233,9 +245,8 @@
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_10"
-                    android:background="@color/colorGlobalDivider" />
+                    style="@style/HorizontalLine"
+                    android:layout_height="@dimen/dp_10" />
 
                 <LinearLayout
                     android:id="@+id/mineProjectsItemLayout"
@@ -267,6 +278,11 @@
                         android:src="@mipmap/mine_ic_mine_into"
                         tools:ignore="ContentDescription" />
                 </LinearLayout>
+
+                <View
+                    style="@style/HorizontalLine"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10" />
 
                 <LinearLayout
                     android:id="@+id/mineAboutItemLayout"

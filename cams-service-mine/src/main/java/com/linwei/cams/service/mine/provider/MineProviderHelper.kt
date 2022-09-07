@@ -20,6 +20,13 @@ object MineProviderHelper {
             .withString("title", title).navigation() as Activity?
 
     /**
+     * MyScoreActivity
+     */
+    fun jumpMyScoreActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_MY_SCORE)
+            .navigation() as Activity?
+
+    /**
      * MineFragment
      */
     fun jumpMineFragment(title: String): Fragment? =

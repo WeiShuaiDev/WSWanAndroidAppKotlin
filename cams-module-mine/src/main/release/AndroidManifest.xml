@@ -5,7 +5,11 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
-        <activity android:name=".ui.mine.MineActivity"/>
+
+        <activity android:name=".ui.mine.MineActivity" />
+
+        <activity android:name=".ui.myscore.MyScoreActivity" />
+
     </application>
 
 </manifest>

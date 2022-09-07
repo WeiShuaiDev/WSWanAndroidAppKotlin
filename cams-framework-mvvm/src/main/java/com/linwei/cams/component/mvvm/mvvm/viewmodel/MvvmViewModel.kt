@@ -1,5 +1,6 @@
 package com.linwei.cams.component.mvvm.mvvm.viewmodel
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.*
 import com.linwei.cams.component.mvvm.ktx.asLiveData
 import com.linwei.cams.component.mvvm.mvvm.model.LoadingDialogEvent
@@ -14,6 +15,9 @@ import com.linwei.cams.component.mvvm.mvvm.model.LoadingDialogEvent
  *-----------------------------------------------------------------------
  */
 open class MvvmViewModel : ViewModel(), DefaultLifecycleObserver {
+
+     var title: ObservableField<String> =
+        ObservableField<String>()
 
     protected val _isRefresh: MutableLiveData<Boolean> =
         MutableLiveData<Boolean>()
@@ -30,5 +34,6 @@ open class MvvmViewModel : ViewModel(), DefaultLifecycleObserver {
     protected val _loadingDialog: MutableLiveData<LoadingDialogEvent> =
         MutableLiveData<LoadingDialogEvent>()
     val loadingDialog = _loadingDialog.asLiveData()
+
 
 }

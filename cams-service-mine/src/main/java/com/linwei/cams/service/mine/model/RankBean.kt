@@ -12,5 +12,4 @@ data class RankBean(
     val type: Int,
     val rank: String?,
     val level: Int
-) {
-}
+)
