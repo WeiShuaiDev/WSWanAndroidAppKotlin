@@ -24,6 +24,8 @@
 
         <activity android:name=".ui.myshare.MyShareActivity" />
 
+        <activity android:name=".ui.opensource.OpenSourceActivity" />
+
     </application>
 
 </manifest>

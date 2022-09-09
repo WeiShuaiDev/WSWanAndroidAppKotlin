@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchAndMatch"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/stateBarView"
+        layout="@layout/include_status"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/topRootLayout"
+        layout="@layout/include_top_view_primary" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mineRecyclerView"
+        style="@style/MatchAndMatch"
+        android:background="@color/colorGlobalWhite"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</LinearLayout>

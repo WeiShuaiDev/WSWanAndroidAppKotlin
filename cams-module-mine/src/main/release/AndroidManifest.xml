@@ -10,9 +10,11 @@
 
         <activity android:name=".ui.myscore.MyScoreActivity" />
 
-        <activity android:name=".ui.mycollect.MyCollectActivity"/>
+        <activity android:name=".ui.mycollect.MyCollectActivity" />
 
         <activity android:name=".ui.myshare.MyShareActivity" />
+
+        <activity android:name=".ui.opensource.OpenSourceActivity" />
 
     </application>
 

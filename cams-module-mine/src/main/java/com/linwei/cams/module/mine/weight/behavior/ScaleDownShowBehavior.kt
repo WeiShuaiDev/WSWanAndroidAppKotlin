@@ -7,7 +7,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.linwei.cams.module.mine.utils.AnimatorUtil
+import com.linwei.cams.module.mine.utils.AnimatorUtils
 
 /**
  * 下拉时显示FAB，上拉隐藏，留出更多位置给用户
@@ -47,10 +47,10 @@ class ScaleDownShowBehavior() : FloatingActionButton.Behavior() {
     ) {
         if ((dyConsumed > 0 || dyUnconsumed > 0) && !mIsAnimatingOut && child.visibility == View.VISIBLE) { //往下滑
             child.visibility = View.INVISIBLE
-            AnimatorUtil.scaleHide(child, mViewPropertyAnimatorListener)
+            AnimatorUtils.scaleHide(child, mViewPropertyAnimatorListener)
             mOnStateChangedListener?.onChanged(false)
         } else if ((dyConsumed < 0 || dyUnconsumed < 0) && child.visibility != View.VISIBLE) {
-            AnimatorUtil.scaleShow(child, null)
+            AnimatorUtils.scaleShow(child, null)
             mOnStateChangedListener?.onChanged(true)
         }
     }

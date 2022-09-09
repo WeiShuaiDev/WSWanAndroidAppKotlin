@@ -16,6 +16,8 @@ object MineRouterTable {
     const val PATH_ACTIVITY_MY_COLLECT:String="/myCollect/MyCollectActivity"
 
     const val PATH_ACTIVITY_MY_SHARE:String="/myShare/MyShareActivity"
+
+    const val PATH_ACTIVITY_OPEN_SOURCE:String="/openSource/OpenSourceActivity"
     /**
      * ----------------Fragment-------------------------
      */

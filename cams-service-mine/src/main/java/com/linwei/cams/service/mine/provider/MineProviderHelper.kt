@@ -26,7 +26,6 @@ object MineProviderHelper {
         ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_MY_SCORE)
             .navigation() as Activity?
 
-
     /**
      * MyCollectActivity
      */
@@ -34,9 +33,20 @@ object MineProviderHelper {
         ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_MY_COLLECT)
             .navigation() as Activity?
 
+    /**
+     * MyShareActivity
+     */
     fun jumpMyShareActivity(): Activity? =
         ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_MY_SHARE)
             .navigation() as Activity?
+
+    /**
+     * OpenSourceActivity
+     */
+    fun jumpOpenSourceActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_OPEN_SOURCE)
+            .navigation() as Activity?
+
     /**
      * MineFragment
      */

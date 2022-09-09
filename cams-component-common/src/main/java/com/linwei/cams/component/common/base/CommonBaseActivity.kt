@@ -27,7 +27,7 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
 
     protected lateinit var mContext: Context
 
-    protected lateinit var mViewBinding: VB
+    protected var mViewBinding: VB? = null
 
     protected var mBaseStatusHelper: ViewStatusHelper? = null
 
@@ -55,13 +55,13 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
      * ViewBinding绑定逻辑
      */
     @Suppress("UNCHECKED_CAST")
-    private  fun viewBindingLogic(): View? {
+    private fun viewBindingLogic(): View? {
         val type: ParameterizedType = javaClass.genericSuperclass as ParameterizedType
         try {
             val cls = type.actualTypeArguments[0] as Class<*>
             val inflate = cls.getDeclaredMethod("inflate", LayoutInflater::class.java)
             mViewBinding = inflate.invoke(null, layoutInflater) as VB
-            return mViewBinding.root
+            return mViewBinding!!.root
         } catch (e: NoSuchMethodException) {
             e.printStackTrace()
         } catch (e: IllegalAccessException) {
@@ -170,7 +170,7 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
      *  获取 `ViewBinding` 对象
      *  @return mViewBinding [VB]
      */
-    protected fun getViewBinding(): VB = mViewBinding
+    protected fun getViewBinding(): VB? = mViewBinding
 
     override fun getResources(): Resources {
         // 主要是为了解决 AndroidAutoSize 在横屏切换时导致适配失效的问题
@@ -192,6 +192,8 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
 
         // 解决某些特定机型会触发的Android本身的Bug
         AndroidBugFixUtils().fixSoftInputLeaks(this)
+
+        mViewBinding = null
     }
 
 }

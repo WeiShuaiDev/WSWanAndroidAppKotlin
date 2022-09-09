@@ -54,6 +54,7 @@ class MineViewModel @Inject constructor(private val mineModel: MineModel) : Mvvm
             }
             ConstantParams.CONSTANT_STARTS_3 -> {
                 //开源项目
+                MineProviderHelper.jumpOpenSourceActivity()
             }
             ConstantParams.CONSTANT_STARTS_4 -> {
                 //关于作者

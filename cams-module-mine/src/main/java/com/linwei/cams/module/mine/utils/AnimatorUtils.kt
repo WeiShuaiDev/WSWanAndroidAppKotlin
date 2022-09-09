@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 
-object AnimatorUtil {
+object AnimatorUtils {
 
     private val FAST_OUT_SLOW_IN_INTERPOLATOR = LinearOutSlowInInterpolator()
 

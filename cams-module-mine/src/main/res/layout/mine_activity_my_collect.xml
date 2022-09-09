@@ -19,14 +19,9 @@
         style="@style/MatchAndMatch"
         android:orientation="vertical">
 
-        <FrameLayout
-            style="@style/MatchAndWrap"
-            android:background="@color/colorGlobalWhite">
-
-            <include
-                android:id="@+id/stateBarView"
-                layout="@layout/include_status" />
-        </FrameLayout>
+        <include
+            android:id="@+id/stateBarView"
+            layout="@layout/include_status" />
 
         <include
             layout="@layout/mine_include_top_bar"

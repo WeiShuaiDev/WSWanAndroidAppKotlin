@@ -37,7 +37,7 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
     private var mCommonArticleListAdapter: CommonArticleListAdapter? = null
 
     override fun initView() {
-        mViewBinding.topRootLayout.let {
+        mViewBinding?.topRootLayout?.let {
             it.leftTitleView.setOnClickListener {
                 this.finish()
             }
@@ -45,7 +45,7 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
         }
 
         mCommonArticleListAdapter = CommonArticleListAdapter(mCommonArticleList, false)
-        mViewBinding.squareRecyclerView.apply {
+        mViewBinding?.squareRecyclerView?.apply {
             addItemDecoration(
                 CustomItemDecoration(
                     mContext,
@@ -62,7 +62,7 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
     }
 
     override fun initEvent() {
-        mViewBinding.squareRefreshLayout.setOnMultiListener(object : SimpleMultiListener() {
+        mViewBinding?.squareRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
@@ -74,7 +74,7 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
                 if (mCurPage < mCommonArticlePage.pageCount) {
                     mViewModel?.requestSquareTreeArticleListData(mCurPage, id)
                 } else {
-                    mViewBinding.squareRefreshLayout.finishLoadMoreWithNoMoreData()
+                    mViewBinding?.squareRefreshLayout?.finishLoadMoreWithNoMoreData()
                 }
             }
         })
@@ -115,8 +115,8 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
             mCommonArticleList.addAll(it)
             mCommonArticleListAdapter?.notifyDataSetChanged()
         }
-        mViewBinding.squareRefreshLayout.finishRefresh()
-        mViewBinding.squareRefreshLayout.finishLoadMore()
+        mViewBinding?.squareRefreshLayout?.finishRefresh()
+        mViewBinding?.squareRefreshLayout?.finishLoadMore()
     }
 
     override fun refreshCollectStatus(status: Boolean) {
@@ -126,9 +126,9 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
 
     override fun refreshDataStatus(isRefresh: Boolean) {
         if (isRefresh) {
-            mViewBinding.squareRefreshLayout.finishRefresh(false)
+            mViewBinding?.squareRefreshLayout?.finishRefresh(false)
         } else {
-            mViewBinding.squareRefreshLayout.finishLoadMore(false)
+            mViewBinding?.squareRefreshLayout?.finishLoadMore(false)
         }
     }
 }
