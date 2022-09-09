@@ -2,6 +2,7 @@
     <string name="mine_app_name">cams-module-mine</string>
     <string name="mine_module_page">mine</string>
 
+    <string name="mine_behavior_my_fab_scale">com.linwei.cams.module.mine.weight.behavior.ScaleDownShowBehavior</string>
     <string name="mine_integral">Integral</string>
     <string name="mine_collect">Collect</string>
     <string name="mine_share">Share</string>
@@ -25,5 +26,6 @@
     <string name="mine_sure_logout">Are you sure you want to log out？</string>
     <string name="mine_sure">Sure</string>
     <string name="mine_cancel">Cancel</string>
+    <string name="mine_delete">Delete</string>
 
 </resources>

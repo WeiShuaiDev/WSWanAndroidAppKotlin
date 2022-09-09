@@ -5,6 +5,7 @@
     tools:context=".ui.publis.PublisActivity">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.linwei.cams.module.publis.ui.publis.mvvm.viewmodel.PublisViewModel" />
@@ -18,10 +19,15 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-            <include
-                android:id="@+id/stateBarView"
-                android:background="@color/colorGlobalWhite"
-                layout="@layout/include_status" />
+            <FrameLayout
+                style="@style/MatchAndWrap"
+                android:background="@color/colorGlobalWhite">
+
+                <include
+                    android:id="@+id/stateBarView"
+                    layout="@layout/include_status" />
+
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/publisContainerLayout"
@@ -34,7 +40,7 @@
                     <androidx.appcompat.widget.Toolbar
                         android:id="@+id/publisToolbarView"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_50"
+                        android:layout_height="?attr/actionBarSize"
                         android:background="@color/colorGlobalWhite"
                         app:contentInsetStart="0dp">
 

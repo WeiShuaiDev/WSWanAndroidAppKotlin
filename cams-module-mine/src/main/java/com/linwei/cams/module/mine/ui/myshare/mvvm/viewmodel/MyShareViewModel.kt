@@ -78,4 +78,8 @@ class MyShareViewModel @Inject constructor(private val myShareModel: MyShareMode
             }
         })
     }
+
+    fun onShareClick(){
+
+    }
 }

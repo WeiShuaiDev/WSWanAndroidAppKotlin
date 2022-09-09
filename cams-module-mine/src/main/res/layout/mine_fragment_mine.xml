@@ -22,8 +22,7 @@
 
             <include
                 android:id="@+id/stateBarView"
-                layout="@layout/include_status"
-                android:background="@color/mineColorHeaderBackground" />
+                layout="@layout/include_status" />
 
             <RelativeLayout style="@style/MatchAndMatch">
 

@@ -10,6 +10,15 @@ fun Int?.idToString(): String {
     return ""
 }
 
+/**
+ * Int 转换为Color
+ */
+fun Int?.idToColor(): Int {
+    this?.takeIf {
+        return ctx.resources.getColor(it)
+    }
+    return -1
+}
 
 /**
  * 不为null且不空字符串判断

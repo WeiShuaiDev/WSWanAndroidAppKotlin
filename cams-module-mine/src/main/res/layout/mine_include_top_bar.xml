@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="toolbarViewModel"
+            type="com.linwei.cams.component.mvvm.mvvm.viewmodel.MvvmViewModel" />
+
+        <variable
+            name="activity"
+            type="com.linwei.cams.component.mvvm.base.MvvmBaseActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/mineTopBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/colorGlobalWhite"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        app:contentInsetStart="0dp">
+
+        <TextView
+            android:id="@+id/mineLeftTitleView"
+            style="@style/WrapAndMatch"
+            android:background="?attr/selectableItemBackground"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center"
+            android:onClick="@{()-> activity.onBackPressed()}"
+            android:padding="@dimen/dp_15"
+            android:text="@string/back"
+            android:textColor="@color/colorGlobalBlackText"
+            android:textSize="@dimen/sp_14"
+            app:drawableStartCompat="@mipmap/ic_black_back" />
+
+        <TextView
+            android:id="@+id/mineTitleView"
+            style="@style/WrapAndWrap"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/dp_60"
+            android:layout_marginEnd="@dimen/dp_60"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{toolbarViewModel.title}"
+            android:textColor="@color/colorGlobalBlackText"
+            android:textSize="@dimen/sp_18" />
+
+        <ImageView
+            android:id="@+id/mineRightImageView"
+            style="@style/WrapAndMatch"
+            android:layout_alignParentEnd="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_10"
+            android:src="@mipmap/mine_ic_question"
+            android:visibility="gone"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
+    </RelativeLayout>
+</layout>

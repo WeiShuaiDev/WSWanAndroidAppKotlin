@@ -7,4 +7,4 @@ import com.linwei.cams.service.base.model.UserInfoBean
 /**
  * 我的分享实体类
  */
-data class MyShareBean(val coinInfo: UserInfoBean?, val shareArticles: Page<CommonArticleBean>?)
+data class MyShareBean(val coinInfo: UserInfoBean, val shareArticles: Page<CommonArticleBean>)

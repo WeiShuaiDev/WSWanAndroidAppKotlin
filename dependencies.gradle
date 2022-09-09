@@ -58,7 +58,8 @@ ext {
             dialogXVersion            : "0.0.37",
             nineoldandroidsVersion    : "2.4.0",
             datastoreVersion          : "1.0.0",
-            protobufJavaliteVersion   : "3.19.4"
+            protobufJavaliteVersion   : "3.19.4",
+            recyclerViewXVersion      : "1.3.2"
     ]
 
     dependencies = [
@@ -171,6 +172,8 @@ ext {
             "refreshHeaderTwoLevel"               : "io.github.scwang90:refresh-header-two-level:${version.refreshVersion}",   //二级刷新头
 
             "nineoldandroids"                     : "com.nineoldandroids:library:${version.nineoldandroidsVersion}",
+
+            "recyclerviewX"                       : "com.yanzhenjie.recyclerview:x:${version.recyclerViewXVersion}",
 
             //----------------------------------------事件处理-----------------------------------------------------------------
             "eventbus"                            : "org.greenrobot:eventbus:${version.eventbusVersion}",

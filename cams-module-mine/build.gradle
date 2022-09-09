@@ -15,4 +15,6 @@ dependencies {
     //记得修改buildFeatures中的dataBinding=true配置
     implementation project(':cams-framework-mvvm')
 
+    implementation rootProject.ext.dependencies["recyclerviewX"]
+
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.myshare.MyShareActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.linwei.cams.module.mine.ui.myshare.mvvm.viewmodel.MyShareViewModel" />
+
+        <variable
+            name="activity"
+            type="com.linwei.cams.component.mvvm.base.MvvmBaseActivity" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchAndMatch"
+        android:orientation="vertical">
+
+        <FrameLayout
+            style="@style/MatchAndWrap"
+            android:background="@color/colorGlobalWhite">
+
+            <include
+                android:id="@+id/stateBarView"
+                layout="@layout/include_status" />
+        </FrameLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout style="@style/MatchAndMatch">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/mineAppBarLayout"
+                style="@style/MatchAndWrap"
+                theme="@style/AppTheme.AppBarOverlay">
+
+                <LinearLayout
+                    style="@style/MatchAndWrap"
+                    android:gravity="center_vertical"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <include
+                        layout="@layout/mine_include_top_bar"
+                        app:activity="@{activity}"
+                        app:toolbarViewModel="@{viewModel}" />
+
+                </LinearLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/mineRefreshLayout"
+                style="@style/MatchAndMatch"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:srlAccentColor="@color/colorGlobalGrayText"
+                app:srlEnableLoadMore="true"
+                app:srlPrimaryColor="@android:color/transparent">
+
+                <com.yanzhenjie.recyclerview.SwipeRecyclerView
+                    android:id="@+id/mineRecyclerView"
+                    style="@style/MatchAndMatch"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/mine_item_my_share_list" />
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/mineFloatingActionView"
+                style="@style/WrapAndWrap"
+                android:layout_gravity="bottom|right|end"
+                android:layout_margin="@dimen/dp_20"
+                android:onClick="@{()->viewModel.onShareClick()}"
+                android:scaleType="center"
+                android:src="@mipmap/mine_ic_write"
+                app:backgroundTintMode="src_in"
+                app:elevation="@dimen/dp_5"
+                app:fabSize="auto"
+                app:layout_behavior="@string/mine_behavior_my_fab_scale"
+                app:pressedTranslationZ="@dimen/dp_10"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
+</layout>
