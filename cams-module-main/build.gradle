@@ -2,6 +2,7 @@ apply from: '../gradle/global_module_config.gradle'
 android {
     defaultConfig {
         resourcePrefix "main_"
+
     }
 
     buildFeatures {

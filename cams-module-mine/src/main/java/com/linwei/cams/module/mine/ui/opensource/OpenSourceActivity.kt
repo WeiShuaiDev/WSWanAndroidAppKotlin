@@ -16,8 +16,6 @@ class OpenSourceActivity : CommonBaseActivity<MineActivityOpenSourceBinding>() {
 
     override fun hasInjectARouter(): Boolean = true
 
-    override fun fullScreen(): Boolean = true
-
     private val mOpenSourceList: MutableList<OpenSourceBean> = DataUtils.getOpenSourceList()
 
     override fun initView() {

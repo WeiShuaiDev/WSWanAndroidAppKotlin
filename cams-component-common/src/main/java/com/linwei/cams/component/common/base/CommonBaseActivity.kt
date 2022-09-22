@@ -184,6 +184,8 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
         return super.getResources()
     }
 
+    protected open fun shouldSupportMultiLanguage(): Boolean = true
+
     override fun onDestroy() {
         super.onDestroy()
         hasEventBus().takeIf { it }?.apply {

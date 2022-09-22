@@ -1,5 +1,7 @@
 package com.linwei.cams.module.common.ktx
 
+import com.linwei.cams.component.network.ApiCall
+import com.linwei.cams.component.network.callback.ApiCallback
 import com.linwei.cams.component.network.callback.ErrorConsumer
 import com.linwei.cams.component.network.exception.ApiException
 import com.linwei.cams.component.network.model.ApiResponse
@@ -20,10 +22,19 @@ fun <T> Observable<ApiResponse<T>>.networks(callback: ResponseCallback<T>) {
         })
 }
 
+fun <T> ApiCall<T>.networks(callback: ResponseCallback<T>) {
+    enqueue(object : ApiCallback<T> {
+        override fun onStart() {
+        }
 
-fun <T> requestHttpNetworks(
-    observable: Observable<ApiResponse<T>>,
-    callback: ResponseCallback<T>
-) {
-    observable.networks(callback)
+        override fun onSuccess(code: Int?, data: T) {
+            callback.onSuccess(data)
+        }
+
+        override fun onFailure(code: Int?, message: String?) {
+            callback.onFailed(ErrorMessage(code, message))
+        }
+    })
 }
+
+

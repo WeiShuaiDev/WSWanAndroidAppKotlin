@@ -4,10 +4,9 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.linwei.cams.component.mvp.mvp.model.IMvpModel
 import com.linwei.cams.component.mvp.mvp.view.IMvpView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.functions.Consumer
 
 
 /**
@@ -22,7 +21,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 abstract class MvpPresenter<V : IMvpView,M : IMvpModel>(
     private var rootView: V?,
     private var model: M?
-) : IMvpPresenter, DefaultLifecycleObserver {
+) : IMvpPresenter, DefaultLifecycleObserver, Consumer<Disposable> {
+
+    private var mCompositeDisposable: CompositeDisposable? = null
 
     init {
         rootView?.let { v ->
@@ -42,9 +43,27 @@ abstract class MvpPresenter<V : IMvpView,M : IMvpModel>(
 
     }
 
+    protected open fun addDisposable(disposable: Disposable?) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = CompositeDisposable()
+        }
+        disposable?.let {
+            mCompositeDisposable!!.add(it)
+        }
+    }
+
+    override fun accept(disposable: Disposable?) {
+        addDisposable(disposable)
+    }
+
     override fun onDestroy() {
         model?.onDestroy()
         model = null
+
+        if (mCompositeDisposable != null && !mCompositeDisposable!!.isDisposed) {
+            mCompositeDisposable!!.clear()
+        }
+
         rootView = null
     }
 

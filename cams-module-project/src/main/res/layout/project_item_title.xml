@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/projectTitleView"
     style="@style/MatchAndWrap"
-    android:background="?attr/selectableItemBackground"
+    android:background="@drawable/ripple_bg"
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="@dimen/dp_10"

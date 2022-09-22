@@ -6,6 +6,9 @@ import com.linwei.cams.framework.mvi.ktx.setEvent
 import com.linwei.cams.framework.mvi.ktx.setPostEvent
 import com.linwei.cams.framework.mvi.mvi.intent.livedata.StatusListLiveEvent
 import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.functions.Consumer
 
 /**
  * ---------------------------------------------------------------------
@@ -16,10 +19,12 @@ import com.linwei.cams.framework.mvi.mvi.model.MviViewEvent
  * @Description: MVI架构  `ViewModel` 模块
  *-----------------------------------------------------------------------
  */
-open class MviViewModel : ViewModel(), DefaultLifecycleObserver {
+open class MviViewModel : ViewModel(), DefaultLifecycleObserver, Consumer<Disposable> {
 
     private val _viewEvents: StatusListLiveEvent = StatusListLiveEvent()
     val viewEvent = _viewEvents.asLiveData()
+
+    private var mCompositeDisposable: CompositeDisposable? = null
 
     /**
      * 同步更新状态
@@ -35,6 +40,26 @@ open class MviViewModel : ViewModel(), DefaultLifecycleObserver {
      */
     fun postUpdateEvents(vararg evnet: MviViewEvent) {
         _viewEvents.setPostEvent(evnet.toList())
+    }
+
+    protected open fun addDisposable(disposable: Disposable?) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = CompositeDisposable()
+        }
+        disposable?.let {
+            mCompositeDisposable!!.add(it)
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        if (mCompositeDisposable != null && !mCompositeDisposable!!.isDisposed) {
+            mCompositeDisposable!!.clear()
+        }
+    }
+
+    override fun accept(disposable: Disposable?) {
+        addDisposable(disposable)
     }
 
     override fun onDestroy(owner: LifecycleOwner) {

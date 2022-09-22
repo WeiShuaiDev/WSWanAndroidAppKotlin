@@ -24,8 +24,16 @@
     <string name="mine_tip">Tip</string>
     <string name="mine_version_tip">It is currently the latest version</string>
     <string name="mine_sure_logout">Are you sure you want to log out？</string>
+    <string name="mine_clear_memory">Are you sure clear cache？</string>
+    <string name="mine_desc_tip">All APIs in this App are provided by the official website of WanAndroid, which can be used as a learning reference. Commercial use is prohibited!</string>
     <string name="mine_sure">Sure</string>
     <string name="mine_cancel">Cancel</string>
     <string name="mine_delete">Delete</string>
+
+    <string name="mine_introduction">Introduction: A person who loves Coding, goes further and further in the road of programmers, and finds that he has been deeply involved in the big front-end. Android、Flutter、小程序、Vue、JavaScript、SpringBoot、SpringCloud</string>
+    <string name="mine_public">Public：技术工匠(WeiShaiDev)</string>
+    <string name="mine_email">Email：linwei9605@gmail.com</string>
+    <string name="mine_juejin">Nuggets：https://juejin.cn/user/3280598430651399</string>
+    <string name="mine_github">Github：https://github.com/WeiShuaiDev</string>
 
 </resources>

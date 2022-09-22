@@ -1,4 +1,4 @@
-package com.quyunshuo.androidbaseframemvvm.base.utils.status.imp
+package com.linwei.cams.component.common.utils.status.imp
 
 import android.os.Bundle
 import com.quyunshuo.androidbaseframemvvm.base.utils.status.ViewStatusHelper
@@ -10,7 +10,7 @@ open class BaseFrameViewStatusHelperImp(parentViewStatusHelper: ViewStatusHelper
     /**
      * 重建标记key 以包名保存数据可以防止嵌套层级出现重复Key
      */
-    private val KEY_RECREATE = "com.quyunshuo.androidbaseframemvvm.base.utils.status.BaseFrameViewStatusHelperImp.Recreate"
+    private val KEY_RECREATE = "com.linwei.cams.component.common.utils.status.imp.BaseFrameViewStatusHelperImp.Recreate"
 
     /**
      * 是否重建

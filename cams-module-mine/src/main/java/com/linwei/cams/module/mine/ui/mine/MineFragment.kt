@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.View
 import android.widget.RelativeLayout
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.linwei.cams.component.cache.utils.mmkv.AppDataMMkvProvided
+import com.linwei.cams.component.cache.mmkv.AppDataMMkvProvided
 import com.linwei.cams.component.mvvm.base.MvvmBaseFragment
 import com.linwei.cams.component.weight.waveview.WaveView
 import com.linwei.cams.module.mine.R

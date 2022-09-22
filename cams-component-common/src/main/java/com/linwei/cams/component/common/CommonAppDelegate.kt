@@ -3,8 +3,17 @@ package com.linwei.cams.component.common
 import android.app.Application
 import android.content.Context
 import com.google.auto.service.AutoService
+import com.kongzue.dialogx.DialogX
+import com.kongzue.dialogx.interfaces.BaseDialog
+import com.kongzue.dialogx.interfaces.DialogLifecycleCallback
+import com.kongzue.dialogx.style.MaterialStyle
+import com.kongzue.dialogx.util.InputInfo
+import com.kongzue.dialogx.util.TextInfo
 import com.linwei.cams.component.common.app.AppDelegate
+import com.linwei.cams.component.common.ktx.idToColor
+import com.linwei.cams.component.common.ktx.idToString
 import com.linwei.cams.component.common.opensource.ARouterManager
+import com.linwei.cams.component.common.utils.LogUtils
 import com.linwei.cams.component.common.utils.ProcessUtils
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.ClassicsHeader
@@ -77,6 +86,7 @@ class CommonAppDelegate : AppDelegate {
      */
     override fun initByBackstage() {
         initSmartRefreshLayout()
+        initDialogX()
     }
 
     /**
@@ -93,6 +103,128 @@ class CommonAppDelegate : AppDelegate {
                 mApplication
             )
         }
+    }
+
+    /**
+     * 初始化 DialogX
+     */
+    private fun initDialogX(): String {
+        //开启调试模式，在部分情况下会使用 Log 输出日志信息
+        DialogX.DEBUGMODE = true
+        //设置主题样式
+        DialogX.globalStyle = MaterialStyle.style()
+        //设置亮色/暗色（在启动下一个对话框时生效）
+        DialogX.globalTheme = DialogX.THEME.LIGHT
+        //设置对话框最大宽度（单位为像素）
+        DialogX.dialogMaxWidth = 1920
+        //设置 InputDialog 自动弹出键盘
+        DialogX.autoShowInputKeyboard = true
+        //限制 PopTip 一次只显示一个实例（关闭后可以同时弹出多个 PopTip）
+        DialogX.onlyOnePopTip = true
+
+        //设置对话框默认按钮文本字体样式
+        DialogX.buttonTextInfo =
+            TextInfo().setFontColor(R.color.colorGlobalGrayText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置对话框默认确定按钮文字样式
+        DialogX.okButtonTextInfo = TextInfo()
+            .setBold(true).setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置对话框默认标题文字样式
+        DialogX.titleTextInfo = TextInfo()
+            .setBold(true).setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(16).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置对话框默认内容文字样式
+        DialogX.messageTextInfo = TextInfo()
+            .setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置默认 WaitDialog 和 TipDialog 文字样式
+        DialogX.tipTextInfo =
+            TextInfo().setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置默认输入框文字样式
+        DialogX.inputInfo = InputInfo().setTextInfo(
+            TextInfo().setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+        )
+
+        //设置默认底部菜单、对话框的标题文字样式
+        DialogX.menuTitleInfo =
+            TextInfo().setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置默认底部菜单文本样式
+        DialogX.menuTextInfo =
+            TextInfo().setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置默认对话框背景颜色（值为ColorInt，为-1不生效）
+        DialogX.backgroundColor = R.color.colorGlobalWhite.idToColor()
+
+        //设置默认对话框默认是否可以点击外围遮罩区域或返回键关闭，此开关不影响提示框（TipDialog）以及等待框（TipDialog）
+        DialogX.cancelable = true
+
+        //设置默认提示框及等待框（WaitDialog、TipDialog）默认是否可以关闭
+        DialogX.cancelableTipDialog = false
+
+        //设置默认取消按钮文本文字，影响 BottomDialog
+        DialogX.cancelButtonText = R.string.cancel.idToString()
+
+        //设置默认 PopTip 文本样式
+        DialogX.popTextInfo =
+            TextInfo().setFontColor(R.color.colorPrimaryText.idToColor()).setFontSize(14).setFontSizeUnit(
+                TextInfo.FONT_SIZE_UNIT.SP
+            )
+
+        //设置全局 Dialog 生命周期监听器
+        DialogX.dialogLifeCycleListener = object : DialogLifecycleCallback<BaseDialog>() {
+            override fun onShow(dialog: BaseDialog?) {
+                super.onShow(dialog)
+                LogUtils.i("dialogX now status to show")
+            }
+
+            override fun onDismiss(dialog: BaseDialog?) {
+                super.onDismiss(dialog)
+                LogUtils.i("dialogX now status to dismiss")
+            }
+        }
+
+        //设置 TipDialog 和 WaitDialog 明暗风格，不设置则默认根据 globalTheme 定义
+        DialogX.tipTheme = DialogX.THEME.LIGHT
+
+        //默认 TipDialog 和 WaitDialog 背景颜色（值为 ColorInt，为-1不生效）
+        DialogX.tipBackgroundColor = R.color.colorGlobalWhite.idToColor()
+
+        /**
+         * 重写 TipDialog 和 WaitDialog 进度动画颜色，
+         * 注意此属性为覆盖性质，即设置此值将替换提示框原本的进度动画的颜色，包括亮暗色切换的颜色变化也将被替代
+         * （值为 ColorInt，为-1不生效）
+         */
+        DialogX.tipProgressColor = R.color.colorGlobalBlackText.idToColor()
+
+        /**
+         * 设置 BottomDialog 导航栏背景颜色
+         */
+        DialogX.bottomDialogNavbarColor = R.color.colorGlobalTransparent.idToColor()
+
+        //是否自动在主线程执行
+        DialogX.autoRunOnUIThread = true;
+
+        DialogX.init(mApplication)
+        return "DialogX -->> init complete"
     }
 
     /**

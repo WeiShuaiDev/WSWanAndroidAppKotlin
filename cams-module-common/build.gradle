@@ -15,6 +15,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        //DialogX配置
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
 
         ndk {
             // 设置支持的SO库架构

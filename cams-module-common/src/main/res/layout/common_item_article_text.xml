@@ -22,7 +22,7 @@
 
         <LinearLayout
             style="@style/MatchAndWrap"
-            android:background="?attr/selectableItemBackground"
+            android:background="@drawable/ripple_bg"
             android:orientation="vertical"
             android:paddingStart="@dimen/dp_15"
             android:paddingTop="@dimen/dp_15"

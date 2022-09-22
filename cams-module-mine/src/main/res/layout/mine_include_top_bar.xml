@@ -18,14 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
         android:background="@color/colorGlobalWhite"
-        android:elevation="2dp"
         android:gravity="center_vertical"
         app:contentInsetStart="0dp">
 
         <TextView
             android:id="@+id/mineLeftTitleView"
             style="@style/WrapAndMatch"
-            android:background="?attr/selectableItemBackground"
+            android:background="@drawable/ripple_bg"
             android:drawablePadding="@dimen/dp_5"
             android:gravity="center"
             android:onClick="@{()-> activity.onBackPressed()}"
@@ -51,7 +50,7 @@
             android:id="@+id/mineRightImageView"
             style="@style/WrapAndMatch"
             android:layout_alignParentEnd="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/ripple_bg"
             android:paddingStart="@dimen/dp_10"
             android:paddingEnd="@dimen/dp_10"
             android:src="@mipmap/mine_ic_question"

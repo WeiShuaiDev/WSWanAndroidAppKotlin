@@ -5,7 +5,6 @@
     tools:context=".ui.mine.MineActivity">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.linwei.cams.module.mine.ui.mine.mvvm.viewmodel.MineViewModel" />
@@ -22,7 +21,7 @@
 
             <include
                 android:id="@+id/stateBarView"
-                layout="@layout/include_status" />
+                layout="@layout/include_status_transparent" />
 
             <RelativeLayout style="@style/MatchAndMatch">
 
@@ -126,18 +125,18 @@
             </RelativeLayout>
         </RelativeLayout>
 
-        <ScrollView style="@style/MatchAndMatch">
+        <ScrollView
+            style="@style/MatchAndMatch"
+            android:background="@color/colorGlobalBackground">
 
             <LinearLayout
                 style="@style/MatchAndWrap"
-                android:background="@color/colorGlobalWhite"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/dp_20">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/mineScoreItemLayout"
                     style="@style/MatchAndWrap"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="@drawable/ripple_bg"
                     android:gravity="center_vertical"
                     android:onClick="@{()->viewModel.onItemClick(0)}"
                     android:orientation="horizontal"
@@ -179,7 +178,7 @@
                 <LinearLayout
                     android:id="@+id/mineCollectItemLayout"
                     style="@style/MatchAndWrap"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="@drawable/ripple_bg"
                     android:gravity="center_vertical"
                     android:onClick="@{()->viewModel.onItemClick(1)}"
                     android:orientation="horizontal"
@@ -216,7 +215,7 @@
                 <LinearLayout
                     android:id="@+id/mineShareItemLayout"
                     style="@style/MatchAndWrap"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="@drawable/ripple_bg"
                     android:gravity="center_vertical"
                     android:onClick="@{()->viewModel.onItemClick(2)}"
                     android:orientation="horizontal"
@@ -244,14 +243,11 @@
                         tools:ignore="ContentDescription" />
                 </LinearLayout>
 
-                <View
-                    style="@style/HorizontalLine"
-                    android:layout_height="@dimen/dp_10" />
-
                 <LinearLayout
                     android:id="@+id/mineProjectsItemLayout"
                     style="@style/MatchAndWrap"
-                    android:background="?attr/selectableItemBackground"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@drawable/ripple_bg"
                     android:gravity="center_vertical"
                     android:onClick="@{()->viewModel.onItemClick(3)}"
                     android:orientation="horizontal"
@@ -287,7 +283,7 @@
                 <LinearLayout
                     android:id="@+id/mineAboutItemLayout"
                     style="@style/MatchAndWrap"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="@drawable/ripple_bg"
                     android:gravity="center_vertical"
                     android:onClick="@{()->viewModel.onItemClick(4)}"
                     android:orientation="horizontal"

@@ -5,7 +5,7 @@
     <color name="mainColorAccent">#303F9F</color>
 
     <!--首页底部tab-->
-    <color name="mainColorTab">#F9F9F9</color>
+    <color name="mainColorTab">#FFFFFF</color>
     <!--首页底部tab-->
     <color name="mainColorText">#313335</color>
 </resources>

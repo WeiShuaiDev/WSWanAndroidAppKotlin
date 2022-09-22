@@ -1,6 +1,6 @@
 package com.linwei.camsmodular.ui.welcome
 
-import com.linwei.cams.component.cache.utils.mmkv.AppDataMMkvProvided
+import com.linwei.cams.component.cache.mmkv.AppDataMMkvProvided
 import com.linwei.cams.framework.mvi.base.MviBaseActivity
 import com.linwei.cams.module.main.provider.MainProviderHelper
 import com.linwei.cams.service.project.model.ProjectTreeBean

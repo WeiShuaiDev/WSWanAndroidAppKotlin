@@ -2,8 +2,10 @@ package com.linwei.cams.module.login.provider
 
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.linwei.cams.component.network.ApiCall
 import com.linwei.cams.component.network.ApiClient
 import com.linwei.cams.component.network.callback.ApiCallback
+import com.linwei.cams.module.common.ktx.networks
 import com.linwei.cams.module.login.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
@@ -27,20 +29,12 @@ class LoginProviderImpl @Inject constructor() : LoginProvider {
      */
     private val mApiService = ApiClient.getInstance().getService(ApiServiceWrap())
 
-    override fun login(userName: String, passWord: String, callback: ResponseCallback<UserInfoBean>) {
-        mApiService.login(userName, passWord).enqueue(object : ApiCallback<UserInfoBean> {
-            override fun onStart() {
-
-            }
-
-            override fun onSuccess(code: Int?, data: UserInfoBean) {
-                callback.onSuccess(data)
-            }
-
-            override fun onFailure(code: Int?, message: String?) {
-                callback.onFailed(ErrorMessage(code, message))
-            }
-        })
+    override fun login(
+        userName: String,
+        passWord: String,
+        callback: ResponseCallback<UserInfoBean>
+    ) {
+        loginApi(userName, passWord).networks(callback)
     }
 
     override fun register(
@@ -49,35 +43,22 @@ class LoginProviderImpl @Inject constructor() : LoginProvider {
         rePassWord: String,
         callback: ResponseCallback<UserInfoBean>
     ) {
-        mApiService.register(userName, passWord, rePassWord)
-            .enqueue(object : ApiCallback<UserInfoBean> {
-                override fun onStart() {
-
-                }
-
-                override fun onSuccess(code: Int?, data: UserInfoBean) {
-                    callback.onSuccess(data)
-                }
-
-                override fun onFailure(code: Int?, message: String?) {
-                    callback.onFailed(ErrorMessage(code, message))
-                }
-            })
+        registerApi(userName, passWord, rePassWord)
+            .networks(callback)
     }
 
     override fun logout(callback: ResponseCallback<Any>) {
-        mApiService.logout().enqueue(object : ApiCallback<Any> {
-            override fun onStart() {
-
-            }
-
-            override fun onSuccess(code: Int?, data: Any) {
-                callback.onSuccess(data)
-            }
-
-            override fun onFailure(code: Int?, message: String?) {
-                callback.onFailed(ErrorMessage(code, message))
-            }
-        })
+        logoutApi().networks(callback)
     }
+
+    private fun loginApi(userName: String, passWord: String): ApiCall<UserInfoBean> =
+        mApiService.login(userName, passWord)
+
+    private fun registerApi(
+        userName: String,
+        passWord: String,
+        rePassWord: String
+    ): ApiCall<UserInfoBean> = mApiService.register(userName, passWord, rePassWord)
+
+    private fun logoutApi(): ApiCall<Any> = mApiService.logout()
 }

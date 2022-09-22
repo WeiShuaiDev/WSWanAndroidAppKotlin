@@ -71,9 +71,10 @@ class ApiCall<R> internal constructor(
                     override fun accept(t: Response<ApiResponse<R>>) {
                         @Throws(Exception::class)
                         fun accept(response: Response<ApiResponse<R>?>) {
+                            System.out.println("ApiCall accept")
                             val data: ApiResponse<R>? = response.body()
                             if (!response.isSuccessful || data == null) {
-                                callback?.onFailure(response.code(),response.message())
+                                callback?.onFailure(response.code(), response.message())
                                 cancel()
                                 return
                             }

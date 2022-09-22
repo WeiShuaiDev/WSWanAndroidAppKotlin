@@ -2,7 +2,7 @@ package com.linwei.cams.module.project.ui.project.mvi.intent
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.linwei.cams.component.cache.utils.mmkv.AppDataMMkvProvided
+import com.linwei.cams.component.cache.mmkv.AppDataMMkvProvided
 import com.linwei.cams.component.common.global.PageState
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.network.ktx.commonCatch

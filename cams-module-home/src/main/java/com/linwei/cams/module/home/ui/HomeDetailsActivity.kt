@@ -28,7 +28,7 @@ class HomeDetailsActivity :
 
     override fun initView() {
         val name = intent.getExtra("name", "没有名称") as String
-        mViewBinding.homeTitleTv.text = name
+        mViewBinding?.homeTitleTv?.text = name
     }
 
     override fun initData() {
@@ -43,11 +43,11 @@ class HomeDetailsActivity :
 
     override fun initEvent() {
 
-        mViewBinding.homeStartBtn.setOnClickListener {
+        mViewBinding?.homeStartBtn?.setOnClickListener {
             setResult("title", "HomeDetailsActivity")
             finish()
         }
-        mViewBinding.homeStartBtn.setOnClickListener {
+        mViewBinding?.homeStartBtn?.setOnClickListener {
             XToolReporter.disableAndzu()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(mContext)) {
                 //If the draw over permission is not available open the settings screen
@@ -62,11 +62,11 @@ class HomeDetailsActivity :
             }
         }
 
-        mViewBinding.homeCrashBtn.setOnClickListener {
+        mViewBinding?.homeCrashBtn?.setOnClickListener {
             startActivity(Intent(mContext, CrashReporterActivity::class.java))
         }
 
-        mViewBinding.homeNetworkBtn.setOnClickListener {
+        mViewBinding?.homeNetworkBtn?.setOnClickListener {
             startActivity(Intent(mContext, NetworkReporterActivity::class.java))
         }
     }

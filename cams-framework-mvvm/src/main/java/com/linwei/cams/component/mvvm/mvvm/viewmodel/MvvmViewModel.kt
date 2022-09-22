@@ -4,6 +4,9 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.*
 import com.linwei.cams.component.mvvm.ktx.asLiveData
 import com.linwei.cams.component.mvvm.mvvm.model.LoadingDialogEvent
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.functions.Consumer
 
 /**
  * ---------------------------------------------------------------------
@@ -14,7 +17,9 @@ import com.linwei.cams.component.mvvm.mvvm.model.LoadingDialogEvent
  * @Description: MVVM架构  `ViewModel` 接口定义
  *-----------------------------------------------------------------------
  */
-open class MvvmViewModel : ViewModel(), DefaultLifecycleObserver {
+open class MvvmViewModel : ViewModel(), DefaultLifecycleObserver , Consumer<Disposable> {
+
+    private var mCompositeDisposable: CompositeDisposable? = null
 
      var title: ObservableField<String> =
         ObservableField<String>()
@@ -35,5 +40,24 @@ open class MvvmViewModel : ViewModel(), DefaultLifecycleObserver {
         MutableLiveData<LoadingDialogEvent>()
     val loadingDialog = _loadingDialog.asLiveData()
 
+    protected open fun addDisposable(disposable: Disposable?) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = CompositeDisposable()
+        }
+        disposable?.let {
+            mCompositeDisposable!!.add(it)
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        if (mCompositeDisposable != null && !mCompositeDisposable!!.isDisposed) {
+            mCompositeDisposable!!.clear()
+        }
+    }
+
+    override fun accept(disposable: Disposable?) {
+        addDisposable(disposable)
+    }
 
 }

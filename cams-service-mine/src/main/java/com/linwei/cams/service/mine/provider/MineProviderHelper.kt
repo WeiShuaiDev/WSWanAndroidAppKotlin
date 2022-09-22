@@ -20,6 +20,13 @@ object MineProviderHelper {
             .withString("title", title).navigation() as Activity?
 
     /**
+     * MineFragment
+     */
+    fun jumpMineFragment(title: String): Fragment? =
+        ARouter.getInstance().build(MineRouterTable.PATH_FRAGMENT_MINE)
+            .withString("title", title).navigation() as Fragment?
+
+    /**
      * MyScoreActivity
      */
     fun jumpMyScoreActivity(): Activity? =
@@ -48,10 +55,23 @@ object MineProviderHelper {
             .navigation() as Activity?
 
     /**
-     * MineFragment
+     * AboutAuthorActivity
      */
-    fun jumpMineFragment(title: String): Fragment? =
-        ARouter.getInstance().build(MineRouterTable.PATH_FRAGMENT_MINE)
-            .withString("title", title).navigation() as Fragment?
+    fun jumpAboutAuthorActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_ABOUT_AUTHOR)
+            .navigation() as Activity?
 
+    /**
+     * SettingActivity
+     */
+    fun jumpSettingActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_SETTING)
+            .navigation() as Activity?
+
+    /**
+     * LanguageActivity
+     */
+    fun jumpLanguageActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_LANGUAGE)
+            .navigation() as Activity?
 }

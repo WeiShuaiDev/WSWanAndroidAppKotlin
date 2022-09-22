@@ -67,7 +67,7 @@ dependencies {
     kapt rootProject.ext.dependencies["eventbusAPT"]
 
     //LeakCanary-Android
-    api rootProject.ext.dependencies["leakcanary-android"]
+    //api rootProject.ext.dependencies["leakcanary-android"]
 
     //AutoService
     api rootProject.ext.dependencies["auto-service"]
@@ -97,6 +97,10 @@ dependencies {
 
     //PopupWindow
     api rootProject.ext.dependencies["basePopup"]
+
+    //DialogX
+    api rootProject.ext.dependencies["dialogX"]
+    api rootProject.ext.dependencies["dialogX-material-you"]
 
     //Banner
     api rootProject.ext.dependencies["banner"]

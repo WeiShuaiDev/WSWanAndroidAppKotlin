@@ -14,14 +14,14 @@
     <com.linwei.cams.component.weight.shadow.ShadowLayout
         android:id="@+id/commonShadowLayout"
         style="@style/MatchAndWrap"
-        android:background="?attr/selectableItemBackground"
+        android:background="@drawable/ripple_bg"
         app:hl_cornerRadius="@dimen/dp_0"
         app:hl_shadowLimit="@dimen/dp_0">
 
         <LinearLayout
             android:id="@+id/commonItemLayout"
             style="@style/MatchAndWrap"
-            android:background="?attr/selectableItemBackground"
+            android:background="@drawable/ripple_bg"
             android:elevation="@dimen/dp_10"
             android:orientation="horizontal"
             android:padding="@dimen/dp_10">

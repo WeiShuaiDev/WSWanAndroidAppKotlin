@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchAndMatch"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/stateBarView"
+        layout="@layout/include_status_white" />
+
+    <include
+        android:id="@+id/topRootLayout"
+        layout="@layout/include_top_view_white" />
+
+    <TextView
+        style="@style/MatchAndWrap.PrimaryTextColor.TvSize15"
+        android:padding="@dimen/dp_20"
+        android:text="@string/mine_introduction" />
+
+    <TextView
+        style="@style/MatchAndWrap.SecondaryTextColor.TvSize14"
+        android:padding="@dimen/dp_20"
+        android:text="@string/mine_public" />
+
+    <View style="@style/HorizontalLine" />
+
+    <TextView
+        style="@style/MatchAndWrap.SecondaryTextColor.TvSize14"
+        android:padding="@dimen/dp_20"
+        android:text="@string/mine_email" />
+
+    <View style="@style/HorizontalLine" />
+
+    <TextView
+        style="@style/MatchAndWrap.SecondaryTextColor.TvSize14"
+        android:padding="@dimen/dp_20"
+        android:text="@string/mine_juejin" />
+
+    <View style="@style/HorizontalLine" />
+
+    <TextView
+        style="@style/MatchAndWrap.SecondaryTextColor.TvSize14"
+        android:padding="@dimen/dp_20"
+        android:text="@string/mine_github" />
+
+    <View style="@style/HorizontalLine" />
+
+</LinearLayout>

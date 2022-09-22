@@ -9,17 +9,24 @@ object MineRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_MINE:String="/mine/mineActivity"
+    const val PATH_ACTIVITY_MINE: String = "/mine/mineActivity"
 
-    const val PATH_ACTIVITY_MY_SCORE:String="/myScore/MyScoreActivity"
+    const val PATH_ACTIVITY_MY_SCORE: String = "/myScore/MyScoreActivity"
 
-    const val PATH_ACTIVITY_MY_COLLECT:String="/myCollect/MyCollectActivity"
+    const val PATH_ACTIVITY_MY_COLLECT: String = "/myCollect/MyCollectActivity"
 
-    const val PATH_ACTIVITY_MY_SHARE:String="/myShare/MyShareActivity"
+    const val PATH_ACTIVITY_MY_SHARE: String = "/myShare/MyShareActivity"
 
-    const val PATH_ACTIVITY_OPEN_SOURCE:String="/openSource/OpenSourceActivity"
+    const val PATH_ACTIVITY_OPEN_SOURCE: String = "/openSource/OpenSourceActivity"
+
+    const val PATH_ACTIVITY_ABOUT_AUTHOR: String = "/aboutAuthor/AboutAuthorActivity"
+
+    const val PATH_ACTIVITY_SETTING: String = "/setting/SettingActivity"
+
+    const val PATH_ACTIVITY_LANGUAGE: String = "/language/LanguageActivity"
+
     /**
      * ----------------Fragment-------------------------
      */
-    const val PATH_FRAGMENT_MINE:String="/mine/mineFragment"
+    const val PATH_FRAGMENT_MINE: String = "/mine/mineFragment"
 }

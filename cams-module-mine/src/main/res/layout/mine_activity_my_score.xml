@@ -5,7 +5,6 @@
     tools:context=".ui.myscore.MyScoreActivity">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.linwei.cams.module.mine.ui.myscore.mvvm.viewmodel.MyScoreViewModel" />
@@ -21,7 +20,7 @@
 
         <include
             android:id="@+id/stateBarView"
-            layout="@layout/include_status" />
+            layout="@layout/include_status_white" />
 
         <include
             layout="@layout/mine_include_top_bar"

@@ -20,7 +20,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBarView"
         style="@style/MatchAndWrap"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorGlobalWhite"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         app:layout_constraintTop_toBottomOf="@id/progressBarView"

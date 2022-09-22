@@ -6,11 +6,11 @@
 
     <include
         android:id="@+id/stateBarView"
-        layout="@layout/include_status" />
+        layout="@layout/include_status_white" />
 
     <include
         android:id="@+id/topRootLayout"
-        layout="@layout/include_top_view_primary" />
+        layout="@layout/include_top_view_white" />
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/squareRefreshLayout"

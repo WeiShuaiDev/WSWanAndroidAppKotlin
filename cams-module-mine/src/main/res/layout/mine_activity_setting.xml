@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.setting.SettingActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.linwei.cams.module.mine.ui.setting.mvvm.viewmodel.SettingViewModel" />
+
+        <variable
+            name="activity"
+            type="com.linwei.cams.component.mvvm.base.MvvmBaseActivity" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchAndMatch"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/stateBarView"
+            layout="@layout/include_status_white" />
+
+        <include
+            layout="@layout/mine_include_top_bar"
+            app:activity="@{activity}"
+            app:toolbarViewModel="@{viewModel}" />
+
+        <LinearLayout
+            style="@style/MatchAndWrap"
+            android:background="@color/colorGlobalWhite"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/mineLanguageLayout"
+                style="@style/MatchAndWrap"
+                android:background="@drawable/ripple_bg"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewModel.onLanguageClick()}"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_15">
+
+                <TextView
+                    style="@style/MatchAndWrap.PrimaryTextColor.TvSize15"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/mine_language_set" />
+
+                <TextView
+                    android:id="@+id/mineLanguageView"
+                    style="@style/WrapAndWrap.SecondaryTextColor.TvSize15"
+                    tools:text="清除缓存" />
+
+                <ImageView
+                    style="@style/WrapAndWrap"
+                    android:src="@mipmap/mine_ic_mine_into"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mineCacheLayout"
+                style="@style/MatchAndWrap"
+                android:background="@drawable/ripple_bg"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewModel.onCacheClick()}"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_15">
+
+                <TextView
+                    style="@style/MatchAndWrap.PrimaryTextColor.TvSize15"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/mine_clear_cache" />
+
+                <TextView
+                    android:id="@+id/mineCacheView"
+                    style="@style/WrapAndWrap.SecondaryTextColor.TvSize15"
+                    tools:text="清除缓存" />
+
+                <ImageView
+                    style="@style/WrapAndWrap"
+                    android:src="@mipmap/mine_ic_mine_into"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mineVersionLayout"
+                style="@style/MatchAndWrap"
+                android:background="@drawable/ripple_bg"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewModel.onVersionClick()}"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_15">
+
+                <TextView
+                    style="@style/MatchAndWrap.PrimaryTextColor.TvSize15"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/mine_current_version" />
+
+                <TextView
+                    android:id="@+id/mineVersionView"
+                    style="@style/WrapAndWrap.SecondaryTextColor.TvSize15"
+                    tools:text="清除缓存" />
+
+                <ImageView
+                    style="@style/WrapAndWrap"
+                    android:src="@mipmap/mine_ic_mine_into"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mineDescLayout"
+                style="@style/MatchAndWrap"
+                android:background="@drawable/ripple_bg"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewModel.onDescClick()}"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_15">
+
+                <TextView
+                    style="@style/MatchAndWrap.PrimaryTextColor.TvSize15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/mine_copyright_notice" />
+
+                <ImageView
+                    style="@style/WrapAndWrap"
+                    android:src="@mipmap/mine_ic_mine_into"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mineAboutLayout"
+                style="@style/MatchAndWrap"
+                android:background="@drawable/ripple_bg"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewModel.onAboutClick()}"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_15">
+
+                <TextView
+                    style="@style/MatchAndWrap.PrimaryTextColor.TvSize15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/mine_about_us" />
+
+                <ImageView
+                    style="@style/WrapAndWrap"
+                    android:src="@mipmap/mine_ic_mine_into"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchAndWrap"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@color/colorGlobalWhite"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mineLogOutView"
+                style="@style/MatchAndWrap.PrimaryTextColor.TvSize15"
+                android:background="@drawable/ripple_bg"
+                android:gravity="center"
+                android:onClick="@{()->viewModel.onExitClick()}"
+                android:padding="@dimen/dp_15"
+                android:text="@string/mine_logout" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

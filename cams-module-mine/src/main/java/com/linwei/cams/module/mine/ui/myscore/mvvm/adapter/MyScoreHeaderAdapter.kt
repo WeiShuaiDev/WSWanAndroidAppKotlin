@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.LayoutHelper
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper
-import com.linwei.cams.component.cache.utils.mmkv.AppDataMMkvProvided
+import com.linwei.cams.component.cache.mmkv.AppDataMMkvProvided
 import com.linwei.cams.module.mine.R
 
 /**

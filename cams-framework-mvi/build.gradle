@@ -4,4 +4,6 @@ dependencies {
     api project(':cams-component-common')
 
     implementation project(':cams-component-network')
+
+    implementation project(':cams-component-cache')
 }

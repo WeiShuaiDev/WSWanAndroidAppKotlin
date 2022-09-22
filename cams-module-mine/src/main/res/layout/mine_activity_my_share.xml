@@ -21,7 +21,7 @@
 
         <include
             android:id="@+id/stateBarView"
-            layout="@layout/include_status" />
+            layout="@layout/include_status_white" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout style="@style/MatchAndMatch">
 

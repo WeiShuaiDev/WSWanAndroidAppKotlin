@@ -1,7 +1,7 @@
 package com.linwei.cams.module.mine.ui.mine.mvvm.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.linwei.cams.component.cache.utils.mmkv.AppDataMMkvProvided
+import com.linwei.cams.component.cache.mmkv.AppDataMMkvProvided
 import com.linwei.cams.component.common.global.ConstantParams
 import com.linwei.cams.component.mvvm.ktx.asLiveData
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.MvvmViewModel
@@ -58,9 +58,11 @@ class MineViewModel @Inject constructor(private val mineModel: MineModel) : Mvvm
             }
             ConstantParams.CONSTANT_STARTS_4 -> {
                 //关于作者
+                MineProviderHelper.jumpAboutAuthorActivity()
             }
             else -> {
                 //设置
+                MineProviderHelper.jumpSettingActivity()
             }
         }
     }
