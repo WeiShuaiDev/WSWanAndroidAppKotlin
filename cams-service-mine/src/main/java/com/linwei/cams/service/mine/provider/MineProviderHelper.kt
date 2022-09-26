@@ -76,6 +76,20 @@ object MineProviderHelper {
             .navigation() as Activity?
 
     /**
+     * AboutusActivity
+     */
+    fun jumpAboutusActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_ABOUTUS)
+            .navigation() as Activity?
+
+    /**
+     * ScoreRankListActivity
+     */
+    fun jumpScoreRankListActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_SCORE_RANK_LIST)
+            .navigation() as Activity?
+
+    /**
      * MainActivity
      */
     fun jumpMainActivity(): Activity? =

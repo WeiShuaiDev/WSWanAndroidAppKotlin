@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.scorerank.ScoreRankListActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.linwei.cams.module.mine.ui.scorerank.mvvm.viewmodel.ScoreRankViewModel" />
+
+        <variable
+            name="activity"
+            type="com.linwei.cams.component.mvvm.base.MvvmBaseActivity" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchAndMatch"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/stateBarView"
+            layout="@layout/include_status_white" />
+
+        <include
+            layout="@layout/mine_include_top_bar"
+            app:activity="@{activity}"
+            app:toolbarViewModel="@{viewModel}" />
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/mineRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:srlAccentColor="@color/colorGlobalGrayText"
+            app:srlEnablePreviewInEditMode="true"
+            app:srlPrimaryColor="@color/colorGlobalWhite">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mineRecyclerView"
+                style="@style/MatchAndMatch"
+                android:overScrollMode="never"/>
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:background="@color/colorGlobalWhite"
+            android:elevation="@dimen/dp_2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_10">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/mineLogoView"
+                    style="@style/WrapAndWrap"
+                    android:src="@mipmap/mine_gold_crown"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/mineTextView"
+                    style="@style/WrapAndWrap.PrimaryTextColor.TvSize16" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mineNameView"
+                style="@style/MatchAndWrap.PrimaryTextColor.TvSize16"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_weight="5" />
+
+            <TextView
+                android:id="@+id/mineCoinsView"
+                style="@style/WrapAndWrap.PrimaryTextColor.TvSize16"
+                android:layout_marginStart="@dimen/dp_10" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

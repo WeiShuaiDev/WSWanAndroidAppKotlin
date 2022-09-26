@@ -1,14 +1,14 @@
-package com.linwei.cams.module.mine.ui.myscore.mvvm.view
+package com.linwei.cams.module.mine.ui.scorerank.mvvm.view
 
 import androidx.lifecycle.LifecycleOwner
 import com.linwei.cams.component.mvvm.mvvm.view.IMvvmView
-import com.linwei.cams.module.mine.ui.myscore.mvvm.viewmodel.MyScoreViewModel
+import com.linwei.cams.module.mine.ui.scorerank.mvvm.viewmodel.ScoreRankViewModel
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.mine.model.RankBean
 
-interface MyScoreView : IMvvmView<MyScoreViewModel> {
+interface ScoreRankView : IMvvmView<ScoreRankViewModel> {
 
-    override fun bindOtherMvvmViewEvent(viewModel: MyScoreViewModel?, owner: LifecycleOwner) {
+    override fun bindOtherMvvmViewEvent(viewModel: ScoreRankViewModel?, owner: LifecycleOwner) {
         viewModel?.let {
             it.rankBeanPage.observe(owner) { page ->
                 rankDataToView(page)
@@ -21,5 +21,4 @@ interface MyScoreView : IMvvmView<MyScoreViewModel> {
     }
 
     fun rankDataToView(page: Page<RankBean>)
-
 }

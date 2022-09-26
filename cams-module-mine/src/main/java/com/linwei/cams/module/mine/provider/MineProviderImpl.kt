@@ -55,6 +55,10 @@ class MineProviderImpl @Inject constructor() : MineProvider {
         listIntegralApi(page).networks(callback)
     }
 
+    override fun fetchListScoreRankData(page: Int, callback: ResponseCallback<Page<RankBean>>) {
+        listScoreRankApi(page).networks(callback)
+    }
+
     override fun fetchListMyShareData(page: Int, callback: ResponseCallback<MyShareBean>) {
         listMyShareApi(page).networks(callback)
     }
@@ -77,6 +81,9 @@ class MineProviderImpl @Inject constructor() : MineProvider {
 
     private fun listIntegralApi(page: Int): Observable<ApiResponse<Page<RankBean>>> =
         mApiService.listIntegralData(page)
+
+    private fun listScoreRankApi(page: Int): Observable<ApiResponse<Page<RankBean>>> =
+        mApiService.listScoreRankData(page)
 
     private fun listMyShareApi(page: Int): Observable<ApiResponse<MyShareBean>> =
         mApiService.listMyShareData(page)

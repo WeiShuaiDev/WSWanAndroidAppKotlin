@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchAndWrap"
+    android:background="@drawable/ripple_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_10">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:id="@+id/mineLogoView"
+            style="@style/WrapAndWrap"
+            android:src="@mipmap/mine_gold_crown"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/mineTextView"
+            style="@style/WrapAndWrap.PrimaryTextColor.TvSize16" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mineNameView"
+        style="@style/MatchAndWrap.PrimaryTextColor.TvSize16"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_weight="5" />
+
+    <TextView
+        android:id="@+id/mineCoinsView"
+        style="@style/WrapAndWrap.PrimaryTextColor.TvSize16"
+        android:layout_marginStart="@dimen/dp_10" />
+
+</LinearLayout>

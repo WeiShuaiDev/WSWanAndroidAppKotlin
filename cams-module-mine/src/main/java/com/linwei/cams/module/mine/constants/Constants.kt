@@ -9,4 +9,11 @@ object Service {
 
     //模块域名
     const val HOST: String = "https://www.wanandroid.com/"
+
+    const val INTERGRAL_URL = "https://www.wanandroid.com/blog/show/2653"
+
+    const val WAN_ANDROID = "https://www.wanandroid.com/"
+    const val URL_ABOUT = WAN_ANDROID + "about"
+    const val SOURCE_URL = "https://github.com/1170762202/WanAndroid"
+
 }

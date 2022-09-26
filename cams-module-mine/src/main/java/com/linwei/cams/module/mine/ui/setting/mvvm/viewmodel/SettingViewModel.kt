@@ -53,8 +53,10 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
      * 清除缓存
      */
     fun onCacheClick(ctx: Context) {
-        MessageDialog.show(R.string.mine_tip.idToString(ctx), R.string.mine_clear_memory.idToString(ctx),
-            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx))
+        MessageDialog.show(
+            R.string.mine_tip.idToString(ctx), R.string.mine_clear_memory.idToString(ctx),
+            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx)
+        )
             .setOkButton { baseDialog, v ->
                 clearCacheFiles()
                 return@setOkButton false
@@ -65,7 +67,7 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
     /**
      * 当前版本
      */
-    fun onVersionClick(ctx:Context) {
+    fun onVersionClick(ctx: Context) {
         PopTip.show(R.string.mine_version_tip.idToString(ctx));
     }
 
@@ -73,8 +75,10 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
      * 版权声明
      */
     fun onDescClick(ctx: Context) {
-        MessageDialog.show(R.string.mine_tip.idToString(ctx), R.string.mine_desc_tip.idToString(ctx),
-            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx))
+        MessageDialog.show(
+            R.string.mine_tip.idToString(ctx), R.string.mine_desc_tip.idToString(ctx),
+            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx)
+        )
             .setOkButton { baseDialog, v ->
                 return@setOkButton false
             }
@@ -84,15 +88,17 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
      * 关于我们
      */
     fun onAboutClick() {
-        //跳转到关于我们
+        MineProviderHelper.jumpAboutusActivity()
     }
 
     /**
      * 退出登录
      */
     fun onExitClick(ctx: Context) {
-        MessageDialog.show(R.string.mine_tip.idToString(ctx), R.string.mine_sure_logout.idToString(ctx),
-            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx))
+        MessageDialog.show(
+            R.string.mine_tip.idToString(ctx), R.string.mine_sure_logout.idToString(ctx),
+            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx)
+        )
             .setOkButton { baseDialog, v ->
                 requestLogOut()
                 return@setOkButton false

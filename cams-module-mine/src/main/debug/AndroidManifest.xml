@@ -26,11 +26,15 @@
 
         <activity android:name=".ui.opensource.OpenSourceActivity" />
 
-        <activity android:name=".ui.aboutauthor.AboutAuthorActivity"/>
+        <activity android:name=".ui.aboutauthor.AboutAuthorActivity" />
 
-        <activity android:name=".ui.setting.SettingActivity"/>
+        <activity android:name=".ui.setting.SettingActivity" />
 
-        <activity android:name=".ui.language.LanguageActivity"/>
+        <activity android:name=".ui.language.LanguageActivity" />
+
+        <activity android:name=".ui.aboutus.AboutusActivity" />
+
+        <activity android:name=".ui.scorerank.ScoreRankListActivity" />
 
     </application>
 

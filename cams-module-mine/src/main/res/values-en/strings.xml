@@ -37,4 +37,8 @@
     <string name="mine_email">Email：linwei9605@gmail.com</string>
     <string name="mine_juejin">Nuggets：https://juejin.cn/user/3280598430651399</string>
     <string name="mine_github">Github：https://github.com/WeiShuaiDev</string>
+
+    <string name="mine_official_website">Official website</string>
+    <string name="mine_website_content">Website content</string>
+    <string name="mine_project_repository">Project repository</string>
 </resources>

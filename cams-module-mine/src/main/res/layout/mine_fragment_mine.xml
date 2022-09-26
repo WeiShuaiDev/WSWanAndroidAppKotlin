@@ -112,6 +112,7 @@
                         android:paddingEnd="@dimen/dp_10"
                         android:paddingBottom="@dimen/dp_2"
                         android:text="@string/mine_scoreboard"
+                        android:onClick="@{()->viewModel.onScoreRankClick()}"
                         app:drawableStartCompat="@mipmap/mine_ic_mine_score" />
 
                 </LinearLayout>

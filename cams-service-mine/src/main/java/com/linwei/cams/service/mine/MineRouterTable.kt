@@ -9,7 +9,7 @@ object MineRouterTable {
     /**
      * ----------------Activity-------------------------
      */
-    const val PATH_ACTIVITY_MAIN:String="/main/MainActivity"
+    const val PATH_ACTIVITY_MAIN: String = "/main/MainActivity"
 
     const val PATH_ACTIVITY_MINE: String = "/mine/mineActivity"
 
@@ -26,6 +26,10 @@ object MineRouterTable {
     const val PATH_ACTIVITY_SETTING: String = "/setting/SettingActivity"
 
     const val PATH_ACTIVITY_LANGUAGE: String = "/language/LanguageActivity"
+
+    const val PATH_ACTIVITY_ABOUTUS: String = "/aboutus/AboutusActivity"
+
+    const val PATH_ACTIVITY_SCORE_RANK_LIST: String = "/scorerank/ScoreRankListActivity"
 
     /**
      * ----------------Fragment-------------------------

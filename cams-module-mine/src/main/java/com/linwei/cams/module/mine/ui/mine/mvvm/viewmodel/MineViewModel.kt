@@ -38,6 +38,10 @@ class MineViewModel @Inject constructor(private val mineModel: MineModel) : Mvvm
         onItemClick(-1)
     }
 
+    fun onScoreRankClick() {
+        MineProviderHelper.jumpScoreRankListActivity()
+    }
+
     fun onItemClick(index: Int) {
         when (index) {
             ConstantParams.CONSTANT_STARTS_0 -> {

@@ -4,6 +4,7 @@
     android:id="@+id/mineItemLayout"
     style="@style/MatchAndWrap"
     android:orientation="vertical"
+    android:background="@drawable/ripple_bg"
     android:padding="@dimen/dp_10">
 
     <TextView

@@ -35,7 +35,7 @@ interface ApiService {
      * 积分排行榜
      */
     @GET("coin/rank/{page}/json")
-    fun listScoreRank(@Path("page") page: Int): Observable<ApiResponse<Page<RankBean>>>
+    fun listScoreRankData(@Path("page") page: Int): Observable<ApiResponse<Page<RankBean>>>
 
     /**
      * 获取个人积分

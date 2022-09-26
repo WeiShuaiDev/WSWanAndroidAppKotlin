@@ -20,6 +20,8 @@ interface MineProvider : IProvider {
 
     fun fetchListIntegralData(page: Int, callback: ResponseCallback<Page<RankBean>>)
 
+    fun fetchListScoreRankData(page: Int, callback: ResponseCallback<Page<RankBean>>)
+
     fun fetchListMyShareData(page: Int, callback: ResponseCallback<MyShareBean>)
 
     fun deleteArticle(id: Int, callback: ResponseCallback<Any>)

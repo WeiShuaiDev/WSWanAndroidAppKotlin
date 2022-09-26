@@ -2,7 +2,6 @@ package com.linwei.cams.module.mine.ui.setting
 
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.cache.mmkv.AppDataMMkvProvided
-import com.linwei.cams.component.cache.utils.CacheUtils
 import com.linwei.cams.component.common.ktx.idToString
 import com.linwei.cams.component.common.utils.LanguageUtils
 import com.linwei.cams.component.common.utils.getVersionName
