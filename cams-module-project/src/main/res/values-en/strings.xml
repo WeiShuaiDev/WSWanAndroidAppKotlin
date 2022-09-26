@@ -2,5 +2,5 @@
     <string name="project_app_name">cams-module-project</string>
     <string name="project_module_page">project</string>
 
-    <string name="project_project_list">项目列表</string>
+    <string name="project_project_list">Project list</string>
 </resources>

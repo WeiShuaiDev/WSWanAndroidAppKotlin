@@ -1,10 +1,12 @@
 package com.linwei.cams.module.mine.ui.setting.mvvm.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.kongzue.dialogx.dialogs.MessageDialog
 import com.kongzue.dialogx.dialogs.PopTip
 import com.linwei.cams.component.cache.mmkv.AppDataMMkvProvided
 import com.linwei.cams.component.cache.utils.CacheUtils
+import com.linwei.cams.component.common.ktx.idToString
 import com.linwei.cams.component.mvvm.ktx.asLiveData
 import com.linwei.cams.component.mvvm.mvvm.viewmodel.MvvmViewModel
 import com.linwei.cams.module.mine.R
@@ -50,8 +52,9 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
     /**
      * 清除缓存
      */
-    fun onCacheClick() {
-        MessageDialog.show(R.string.mine_tip, R.string.mine_clear_memory, R.string.mine_sure, R.string.cancel)
+    fun onCacheClick(ctx: Context) {
+        MessageDialog.show(R.string.mine_tip.idToString(ctx), R.string.mine_clear_memory.idToString(ctx),
+            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx))
             .setOkButton { baseDialog, v ->
                 clearCacheFiles()
                 return@setOkButton false
@@ -62,15 +65,16 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
     /**
      * 当前版本
      */
-    fun onVersionClick() {
-        PopTip.show(R.string.mine_version_tip);
+    fun onVersionClick(ctx:Context) {
+        PopTip.show(R.string.mine_version_tip.idToString(ctx));
     }
 
     /**
      * 版权声明
      */
-    fun onDescClick() {
-        MessageDialog.show(R.string.mine_tip, R.string.mine_desc_tip, R.string.mine_sure, R.string.cancel)
+    fun onDescClick(ctx: Context) {
+        MessageDialog.show(R.string.mine_tip.idToString(ctx), R.string.mine_desc_tip.idToString(ctx),
+            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx))
             .setOkButton { baseDialog, v ->
                 return@setOkButton false
             }
@@ -86,8 +90,9 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
     /**
      * 退出登录
      */
-    fun onExitClick() {
-        MessageDialog.show(R.string.mine_tip, R.string.mine_sure_logout, R.string.mine_sure, R.string.cancel)
+    fun onExitClick(ctx: Context) {
+        MessageDialog.show(R.string.mine_tip.idToString(ctx), R.string.mine_sure_logout.idToString(ctx),
+            R.string.mine_sure.idToString(ctx), R.string.cancel.idToString(ctx))
             .setOkButton { baseDialog, v ->
                 requestLogOut()
                 return@setOkButton false

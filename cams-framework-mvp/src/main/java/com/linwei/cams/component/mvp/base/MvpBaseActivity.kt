@@ -61,6 +61,8 @@ abstract class MvpBaseActivity<VB : ViewBinding, P : IMvpPresenter> :
 
     }
 
+    protected open fun shouldSupportMultiLanguage(): Boolean = true
+
     override fun attachBaseContext(newBase: Context?) {
         if (shouldSupportMultiLanguage()) {
             val context: Context? = LanguageUtils.attachBaseContext(newBase){

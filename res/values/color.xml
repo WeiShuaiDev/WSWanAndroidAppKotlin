@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="global_colorPrimary">#313335</color>
-    <color name="global_colorPrimaryDark">#313335</color>
-    <color name="global_colorAccent">#313335</color>
+    <color name="globalColorPrimary">#313335</color>
+    <color name="globalColorPrimaryDark">#313335</color>
+    <color name="globalColorAccent">#313335</color>
+
+    <color name="globalSplashBackground">#f3e5f5</color>
 </resources>

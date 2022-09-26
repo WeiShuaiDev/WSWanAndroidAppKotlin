@@ -14,7 +14,7 @@ class AboutAuthorActivity : CommonBaseActivity<MineActivityAboutAuthorBinding>()
 
     override fun initView() {
         mViewBinding?.topRootLayout?.let {
-            it.titleView.text = R.string.mine_about_author.idToString()
+            it.titleView.text = R.string.mine_about_author.idToString(mContext)
             it.leftTitleView.setOnClickListener {
                 this.finish()
             }

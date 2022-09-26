@@ -34,7 +34,7 @@ class MyCollectActivity : MvvmBaseActivity<MineActivityMyCollectBinding, MyColle
 
     override fun initView() {
         mDataBinding?.apply {
-            mViewModel?.title?.set(R.string.mine_collect.idToString())
+            mViewModel?.title?.set(R.string.mine_collect.idToString(mContext))
             viewModel = mViewModel
             activity = this@MyCollectActivity
         }

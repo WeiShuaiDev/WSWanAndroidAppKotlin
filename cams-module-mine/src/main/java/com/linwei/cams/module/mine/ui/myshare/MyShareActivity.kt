@@ -44,7 +44,7 @@ class MyShareActivity : MvvmBaseActivity<MineActivityMyShareBinding, MyShareView
 
     override fun initView() {
         mDataBinding?.apply {
-            mViewModel?.title?.set(R.string.mine_share.idToString())
+            mViewModel?.title?.set(R.string.mine_share.idToString(mContext))
             viewModel = mViewModel
             activity = this@MyShareActivity
         }
@@ -58,7 +58,7 @@ class MyShareActivity : MvvmBaseActivity<MineActivityMyShareBinding, MyShareView
                 val width = resources.getDimensionPixelSize(R.dimen.dp_70)
                 val height = ViewGroup.LayoutParams.MATCH_PARENT
                 val deleteItem: SwipeMenuItem = SwipeMenuItem(this@MyShareActivity)
-                    .setText(R.string.mine_delete.idToString())
+                    .setText(R.string.mine_delete.idToString(mContext))
                     .setTextColor(R.color.colorGlobalWhite.idToColor())
                     .setBackgroundColorResource(android.R.color.holo_red_dark)
                     .setWidth(width)

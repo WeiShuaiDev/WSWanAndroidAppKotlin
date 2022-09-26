@@ -181,7 +181,7 @@ class CommonAppDelegate : AppDelegate {
         DialogX.cancelableTipDialog = false
 
         //设置默认取消按钮文本文字，影响 BottomDialog
-        DialogX.cancelButtonText = R.string.cancel.idToString()
+        DialogX.cancelButtonText = R.string.cancel.idToString(mContext)
 
         //设置默认 PopTip 文本样式
         DialogX.popTextInfo =

@@ -25,7 +25,7 @@ class SettingActivity : MvvmBaseActivity<MineActivitySettingBinding, SettingView
 
     override fun initView() {
         mDataBinding?.apply {
-            mViewModel?.title?.set(R.string.mine_set.idToString())
+            mViewModel?.title?.set(R.string.mine_set.idToString(mContext))
             viewModel = mViewModel
             activity = this@SettingActivity
         }

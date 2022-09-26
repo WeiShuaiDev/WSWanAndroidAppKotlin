@@ -9,6 +9,8 @@ object MineRouterTable {
     /**
      * ----------------Activity-------------------------
      */
+    const val PATH_ACTIVITY_MAIN:String="/main/MainActivity"
+
     const val PATH_ACTIVITY_MINE: String = "/mine/mineActivity"
 
     const val PATH_ACTIVITY_MY_SCORE: String = "/myScore/MyScoreActivity"

@@ -48,11 +48,11 @@ object LanguageUtils {
     /**
      * 切换语言
      */
-    fun switchLanguage(locale: Locale, saveMemoryLanguage: (locale: Locale?) -> Any) {
+    fun switchLanguage(locale: Locale, saveMemoryLanguage: (locale: Locale) -> Any) {
         changeLanguage(locale, saveMemoryLanguage)
     }
 
-    private fun changeLanguage(locale: Locale, saveMemoryLanguage: (locale: Locale?) -> Any) {
+    private fun changeLanguage(locale: Locale, saveMemoryLanguage: (locale: Locale) -> Any) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             setConfiguration(app, locale)
         }

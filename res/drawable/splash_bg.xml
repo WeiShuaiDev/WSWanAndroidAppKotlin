@@ -7,7 +7,7 @@
             <size
                 android:width="360dp"
                 android:height="360dp" />
-            <solid android:color="@color/colorPrimary" />
+            <solid android:color="@color/globalSplashBackground" />
         </shape>
     </item>
 

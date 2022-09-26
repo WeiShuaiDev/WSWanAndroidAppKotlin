@@ -19,6 +19,7 @@ import com.trello.rxlifecycle4.components.support.RxAppCompatActivity
 import me.jessyan.autosize.AutoSizeCompat
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
+import java.util.*
 
 /**
  * 基类CommonBaseActivity
@@ -177,14 +178,12 @@ abstract class CommonBaseActivity<VB : ViewBinding> : RxAppCompatActivity() {
         // 但是 AutoSizeCompat.autoConvertDensity() 对线程做了判断 导致Coil等图片加载框架在子线程访问的时候会异常
         // 所以在这里加了线程的判断 如果是非主线程 就取消单独的适配
         val res = super.getResources()
-        res.updateConfiguration(Configuration().apply { setToDefaults() }, res.displayMetrics)
+//        res.updateConfiguration(Configuration().apply { setToDefaults() }, res.displayMetrics)
         if (Looper.myLooper() == Looper.getMainLooper()) {
             AutoSizeCompat.autoConvertDensityOfGlobal((res))
         }
         return super.getResources()
     }
-
-    protected open fun shouldSupportMultiLanguage(): Boolean = true
 
     override fun onDestroy() {
         super.onDestroy()

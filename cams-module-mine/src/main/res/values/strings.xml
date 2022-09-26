@@ -29,6 +29,8 @@
     <string name="mine_sure">确定</string>
     <string name="mine_cancel">取消</string>
     <string name="mine_delete">删除</string>
+    <string name="mine_simplified_chinese">简体中文</string>
+    <string name="mine_english">英文</string>
 
     <string name="mine_introduction">简介：一个热爱Coding，在程序猿这条路越走越远，发现已经深陷大前端中。Android、Flutter、小程序、Vue、JavaScript、SpringBoot、SpringCloud</string>
     <string name="mine_public">公众号：技术工匠(WeiShaiDev)</string>

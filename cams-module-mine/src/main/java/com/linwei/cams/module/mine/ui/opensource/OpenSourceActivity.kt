@@ -20,7 +20,7 @@ class OpenSourceActivity : CommonBaseActivity<MineActivityOpenSourceBinding>() {
 
     override fun initView() {
         mViewBinding?.topRootLayout?.let {
-            it.titleView.text = R.string.mine_open_source_project.idToString()
+            it.titleView.text = R.string.mine_open_source_project.idToString(mContext)
             it.leftTitleView.setOnClickListener {
                 this.finish()
             }

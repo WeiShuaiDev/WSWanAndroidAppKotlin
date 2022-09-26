@@ -52,7 +52,7 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
     override fun initView() {
         mViewBinding?.topRootLayout?.let {
             it.leftTitleView.visibility = View.INVISIBLE
-            it.titleView.text = R.string.app_name.idToString()
+            it.titleView.text = R.string.app_name.idToString(mContext)
             it.rightImageView.visibility = View.VISIBLE
             it.rightImageView.setImageResource(R.drawable.ic_search_black_24dp)
         }

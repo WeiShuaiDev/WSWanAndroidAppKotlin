@@ -139,6 +139,8 @@ abstract class MvvmBaseActivity<DB : ViewDataBinding, VM : MvvmViewModel> :
         return fetchVMClass().kotlin
     }
 
+    protected open fun shouldSupportMultiLanguage(): Boolean = true
+
     override fun attachBaseContext(newBase: Context?) {
         if (shouldSupportMultiLanguage()) {
             val context: Context? = LanguageUtils.attachBaseContext(newBase){

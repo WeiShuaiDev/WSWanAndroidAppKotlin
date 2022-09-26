@@ -74,4 +74,11 @@ object MineProviderHelper {
     fun jumpLanguageActivity(): Activity? =
         ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_LANGUAGE)
             .navigation() as Activity?
+
+    /**
+     * MainActivity
+     */
+    fun jumpMainActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_MAIN)
+            .navigation() as Activity?
 }

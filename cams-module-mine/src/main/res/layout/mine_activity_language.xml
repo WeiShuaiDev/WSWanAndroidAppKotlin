@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchAndMatch"
+    android:background="@color/colorGlobalBackground"
     android:orientation="vertical">
 
     <include
@@ -14,7 +15,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mineRecyclerView"
-        style="@style/MatchAndMatch"
+        style="@style/MatchAndWrap"
         android:background="@color/colorGlobalWhite"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

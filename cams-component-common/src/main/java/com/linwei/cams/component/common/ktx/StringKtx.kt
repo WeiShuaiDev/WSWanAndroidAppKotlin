@@ -1,9 +1,20 @@
 package com.linwei.cams.component.common.ktx
 
+import android.content.Context
+
 /**
  * Int转换为String
  */
 fun Int?.idToString(): String {
+    this?.takeIf {
+        return ctx.getString(it)
+    }
+    return ""
+}
+/**
+ * Int转换为String
+ */
+fun Int?.idToString(ctx: Context):String{
     this?.takeIf {
         return ctx.getString(it)
     }
@@ -14,6 +25,16 @@ fun Int?.idToString(): String {
  * Int 转换为Color
  */
 fun Int?.idToColor(): Int {
+    this?.takeIf {
+        return ctx.resources.getColor(it)
+    }
+    return -1
+}
+
+/**
+ * Int 转换为Color
+ */
+fun Int?.idToColor(ctx:Context): Int {
     this?.takeIf {
         return ctx.resources.getColor(it)
     }

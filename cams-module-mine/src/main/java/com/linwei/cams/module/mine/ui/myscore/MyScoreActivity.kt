@@ -25,8 +25,8 @@ class MyScoreActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreView
 
     private var mCurPage: Int = 0
 
-    private val mVirtualLayoutManager:VirtualLayoutManager= VirtualLayoutManager(this)
-    private val mDelegateAdapter:DelegateAdapter = DelegateAdapter(mVirtualLayoutManager)
+    private val mVirtualLayoutManager: VirtualLayoutManager = VirtualLayoutManager(this)
+    private val mDelegateAdapter: DelegateAdapter = DelegateAdapter(mVirtualLayoutManager)
     private val mAdapters = mutableListOf<DelegateAdapter.Adapter<*>>()
 
     private var mHeaderAdapter: MyScoreHeaderAdapter? = null
@@ -42,7 +42,7 @@ class MyScoreActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreView
 
     override fun initView() {
         mDataBinding?.apply {
-            mViewModel?.title?.set(R.string.mine_integral.idToString())
+            mViewModel?.title?.set(R.string.mine_integral.idToString(mContext))
             viewModel = mViewModel
             activity = this@MyScoreActivity
         }
@@ -53,9 +53,9 @@ class MyScoreActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreView
             mAdapters.add(this)
         }
         mDelegateAdapter.setAdapters(mAdapters)
-        mDataBinding?.mineRecyclerView?.apply{
+        mDataBinding?.mineRecyclerView?.apply {
             layoutManager = mVirtualLayoutManager
-            adapter=mDelegateAdapter
+            adapter = mDelegateAdapter
         }
     }
 
@@ -64,7 +64,8 @@ class MyScoreActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreView
     }
 
     override fun initEvent() {
-        mDataBinding?.mineRefreshLayout?.setOnRefreshLoadMoreListener(object:OnRefreshLoadMoreListener{
+        mDataBinding?.mineRefreshLayout?.setOnRefreshLoadMoreListener(object :
+            OnRefreshLoadMoreListener {
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
                 mViewModel?.requestListIntegralData(mCurPage)
@@ -82,7 +83,7 @@ class MyScoreActivity : MvvmBaseActivity<MineActivityMyScoreBinding, MyScoreView
     }
 
     override fun rankDataToView(page: Page<RankBean>) {
-        mRankBeanPage=page
+        mRankBeanPage = page
         page.datas?.let {
             val positionStart: Int
             if (mCurPage == 0) {

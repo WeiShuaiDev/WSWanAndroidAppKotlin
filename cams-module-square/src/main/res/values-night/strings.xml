@@ -3,7 +3,7 @@
     <string name="square_module_page">square</string>
 
     <string-array name="square_tab_title" tools:ignore="ExtraTranslation">
-        <item>体系</item>
-        <item>导航</item>
+        <item>system</item>
+        <item>navigation</item>
     </string-array>
 </resources>

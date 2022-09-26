@@ -129,6 +129,8 @@ abstract class MviBaseActivity<VB : ViewBinding, VM : MviViewModel> : CommonBase
      */
     protected fun getViewModel(): VM? = mViewModel
 
+    protected open fun shouldSupportMultiLanguage(): Boolean = true
+
     override fun attachBaseContext(newBase: Context?) {
         if (shouldSupportMultiLanguage()) {
             val context: Context? = LanguageUtils.attachBaseContext(newBase){

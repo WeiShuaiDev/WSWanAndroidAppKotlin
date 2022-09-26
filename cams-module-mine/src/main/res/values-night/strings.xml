@@ -9,8 +9,8 @@
     <string name="mine_open_source_project">Open source project</string>
     <string name="mine_about_author">About</string>
     <string name="mine_desc">Treat him to breakfast~</string>
-    <string name="mine_set">Set</string>
-    <string name="mine_language_set">Language set</string>
+    <string name="mine_set">Setting</string>
+    <string name="mine_language_set">Language</string>
     <string name="mine_clear_cache">Clear cache</string>
     <string name="mine_current_version">Current version</string>
     <string name="mine_copyright_notice">Copyright notice</string>
@@ -29,11 +29,12 @@
     <string name="mine_sure">Sure</string>
     <string name="mine_cancel">Cancel</string>
     <string name="mine_delete">Delete</string>
+    <string name="mine_simplified_chinese">Simplified Chinese</string>
+    <string name="mine_english">English</string>
 
     <string name="mine_introduction">Introduction: A person who loves Coding, goes further and further in the road of programmers, and finds that he has been deeply involved in the big front-end. Android、Flutter、小程序、Vue、JavaScript、SpringBoot、SpringCloud</string>
     <string name="mine_public">Public：技术工匠(WeiShaiDev)</string>
     <string name="mine_email">Email：linwei9605@gmail.com</string>
     <string name="mine_juejin">Nuggets：https://juejin.cn/user/3280598430651399</string>
     <string name="mine_github">Github：https://github.com/WeiShuaiDev</string>
-
 </resources>

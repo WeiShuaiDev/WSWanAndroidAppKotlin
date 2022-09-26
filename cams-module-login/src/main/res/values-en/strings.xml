@@ -2,9 +2,9 @@
     <string name="login_app_name">cams-module-login</string>
     <string name="login_module_page">login</string>
 
-    <string name="login_go_register">go to register >></string>
+    <string name="login_go_register">Go to register >></string>
     <string name="login_login">Login</string>
-    <string name="login_register">register</string>
-    <string name="login_please_enter_account">please enter account</string>
-    <string name="login_please_enter_password">please enter password</string>
+    <string name="login_register">Register</string>
+    <string name="login_please_enter_account">Please enter account</string>
+    <string name="login_please_enter_password">Please enter password</string>
 </resources>
