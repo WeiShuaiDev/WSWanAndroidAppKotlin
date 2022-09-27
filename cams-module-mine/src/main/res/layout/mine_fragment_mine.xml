@@ -236,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="@string/mine_share" />
+                        android:text="@string/mine_my_share" />
 
                     <ImageView
                         style="@style/WrapAndWrap"

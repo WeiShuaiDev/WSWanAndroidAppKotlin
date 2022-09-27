@@ -47,7 +47,7 @@ class CommonPop(private val layoutIdRes: Int, val viewBinding: (commonPop: Commo
      * @return [View]
      */
     fun getView(viewId: Int): View {
-        return findViewById(viewId)
+        return getViewById(viewId)
     }
 
     /**
@@ -56,7 +56,7 @@ class CommonPop(private val layoutIdRes: Int, val viewBinding: (commonPop: Commo
      * @return [TextView]
      */
     fun getTextView(viewId: Int): TextView {
-        return findViewById(viewId)
+        return getViewById(viewId)
     }
 
     /**
@@ -101,7 +101,7 @@ class CommonPop(private val layoutIdRes: Int, val viewBinding: (commonPop: Commo
     @Suppress("UNCHECKED_CAST")
     private fun <T : View> getViewById(viewId: Int): T {
         var view: View? = mMapViews[viewId]
-        val rootView = getContentView()
+        val rootView = contentView
         if (view == null) {
             if (rootView != null) {
                 view = rootView.findViewById(viewId)

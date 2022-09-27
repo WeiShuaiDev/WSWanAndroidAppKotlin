@@ -7,6 +7,7 @@ import com.linwei.cams.module.mine.ui.myshare.mvvm.model.MyShareModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.mine.model.MyShareBean
+import com.linwei.cams.service.mine.provider.MineProviderHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -80,6 +81,6 @@ class MyShareViewModel @Inject constructor(private val myShareModel: MyShareMode
     }
 
     fun onShareClick(){
-
+        MineProviderHelper.jumpShareArticleActivity()
     }
 }

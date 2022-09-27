@@ -5,7 +5,8 @@
     <string name="mine_behavior_my_fab_scale">com.linwei.cams.module.mine.weight.behavior.ScaleDownShowBehavior</string>
     <string name="mine_integral">Integral</string>
     <string name="mine_collect">Collect</string>
-    <string name="mine_share">Share</string>
+    <string name="mine_my_share">Share</string>
+    <string name="mine_share_article">Share article</string>
     <string name="mine_open_source_project">Open source project</string>
     <string name="mine_about_author">About</string>
     <string name="mine_desc">Treat him to breakfast~</string>
@@ -37,4 +38,12 @@
     <string name="mine_email">Email：linwei9605@gmail.com</string>
     <string name="mine_juejin">Nuggets：https://juejin.cn/user/3280598430651399</string>
     <string name="mine_github">Github：https://github.com/WeiShuaiDev</string>
+
+    <string name="mine_official_website">Official website</string>
+    <string name="mine_website_content">Website content</string>
+    <string name="mine_project_repository">Project repository</string>
+
+    <string name="mine_input_title">Please enter a title</string>
+    <string name="mine_input_link">Please enter link address</string>
+    <string name="mine_share">Share</string>
 </resources>

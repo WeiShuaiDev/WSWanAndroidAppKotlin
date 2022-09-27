@@ -31,6 +31,8 @@ object MineRouterTable {
 
     const val PATH_ACTIVITY_SCORE_RANK_LIST: String = "/scorerank/ScoreRankListActivity"
 
+    const val PATH_ACTIVITY_SHARE_ARTICLE: String = "/shareArticle/ShareArticleActivity"
+
     /**
      * ----------------Fragment-------------------------
      */

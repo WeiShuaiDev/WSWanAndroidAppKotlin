@@ -36,6 +36,8 @@
 
         <activity android:name=".ui.scorerank.ScoreRankListActivity" />
 
+        <activity android:name=".ui.sharearticle.ShareArticleActivity" />
+
     </application>
 
 </manifest>

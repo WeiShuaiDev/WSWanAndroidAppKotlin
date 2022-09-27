@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.sharearticle.ShareArticleActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.linwei.cams.module.mine.ui.sharearticle.mvvm.viewmodel.ShareArticleViewModel" />
+
+        <variable
+            name="activity"
+            type="com.linwei.cams.component.mvvm.base.MvvmBaseActivity" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchAndMatch"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/stateBarView"
+            layout="@layout/include_status_white" />
+
+        <include
+            layout="@layout/mine_include_top_bar"
+            app:activity="@{activity}"
+            app:toolbarViewModel="@{viewModel}" />
+
+        <LinearLayout
+            style="@style/MatchAndMatch"
+            android:orientation="vertical"
+            android:background="@color/colorGlobalWhite"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_50"
+            android:paddingEnd="@dimen/dp_20">
+
+            <com.linwei.cams.component.weight.shadow.ShadowLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                app:hl_cornerRadius="@dimen/dp_10"
+                app:hl_shadowLimit="@dimen/dp_5">
+
+                <com.linwei.cams.component.weight.ClearEditText
+                    android:id="@+id/mineTitleView"
+                    style="@style/MatchAndMatch.PrimaryTextColor.TvSize14"
+                    android:background="@null"
+                    android:hint="@string/mine_input_title"
+                    android:text="@={viewModel.titleValue}"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10" />
+            </com.linwei.cams.component.weight.shadow.ShadowLayout>
+
+            <com.linwei.cams.component.weight.shadow.ShadowLayout
+                style="@style/MatchAndWrap"
+                android:layout_marginTop="@dimen/dp_10"
+                app:hl_cornerRadius="@dimen/dp_10"
+                app:hl_shadowLimit="@dimen/dp_5">
+
+                <EditText
+                    android:id="@+id/mineLinkView"
+                    style="@style/MatchAndWrap.PrimaryTextColor.TvSize14"
+                    android:layout_marginTop="@dimen/dp_6"
+                    android:background="@null"
+                    android:gravity="start"
+                    android:hint="@string/mine_input_link"
+                    android:text="@={viewModel.linkValue}"
+                    android:maxHeight="@dimen/dp_200"
+                    android:minHeight="@dimen/dp_100"
+                    android:padding="@dimen/dp_10"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10" />
+            </com.linwei.cams.component.weight.shadow.ShadowLayout>
+
+
+            <TextView
+                android:id="@+id/mineShareView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_30"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="@string/mine_share"
+                android:onClick="@{()->viewModel.onShareClick(activity)}"
+                android:textColor="@color/colorGlobalWhiteText"
+                android:textSize="@dimen/sp_20" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

@@ -26,4 +26,6 @@ interface MineProvider : IProvider {
 
     fun deleteArticle(id: Int, callback: ResponseCallback<Any>)
 
+    fun shareArticle(title: String, link: String, callback: ResponseCallback<Any>)
+
 }

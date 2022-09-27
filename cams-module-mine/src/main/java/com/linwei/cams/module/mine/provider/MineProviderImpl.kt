@@ -67,6 +67,10 @@ class MineProviderImpl @Inject constructor() : MineProvider {
         deleteArticleApi(id).networks(callback)
     }
 
+    override fun shareArticle(title: String, link: String, callback: ResponseCallback<Any>) {
+        shareArticleApi(title,link).networks(callback)
+    }
+
     private fun collectApi(id: Int): Observable<ApiResponse<Any>> =
         mApiService.collect(id)
 
@@ -90,5 +94,8 @@ class MineProviderImpl @Inject constructor() : MineProvider {
 
     private fun deleteArticleApi(id: Int): Observable<ApiResponse<Any>> =
         mApiService.deleteArticle(id)
+
+    private fun shareArticleApi(title: String, link: String): Observable<ApiResponse<Any>> =
+        mApiService.shareArticle(title, link)
 
 }

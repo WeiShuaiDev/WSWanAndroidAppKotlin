@@ -90,6 +90,13 @@ object MineProviderHelper {
             .navigation() as Activity?
 
     /**
+     * ShareArticleActivity
+     */
+    fun jumpShareArticleActivity(): Activity? =
+        ARouter.getInstance().build(MineRouterTable.PATH_ACTIVITY_SHARE_ARTICLE)
+            .navigation() as Activity?
+
+    /**
      * MainActivity
      */
     fun jumpMainActivity(): Activity? =

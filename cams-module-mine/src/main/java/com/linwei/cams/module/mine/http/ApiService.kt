@@ -10,6 +10,7 @@ import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface ApiService {
@@ -60,4 +61,13 @@ interface ApiService {
      */
     @POST("lg/user_article/delete/{id}/json")
     fun deleteArticle(@Path("id") id: Int): Observable<ApiResponse<Any>>
+
+    /**
+     * 分享文章
+     */
+    @POST("lg/user_article/add/json")
+    fun shareArticle(
+        @Query("title") title: String,
+        @Query("link") link: String
+    ): Observable<ApiResponse<Any>>
 }

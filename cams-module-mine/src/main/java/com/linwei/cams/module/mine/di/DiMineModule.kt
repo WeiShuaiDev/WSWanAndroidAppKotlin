@@ -17,6 +17,8 @@ import com.linwei.cams.module.mine.ui.scorerank.mvvm.model.ScoreRankModel
 import com.linwei.cams.module.mine.ui.scorerank.mvvm.viewmodel.ScoreRankViewModel
 import com.linwei.cams.module.mine.ui.setting.mvvm.model.SettingModel
 import com.linwei.cams.module.mine.ui.setting.mvvm.viewmodel.SettingViewModel
+import com.linwei.cams.module.mine.ui.sharearticle.mvvm.model.ShareArticleModel
+import com.linwei.cams.module.mine.ui.sharearticle.mvvm.viewmodel.ShareArticleViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -95,7 +97,6 @@ object DiMineModule {
     fun provideSettingViewModel(settingModel: SettingModel): MvvmViewModel =
         SettingViewModel(settingModel)
 
-
     /**
      * Mine模块的[ScoreRankViewModel]依赖提供方法
      *
@@ -106,5 +107,16 @@ object DiMineModule {
     @ViewModelKey(ScoreRankViewModel::class)
     fun provideScoreRankViewModel(scoreRankModel: ScoreRankModel): MvvmViewModel =
         ScoreRankViewModel(scoreRankModel)
+
+    /**
+     * Mine模块的[ShareArticleViewModel]依赖提供方法
+     *
+     * @return ShareArticleViewModel
+     */
+    @Provides
+    @IntoMap
+    @ViewModelKey(ShareArticleViewModel::class)
+    fun provideShareArticleViewModel(shareArticleModel: ShareArticleModel): MvvmViewModel =
+        ShareArticleViewModel(shareArticleModel)
 
 }

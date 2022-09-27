@@ -16,6 +16,7 @@ import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.mine.MineRouterTable
 import com.linwei.cams.service.mine.model.MyShareBean
+import com.linwei.cams.service.mine.provider.MineProviderHelper
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.yanzhenjie.recyclerview.SwipeMenu
@@ -44,7 +45,7 @@ class MyShareActivity : MvvmBaseActivity<MineActivityMyShareBinding, MyShareView
 
     override fun initView() {
         mDataBinding?.apply {
-            mViewModel?.title?.set(R.string.mine_share.idToString(mContext))
+            mViewModel?.title?.set(R.string.mine_my_share.idToString(mContext))
             viewModel = mViewModel
             activity = this@MyShareActivity
         }
@@ -135,10 +136,6 @@ class MyShareActivity : MvvmBaseActivity<MineActivityMyShareBinding, MyShareView
                     mCommonArticleListAdapter?.notifyItemChanged(position)
                 }
             }
-        }
-
-        mDataBinding?.mineFloatingActionView?.setOnClickListener {
-
         }
     }
 
