@@ -56,15 +56,16 @@
             <TextView
                 android:id="@+id/titleView"
                 style="@style/WrapAndWrap"
+                android:layout_centerInParent="true"
                 android:layout_marginStart="@dimen/dp_110"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:layout_centerInParent="true"
                 android:textColor="@color/colorGlobalBlackText"
-                android:textStyle="bold"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
 
-            <RelativeLayout style="@style/WrapAndMatch"
+            <RelativeLayout
+                style="@style/WrapAndMatch"
                 android:layout_alignParentEnd="true">
 
                 <ImageButton
@@ -72,7 +73,8 @@
                     style="@style/WrapAndMatch"
                     android:background="@drawable/ripple_bg"
                     android:contentDescription="@string/refresh"
-                    android:layout_margin="@dimen/dp_5"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10"
                     android:src="@drawable/ic_refresh_black_24dp"
                     android:visibility="gone" />
 

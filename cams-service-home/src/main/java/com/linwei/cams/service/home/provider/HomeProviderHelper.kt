@@ -21,6 +21,13 @@ object HomeProviderHelper {
             .withString("title", title).navigation() as Activity?
 
     /**
+     * SearchActivity
+     */
+    fun jumpSearchActivity():Activity?=
+        ARouter.getInstance().build(HomeRouterTable.PATH_ACTIVITY_SEARCH)
+            .navigation() as Activity?
+
+    /**
      * HomeFragment
      */
     fun jumpHomeFragment(title: String): Fragment? =

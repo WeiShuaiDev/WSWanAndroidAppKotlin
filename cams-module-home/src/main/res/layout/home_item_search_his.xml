@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    android:background="@drawable/ripple_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/dp_10"
+    tools:ignore="RtlSymmetry">
+
+    <ImageView
+        style="@style/WrapAndWrap"
+        android:src="@mipmap/home_ic_search_his"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/homeTitleView"
+        style="@style/WrapAndWrap.SecondaryTextColor.TvSize14"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_weight="1"
+        tools:text="搜索数据"/>
+
+    <ImageView
+        android:id="@+id/homeClearView"
+        style="@style/WrapAndMatch"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        android:src="@mipmap/home_ic_search_cha"
+        tools:ignore="ContentDescription" />
+</LinearLayout>

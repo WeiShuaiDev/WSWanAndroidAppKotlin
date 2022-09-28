@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    style="@style/MatchAndWrap">
+
+    <TextView
+        style="@style/WrapAndWrap.SecondaryTextColor.TvSize14"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="@string/home_hot_search" />
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/homeFlexLayout"
+        style="@style/WrapAndWrap"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        app:flexWrap="wrap" />
+</LinearLayout>

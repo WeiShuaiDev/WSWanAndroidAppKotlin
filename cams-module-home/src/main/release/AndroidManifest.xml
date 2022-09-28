@@ -5,8 +5,9 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
-        <activity android:name=".ui.home.HomeActivity"/>
-        <activity android:name=".ui.HomeDetailsActivity"/>
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.HomeDetailsActivity" />
+        <activity android:name=".ui.search.SearchActivity" />
     </application>
 
 </manifest>

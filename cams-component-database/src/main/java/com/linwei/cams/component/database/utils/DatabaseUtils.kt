@@ -7,3 +7,8 @@ import com.linwei.cams.component.database.manager.SqlDataBase
  */
 fun sqlDataBase(): SqlDataBase = DatabaseManager.getInstance().getSqlDataBase()
 
+/**
+ * SearchHistoryDao
+ */
+val searchHistoryDao = sqlDataBase().searchHistoryDao()
+

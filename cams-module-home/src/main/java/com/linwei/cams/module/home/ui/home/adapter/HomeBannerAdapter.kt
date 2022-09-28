@@ -20,8 +20,7 @@ import com.youth.banner.transformer.MZScaleInTransformer
 class HomeBannerAdapter(
     private var lifecyclerOwner: LifecycleOwner,
     private var list: List<BannerBean>
-) :
-    DelegateAdapter.Adapter<HomeBannerAdapter.ViewHolder>() {
+) : DelegateAdapter.Adapter<HomeBannerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

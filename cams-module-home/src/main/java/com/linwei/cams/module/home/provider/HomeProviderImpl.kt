@@ -16,6 +16,7 @@ import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.home.HomeRouterTable
 import com.linwei.cams.service.home.model.BannerBean
+import com.linwei.cams.service.home.model.SearchBean
 import com.linwei.cams.service.home.provider.HomeProvider
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
@@ -68,7 +69,22 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
             })
     }
 
-     private fun bannerApi(): Observable<ApiResponse<List<BannerBean>>> =
+    private fun bannerApi(): Observable<ApiResponse<List<BannerBean>>> =
          mApiService.getBannerListData()
 
+
+    override fun fetchHotSearchData(callback: ResponseCallback<List<SearchBean.SearchDetailsBean>>) {
+        hotSearchApi()
+            .compose(ResponseTransformer.obtain())
+            .subscribe({ data ->
+                callback.onSuccess(data)
+            }, object : ErrorConsumer() {
+                override fun error(e: ApiException) {
+                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
+                }
+            })
+    }
+
+    private fun hotSearchApi(): Observable<ApiResponse<List<SearchBean.SearchDetailsBean>>> =
+        mApiService.getHotSearchData()
 }

@@ -10,5 +10,5 @@ import com.linwei.cams.component.database.entity.SearchHistoryEntity
 @TypeConverters(value = [DateConverter::class])
 @Database(entities = [SearchHistoryEntity::class], version = 1)
 abstract class SqlDataBase : RoomDatabase() {
-    abstract fun searchHistoryDao(): SearchHistoryDao?
+     abstract fun searchHistoryDao(): SearchHistoryDao?
 }

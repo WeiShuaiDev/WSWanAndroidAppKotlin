@@ -1,4 +1,8 @@
 <resources>
     <string name="home_app_name">首页模块</string>
     <string name="home_module_page">home</string>
+
+    <string name="home_search_keyword_hint">请输入关键字进行搜索</string>
+    <string name="home_clear_all_his">清除全部历史记录</string>
+    <string name="home_hot_search">热门搜索</string>
 </resources>

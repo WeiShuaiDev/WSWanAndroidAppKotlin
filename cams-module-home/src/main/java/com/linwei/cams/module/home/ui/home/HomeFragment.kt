@@ -17,6 +17,7 @@ import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.home.HomeRouterTable
 import com.linwei.cams.service.home.model.BannerBean
+import com.linwei.cams.service.home.provider.HomeProviderHelper
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
@@ -53,8 +54,13 @@ class HomeFragment : MvpBaseFragment<HomeFragmentHomeBinding, HomePresenter>(), 
         mViewBinding?.topRootLayout?.let {
             it.leftTitleView.visibility = View.INVISIBLE
             it.titleView.text = R.string.app_name.idToString(mContext)
-            it.rightImageView.visibility = View.VISIBLE
-            it.rightImageView.setImageResource(R.drawable.ic_search_black_24dp)
+            it.rightImageView.apply {
+                visibility = View.VISIBLE
+                setImageResource(R.drawable.ic_search_black_24dp)
+                setOnClickListener {
+                    HomeProviderHelper.jumpSearchActivity()
+                }
+            }
         }
 
         mVirtualLayoutManager = VirtualLayoutManager(mContext)

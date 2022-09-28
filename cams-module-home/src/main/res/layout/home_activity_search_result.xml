@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchAndMatch"
+    android:orientation="vertical"
+    tools:context="com.linwei.cams.module.home.ui.search.SearchActivity">
+
+    <include
+        android:id="@+id/stateBarView"
+        layout="@layout/include_status_white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/colorGlobalWhite"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/homeSearchView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:layout_weight="1"
+            android:background="@color/colorGlobalBackground"
+            android:drawableStart="@drawable/ic_search_black_24dp"
+            android:drawablePadding="@dimen/dp_6"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:hint="@string/home_search_keyword_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dp_10"
+            android:textSize="@dimen/sp_15"
+            android:transitionName="search"
+            tools:ignore="RtlSymmetry,TextViewEdits,UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/homeCancelView"
+            style="@style/WrapAndMatch"
+            android:background="@drawable/ripple_bg"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="@string/cancel"
+            android:textColor="@color/colorSecondaryText" />
+    </LinearLayout>
+
+    <View style="@style/HorizontalLine" />
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        style="@style/MatchAndMatch"
+        app:srlAccentColor="@color/colorGlobalGrayText"
+        app:srlEnableLoadMore="true"
+        app:srlPrimaryColor="@android:color/transparent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeRecyclerView"
+            style="@style/MatchAndMatch"
+            android:overScrollMode="never" />
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</LinearLayout>

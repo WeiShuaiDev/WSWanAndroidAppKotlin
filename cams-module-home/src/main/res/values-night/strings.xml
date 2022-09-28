@@ -1,4 +1,8 @@
 <resources>
     <string name="home_app_name">cams-module-home</string>
     <string name="home_module_page">home</string>
+
+    <string name="home_search_keyword_hint">Please enter a keyword to search</string>
+    <string name="home_clear_all_his">Clear all history</string>
+    <string name="home_hot_search">Popular searches</string>
 </resources>

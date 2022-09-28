@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchAndWrap"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/homeClearView"
+        style="@style/MatchAndWrap"
+        android:gravity="center"
+        android:background="@drawable/ripple_bg"
+        android:padding="@dimen/dp_20"
+        android:text="@string/home_clear_all_his" />
+
+    <View
+        android:id="@+id/lineView"
+        style="@style/HorizontalLine" />
+
+</LinearLayout>
