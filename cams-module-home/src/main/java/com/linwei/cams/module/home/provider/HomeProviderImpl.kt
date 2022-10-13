@@ -9,6 +9,7 @@ import com.linwei.cams.component.network.exception.ApiException
 import com.linwei.cams.component.network.ktx.execute
 import com.linwei.cams.component.network.model.ApiResponse
 import com.linwei.cams.component.network.transformer.ResponseTransformer
+import com.linwei.cams.module.common.ktx.networks
 import com.linwei.cams.module.home.http.ApiServiceWrap
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
@@ -59,32 +60,32 @@ open class HomeProviderImpl @Inject constructor() : HomeProvider {
 
     override fun fetchBannerData(callback: ResponseCallback<List<BannerBean>>) {
         bannerApi()
-            .compose(ResponseTransformer.obtain())
-            .subscribe({ data ->
-                callback.onSuccess(data)
-            }, object : ErrorConsumer() {
-                override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
-                }
-            })
+            .networks(callback)
     }
 
     private fun bannerApi(): Observable<ApiResponse<List<BannerBean>>> =
-         mApiService.getBannerListData()
+        mApiService.getBannerListData()
 
 
     override fun fetchHotSearchData(callback: ResponseCallback<List<SearchBean.SearchDetailsBean>>) {
         hotSearchApi()
-            .compose(ResponseTransformer.obtain())
-            .subscribe({ data ->
-                callback.onSuccess(data)
-            }, object : ErrorConsumer() {
-                override fun error(e: ApiException) {
-                    callback.onFailed(ErrorMessage(e.code, e.displayMessage))
-                }
-            })
+            .networks(callback)
     }
 
     private fun hotSearchApi(): Observable<ApiResponse<List<SearchBean.SearchDetailsBean>>> =
         mApiService.getHotSearchData()
+
+    override fun fetchSearchData(
+        page: Int,
+        keyword: String?,
+        callback: ResponseCallback<Page<CommonArticleBean>>
+    ) {
+        searchApi(page, keyword).networks(callback)
+    }
+
+    private fun searchApi(
+        pageNo: Int,
+        keyword: String?
+    ): Observable<ApiResponse<Page<CommonArticleBean>>> =
+        mApiService.getSearchData(pageNo, keyword)
 }

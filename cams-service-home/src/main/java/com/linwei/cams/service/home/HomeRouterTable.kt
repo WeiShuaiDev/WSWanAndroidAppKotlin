@@ -13,6 +13,8 @@ object HomeRouterTable {
 
     const val PATH_ACTIVITY_SEARCH:String="/search/searchActivity"
 
+    const val PATH_ACTIVITY_SEARCH_RESULT:String="/search/searchResultActivity"
+
     /**
      * ----------------Fragment-------------------------
      */

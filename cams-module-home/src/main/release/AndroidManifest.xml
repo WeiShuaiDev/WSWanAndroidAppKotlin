@@ -8,6 +8,7 @@
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.HomeDetailsActivity" />
         <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.searchresult.SearchResultActivity" />
     </application>
 
 </manifest>

@@ -24,7 +24,7 @@ class SearchModel : MvpModel(), ISearchModel {
         searchHistoryDao?.deleteById(id)
     }
 
-    override fun selectLocalHis(): List<SearchHistoryEntity?>? = searchHistoryDao?.selectHis()
+    override fun selectLocalHis(): List<SearchHistoryEntity>? = searchHistoryDao?.selectHis()
 
     override fun insertPerson(entity: SearchHistoryEntity): Long? =
         searchHistoryDao?.insertPerson(entity)

@@ -15,4 +15,7 @@ interface HomeProvider : IProvider {
 
     fun fetchHotSearchData(callback: ResponseCallback<List<SearchBean.SearchDetailsBean>>)
 
+    fun fetchSearchData(page: Int,
+                        keyword: String?,callback:ResponseCallback<Page<CommonArticleBean>>)
+
 }

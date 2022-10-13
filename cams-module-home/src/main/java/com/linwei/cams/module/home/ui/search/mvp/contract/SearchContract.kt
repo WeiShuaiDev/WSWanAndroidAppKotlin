@@ -17,7 +17,7 @@ interface ISearchModel : IMvpModel {
 
     fun deleteLocalHisById(id: Long)
 
-    fun selectLocalHis():List<SearchHistoryEntity?>?
+    fun selectLocalHis():List<SearchHistoryEntity>?
 
     fun insertPerson(entity: SearchHistoryEntity):Long?
 }
@@ -40,5 +40,7 @@ interface ISearchPresenter : IMvpPresenter {
 interface ISearchView : IMvpView {
 
     fun hotSearchDataToView(list: List<SearchBean.SearchDetailsBean>)
+
+    fun selectLocalHisDataToView(list:List<SearchHistoryEntity>?)
 
 }

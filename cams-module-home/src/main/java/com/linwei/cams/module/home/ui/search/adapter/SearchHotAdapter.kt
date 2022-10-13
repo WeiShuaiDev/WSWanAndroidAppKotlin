@@ -79,11 +79,9 @@ class SearchHotAdapter(private var list: MutableList<SearchBean>) :
 
     @SuppressLint("NotifyDataSetChanged")
     fun refresh(searchList: List<SearchBean>) {
-        if (list.isNotNullOrSize()) {
-            list.clear()
-            list.addAll(searchList)
-            notifyDataSetChanged()
-        }
+        list.clear()
+        list.addAll(searchList)
+        notifyDataSetChanged()
     }
 
     interface OnSearchHotCallBack {

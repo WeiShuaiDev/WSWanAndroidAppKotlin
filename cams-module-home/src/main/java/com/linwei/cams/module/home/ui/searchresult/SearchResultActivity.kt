@@ -1,30 +1,29 @@
-package com.linwei.cams.module.square.ui.square.details.list
+package com.linwei.cams.module.home.ui.searchresult
 
 import android.annotation.SuppressLint
-import com.alibaba.android.arouter.facade.annotation.Autowired
+import android.content.Intent
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.linwei.cams.component.mvp.base.MvpBaseActivity
 import com.linwei.cams.component.weight.CustomItemDecoration
-import com.linwei.cams.framework.mvi.base.MviBaseActivity
 import com.linwei.cams.module.common.adapter.CommonArticleListAdapter
-import com.linwei.cams.module.square.R
-import com.linwei.cams.module.square.databinding.SquareActivitySquareListBinding
-import com.linwei.cams.module.square.ui.square.mvi.intent.SquareListViewModel
-import com.linwei.cams.module.square.ui.square.mvi.view.SquareListView
+import com.linwei.cams.module.home.R
+import com.linwei.cams.module.home.databinding.HomeActivitySearchResultBinding
+import com.linwei.cams.module.home.ui.search.SearchActivity
+import com.linwei.cams.module.home.ui.searchresult.mvp.contract.ISearchResultView
+import com.linwei.cams.module.home.ui.searchresult.mvp.presenter.SearchResultPresenter
 import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
-import com.linwei.cams.service.square.SquareRouterTable
+import com.linwei.cams.service.home.HomeRouterTable
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
+import dagger.hilt.android.AndroidEntryPoint
 
-@Route(path = SquareRouterTable.PATH_ACTIVITY_SQUARE_LIST)
-class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, SquareListViewModel>(),
-    SquareListView {
-
-    @Autowired
-    lateinit var title: String
-
-    @Autowired
-    lateinit var id: String
+@AndroidEntryPoint
+@Route(path = HomeRouterTable.PATH_ACTIVITY_SEARCH_RESULT)
+class SearchResultActivity :
+    MvpBaseActivity<HomeActivitySearchResultBinding, SearchResultPresenter>(), ISearchResultView {
 
     private var mCurPage: Int = 0
 
@@ -36,16 +35,29 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
 
     private var mCommonArticleListAdapter: CommonArticleListAdapter? = null
 
-    override fun initView() {
-        mViewBinding?.topRootLayout?.let {
-            it.leftTitleView.setOnClickListener {
-                this.finish()
-            }
-            it.titleView.text = title
+    private val mKeyWord: String by lazy {
+        intent.getStringExtra(KEYWORD) ?: ""
+    }
+
+    companion object {
+        private const val KEYWORD = "keyword"
+
+        fun launch(
+            activity: SearchActivity,
+            keyword: String,
+            optionsCompat: ActivityOptionsCompat
+        ) {
+            val intent = Intent(activity, SearchResultActivity::class.java)
+            intent.putExtra(KEYWORD, keyword)
+            ActivityCompat.startActivity(activity, intent, optionsCompat.toBundle())
         }
+    }
+
+    override fun initView() {
+        mViewBinding?.homeSearchView?.text = mKeyWord
 
         mCommonArticleListAdapter = CommonArticleListAdapter(mCommonArticleList, false)
-        mViewBinding?.squareRecyclerView?.apply {
+        mViewBinding?.homeRecyclerView?.apply {
             addItemDecoration(
                 CustomItemDecoration(
                     mContext,
@@ -58,23 +70,28 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
     }
 
     override fun initData() {
-        mViewModel?.requestSquareTreeArticleListData(mCurPage, id)
+        mMvpPresenter?.requestSearchListData(mCurPage, mKeyWord)
+
     }
 
     override fun initEvent() {
-        mViewBinding?.squareRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
+        mViewBinding?.homeCancelView?.setOnClickListener {
+            this.finish()
+        }
+
+        mViewBinding?.homeRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
-                mViewModel?.requestSquareTreeArticleListData(mCurPage, id)
+                mMvpPresenter?.requestSearchListData(mCurPage, mKeyWord)
             }
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
                 mCurPage++
                 if (mCurPage < mCommonArticlePage.pageCount) {
-                    mViewModel?.requestSquareTreeArticleListData(mCurPage, id)
+                    mMvpPresenter?.requestSearchListData(mCurPage, mKeyWord)
                 } else {
-                    mViewBinding?.squareRefreshLayout?.finishLoadMoreWithNoMoreData()
+                    mViewBinding?.homeRefreshLayout?.finishLoadMoreWithNoMoreData()
                 }
             }
         })
@@ -89,9 +106,9 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
                 R.id.commonShineButtonView -> {
                     val articleBean = adapter.getItem(position) as CommonArticleBean
                     if (articleBean.collect) {
-                        mViewModel?.requestUnCollectStatus(articleBean.id)
+                        mMvpPresenter?.requestUnCollectStatus(articleBean.id)
                     } else {
-                        mViewModel?.requestCollectStatus(articleBean.id)
+                        mMvpPresenter?.requestCollectStatus(articleBean.id)
                     }
                     articleBean.collect = !articleBean.collect
                     mCommonArticleListAdapter?.notifyItemChanged(position)
@@ -99,6 +116,8 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
             }
         }
     }
+
+    override fun getPresenter(): SearchResultPresenter = SearchResultPresenter(this)
 
     @SuppressLint("NotifyDataSetChanged")
     override fun commonArticleDataToView(page: Page<CommonArticleBean>) {
@@ -115,8 +134,8 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
             mCommonArticleList.addAll(it)
             mCommonArticleListAdapter?.notifyDataSetChanged()
         }
-        mViewBinding?.squareRefreshLayout?.finishRefresh()
-        mViewBinding?.squareRefreshLayout?.finishLoadMore()
+        mViewBinding?.homeRefreshLayout?.finishRefresh()
+        mViewBinding?.homeRefreshLayout?.finishLoadMore()
     }
 
     override fun refreshCollectStatus(status: Boolean) {
@@ -125,9 +144,9 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
 
     override fun refreshDataStatus(isRefresh: Boolean) {
         if (isRefresh) {
-            mViewBinding?.squareRefreshLayout?.finishRefresh(false)
+            mViewBinding?.homeRefreshLayout?.finishRefresh(false)
         } else {
-            mViewBinding?.squareRefreshLayout?.finishLoadMore(false)
+            mViewBinding?.homeRefreshLayout?.finishLoadMore(false)
         }
     }
 }

@@ -34,6 +34,6 @@ interface ApiService {
      * 搜索内容
      */
     @POST("article/query/{page}/json")
-    fun getSearchData(@Path("page") pageNo: Int, @Query("k") k: String?): Observable<ApiResponse<Page<CommonArticleBean>>>
+    fun getSearchData(@Path("page") pageNo: Int, @Query("k") keywork: String?): Observable<ApiResponse<Page<CommonArticleBean>>>
 
 }

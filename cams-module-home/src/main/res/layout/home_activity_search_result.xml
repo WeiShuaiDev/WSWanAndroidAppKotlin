@@ -52,16 +52,18 @@
     <View style="@style/HorizontalLine" />
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
-        android:id="@+id/smartRefreshLayout"
+        android:id="@+id/homeRefreshLayout"
         style="@style/MatchAndMatch"
         app:srlAccentColor="@color/colorGlobalGrayText"
-        app:srlEnableLoadMore="true"
-        app:srlPrimaryColor="@android:color/transparent">
+        android:clipChildren="false"
+        app:srlEnablePreviewInEditMode="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeRecyclerView"
             style="@style/MatchAndMatch"
-            android:overScrollMode="never" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:background="@color/colorGlobalWhite"
+            android:nestedScrollingEnabled="false" />
 
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </LinearLayout>

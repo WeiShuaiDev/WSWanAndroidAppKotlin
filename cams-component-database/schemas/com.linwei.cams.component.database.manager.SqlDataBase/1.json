@@ -2,12 +2,18 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "617557f81fcaa5ae4dfb2bc4870e8856",
+    "identityHash": "661154dfca0f619d425c87e07314d65c",
     "entities": [
       {
         "tableName": "search_history_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `insertTime` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `insertTime` INTEGER)",
         "fields": [
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -34,7 +40,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '617557f81fcaa5ae4dfb2bc4870e8856')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '661154dfca0f619d425c87e07314d65c')"
     ]
   }
 }

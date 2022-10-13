@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/homeClearLayout"
     style="@style/MatchAndWrap"
     android:gravity="center"
+    android:visibility="gone"
     android:orientation="vertical">
 
     <TextView
@@ -9,7 +11,8 @@
         style="@style/MatchAndWrap"
         android:gravity="center"
         android:background="@drawable/ripple_bg"
-        android:padding="@dimen/dp_20"
+        android:visibility="gone"
+        android:padding="@dimen/dp_10"
         android:text="@string/home_clear_all_his" />
 
     <View

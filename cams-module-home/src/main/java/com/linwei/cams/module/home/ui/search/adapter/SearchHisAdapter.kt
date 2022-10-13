@@ -47,11 +47,9 @@ class SearchHisAdapter(private var list: MutableList<SearchHistoryEntity>) :
 
     @SuppressLint("NotifyDataSetChanged")
     fun refresh(searchHistoryList: List<SearchHistoryEntity>) {
-        if (list.isNotNullOrSize()) {
-            list.clear()
-            list.addAll(searchHistoryList)
-            notifyDataSetChanged()
-        }
+        list.clear()
+        list.addAll(searchHistoryList)
+        notifyDataSetChanged()
     }
 
     @SuppressLint("NotifyDataSetChanged")

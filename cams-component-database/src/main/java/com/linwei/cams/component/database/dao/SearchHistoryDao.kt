@@ -12,7 +12,7 @@ interface SearchHistoryDao {
     fun insertPerson(entity: SearchHistoryEntity): Long
 
     @Query("select * from search_history_table")
-    fun selectHis(): List<SearchHistoryEntity?>
+    fun selectHis(): List<SearchHistoryEntity>
 
     @Query("delete from search_history_table where id= :id")
     fun deleteById(id: Long)

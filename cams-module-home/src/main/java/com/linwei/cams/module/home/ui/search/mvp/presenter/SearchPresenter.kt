@@ -1,6 +1,5 @@
 package com.linwei.cams.module.home.ui.search.mvp.presenter
 
-import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.database.entity.SearchHistoryEntity
 import com.linwei.cams.component.mvp.mvp.presenter.MvpPresenter
 import com.linwei.cams.module.home.ui.search.mvp.contract.ISearchModel
@@ -41,31 +40,30 @@ class SearchPresenter(
     override fun selectLocalHis() {
         rootView?.let {
             val selectLocalHis = model.selectLocalHis()
+            it.selectLocalHisDataToView(selectLocalHis)
         }
     }
 
     override fun saveLocalHis(his: String) {
         val searchHistoryList: List<SearchHistoryEntity?>? = model.selectLocalHis()
         searchHistoryList?.let {
-            if (it.isNotNullOrSize()) {
-                var id: Long? = 0
-                for (entity in it) {
-                    if (entity?.name == his) {
-                        id = entity.id
-                        break
-                    }
+            var id: Long? = 0
+            for (entity in it) {
+                if (entity?.name == his) {
+                    id = entity.id
+                    break
                 }
-                if (id != 0L) {
-                    model.deleteLocalHisById(id!!)
-                }
-                model.insertPerson(SearchHistoryEntity(his))
             }
+            if (id != 0L) {
+                model.deleteLocalHisById(id!!)
+            }
+            model.insertPerson(SearchHistoryEntity(his))
         }
     }
 
     override fun insertPerson(entity: SearchHistoryEntity) {
         rootView?.let {
-            val insertPerson = model.insertPerson(entity)
+            model.insertPerson(entity)
         }
     }
 }
