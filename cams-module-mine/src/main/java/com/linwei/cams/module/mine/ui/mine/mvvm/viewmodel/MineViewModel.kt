@@ -9,7 +9,9 @@ import com.linwei.cams.module.mine.ui.mine.mvvm.model.MineModel
 import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.base.model.UserInfoBean
+import com.linwei.cams.service.login.provider.LoginProviderHelper
 import com.linwei.cams.service.mine.provider.MineProviderHelper
+import com.tencent.mmkv.MMKVContentProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -43,6 +45,11 @@ class MineViewModel @Inject constructor(private val mineModel: MineModel) : Mvvm
     }
 
     fun onItemClick(index: Int) {
+        val userInfo = AppDataMMkvProvided().getUserInfo()
+        if (userInfo == null) {
+            LoginProviderHelper.jumpLoginActivity()
+            return
+        }
         when (index) {
             ConstantParams.CONSTANT_STARTS_0 -> {
                 //我的积分

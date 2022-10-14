@@ -4,5 +4,5 @@
     <color name="globalColorPrimaryDark">#313335</color>
     <color name="globalColorAccent">#313335</color>
 
-    <color name="globalSplashBackground">#f3e5f5</color>
+    <color name="globalSplashBackground">#FFFFFF</color>
 </resources>

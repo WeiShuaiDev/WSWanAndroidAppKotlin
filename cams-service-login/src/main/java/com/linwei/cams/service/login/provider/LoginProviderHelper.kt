@@ -8,13 +8,13 @@ object LoginProviderHelper {
     /**
      * LoginProvider
      */
-    fun getLoginProvider(): LoginProvider?=
-        ARouter.getInstance().build(LoginRouterTable.PATH_SERVICE_LOGIN).navigation() as LoginProvider?
+    fun getLoginProvider(): LoginProvider? =
+        ARouter.getInstance().build(LoginRouterTable.PATH_SERVICE_LOGIN)
+            .navigation() as LoginProvider?
 
     /**
      * LoginActivity
      */
-    fun jumpLoginActivity(title: String): Activity? =
-        ARouter.getInstance().build(LoginRouterTable.PATH_ACTIVITY_LOGIN)
-            .withString("title", title).navigation() as Activity?
+    fun jumpLoginActivity(): Activity? =
+        ARouter.getInstance().build(LoginRouterTable.PATH_ACTIVITY_LOGIN).navigation() as Activity?
 }

@@ -37,6 +37,9 @@ class LoginProviderImpl @Inject constructor() : LoginProvider {
         loginApi(userName, passWord).networks(callback)
     }
 
+    private fun loginApi(userName: String, passWord: String): ApiCall<UserInfoBean> =
+        mApiService.login(userName, passWord)
+
     override fun register(
         userName: String,
         passWord: String,
@@ -47,18 +50,15 @@ class LoginProviderImpl @Inject constructor() : LoginProvider {
             .networks(callback)
     }
 
-    override fun logout(callback: ResponseCallback<Any>) {
-        logoutApi().networks(callback)
-    }
-
-    private fun loginApi(userName: String, passWord: String): ApiCall<UserInfoBean> =
-        mApiService.login(userName, passWord)
-
     private fun registerApi(
         userName: String,
         passWord: String,
         rePassWord: String
     ): ApiCall<UserInfoBean> = mApiService.register(userName, passWord, rePassWord)
+
+    override fun logout(callback: ResponseCallback<Any>) {
+        logoutApi().networks(callback)
+    }
 
     private fun logoutApi(): ApiCall<Any> = mApiService.logout()
 }
