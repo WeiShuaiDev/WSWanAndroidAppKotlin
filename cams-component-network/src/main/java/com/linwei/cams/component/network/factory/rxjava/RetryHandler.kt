@@ -16,8 +16,10 @@ class RetryHandler(
 ) : Function<Observable<Throwable>, Observable<Long>> {
 
     override fun apply(throwableObservable: Observable<Throwable>): Observable<Long> {
-        return throwableObservable.zipWith(Observable.range(1, retryCount + 1)
-        ) { throwable, integer -> Wrapper(throwable, integer) }.flatMap(object : Function<Wrapper, Observable<Long>> {
+        return throwableObservable.zipWith(
+            Observable.range(1, retryCount + 1)
+        ) { throwable, integer -> Wrapper(throwable, integer) }
+            .flatMap(object : Function<Wrapper, Observable<Long>> {
                 override fun apply(wrapper: Wrapper): Observable<Long> {
                     //如果超出重试次数也抛出错误，否则默认是会进入onCompleted
                     if (canRetry(wrapper)) {
@@ -28,7 +30,7 @@ class RetryHandler(
                     }
                     return Observable.error(wrapper.throwable);
                 }
-        })
+            })
     }
 
     private fun canRetry(wrapper: Wrapper): Boolean {

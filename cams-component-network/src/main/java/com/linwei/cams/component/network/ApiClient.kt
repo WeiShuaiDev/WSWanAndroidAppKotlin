@@ -9,6 +9,7 @@ import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.network.configuration.AdapterFactoryType
 import com.linwei.cams.component.network.configuration.ApiConfiguration
 import com.linwei.cams.component.network.factory.livedata.LiveDataCallAdapterFactory
+import com.linwei.cams.component.network.factory.rxjava.ApiCallAdapterFactory
 import com.linwei.cams.component.network.intercepter.SignInterceptor
 import com.linwei.cams.component.network.service.ServiceWrap
 import com.linwei.tool.utils.LoggingInterceptor
@@ -116,6 +117,7 @@ class ApiClient private constructor(var apiConfiguration: ApiConfiguration?) {
         val builder = Retrofit.Builder()
             .baseUrl(host)
             .addCallAdapterFactory(adapterFactory)
+            .addCallAdapterFactory(ApiCallAdapterFactory.create())
 
         apiConfiguration?.adapterFactoryList?.takeIf {
             it.isNotNullOrSize()

@@ -11,8 +11,8 @@
 
         <ImageView
             android:id="@+id/loginCloseView"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_close_black_24dp"
             tools:ignore="ContentDescription" />
@@ -21,7 +21,7 @@
 
     <TextView
         style="@style/WrapAndWrap"
-        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_100"
         android:text="@string/login_register"
         android:textColor="@color/colorPrimaryText"
@@ -83,6 +83,6 @@
             android:layout_width="@dimen/dp_250"
             android:layout_height="@dimen/dp_50"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp_20" />
+            android:layout_marginTop="@dimen/dp_30" />
     </LinearLayout>
 </LinearLayout>

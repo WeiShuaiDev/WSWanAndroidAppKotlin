@@ -11,8 +11,8 @@
 
         <ImageView
             android:id="@+id/loginCloseView"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_close_black_24dp"
             tools:ignore="ContentDescription" />
@@ -27,7 +27,7 @@
 
     <TextView
         style="@style/WrapAndWrap"
-        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_100"
         android:text="@string/login_login"
         android:textColor="@color/colorPrimaryText"
@@ -48,7 +48,7 @@
             android:drawablePadding="@dimen/dp_8"
             android:gravity="center_vertical"
             android:hint="@string/login_please_enter_account"
-            android:inputType="text"
+            android:inputType="number"
             android:lines="1"
             android:maxLength="20"
             android:padding="@dimen/dp_10"
@@ -61,7 +61,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/MatchAndWrap"
-            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_10"
             app:hintEnabled="false"
             app:passwordToggleDrawable="@drawable/login_checkbox_password_show"
             app:passwordToggleEnabled="true">
@@ -89,6 +89,6 @@
             android:layout_width="@dimen/dp_250"
             android:layout_height="@dimen/dp_50"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp_20" />
+            android:layout_marginTop="@dimen/dp_30" />
     </LinearLayout>
 </LinearLayout>

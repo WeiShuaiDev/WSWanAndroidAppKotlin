@@ -33,7 +33,7 @@ class ApiCall<R> internal constructor(
 
     init {
         for (annotation in annotations) {
-            val clazz: Class<out Annotation> = annotation.javaClass
+            val clazz: Class<out Annotation> = annotation.annotationClass.java
             if (clazz == RetryCount::class.java) {
                 val retryCount: RetryCount = annotation as RetryCount
                 mRetryCount = retryCount.value
@@ -64,31 +64,30 @@ class ApiCall<R> internal constructor(
         mDisposable =
             observable.retryWhen(RetryHandler(mRetryCount, mRetryDelay, mRetryIncreaseDelay))
                 .subscribeOn(Schedulers.io())
-                .doOnSubscribe { callback?.onStart() }
+                .doOnSubscribe {
+                    callback?.onStart()
+                }
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Consumer<Response<ApiResponse<R>>> {
-                    override fun accept(t: Response<ApiResponse<R>>) {
-                        @Throws(Exception::class)
-                        fun accept(response: Response<ApiResponse<R>?>) {
-                            val data: ApiResponse<R>? = response.body()
-                            if (!response.isSuccessful || data == null) {
-                                callback?.onFailure(response.code(), response.message())
-                                cancel()
-                                return
-                            }
-
-                            if (ApiConstants.REQUEST_SUCCESS == data.errorCode) {
-                                if (null != data.data) {
-                                    callback?.onSuccess(data.errorCode, data.data)
-                                } else {
-                                    callback?.onFailure(ApiConstants.EMPTY_DATA_ERROR, "")
-                                }
-                            } else {
-                                callback?.onFailure(data.errorCode, data.errorMsg)
-                            }
+                    override fun accept(response: Response<ApiResponse<R>>) {
+                        val data: ApiResponse<R>? = response.body()
+                        if (!response.isSuccessful || data == null) {
+                            callback?.onFailure(response.code(), response.message())
                             cancel()
+                            return
                         }
+
+                        if (ApiConstants.REQUEST_SUCCESS == data.errorCode) {
+                            if (null != data.data) {
+                                callback?.onSuccess(data.errorCode, data.data)
+                            } else {
+                                callback?.onFailure(ApiConstants.EMPTY_DATA_ERROR, "")
+                            }
+                        } else {
+                            callback?.onFailure(data.errorCode, data.errorMsg)
+                        }
+                        cancel()
                     }
                 }) { throwable ->
                     onFailure(callback, throwable)

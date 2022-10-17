@@ -37,6 +37,7 @@ class SettingViewModel @Inject constructor(private val settingModel: SettingMode
             }
 
             override fun onFailed(errorMessage: ErrorMessage) {
+                AppDataMMkvProvided().logout()
                 _showToast.postValue(errorMessage.message)
             }
         })

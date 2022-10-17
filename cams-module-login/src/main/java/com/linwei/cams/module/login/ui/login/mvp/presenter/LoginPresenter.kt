@@ -18,10 +18,12 @@ class LoginPresenter(
         rootView?.let {
             model.login(userName, passWord, object : ResponseCallback<UserInfoBean> {
                 override fun onSuccess(data: UserInfoBean) {
+                    it.refreshLoginStatusToView(true, data)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
                     it.showToast(errorMessage.message)
+                    it.refreshLoginStatusToView(false, null)
                 }
             })
         }
@@ -31,10 +33,12 @@ class LoginPresenter(
         rootView?.let {
             model.register(userName, passWord, rePassWord, object : ResponseCallback<UserInfoBean> {
                 override fun onSuccess(data: UserInfoBean) {
+                    it.refreshRegisterStatusToView(true, data)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
                     it.showToast(errorMessage.message)
+                    it.refreshRegisterStatusToView(false, null)
                 }
             })
         }
@@ -45,11 +49,12 @@ class LoginPresenter(
             model.logout(object : ResponseCallback<Any> {
 
                 override fun onSuccess(data: Any) {
-
+                    it.refreshLogoutStatus(true)
                 }
 
                 override fun onFailed(errorMessage: ErrorMessage) {
                     it.showToast(errorMessage.message)
+                    it.refreshLogoutStatus(false)
                 }
             })
         }

@@ -108,5 +108,4 @@ class AppDataMMkvProvided {
     fun logout() {
         MMkvHelper.getMMkv()?.remove(CacheConstants.USER_INFO)
     }
-
 }

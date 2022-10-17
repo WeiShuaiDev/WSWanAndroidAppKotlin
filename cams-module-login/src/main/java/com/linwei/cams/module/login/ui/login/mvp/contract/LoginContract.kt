@@ -36,7 +36,9 @@ interface ILoginPresenter : IMvpPresenter {
 
 interface ILoginView : IMvpView {
 
-    fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfoBean)
+    fun refreshLoginStatusToView(status: Boolean, userInfo: UserInfoBean?){}
 
-    fun refreshLogoutStatus(status: Boolean)
+    fun refreshRegisterStatusToView(status: Boolean, userInfo: UserInfoBean?){}
+
+    fun refreshLogoutStatus(status: Boolean){}
 }

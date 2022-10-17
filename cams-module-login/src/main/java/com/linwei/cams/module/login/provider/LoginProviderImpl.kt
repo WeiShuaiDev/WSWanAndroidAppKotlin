@@ -4,10 +4,8 @@ import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.network.ApiCall
 import com.linwei.cams.component.network.ApiClient
-import com.linwei.cams.component.network.callback.ApiCallback
 import com.linwei.cams.module.common.ktx.networks
 import com.linwei.cams.module.login.http.ApiServiceWrap
-import com.linwei.cams.service.base.ErrorMessage
 import com.linwei.cams.service.base.callback.ResponseCallback
 import com.linwei.cams.service.login.LoginRouterTable
 import com.linwei.cams.service.base.model.UserInfoBean
@@ -37,8 +35,9 @@ class LoginProviderImpl @Inject constructor() : LoginProvider {
         loginApi(userName, passWord).networks(callback)
     }
 
-    private fun loginApi(userName: String, passWord: String): ApiCall<UserInfoBean> =
-        mApiService.login(userName, passWord)
+    private fun loginApi(userName: String, passWord: String): ApiCall<UserInfoBean> {
+        return mApiService.login(userName, passWord)
+    }
 
     override fun register(
         userName: String,
