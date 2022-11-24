@@ -18,14 +18,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.LinearInterpolator;
 
+import androidx.fragment.app.Fragment;
+
 import com.linwei.cams.component.weight.R;
 import com.linwei.cams.component.weight.shinebutton.listener.SimpleAnimatorListener;
 
-/**
-  * Created by zlx on 2020/9/27 14:53
-  * Email: 1170762202@qq.com
-  * Description:
-*/
 public class ShineButton extends PorterShapeImageView {
     private static final String TAG = "ShineButton";
     private boolean isChecked = false;
@@ -69,10 +66,10 @@ public class ShineButton extends PorterShapeImageView {
     }
 
     private void initButton(Context context, AttributeSet attrs) {
-
         if (context instanceof Activity) {
             init((Activity) context);
         }
+
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ShineButton);
         btnColor = a.getColor(R.styleable.ShineButton_btn_color, Color.GRAY);
         btnFillColor = a.getColor(R.styleable.ShineButton_btn_fill_color, Color.BLACK);
@@ -224,7 +221,6 @@ public class ShineButton extends PorterShapeImageView {
         this.activity = activity;
         onButtonClickListener = new OnButtonClickListener();
         setOnClickListener(onButtonClickListener);
-
     }
 
     @Override
@@ -243,7 +239,7 @@ public class ShineButton extends PorterShapeImageView {
         if (activity != null) {
             shineView = new ShineView(activity, this, shineParams);
             ViewGroup rootView;
-            if ( mFixDialog != null && mFixDialog.getWindow() != null ) {
+            if (mFixDialog != null && mFixDialog.getWindow() != null) {
                 rootView = (ViewGroup) mFixDialog.getWindow().getDecorView();
                 View innerView = rootView.findViewById(android.R.id.content);
                 rootView.addView(shineView, new ViewGroup.LayoutParams(innerView.getWidth(), innerView.getHeight()));

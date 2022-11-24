@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchAndMatch"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.square.details.list.SquareListActivity">
 
     <include
         android:id="@+id/stateBarView"
@@ -22,9 +24,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/squareRecyclerView"
             style="@style/MatchAndMatch"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:background="@color/colorGlobalWhite"
-            android:nestedScrollingEnabled="false" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 

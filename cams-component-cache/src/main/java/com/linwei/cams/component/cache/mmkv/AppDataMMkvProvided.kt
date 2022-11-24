@@ -1,12 +1,15 @@
 package com.linwei.cams.component.cache.mmkv
 
+import com.google.common.cache.Cache
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.linwei.cams.component.cache.CacheConstants
+import com.linwei.cams.component.cache.sharedpreferences.SharePreferenceHelper
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.common.ktx.isNullOrEmpty
 import com.linwei.cams.service.base.model.UserInfoBean
 import com.linwei.cams.service.project.model.ProjectTreeBean
+import com.tencent.mmkv.MMKVHandler
 import java.util.*
 
 class AppDataMMkvProvided {
@@ -27,10 +30,15 @@ class AppDataMMkvProvided {
      * 获取用户信息
      */
     fun getUserInfo(): UserInfoBean? {
-        return MMkvHelper.getMMkv()?.decodeParcelable(
-            CacheConstants.USER_INFO,
-            UserInfoBean::class.java
-        )
+        val userInfo = MMkvHelper.getString(CacheConstants.USER_INFO, "")
+        return if (userInfo.isNullOrEmpty()) {
+            null
+        } else try {
+            mGson.fromJson(userInfo, UserInfoBean::class.java)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
     }
 
     /**

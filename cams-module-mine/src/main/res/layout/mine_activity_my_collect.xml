@@ -5,7 +5,6 @@
     tools:context=".ui.mycollect.MyCollectActivity">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.linwei.cams.module.mine.ui.mycollect.mvvm.viewmodel.MyCollectViewModel" />

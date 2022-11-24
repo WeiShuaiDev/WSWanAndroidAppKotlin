@@ -1,6 +1,7 @@
 package com.linwei.cams.module.common.adapter
 
 import android.text.TextUtils
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -26,7 +27,7 @@ class CommonArticleListAdapter(data: MutableList<CommonArticleBean>, private val
         val superChapterName: String? = item.superChapterName
         val chapterName: String? = item.chapterName
         when (holder.itemViewType) {
-            ItemTypeConstants.ARTICLE_ITEM_TEXT ->
+            ItemTypeConstants.ARTICLE_ITEM_TEXT -> {
                 holder.setText(
                     R.id.commonChapterView,
                     " ${if (TextUtils.isEmpty(item.author)) item.shareUser else item.author} / ${
@@ -34,10 +35,10 @@ class CommonArticleListAdapter(data: MutableList<CommonArticleBean>, private val
                             "%s·%s", superChapterName, chapterName
                         )
                     }"
-                )
-                    .setText(R.id.commonTimeView, item.niceDate)
-                    .setText(R.id.commonContentView,item.title)
-                    .setGone(R.id.commonTagView, !item.fresh)
+                ).setText(R.id.commonTimeView, item.niceDate)
+                    .setText(R.id.commonContentView, item.title)
+                    .setGone(R.id.commonTagView, item.fresh)
+            }
             ItemTypeConstants.ARTICLE_ITEM_TEXT_PIC -> {
                 val commonImageView: AppCompatImageView =
                     holder.getView(R.id.commonImageView)
@@ -47,9 +48,9 @@ class CommonArticleListAdapter(data: MutableList<CommonArticleBean>, private val
                     8,
                     R.drawable.common_layer_img_placeholder
                 )
-                holder.setText(R.id.commonTitleView,item.title)
-                holder.setText(R.id.commonContentView, item.desc)
-                holder.setText(
+                holder.setText(R.id.commonTitleView, item.title)
+                    .setText(R.id.commonContentView, item.desc)
+                    .setText(
                         R.id.commonChapterView,
                         if (TextUtils.isEmpty(item.author)) item.shareUser else item.author
                     )

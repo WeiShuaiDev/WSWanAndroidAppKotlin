@@ -36,6 +36,7 @@ class MyScoreHeaderAdapter() : DelegateAdapter.Adapter<MyScoreHeaderAdapter.View
 
     private fun startAnim(textView: TextView) {
         val coinCount: String? = AppDataMMkvProvided().getUserInfo()?.coinCount
+
         val valueAnimator = ValueAnimator.ofInt(0, coinCount?.toInt() ?: 0)
         //播放时长
         valueAnimator.duration = 1500
@@ -53,7 +54,7 @@ class MyScoreHeaderAdapter() : DelegateAdapter.Adapter<MyScoreHeaderAdapter.View
     override fun onCreateLayoutHelper(): LayoutHelper = SingleLayoutHelper()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val mineScoreView =
-            view.findViewById<TextView>(R.id.mineScoreView)
+        val mineScoreView: TextView =
+            view.findViewById(R.id.mineScoreView)
     }
 }

@@ -76,20 +76,21 @@ abstract class CommonBaseFragment<VB : ViewBinding> : RxFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        onCreateViewExpand(inflater, container, savedInstanceState)
+         val newInflater = LayoutInflater.from(requireActivity())
+        onCreateViewExpand(newInflater, container, savedInstanceState)
         if (hasViewBinding()) {
-            return viewBindingLogic(inflater, container)
+            return viewBindingLogic(newInflater, container)
         }
 
         if (hasLayoutIdBinding()) {
-            return inflater.inflate(
+            return newInflater.inflate(
                 getRootLayoutId(),
                 container,
                 false
             )
         }
 
-        return dynamicFetchRootView(inflater, container)
+        return dynamicFetchRootView(newInflater, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

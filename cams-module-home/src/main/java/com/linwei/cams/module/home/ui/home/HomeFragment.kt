@@ -20,7 +20,6 @@ import com.linwei.cams.service.home.model.BannerBean
 import com.linwei.cams.service.home.provider.HomeProviderHelper
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
-import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

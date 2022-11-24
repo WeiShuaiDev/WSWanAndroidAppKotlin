@@ -4,7 +4,8 @@ dependencies {
 
     api project(':cams-component-common')
 
-//    api rootProject.ext.dependencies["tencent-tbs-x5"]
+    api rootProject.ext.dependencies["agentweb-core"]
+    api rootProject.ext.dependencies["agentweb-downloader"]
 
 
 }

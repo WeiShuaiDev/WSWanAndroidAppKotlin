@@ -2,10 +2,14 @@ package com.linwei.cams.module.home.ui.searchresult
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.widget.AdapterView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.chad.library.adapter.base.listener.OnItemClickListener
+import com.linwei.cams.component.common.ktx.notNullAndEmpty
 import com.linwei.cams.component.mvp.base.MvpBaseActivity
+import com.linwei.cams.component.web.ui.CommonWebActivity
 import com.linwei.cams.component.weight.CustomItemDecoration
 import com.linwei.cams.module.common.adapter.CommonArticleListAdapter
 import com.linwei.cams.module.home.R
@@ -20,7 +24,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 @Route(path = HomeRouterTable.PATH_ACTIVITY_SEARCH_RESULT)
 class SearchResultActivity :
     MvpBaseActivity<HomeActivitySearchResultBinding, SearchResultPresenter>(), ISearchResultView {
@@ -95,16 +99,16 @@ class SearchResultActivity :
                 }
             }
         })
-
-        mCommonArticleListAdapter?.setOnItemClickListener { _, _, _ ->
-            //跳转到H5页面
-
+        mCommonArticleListAdapter?.setOnItemClickListener { adapter, view, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
+            articleBean.link?.let {
+                CommonWebActivity.start(it)
+            }
         }
-
         mCommonArticleListAdapter?.setOnItemChildClickListener { adapter, view, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
             when (view.id) {
                 R.id.commonShineButtonView -> {
-                    val articleBean = adapter.getItem(position) as CommonArticleBean
                     if (articleBean.collect) {
                         mMvpPresenter?.requestUnCollectStatus(articleBean.id)
                     } else {

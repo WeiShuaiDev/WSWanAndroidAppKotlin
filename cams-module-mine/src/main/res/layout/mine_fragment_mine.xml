@@ -75,11 +75,12 @@
 
                         <TextView
                             android:id="@+id/mineNameView"
-                            style="@style/WrapAndWrap.GlobalTextWhiteColor.TvSize16"
+                            style="@style/WrapAndWrap.GlobalTextWhiteColor.TvSize18"
                             tools:text="昵称" />
 
                         <LinearLayout
                             style="@style/WrapAndWrap"
+                            android:layout_marginTop="@dimen/dp_5"
                             android:gravity="center"
                             android:orientation="horizontal">
 

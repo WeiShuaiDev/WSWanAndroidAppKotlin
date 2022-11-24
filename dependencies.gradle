@@ -41,7 +41,7 @@ ext {
             autoServiceVersion        : "1.0",
             tencentBuglyVersion       : "3.3.9",
             tencentBuglyNativeVersion : "3.8.0",
-            tencentTBSX5Version       : "43939",
+            tencentTBSX5Version       : "44226",
             rxcacheVersion            : "1.8.3-2.x",
             basePopupVersion          : "2.2.8",
             persistentCookieJarVersion: "v1.0.1",
@@ -60,7 +60,9 @@ ext {
             datastoreVersion          : "1.0.0",
             protobufJavaliteVersion   : "3.19.4",
             recyclerViewXVersion      : "1.3.2",
-            androidPickerVersion      : "4.1.9"
+            androidPickerVersion      : "4.1.9",
+            agentwebAndroidXVersion   : "4.1.4"
+
     ]
 
     dependencies = [
@@ -211,7 +213,10 @@ ext {
             //----------------------------------------Sdk--------------------------------------------------------------------
             "crashreport"                         : "com.tencent.bugly:crashreport:${version.tencentBuglyVersion}",
             "nativecrashreport"                   : "com.tencent.bugly:nativecrashreport:${version.tencentBuglyNativeVersion}",
-            "tencent-tbs-x5"                      : "com.tencent.tbs.tbssdk:sdk:${version.tencentTBSX5Version}",
+            "tencent-tbs-x5"                      : "com.tencent.tbs:tbssdk:${version.tencentTBSX5Version}",
+            "agentweb-core"                       : "com.github.Justson.AgentWeb:agentweb-core:v5.0.6-androidx",
+            "agentweb-filechooser"                : "com.github.Justson.AgentWeb:agentweb-filechooser:v5.0.6-androidx",
+            "agentweb-downloader"                 : "com.github.Justson:Downloader:v5.0.4-androidx",
 
             //----------------------------------------Jetpack----------------------------------------------------------------
             //viewModel

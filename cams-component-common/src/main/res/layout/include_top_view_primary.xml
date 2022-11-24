@@ -20,14 +20,12 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_height="@dimen/dp_50"
         android:background="@color/colorPrimary">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:fitsSystemWindows="true"
-            android:orientation="horizontal">
+        <RelativeLayout
+            style="@style/MatchAndMatch">
 
             <RelativeLayout style="@style/WrapAndMatch">
 
@@ -56,26 +54,26 @@
 
             <TextView
                 android:id="@+id/titleView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/WrapAndWrap"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp_110"
                 android:ellipsize="end"
-                android:gravity="center"
                 android:lines="1"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/sp_20"
                 android:textStyle="bold" />
 
             <RelativeLayout
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="match_parent">
+                style="@style/WrapAndMatch"
+                android:layout_alignParentEnd="true">
 
                 <ImageButton
                     android:id="@+id/rightImageView"
-                    android:layout_width="?attr/actionBarSize"
-                    android:layout_height="match_parent"
+                    style="@style/WrapAndMatch"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/refresh"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10"
                     android:src="@drawable/ic_refresh_white_24dp"
                     android:visibility="gone" />
 
@@ -84,18 +82,21 @@
                     android:layout_width="@dimen/dp_24"
                     android:layout_height="@dimen/dp_24"
                     android:layout_centerInParent="true"
+                    android:layout_margin="@dimen/dp_5"
                     android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/rightTitleView"
-                    style="@style/MatchAndMatch.PrimaryTextColor.TvSize14"
+                    style="@style/WrapAndMatch.PrimaryTextColor.TvSize14"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10"
                     android:lines="1"
                     android:visibility="gone" />
 
             </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <View

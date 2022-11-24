@@ -63,4 +63,6 @@ object MMkvHelper {
     fun getMMkv(): MMKV? = MMKV.defaultMMKV()
 
     fun contains(key: String): Boolean? = getMMkv()?.contains(key)
+
+    fun remove(key: String) = getMMkv()?.removeValueForKey(key)
 }

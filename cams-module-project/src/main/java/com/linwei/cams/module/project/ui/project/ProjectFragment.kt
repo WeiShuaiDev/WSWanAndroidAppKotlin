@@ -5,6 +5,7 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
+import com.linwei.cams.component.web.ui.CommonWebActivity
 import com.linwei.cams.component.weight.CustomItemDecoration
 import com.linwei.cams.component.weight.slidinguppanel.SlidingUpPanelLayout
 import com.linwei.cams.framework.mvi.base.MviBaseFragment
@@ -130,15 +131,17 @@ class ProjectFragment : MviBaseFragment<ProjectFragmentProjectBinding, ProjectVi
             }
         }
 
-        mCommonArticleListAdapter?.setOnItemClickListener { _, _, _ ->
-            //跳转到H5页面
-
+        mCommonArticleListAdapter?.setOnItemClickListener { adapter, view, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
+            articleBean.link?.let {
+                CommonWebActivity.start(it)
+            }
         }
 
         mCommonArticleListAdapter?.setOnItemChildClickListener { adapter, view, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
             when (view.id) {
                 R.id.commonShineButtonView -> {
-                    val articleBean = adapter.getItem(position) as CommonArticleBean
                     if (articleBean.collect) {
                         mViewModel?.requestUnCollectStatus(articleBean.id)
                     } else {

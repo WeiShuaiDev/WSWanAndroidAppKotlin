@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.common.ktx.isNotNullOrSize
 import com.linwei.cams.component.mvvm.base.MvvmBaseFragment
+import com.linwei.cams.component.web.ui.CommonWebActivity
 import com.linwei.cams.component.weight.CustomItemDecoration
 import com.linwei.cams.component.weight.hivelayoutmanager.HiveLayoutManager
 import com.linwei.cams.module.common.adapter.CommonArticleListAdapter
@@ -130,15 +131,17 @@ class PublisFragment : MvvmBaseFragment<PublisFragmentPublisBinding, PublisViewM
             }
         })
 
-        mCommonArticleListAdapter?.setOnItemClickListener { _, _, _ ->
-            //跳转到H5页面
-
+        mCommonArticleListAdapter?.setOnItemClickListener { adapter, _, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
+            articleBean.link?.let {
+                CommonWebActivity.start(it)
+            }
         }
 
         mCommonArticleListAdapter?.setOnItemChildClickListener { adapter, view, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
             when (view.id) {
                 R.id.commonShineButtonView -> {
-                    val articleBean = adapter.getItem(position) as CommonArticleBean
                     if (articleBean.collect) {
                         mViewModel?.requestUnCollectStatus(articleBean.id)
                     } else {

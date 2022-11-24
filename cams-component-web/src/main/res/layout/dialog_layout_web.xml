@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchAndMatch"
+    android:background="@color/colorGlobalTransparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/MatchAndWrap"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_solid_white_top_r20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/openWebView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            android:background="@drawable/ripple_bg"
+            android:gravity="center"
+            android:text="@string/browser_open"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/sp_17" />
+
+        <View style="@style/HorizontalLine"/>
+
+        <TextView
+            android:id="@+id/cancelView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:background="@drawable/ripple_bg"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/sp_17" />
+
+    </LinearLayout>
+</RelativeLayout>

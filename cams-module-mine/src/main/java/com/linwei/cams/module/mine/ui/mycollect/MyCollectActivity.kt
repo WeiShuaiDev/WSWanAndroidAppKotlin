@@ -3,6 +3,7 @@ package com.linwei.cams.module.mine.ui.mycollect
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.linwei.cams.component.common.ktx.idToString
 import com.linwei.cams.component.mvvm.base.MvvmBaseActivity
+import com.linwei.cams.component.web.ui.CommonWebActivity
 import com.linwei.cams.component.weight.CustomItemDecoration
 import com.linwei.cams.module.common.adapter.CommonArticleListAdapter
 import com.linwei.cams.module.mine.R
@@ -48,7 +49,6 @@ class MyCollectActivity : MvvmBaseActivity<MineActivityMyCollectBinding, MyColle
                     R.drawable.linear_split_line
                 )
             )
-
             adapter = mCommonArticleListAdapter
         }
     }
@@ -60,6 +60,7 @@ class MyCollectActivity : MvvmBaseActivity<MineActivityMyCollectBinding, MyColle
     override fun initEvent() {
         mDataBinding?.mineRefreshLayout?.setOnRefreshLoadMoreListener(object :
             OnRefreshLoadMoreListener {
+
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
                 mViewModel?.requestListMyCollectData(mCurPage)
@@ -75,18 +76,20 @@ class MyCollectActivity : MvvmBaseActivity<MineActivityMyCollectBinding, MyColle
             }
         })
 
-        mCommonArticleListAdapter?.setOnItemClickListener { _, _, _ ->
-            //跳转到H5页面
-
+        mCommonArticleListAdapter?.setOnItemClickListener { adapter, _, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
+            articleBean.link?.let {
+                CommonWebActivity.start(it)
+            }
         }
 
         mCommonArticleListAdapter?.setOnItemChildClickListener { adapter, view, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
             when (view.id) {
                 R.id.commonShineButtonView -> {
-                    val articleBean = adapter.getItem(position) as CommonArticleBean
                     mViewModel?.requestUnCollectStatus(articleBean.id)
-                    articleBean.collect = false
-                    mCommonArticleListAdapter?.notifyItemChanged(position)
+                    mCommonArticleList.removeAt(position)
+                    mCommonArticleListAdapter?.notifyItemRemoved(position)
                 }
             }
         }

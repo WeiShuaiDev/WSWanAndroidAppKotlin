@@ -68,6 +68,10 @@
         <item name="android:textColor">@color/colorGlobalGrayText</item>
     </style>
 
+    <style name="WrapAndMatch.GlobalTextGrayColor">
+        <item name="android:textColor">@color/colorGlobalGrayText</item>
+    </style>
+
     <style name="MatchAndMatch.GlobalTextWhiteColor">
         <item name="android:textColor">@color/colorGlobalWhiteText</item>
     </style>
@@ -77,6 +81,10 @@
     </style>
 
     <style name="WrapAndWrap.GlobalTextWhiteColor">
+        <item name="android:textColor">@color/colorGlobalWhiteText</item>
+    </style>
+
+    <style name="WrapAndMatch.GlobalTextWhiteColor">
         <item name="android:textColor">@color/colorGlobalWhiteText</item>
     </style>
 
@@ -92,6 +100,10 @@
         <item name="android:textColor">@color/colorGlobalBlackText</item>
     </style>
 
+    <style name="WrapAndMatch.GlobalTextBlackColor">
+        <item name="android:textColor">@color/colorGlobalBlackText</item>
+    </style>
+
     <style name="MatchAndMatch.PrimaryTextColor">
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
@@ -101,6 +113,10 @@
     </style>
 
     <style name="WrapAndWrap.PrimaryTextColor">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="WrapAndMatch.PrimaryTextColor">
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
 
@@ -116,6 +132,11 @@
         <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 
+    <style name="WrapAndMatch.SecondaryTextColor">
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize12" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
@@ -124,7 +145,11 @@
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
 
-    <style name="WrapAndMatch.PrimaryTextColor.TvSize12" parent="@style/MatchAndMatch.PrimaryTextColor">
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize12" parent="@style/WrapAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="MatchAndMatch.PrimaryTextColor.TvSize12" parent="@style/MatchAndMatch.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
 
@@ -140,6 +165,10 @@
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
 
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize12" parent="@style/WrapAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
     <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize12" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
@@ -149,6 +178,10 @@
     </style>
 
     <style name="MatchAndMatch.GlobalTextWhiteColor.TvSize12" parent="@style/MatchAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize12" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
 
@@ -164,6 +197,10 @@
         <item name="android:textSize">@dimen/sp_13</item>
     </style>
 
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize13" parent="@style/WrapAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
     <style name="WrapAndWrap.SecondaryTextColor.TvSize13" parent="@style/WrapAndWrap.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_13</item>
     </style>
@@ -173,6 +210,10 @@
     </style>
 
     <style name="MatchAndMatch.SecondaryTextColor.TvSize13" parent="@style/MatchAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize13" parent="@style/WrapAndMatch.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_13</item>
     </style>
 
@@ -188,6 +229,10 @@
         <item name="android:textSize">@dimen/sp_13</item>
     </style>
 
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize13" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize14" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
@@ -197,6 +242,10 @@
     </style>
 
     <style name="MatchAndMatch.PrimaryTextColor.TvSize14" parent="@style/MatchAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize14" parent="@style/WrapAndMatch.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
 
@@ -212,6 +261,10 @@
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
 
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize14" parent="@style/WrapAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
     <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize14" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
@@ -221,6 +274,10 @@
     </style>
 
     <style name="MatchAndMatch.GlobalTextWhiteColor.TvSize14" parent="@style/MatchAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize14" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
 
@@ -236,6 +293,10 @@
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
 
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize15" parent="@style/WrapAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
     <style name="WrapAndWrap.SecondaryTextColor.TvSize15" parent="@style/WrapAndWrap.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
@@ -245,6 +306,10 @@
     </style>
 
     <style name="MatchAndMatch.SecondaryTextColor.TvSize15" parent="@style/MatchAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize15" parent="@style/WrapAndMatch.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
 
@@ -260,6 +325,10 @@
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
 
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize15" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize16" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
@@ -269,6 +338,10 @@
     </style>
 
     <style name="MatchAndMatch.PrimaryTextColor.TvSize16" parent="@style/MatchAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize16" parent="@style/WrapAndMatch.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
@@ -284,6 +357,10 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize16" parent="@style/WrapAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
     <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize16" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
@@ -293,6 +370,10 @@
     </style>
 
     <style name="MatchAndMatch.GlobalTextWhiteColor.TvSize16" parent="@style/MatchAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize16" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
@@ -308,6 +389,10 @@
         <item name="android:textSize">@dimen/sp_17</item>
     </style>
 
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize17" parent="@style/WrapAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
     <style name="WrapAndWrap.SecondaryTextColor.TvSize17" parent="@style/WrapAndWrap.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_17</item>
     </style>
@@ -317,6 +402,10 @@
     </style>
 
     <style name="MatchAndMatch.SecondaryTextColor.TvSize17" parent="@style/MatchAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize17" parent="@style/WrapAndMatch.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_17</item>
     </style>
 
@@ -332,6 +421,10 @@
         <item name="android:textSize">@dimen/sp_17</item>
     </style>
 
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize17" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize18" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
@@ -341,6 +434,10 @@
     </style>
 
     <style name="MatchAndMatch.PrimaryTextColor.TvSize18" parent="@style/MatchAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize18" parent="@style/WrapAndMatch.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
 
@@ -356,6 +453,10 @@
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
 
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize18" parent="@style/WrapAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
     <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize18" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
@@ -365,6 +466,10 @@
     </style>
 
     <style name="MatchAndMatch.GlobalTextWhiteColor.TvSize18" parent="@style/MatchAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize18" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
 
@@ -380,6 +485,10 @@
         <item name="android:textSize">@dimen/sp_19</item>
     </style>
 
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize19" parent="@style/WrapAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_19</item>
+    </style>
+
     <style name="WrapAndWrap.SecondaryTextColor.TvSize19" parent="@style/WrapAndWrap.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_19</item>
     </style>
@@ -389,6 +498,10 @@
     </style>
 
     <style name="MatchAndMatch.SecondaryTextColor.TvSize19" parent="@style/MatchAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_19</item>
+    </style>
+
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize19" parent="@style/WrapAndMatch.SecondaryTextColor">
         <item name="android:textSize">@dimen/sp_19</item>
     </style>
 
@@ -404,6 +517,10 @@
         <item name="android:textSize">@dimen/sp_19</item>
     </style>
 
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize19" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_19</item>
+    </style>
+
     <style name="WrapAndWrap.PrimaryTextColor.TvSize20" parent="@style/WrapAndWrap.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
@@ -413,6 +530,10 @@
     </style>
 
     <style name="MatchAndMatch.PrimaryTextColor.TvSize20" parent="@style/MatchAndMatch.PrimaryTextColor">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="WrapAndMatch.PrimaryTextColor.TvSize20" parent="@style/WrapAndMatch.PrimaryTextColor">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
 
@@ -428,6 +549,10 @@
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
 
+    <style name="WrapAndMatch.SecondaryTextColor.TvSize20" parent="@style/WrapAndMatch.SecondaryTextColor">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
     <style name="WrapAndWrap.GlobalTextWhiteColor.TvSize20" parent="@style/WrapAndWrap.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
@@ -437,6 +562,10 @@
     </style>
 
     <style name="MatchAndMatch.GlobalTextWhiteColor.TvSize20" parent="@style/MatchAndMatch.GlobalTextWhiteColor">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="WrapAndMatch.GlobalTextWhiteColor.TvSize20" parent="@style/WrapAndMatch.GlobalTextWhiteColor">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
 
@@ -452,12 +581,12 @@
         <item name="android:backgroundDimAmount">0.5</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
-        <item name="android:windowAnimationStyle">@style/dialogAnimation</item>
+        <item name="android:windowAnimationStyle">@style/dialogBottomAnimation</item>
     </style>
 
-    <style name="dialogAnimation" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@anim/push_top_in</item>
-        <item name="android:windowExitAnimation">@anim/push_top_out</item>
+    <style name="dialogBottomAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
 
 </resources>

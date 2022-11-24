@@ -18,7 +18,8 @@
         android:layout_marginTop="@dimen/dp_2"
         android:layout_marginEnd="@dimen/dp_2"
         app:hl_cornerRadius="@dimen/dp_2"
-        app:hl_shadowLimit="@dimen/dp_1">
+        app:hl_shadowLimit="@dimen/dp_1"
+        app:clickable="false">
 
         <LinearLayout
             style="@style/MatchAndWrap"
@@ -42,7 +43,7 @@
                     android:maxLines="1"
                     android:textColor="@color/colorGlobalHighText"
                     android:textSize="@dimen/sp_14"
-                    tools:text="新" />
+                    android:text="@string/common_new" />
 
                 <TextView
                     android:id="@+id/commonContentView"
@@ -50,7 +51,6 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:minLines="2"
-                    android:layout_marginTop="@dimen/dp_5"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/sp_15"
                     tools:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" />
@@ -58,17 +58,16 @@
 
             <com.linwei.cams.component.weight.shinebutton.ShineButton
                 android:id="@+id/commonShineButtonView"
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="@dimen/dp_15"
+                android:layout_width="@dimen/dp_18"
+                android:layout_height="@dimen/dp_18"
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_10"
                 app:btn_color="@android:color/darker_gray"
                 app:btn_fill_color="@color/colorAccent"
                 app:enable_flashing="true"
                 app:siShape="@raw/common_ic_star" />
 
-            <RelativeLayout
+            <LinearLayout
                 style="@style/MatchAndWrap"
                 android:layout_marginTop="@dimen/dp_10"
                 android:gravity="center_vertical"
@@ -76,7 +75,11 @@
 
                 <TextView
                     android:id="@+id/commonChapterView"
-                    style="@style/WrapAndWrap"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:textColor="@color/colorSecondaryText"
                     android:textSize="@dimen/sp_11"
                     tools:text="作者" />
@@ -84,12 +87,11 @@
                 <TextView
                     android:id="@+id/commonTimeView"
                     style="@style/WrapAndWrap"
-                    android:layout_alignParentEnd="true"
                     android:textColor="@color/colorSecondaryText"
                     android:textSize="@dimen/sp_11"
                     tools:text="时间" />
 
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
     </com.linwei.cams.component.weight.shadow.ShadowLayout>
 </LinearLayout>

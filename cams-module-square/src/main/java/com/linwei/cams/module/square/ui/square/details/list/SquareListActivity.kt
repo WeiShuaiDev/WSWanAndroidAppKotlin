@@ -1,8 +1,8 @@
 package com.linwei.cams.module.square.ui.square.details.list
 
-import android.annotation.SuppressLint
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.linwei.cams.component.web.ui.CommonWebActivity
 import com.linwei.cams.component.weight.CustomItemDecoration
 import com.linwei.cams.framework.mvi.base.MviBaseActivity
 import com.linwei.cams.module.common.adapter.CommonArticleListAdapter
@@ -14,8 +14,10 @@ import com.linwei.cams.service.base.model.CommonArticleBean
 import com.linwei.cams.service.base.model.Page
 import com.linwei.cams.service.square.SquareRouterTable
 import com.scwang.smart.refresh.layout.api.RefreshLayout
-import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @Route(path = SquareRouterTable.PATH_ACTIVITY_SQUARE_LIST)
 class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, SquareListViewModel>(),
     SquareListView {
@@ -31,7 +33,6 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
     override fun hasInjectARouter(): Boolean = true
 
     private var mCommonArticlePage = Page<CommonArticleBean>()
-
     private val mCommonArticleList = mutableListOf<CommonArticleBean>()
 
     private var mCommonArticleListAdapter: CommonArticleListAdapter? = null
@@ -62,7 +63,8 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
     }
 
     override fun initEvent() {
-        mViewBinding?.squareRefreshLayout?.setOnMultiListener(object : SimpleMultiListener() {
+        mViewBinding?.squareRefreshLayout?.setOnRefreshLoadMoreListener(object :
+            OnRefreshLoadMoreListener {
 
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mCurPage = 0
@@ -79,15 +81,17 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
             }
         })
 
-        mCommonArticleListAdapter?.setOnItemClickListener { _, _, _ ->
-            //跳转到H5页面
-
+        mCommonArticleListAdapter?.setOnItemClickListener { adapter, _, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
+            articleBean.link?.let {
+                CommonWebActivity.start(it)
+            }
         }
 
         mCommonArticleListAdapter?.setOnItemChildClickListener { adapter, view, position ->
+            val articleBean = adapter.getItem(position) as CommonArticleBean
             when (view.id) {
                 R.id.commonShineButtonView -> {
-                    val articleBean = adapter.getItem(position) as CommonArticleBean
                     if (articleBean.collect) {
                         mViewModel?.requestUnCollectStatus(articleBean.id)
                     } else {
@@ -100,9 +104,7 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun commonArticleDataToView(page: Page<CommonArticleBean>) {
-        //TODO BUG重复返回数据，所以无法notifyItemRangeChanged()
         mCommonArticlePage = page
         page.datas?.let {
             val positionStart: Int
@@ -113,7 +115,7 @@ class SquareListActivity : MviBaseActivity<SquareActivitySquareListBinding, Squa
                 positionStart = mCommonArticleList.size
             }
             mCommonArticleList.addAll(it)
-            mCommonArticleListAdapter?.notifyDataSetChanged()
+            mCommonArticleListAdapter?.notifyItemRangeChanged(positionStart, it.size)
         }
         mViewBinding?.squareRefreshLayout?.finishRefresh()
         mViewBinding?.squareRefreshLayout?.finishLoadMore()

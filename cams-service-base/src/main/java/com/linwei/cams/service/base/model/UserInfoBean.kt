@@ -61,6 +61,11 @@ class UserInfoBean : Parcelable {
         dest.writeString(date)
     }
 
+    override fun toString(): String {
+        return "UserInfoBean(email=$email, icon=$icon, id=$id, password=$password, token=$token, type=$type, username=$username, chapterTops=$chapterTops, collectIds=$collectIds, coinCount=$coinCount, level=$level, rank=$rank, userId=$userId, reason=$reason, desc=$desc, date=$date)"
+    }
+
+
     companion object CREATOR : Parcelable.Creator<UserInfoBean?> {
         override fun createFromParcel(parcel: Parcel): UserInfoBean {
             return UserInfoBean(parcel)
