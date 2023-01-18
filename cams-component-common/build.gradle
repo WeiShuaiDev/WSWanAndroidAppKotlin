@@ -87,6 +87,16 @@ dependencies {
     kapt rootProject.ext.dependencies["hilt-compiler"]
     kapt rootProject.ext.dependencies["hilt-androidx-compiler"]
 
+    //Window Manager
+    api rootProject.ext.dependencies["window-manager"]
+    api rootProject.ext.dependencies["window-manager-java3"]
+
+    //lifecycle-runtime-ktx
+    api rootProject.ext.dependencies["lifecycle-runtime-ktx"]
+
+    //slidingpanelayout
+    api rootProject.ext.dependencies["slidingpanelayout"]
+
     //Coroutines
     api rootProject.ext.dependencies["kotlinx-coroutines-core"]
     api rootProject.ext.dependencies["kotlinx-coroutines-android"]

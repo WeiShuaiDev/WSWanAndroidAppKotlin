@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/mainContainerLl"
+        android:id="@+id/mainContainerLayout"
         style="@style/MatchAndMatch"
         android:orientation="vertical">
 
