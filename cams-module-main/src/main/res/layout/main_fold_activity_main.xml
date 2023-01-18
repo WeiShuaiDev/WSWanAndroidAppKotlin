@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.slidingpanelayout.widget.SlidingPaneLayout
+        android:id="@+id/mainSlidingPaneLayout"
+        style="@style/MatchAndMatch">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/mainSidePaneContent"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/gray">
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.fragment.app.FragmentContainerView
+            style="@style/WrapAndMatch"
+            android:id="@+id/mainDetailContainer"
+            android:background="@color/black">
+
+
+        </androidx.fragment.app.FragmentContainerView>
+
+    </androidx.slidingpanelayout.widget.SlidingPaneLayout>
+
+</layout>
