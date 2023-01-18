@@ -2,7 +2,7 @@
 
 🔥 🔥 🔥 WSWanAndroidAppKotlin项目，使用自主开发  [CamsModular](https://github.com/WeiShuaiDev/CamsModular)包，内部提供组件化工具，支持每个业务模块切换到指定`MVP`、`MVVM`、`AAC`架构(`framework`)，同时可以根据具体业务进行模块化划分。开发该项目主要目的尝试在实际开发中使用[CamsModular](https://github.com/WeiShuaiDev/CamsModular)库，是否会出现不兼容问题，通过这次项目，也发现一些问题，不过已经进行优化处理。
 
-![project_structure](https://github.com/WeiShuaiDev/WSWanAandroidAppKotlin/blob/main/screenshots/project_structure.png)
+![project_structure](https://github.com/WeiShuaiDev/WSWanAndroidAppKotlin/blob/main/screenshots/project_structure.png?raw=true)
 
 ## 一、项目简介
 
